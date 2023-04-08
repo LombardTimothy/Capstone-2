@@ -16,7 +16,11 @@ public class RestaurantFactory {
 
         String restaurantID = Helper.generateId();
 
-        Restaurant restaurant = new Restaurant.Builder().setRestaurantID(restaurantID).setRestaurantName(restaurantName).setNoOfEmp(noOfEmp).setIsOpen(isOpen).build();
+        Restaurant restaurant = new Restaurant.Builder().
+                setRestaurantID(restaurantID).
+                setRestaurantName(restaurantName).
+                setNoOfEmp(noOfEmp).
+                setIsOpen(isOpen).build();
         return restaurant;
 
     }
