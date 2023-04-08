@@ -77,6 +77,7 @@ class OrderLineRepositoryTest {
 
     @Test
     void d_orderLine_delete() {
+        System.out.println(orderLine1);
         boolean orderLineDeleted1 = orderLineRepository.delete(orderLine1.getOrderLineId());
         assertTrue(orderLineDeleted1);
         System.out.println(orderLineDeleted1);
