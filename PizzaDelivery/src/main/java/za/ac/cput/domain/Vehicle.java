@@ -41,13 +41,13 @@ public class Vehicle {
             return this;
         }
 
-        public Builder copy(Vehicle vehicle){
-            this.vehicleId = vehicle.vehicleId;
-            this.vehicleType = vehicle.vehicleType;
+        public Builder copy(za.ac.cput.domain.Vehicle v){
+            this.vehicleId = v.vehicleId;
+            this.vehicleType = v.vehicleType;
             return this;
         }
 
-        public Vehicle build(){return new Vehicle(this);}
+        public Vehicle build(){return new za.ac.cput.domain.Vehicle(this);}
 
         @Override
         public boolean equals(Object o) {

@@ -6,7 +6,7 @@ Date: 04/04/2023
 */
 import java.util.Objects;
 
-public class Driver {
+public class Driver extends Employee{
     private String driverId;
 
     public Driver() {
@@ -28,8 +28,8 @@ public class Driver {
             return this;
         }
 
-        public Builder copy(Driver driver){
-            this.driverId = driver.driverId;
+        public Builder copy(Driver d){
+            this.driverId = d.driverId;
             return this;
         }
 
@@ -54,6 +54,5 @@ public class Driver {
                     "driverId='" + driverId + '\'' +
                     '}';
         }
-
     }
 }

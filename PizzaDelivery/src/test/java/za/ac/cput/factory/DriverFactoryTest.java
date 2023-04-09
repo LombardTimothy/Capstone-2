@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DriverFactoryTest {
     @Test
     public void test(){
-        Driver driver = DriverFactory.createDriver("001");
+        Driver driver = DriverFactory.createDriver();
         assertNotNull(driver);
     }
 

@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class VehicleFactoryTest {
     @Test
     public void test(){
-        Vehicle vehicle = VehicleFactory.createVehicle("101","Vesper");
+        Vehicle vehicle = VehicleFactory.createVehicle("Vesper");
         assertNotNull(vehicle);
     }
 
