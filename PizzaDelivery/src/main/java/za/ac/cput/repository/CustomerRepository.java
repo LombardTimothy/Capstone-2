@@ -2,6 +2,8 @@ package za.ac.cput.repository;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import org.jetbrains.annotations.NotNull;
 import za.ac.cput.domain.Customer;
 
 /*
@@ -11,7 +13,7 @@ import za.ac.cput.domain.Customer;
    Date: 4th April 2023
 */
 public class CustomerRepository implements ICustomerRepository{
-
+    private static za.ac.cput.repository.CustomerRepository repo = null;
     private static CustomerRepository repository = null;
     private Set<Customer> customerList = null;
 
@@ -24,6 +26,14 @@ public class CustomerRepository implements ICustomerRepository{
             repository = new CustomerRepository();
         return repository;
     }
+
+    //singleton
+    public static za.ac.cput.repository.CustomerRepository getRepo(){
+      if(repo == null){
+          repo = new za.ac.cput.repository.CustomerRepository();
+     }
+      return repo;
+     }
     @Override
     public Customer create(Customer customer) {
         boolean success = customerList.add(customer);

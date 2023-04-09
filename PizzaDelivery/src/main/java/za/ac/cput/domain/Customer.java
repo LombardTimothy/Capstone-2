@@ -70,15 +70,15 @@ public class Customer {
             return this;
         }
 
-        public Builder copy(Customer customer) {
-            this.customerID = customerID;
-            this.customerName = customerName;
-            this.customerSurname = customerSurname;
-            this.address = address;
+        public Builder copy(za.ac.cput.domain.Customer t) {
+            this.customerID = t.customerID;
+            this.customerName = t.customerName;
+            this.customerSurname = t.customerSurname;
+            this.address = t.address;
             return this;
         }
-        public Customer build() {
-            return new Customer(this);
+        public za.ac.cput.domain.Customer build() {
+            return new za.ac.cput.domain.Customer(this);
         }
     }
 

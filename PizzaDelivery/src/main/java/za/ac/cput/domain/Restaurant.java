@@ -70,16 +70,16 @@ public class Restaurant {
             this.noOfEmp = noOfEmp;
             this.isOpen = isOpen;
         }*/
-        public Builder copy(Restaurant restaurant) {
-            this.restaurantID = restaurantID;
-            this.restaurantName = restaurantName;
-            this.noOfEmp = noOfEmp;
-            this.isOpen = isOpen;
+        public Builder copy(za.ac.cput.domain.Restaurant t) {
+            this.restaurantID = t.restaurantID;
+            this.restaurantName = t.restaurantName;
+            this.noOfEmp = t.noOfEmp;
+            this.isOpen = t.isOpen;
             return this;
         }
 
-        public Restaurant build(){
-            return new Restaurant(this);
+        public za.ac.cput.domain.Restaurant build(){
+            return new za.ac.cput.domain.Restaurant(this);
         }
 
     }
