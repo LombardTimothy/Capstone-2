@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.Pizza;
 import za.ac.cput.factory.PizzaFactory;
+import za.ac.cput.service.impl.PizzaServiceImpl;
 
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
@@ -14,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 */
 class PizzaServiceTest {
 
-    private static PizzaService service = PizzaService.getService();
+    private static PizzaServiceImpl service = PizzaServiceImpl.getService();
     private static Pizza pizza = PizzaFactory.buildPizza("Vegetariana pizza", "Thin crust with high quality flour and fresh tomato sauce base and with high quality fresh vegetables.", "Small", true, 32);
     private static Pizza pizza1 = PizzaFactory.buildPizza("Mushroom pizza", "Thick crust with high quality flour and fresh mushrooms and with double creamy extra cheese.", "Medium", false, 48);
 

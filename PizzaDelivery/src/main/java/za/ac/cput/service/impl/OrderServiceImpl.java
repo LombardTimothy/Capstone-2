@@ -1,24 +1,25 @@
-package za.ac.cput.service;
+package za.ac.cput.service.impl;
 
 import za.ac.cput.domain.Order;
 import za.ac.cput.repository.OrderRepository;
+import za.ac.cput.service.IOrderService;
 
 import java.util.ArrayList;
 /* OrderService.java
  Author: Timothy Lombard (220154856)
  Date: 9th June (last updated) 2023
 */
-public class OrderService implements IOrderService{
+public class OrderServiceImpl implements IOrderService {
 
-    private static OrderService order = null;
+    private static OrderServiceImpl order = null;
     private static OrderRepository repository = null;
-    private OrderService(){
+    private OrderServiceImpl(){
         repository = OrderRepository.getRepo();
     }
 
-    public static OrderService getOrder(){
+    public static OrderServiceImpl getOrder(){
         if(order == null){
-            order = new OrderService();
+            order = new OrderServiceImpl();
         }
         return  order;
     }
