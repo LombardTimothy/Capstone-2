@@ -1,19 +1,18 @@
-package za.ac.cput.service;
+package za.ac.cput.service.impl;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.Pizza;
 import za.ac.cput.factory.PizzaFactory;
-import za.ac.cput.service.impl.PizzaServiceImpl;
 
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
-/* PizzaServiceTest.java
+/* PizzaServiceImplTest.java
  Author: Timothy Lombard (220154856)
  Date: 9th June (last updated) 2023
 */
-class PizzaServiceTest {
+class PizzaServiceImplTest {
 
     private static PizzaServiceImpl service = PizzaServiceImpl.getService();
     private static Pizza pizza = PizzaFactory.buildPizza("Vegetariana pizza", "Thin crust with high quality flour and fresh tomato sauce base and with high quality fresh vegetables.", "Small", true, 32);

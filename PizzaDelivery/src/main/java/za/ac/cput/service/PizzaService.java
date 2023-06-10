@@ -3,12 +3,12 @@ package za.ac.cput.service;
 import za.ac.cput.domain.Pizza;
 
 import java.util.Set;
-/* IPizzaService.java
+/* PizzaService.java
  Author: Timothy Lombard (220154856)
  Date: 9th June (last updated) 2023
 */
 
-public interface IPizzaService extends IService<Pizza, String>{
+public interface PizzaService extends IService<Pizza, String>{
 
     Pizza create(Pizza pizza);
 
