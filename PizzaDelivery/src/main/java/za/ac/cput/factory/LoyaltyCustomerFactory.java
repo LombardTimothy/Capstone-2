@@ -4,6 +4,8 @@ import za.ac.cput.util.Helper;
 import za.ac.cput.domain.LoyaltyCustomer;
 
 public class LoyaltyCustomerFactory {
+
+
     public static LoyaltyCustomer createLoyaltyCustomer(Double loyaltyPoint, String dateJoined){
         if(Helper.isNullOrEmpty(dateJoined)){
             return null;
@@ -17,9 +19,11 @@ public class LoyaltyCustomerFactory {
         String customerId = Helper.generateId();
 
         LoyaltyCustomer em = new LoyaltyCustomer.Builder().setLoyaltyCustomerId(loyaltyCustomerId).setCustomerId(customerId)
-                .setLoyaltyPoint().setDateJoined()
+                .setLoyaltyPoint(loyaltyPoint).setDateJoined(dateJoined)
                 .build();
         return em;
     }
+
+
 }
 
