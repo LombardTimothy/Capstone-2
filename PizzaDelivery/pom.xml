@@ -8,6 +8,12 @@
     <artifactId>PizzaDelivery</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.0</version>
+    </parent>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -36,6 +42,11 @@
             <artifactId>annotations</artifactId>
             <version>13.0</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <!--        &lt;!&ndash; https://mvnrepository.com/artifact/commons-validator/commons-validator &ndash;&gt;-->
