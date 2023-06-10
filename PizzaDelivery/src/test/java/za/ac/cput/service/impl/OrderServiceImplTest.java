@@ -1,4 +1,4 @@
-package za.ac.cput.service;
+package za.ac.cput.service.impl;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
@@ -9,17 +9,16 @@ import za.ac.cput.domain.Order;
 import za.ac.cput.factory.AddressFactory;
 import za.ac.cput.factory.CustomerFactory;
 import za.ac.cput.factory.OrderFactory;
-import za.ac.cput.service.impl.OrderServiceImpl;
 
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
-/* OrderServiceTest.java
+/* OrderServiceImplTest.java
  Author: Timothy Lombard (220154856)
  Date: 9th June (last updated) 2023
 */
-class OrderServiceTest {
+class OrderServiceImplTest {
 
     private static OrderServiceImpl service = OrderServiceImpl.getOrder();
 
