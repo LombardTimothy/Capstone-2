@@ -3,12 +3,12 @@ package za.ac.cput.service;
 import za.ac.cput.domain.Order;
 
 import java.util.ArrayList;
-/* IOrderService.java
+/* OrderService.java
  Author: Timothy Lombard (220154856)
  Date: 9th June (last updated) 2023
 */
 
-public interface IOrderService extends IService<Order, String>{
+public interface OrderService extends IService<Order, String>{
 
     Order create(Order order);
 

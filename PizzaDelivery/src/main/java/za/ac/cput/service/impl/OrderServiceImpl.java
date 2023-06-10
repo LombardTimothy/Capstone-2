@@ -2,14 +2,14 @@ package za.ac.cput.service.impl;
 
 import za.ac.cput.domain.Order;
 import za.ac.cput.repository.OrderRepository;
-import za.ac.cput.service.IOrderService;
+import za.ac.cput.service.OrderService;
 
 import java.util.ArrayList;
-/* OrderService.java
+/* OrderServiceImpl.java
  Author: Timothy Lombard (220154856)
  Date: 9th June (last updated) 2023
 */
-public class OrderServiceImpl implements IOrderService {
+public class OrderServiceImpl implements OrderService {
 
     private static OrderServiceImpl order = null;
     private static OrderRepository repository = null;
