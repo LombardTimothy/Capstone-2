@@ -1,24 +1,25 @@
-package za.ac.cput.service;
+package za.ac.cput.service.impl;
 
 import za.ac.cput.domain.Pizza;
 import za.ac.cput.repository.PizzaRepository;
+import za.ac.cput.service.IPizzaService;
 
 import java.util.Set;
 /* PizzaService.java
  Author: Timothy Lombard (220154856)
  Date: 9th June (last updated) 2023
 */
-public class PizzaService implements IPizzaService {
+public class PizzaServiceImpl implements IPizzaService {
 
-    private static PizzaService service = null;
+    private static PizzaServiceImpl service = null;
     private static PizzaRepository repository = null;
-    private PizzaService(){
+    private PizzaServiceImpl(){
         repository = PizzaRepository.getRepo();
     }
 
-    public static PizzaService getService(){
+    public static PizzaServiceImpl getService(){
         if(service == null){
-            service = new PizzaService();
+            service = new PizzaServiceImpl();
         }
         return  service;
     }
