@@ -5,7 +5,7 @@ import za.ac.cput.repository.OrderRepository;
 import za.ac.cput.service.OrderService;
 
 import java.util.ArrayList;
-/* OrderService.java
+/* OrderServiceImpl.java
  Author: Timothy Lombard (220154856)
  Date: 9th June (last updated) 2023
 */

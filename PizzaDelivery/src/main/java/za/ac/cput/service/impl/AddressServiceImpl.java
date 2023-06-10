@@ -6,6 +6,13 @@ import za.ac.cput.service.AddressService;
 
 import java.util.Set;
 
+/*
+AddressServiceImpl.java
+Author: Tamryn Lisa Lewin (219211981)
+Date: 09 June 2023
+Last updated: 10 June 2023
+ */
+
 public class AddressServiceImpl implements AddressService {
     private static AddressServiceImpl service = null;
     private static AddressRepository repository = null;

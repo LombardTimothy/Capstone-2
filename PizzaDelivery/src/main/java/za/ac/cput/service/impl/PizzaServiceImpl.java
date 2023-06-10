@@ -5,7 +5,7 @@ import za.ac.cput.repository.PizzaRepository;
 import za.ac.cput.service.PizzaService;
 
 import java.util.Set;
-/* PizzaService.java
+/* PizzaServiceImpl.java
  Author: Timothy Lombard (220154856)
  Date: 9th June (last updated) 2023
 */
