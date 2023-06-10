@@ -9,6 +9,7 @@ import za.ac.cput.domain.Order;
 import za.ac.cput.factory.AddressFactory;
 import za.ac.cput.factory.CustomerFactory;
 import za.ac.cput.factory.OrderFactory;
+import za.ac.cput.service.impl.OrderServiceImpl;
 
 import java.time.LocalDate;
 
@@ -20,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 */
 class OrderServiceTest {
 
-    private static OrderService service = OrderService.getOrder();
+    private static OrderServiceImpl service = OrderServiceImpl.getOrder();
 
     private static Address address = AddressFactory.buildAddress("9", "11th Road, HealthField", "Cape Town", "7945", "Western Cape", "South Africa");
     private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi", address);
