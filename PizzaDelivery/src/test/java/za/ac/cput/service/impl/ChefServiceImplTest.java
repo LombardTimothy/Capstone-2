@@ -32,8 +32,8 @@ class ChefServiceImplTest {
 
     @Test
     public void b_read() {
-        Employee read1 = service.read(chef1.getChefId());
-        Employee read2 = service.read(chef2.getChefId());
+        Chef read1 = service.read(chef1.getChefId());
+        Chef read2 = service.read(chef2.getChefId());
         System.out.println(read1 + "\n" + read2);
         assertNotNull(read1);
         assertNotNull(read2);
