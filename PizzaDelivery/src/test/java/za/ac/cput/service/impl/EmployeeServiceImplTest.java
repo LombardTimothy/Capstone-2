@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class EmployeeServiceImplTest {
 
     private static EmployeeServiceImpl service = EmployeeServiceImpl.getService();
-    private static Employee employee1 = EmployeeFactory.createEmployee("001", "Jasmine", "DeToit");
+    private static Employee employee1 = EmployeeFactory.createEmployee("001", "Jasmine", "DeToiit");
     private static Employee employee2 = EmployeeFactory.createEmployee("002", "David", "Camalito");
 
     @Test
