@@ -66,6 +66,7 @@ class RestaurantServiceImplTest {
                 .setNoOfEmp(17)
                 .setIsOpen(false)
                 .build();
+
         assertNotNull(service.update(updatedRestaurant));
         System.out.println(updatedRestaurant);
     }

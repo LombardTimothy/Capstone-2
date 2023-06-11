@@ -88,6 +88,7 @@ class CustomerServiceImplTest {
                 .setCustomerName("Spoilt")
                 .setCustomerSurname("Molly")
                 .build();
+
         assertNotNull(service.update(updatedCustomer));
         System.out.println(updatedCustomer);
     }
