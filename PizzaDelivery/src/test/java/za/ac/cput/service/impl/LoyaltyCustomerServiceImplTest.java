@@ -15,6 +15,12 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/*
+LoyaltyCustomerServiceImplTest.java
+Author: Vuyisa Lutho Mqoboli (219191018)
+Date: 09 June 2023
+Last updated: 10 June 2023
+ */
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class LoyaltyCustomerServiceImplTest {
 
