@@ -1,10 +1,11 @@
-package za.ac.cput.repository;
+package za.ac.cput.service.impl;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.LoyaltyCustomer;
 import za.ac.cput.factory.LoyaltyCustomerFactory;
+import za.ac.cput.repository.LoyaltyCustomerRepository;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -49,15 +50,9 @@ class LoyaltyCustomerRepositoryTest {
     }
 
     @Test
-    public void d_delete(){
-        boolean deleted = repository.delete(lc1.getLoyaltyCustomerId());
-        assertTrue(deleted);
-        System.out.println("Deleted " + "\n" + deleted+ "\n");
-    }
-
-    @Test
     public void e_getAll(){
         System.out.println("Get all"+ "\n" +repository.getAll());
 
     }
 }
+

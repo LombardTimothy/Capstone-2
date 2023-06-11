@@ -1,147 +1,73 @@
 package za.ac.cput.domain;
 
+import java.util.Objects;
+
+/*
+Bill.java
+Bill entity
+Author: Vuyisa Lutho Mqoboli (219191018)
+Date: 04 April 2023
+ */
+
 public class Bill {
-    private String orderDateAndTime;
-    private String orderId;
-    private String menuItems;
-    private Double quantity;
-    private Double unitPrice;
-    private Double subtotal;
-    private Double taxes;
-    private Double discounts ;
-    private Double total;
+    private String billId;
+    private double totalBill;
+
+    private Bill(){
+
+    }
+
     private Bill(Builder builder){
-        this.orderDateAndTime = builder.orderDateAndTime;
-        this.orderId = builder.orderId;
-        this.menuItems = builder.menuItems;
-        this.quantity = builder.quantity;
-        this.unitPrice = builder.unitPrice;
-        this.subtotal = builder.subtotal;
-        this.taxes = builder.taxes;
-        this.discounts = builder.discounts;
-        this.total = builder.total;
+        this.billId = builder.billId;
+        this.totalBill = builder.totalBill;
 
     }
-    public String getOrderDateAndTime() {
-        return orderDateAndTime;
+    public String getBillId() {
+        return billId;
     }
 
-    public String getOrderId() {
-        return orderId;
+    public Double getTotalBill() {
+        return totalBill;
     }
 
-    public String getMenuItems() {
-        return menuItems;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Bill bill)) return false;
+        return Double.compare(bill.totalBill, totalBill) == 0 && Objects.equals(billId, bill.billId);
     }
 
-
-    public Double getQuantity() {
-        return quantity;
+    @Override
+    public int hashCode() {
+        return Objects.hash(billId, totalBill);
     }
-
-    public Double getUnitPrice() {
-        return unitPrice;
-    }
-
-    public Double getSubtotal() {
-        return subtotal;
-    }
-
-    public Double getTaxes() {
-        return taxes;
-    }
-
-    public Double getDiscounts() {
-        return discounts;
-    }
-
-    public Double getTotal() {
-        return total;
-    }
-
 
     @Override
     public String toString() {
         return "Bill{" +
-                "orderDateAndTime='" + orderDateAndTime + '\'' +
-                ", orderId='" + orderId + '\'' +
-                ", menuItems='" + menuItems + '\'' +
-                ", quantity=" + quantity +
-                ", unitPrice=" + unitPrice +
-                ", subtotal=" + subtotal +
-                ", taxes=" + taxes +
-                ", discounts=" + discounts +
-                ", total=" + total +
+                "billId='" + billId + '\'' +
+                ", totalBill='" + totalBill + '\'' +
                 '}';
     }
 
     public static class Builder{
-        private String orderDateAndTime;
-        private String orderId;
-        private String menuItems;
-        private Double quantity;
-        private Double unitPrice;
-        private Double subtotal;
-        private Double taxes;
-        private Double discounts ;
-        private Double total;
+        private String billId;
+        private double totalBill;
 
-        public Builder setOrderDateAndTime(String orderDateAndTime) {
-            this.orderDateAndTime = orderDateAndTime;
+        public Builder setBillId(String billId) {
+            this.billId = billId;
             return this;
         }
 
-        public Builder setOrderId(String orderId) {
-            this.orderId = this.orderId;
+        public Builder setTotalBill(double totalBill) {
+            this.totalBill = totalBill;
             return this;
         }
 
-        public Builder setMenuItems(String menuItems) {
-            this.menuItems = menuItems;
-            return this;
-        }
-
-
-        public Builder setQuantity(Double quantity) {
-            this.quantity = quantity;
-            return this;
-        }
-
-        public Builder setUnitPrice(Double unitPrice) {
-            this.unitPrice = unitPrice;
-            return this;
-        }
-
-        public Builder setSubtotal(Double subtotal) {
-            this.subtotal = subtotal;
-            return this;
-        }
-
-        public Builder setTaxes(Double taxes) {
-            this.taxes = taxes;
-            return this;
-        }
-
-        public Builder setDiscounts(Double discounts) {
-            this.discounts = discounts;
-            return this;
-        }
-
-        public Builder setTotal(Double total) {
-            this.total = total;
-            return this;
-        }
 
         public Builder copy(Bill bill){
-            this.orderDateAndTime = bill.orderDateAndTime;
-            this.orderId = bill.orderId;
-            this.menuItems = bill.menuItems;
-            this.quantity = bill.quantity;
-            this.unitPrice = bill.unitPrice;
-            this.subtotal = bill.subtotal;
-            this.taxes = bill.taxes;
-            this.discounts = bill.discounts;
-            this.total = bill.total;
+            this.billId = bill.billId;
+            this.totalBill = bill.totalBill;
             return this;
         }
         public Bill build(){

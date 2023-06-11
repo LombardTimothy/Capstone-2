@@ -33,10 +33,10 @@ public class BillRepository implements IBillRepository{
     }
 
     @Override
-    public Bill read(String orderId) {
+    public Bill read(String billId) {
         for (Bill e: billList
         ) {
-            if(e.getOrderId().equals(orderId))
+            if(e.getBillId().equals(billId))
                 return e;
 
 
@@ -45,7 +45,7 @@ public class BillRepository implements IBillRepository{
 
     @Override
     public Bill update(Bill bill) {
-        Bill buffer = read(bill.getOrderId());
+        Bill buffer = read(bill.getBillId());
         if(buffer != null) {
             billList.remove(buffer);
             billList.add(bill);
@@ -55,8 +55,8 @@ public class BillRepository implements IBillRepository{
     }
 
     @Override
-    public boolean delete(String orderId) {
-        Bill bill = read(orderId);
+    public boolean delete(String billId) {
+        Bill bill = read(billId);
         if(bill == null)
             return false;
         billList.remove(bill);
@@ -64,7 +64,7 @@ public class BillRepository implements IBillRepository{
     }
     @Override
     public Set<Bill> getAll() {
-        return null;
+        return billList;
     }
 
 }
