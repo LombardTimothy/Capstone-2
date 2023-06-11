@@ -13,12 +13,13 @@ import za.ac.cput.domain.LoyaltyCustomer;
 public class LoyaltyCustomerRepository implements ILoyaltyCustomerRepository{
 
     private static LoyaltyCustomerRepository repository = null;
-    private Set<LoyaltyCustomer> loyaltyCustomerList = null;
+    private Set<LoyaltyCustomer> loyaltyCustomerList;
 
     private LoyaltyCustomerRepository()
     {
         loyaltyCustomerList = new HashSet<LoyaltyCustomer>();
     }
+
     public static LoyaltyCustomerRepository getRepository(){
         if(repository == null)
             repository = new LoyaltyCustomerRepository();
@@ -64,7 +65,7 @@ public class LoyaltyCustomerRepository implements ILoyaltyCustomerRepository{
     }
     @Override
     public Set<LoyaltyCustomer> getAll() {
-        return null;
+        return loyaltyCustomerList;
     }
 
 }

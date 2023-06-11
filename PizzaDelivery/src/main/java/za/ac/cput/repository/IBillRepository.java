@@ -7,3 +7,4 @@ import java.util.Set;
 public interface IBillRepository extends IRepository<Bill, String> {
     public Set<Bill> getAll();
 }
+
