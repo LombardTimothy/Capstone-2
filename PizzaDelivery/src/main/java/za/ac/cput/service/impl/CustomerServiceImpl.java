@@ -15,7 +15,7 @@ import java.util.Set;
 public class CustomerServiceImpl implements CustomerService {
 
     private static CustomerServiceImpl service = null;
-    private CustomerRepository repository = null;
+    private static CustomerRepository repository = null;
 
     private CustomerServiceImpl(){
         if(repository == null){
