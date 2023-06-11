@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class DriverRepositoryTest {
     private static DriverRepository repository = DriverRepository.getRepository();
-    private static Driver driver = DriverFactory.createDriver();
+    private static Driver driver = DriverFactory.createDriver("222");
 
     @Test
     void a_create() {
