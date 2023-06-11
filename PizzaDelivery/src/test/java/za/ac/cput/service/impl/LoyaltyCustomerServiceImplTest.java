@@ -3,7 +3,9 @@ package za.ac.cput.service.impl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import za.ac.cput.domain.Bill;
 import za.ac.cput.domain.LoyaltyCustomer;
+import za.ac.cput.factory.BillFactory;
 import za.ac.cput.factory.LoyaltyCustomerFactory;
 import za.ac.cput.repository.LoyaltyCustomerRepository;
 
@@ -14,7 +16,9 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
-class LoyaltyCustomerRepositoryTest {
+class LoyaltyCustomerServiceImplTest {
+
+    private static LoyaltyCustomerServiceImpl service = null;
 
     static LocalDate date = LocalDate.now();
     private static LoyaltyCustomerRepository repository = LoyaltyCustomerRepository.getRepository();
@@ -22,6 +26,9 @@ class LoyaltyCustomerRepositoryTest {
     private static LoyaltyCustomer lc2 = LoyaltyCustomerFactory.createLoyaltyCustomer(date,25.3);
 
 
+    private LoyaltyCustomerServiceImplTest() {
+        service = LoyaltyCustomerServiceImpl.getService();
+    }
 
 
     @Test
@@ -55,4 +62,3 @@ class LoyaltyCustomerRepositoryTest {
 
     }
 }
-
