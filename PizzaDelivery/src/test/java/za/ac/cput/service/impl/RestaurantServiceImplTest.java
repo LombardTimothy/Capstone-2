@@ -56,21 +56,21 @@ class RestaurantServiceImplTest {
         assertNotNull(restaurant2);
     }
 
-    /*
+
     @Test
     void c_update() {
         Restaurant updatedRestaurant = new Restaurant
                 .Builder()
-                .copy(restaurant3)
-                .setIsOpen(false)
+                .copy(restaurant2)
                 .setRestaurantName("Tigers and sons")
                 .setNoOfEmp(17)
+                .setIsOpen(false)
                 .build();
+
         assertNotNull(service.update(updatedRestaurant));
         System.out.println(updatedRestaurant);
     }
 
-     */
 
     @Test
     void d_delete() {

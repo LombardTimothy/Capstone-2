@@ -80,20 +80,20 @@ class CustomerServiceImplTest {
         assertNotNull(customer2);
     }
 
-    /*
     @Test
     void c_update() {
         Customer updatedCustomer = new Customer
                 .Builder()
                 .copy(customer)
-                .setCustomerSurname("Molly")
                 .setCustomerName("Spoilt")
+                .setCustomerSurname("Molly")
                 .build();
+
         assertNotNull(service.update(updatedCustomer));
         System.out.println(updatedCustomer);
     }
 
-     */
+
 
     @Test
     void d_delete() {
