@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.*;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalTime;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /*
@@ -16,10 +18,11 @@ Last update: 08 April 2023
 
 public class OrderLineFactoryTest {
     private static LocalDate date = LocalDate.of(2023, 9, 17);
+    private static LocalTime time = LocalTime.now();
     private static Address address = AddressFactory.buildAddress("22", "Fall Street", "Rock Bottom", "0006", "Pennsylvania", "Westeros");
     private static Customer customer = CustomerFactory.buildCustomer("Rickon", "Stark", address);
-    private static Order order = OrderFactory.buildOrder(date, customer);
-    private static Pizza pizza = PizzaFactory.buildPizza("Margherita pizza", "Thin crust with fresh tomato sauce and creamy extra cheese.", "Large", false, 65);
+    private static Order order = OrderFactory.buildOrder(date,time, customer);
+    private static Pizza pizza = PizzaFactory.buildPizza("Margherita pizza", "Thin crust with fresh tomato sauce and creamy extra cheese.", Pizza.Size.LARGE, false, 65);
 
     @Test
     public void orderLine_test_pass() {

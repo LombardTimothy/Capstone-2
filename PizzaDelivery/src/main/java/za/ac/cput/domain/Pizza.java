@@ -9,11 +9,14 @@ import java.util.Objects;
 */
 
     public class Pizza {
+
+        public enum Size{
+            EXTRA_SMALL, SMALL, MEDIUM, LARGE, EXTRA_LARGE
+        }
         private String pizzaId;
         private String itemName;
         private String itemDescription;
-        private String size;
-
+        private Size size;
         private boolean vegetarianOrNot;
 
         private double price;
@@ -43,7 +46,7 @@ import java.util.Objects;
             return itemDescription;
         }
 
-        public String getSize() {
+        public Size getSize() {
             return size;
         }
 
@@ -57,7 +60,7 @@ import java.util.Objects;
             private String pizzaId;
             private String itemName;
             private String itemDescription;
-            private String size;
+            private Size size;
             private boolean vegetarianOrNot;
             private double price;
 
@@ -77,7 +80,7 @@ import java.util.Objects;
                 return this;
             }
 
-            public Builder setSize(String size) {
+            public Builder setSize(Size size) {
                 this.size = size;
                 return this;
             }
