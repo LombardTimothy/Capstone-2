@@ -1,6 +1,7 @@
 package za.ac.cput.domain;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Objects;
 
 /* Order.java
@@ -14,6 +15,7 @@ import java.util.Objects;
         private String orderId;
 
         private LocalDate createDate;
+        private LocalTime time;
         private Customer customer;
 
         private Order(){
@@ -23,6 +25,7 @@ import java.util.Objects;
         private Order(Builder builder){
             this.orderId = builder.orderId;
             this.createDate = builder.createDate;
+            this.time = builder.time;
             this.customer = builder.customer;
         }
 
@@ -34,6 +37,10 @@ import java.util.Objects;
             return createDate;
         }
 
+        public LocalTime getTime() {
+            return time;
+        }
+
         public Customer getCustomer() {
             return customer;
         }
@@ -41,6 +48,7 @@ import java.util.Objects;
         public static class Builder {
             private String orderId;
             private LocalDate createDate;
+            private LocalTime time;
             private Customer customer;
 
 
@@ -54,6 +62,11 @@ import java.util.Objects;
                 return this;
             }
 
+            public Builder setTime(LocalTime time) {
+                this.time = time;
+                return this;
+            }
+
             public Order.Builder setCustomer(Customer customer){
                 this.customer = customer;
                 return this;
@@ -63,6 +76,8 @@ import java.util.Objects;
             public za.ac.cput.domain.Order.Builder copy(za.ac.cput.domain.Order order) {
                 this.orderId = order.orderId;
                 this.createDate = order.createDate;
+                this.time = order.time;
+                this.customer = order.customer;
                 return this;
             }
 
@@ -79,20 +94,21 @@ import java.util.Objects;
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             Order order = (Order) o;
-            return Objects.equals(orderId, order.orderId) && Objects.equals(createDate, order.createDate) && Objects.equals(customer, order.customer);
+            return Objects.equals(orderId, order.orderId) && Objects.equals(createDate, order.createDate) && Objects.equals(time, order.time) && Objects.equals(customer, order.customer);
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(orderId, createDate, customer);
+            return Objects.hash(orderId, createDate, time, customer);
         }
 
         @Override
         public String toString() {
             return "Order{" +
-                    "Order Id='" + orderId + '\'' +
-                    ", Create date=" + createDate +
-                    ", Customer=" + customer +
+                    "orderId='" + orderId + '\'' +
+                    ", createDate=" + createDate +
+                    ", time=" + time +
+                    ", customer=" + customer +
                     '}';
         }
     }

@@ -8,6 +8,8 @@ import za.ac.cput.domain.Order;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,19 +24,23 @@ import static org.junit.jupiter.api.Assertions.*;
         private static Address address = AddressFactory.buildAddress("9", "11th Road, HealthField", "Cape Town", "7945", "Western Cape", "South Africa");
         private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi", address);
 
-        LocalDate date = LocalDate.of(2023, 9, 17);
+        private static LocalDate date = LocalDate.of(2023, 9, 17);
+
+
+       private static LocalTime time = LocalTime.now();
+
 
 
         @Test
         public void order_test(){
-            Order order = OrderFactory.buildOrder( date, customer);
+            Order order = OrderFactory.buildOrder( date, time, customer);
             System.out.println(order.toString());
             assertNotNull(order);
         }
 
         @Test
         public void order_test_fail(){
-            Order order = OrderFactory.buildOrder( date, customer);
+            Order order = OrderFactory.buildOrder( date, time,  customer);
             System.out.println(order.toString());
             //assertNotNull(order);
             assertEquals(3, order.getCreateDate());
@@ -47,14 +53,14 @@ import static org.junit.jupiter.api.Assertions.*;
             });
             LocalDate date1 = LocalDate.of(2023, 5, 7);
 
-            Order order = OrderFactory.buildOrder( date1, customer);
+            Order order = OrderFactory.buildOrder( date1,time, customer);
             assertEquals(date1, order.getCreateDate());
             System.out.println(order.toString());
         }
         @Disabled("Disabled test")
         @Test
         public void order_disable_test(){
-            Order order = OrderFactory.buildOrder( date, customer);
+            Order order = OrderFactory.buildOrder( date, time, customer);
             System.out.println(order.toString());
             assertNull(order);
 
@@ -62,8 +68,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
         @Test
         public void order_equality_test(){
-            Order order = OrderFactory.buildOrder( date, customer);
-            Order order1 = OrderFactory.buildOrder( date, customer);
+            Order order = OrderFactory.buildOrder( date, time, customer);
+            Order order1 = OrderFactory.buildOrder( date,time, customer);
             if(order.equals(order1)){
                 System.out.println("Both objects are equal");//true
 
