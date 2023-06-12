@@ -15,8 +15,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class PizzaServiceImplTest {
 
     private static PizzaServiceImpl service = PizzaServiceImpl.getService();
-    private static Pizza pizza = PizzaFactory.buildPizza("Vegetariana pizza", "Thin crust with high quality flour and fresh tomato sauce base and with high quality fresh vegetables.", "Small", true, 32);
-    private static Pizza pizza1 = PizzaFactory.buildPizza("Mushroom pizza", "Thick crust with high quality flour and fresh mushrooms and with double creamy extra cheese.", "Medium", false, 48);
+    private static Pizza pizza = PizzaFactory.buildPizza("Vegetariana pizza", "Thin crust with high quality flour and fresh tomato sauce base and with high quality fresh vegetables.", Pizza.Size.EXTRA_SMALL, true, 32);
+    private static Pizza pizza1 = PizzaFactory.buildPizza("Mushroom pizza", "Thick crust with high quality flour and fresh mushrooms and with double creamy extra cheese.", Pizza.Size.MEDIUM, false, 48);
 
     @Test
     public void a_create(){
@@ -39,7 +39,7 @@ class PizzaServiceImplTest {
 
     @Test
     public void c_update(){
-        Pizza updated = new Pizza.Builder().copy(pizza).setSize("Medium").setPrice(60).build();
+        Pizza updated = new Pizza.Builder().copy(pizza).setSize(Pizza.Size.LARGE).setPrice(60).build();
         assertNotNull(service.update(updated));
         System.out.println(updated);
     }

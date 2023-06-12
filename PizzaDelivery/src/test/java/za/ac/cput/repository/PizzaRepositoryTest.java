@@ -19,9 +19,9 @@ import static org.junit.jupiter.api.Assertions.*;
     class PizzaRepositoryTest {
 
         private static PizzaRepository repo = PizzaRepository.getRepo();
-        private static Pizza pizza = PizzaFactory.buildPizza("Vegetariana pizza", "Thin crust with high quality flour and fresh tomato sauce base and with high quality fresh vegetables.", "Small", true, 32);
-        private static Pizza pizza1 = PizzaFactory.buildPizza("Mushroom pizza", "Thick crust with high quality flour and fresh mushrooms and with double creamy extra cheese.", "Medium", false, 48);
-        private static Pizza pizza2 = PizzaFactory.buildPizza("Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", "Small", false, 35);
+        private static Pizza pizza = PizzaFactory.buildPizza("Vegetariana pizza", "Thin crust with high quality flour and fresh tomato sauce base and with high quality fresh vegetables.", Pizza.Size.SMALL, true, 32);
+        private static Pizza pizza1 = PizzaFactory.buildPizza("Mushroom pizza", "Thick crust with high quality flour and fresh mushrooms and with double creamy extra cheese.", Pizza.Size.MEDIUM, false, 48);
+        private static Pizza pizza2 = PizzaFactory.buildPizza("Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 35);
 
 
 

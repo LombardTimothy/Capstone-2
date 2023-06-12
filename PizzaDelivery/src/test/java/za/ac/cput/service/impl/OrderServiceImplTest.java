@@ -11,6 +11,7 @@ import za.ac.cput.factory.CustomerFactory;
 import za.ac.cput.factory.OrderFactory;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
@@ -27,8 +28,9 @@ class OrderServiceImplTest {
     private static LocalDate date = LocalDate.of(2023, 7, 28);
     private static LocalDate date1 = LocalDate.of(2023, 7, 29);
     private static LocalDate date2 = LocalDate.of(2023, 7, 8);
-    private static Order order1 = OrderFactory.buildOrder(date1, customer);
-    private static Order order2 = OrderFactory.buildOrder(date2, customer);
+    private static LocalTime time = LocalTime.now();
+    private static Order order1 = OrderFactory.buildOrder(date1, time, customer);
+    private static Order order2 = OrderFactory.buildOrder(date2, time, customer);
 
     @Test
     public void a_create(){
