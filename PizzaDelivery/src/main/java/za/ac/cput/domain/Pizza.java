@@ -14,6 +14,7 @@ import java.util.Objects;
             EXTRA_SMALL, SMALL, MEDIUM, LARGE, EXTRA_LARGE
         }
         private String pizzaId;
+        private String baseId;
         private String itemName;
         private String itemDescription;
         private Size size;
@@ -27,6 +28,7 @@ import java.util.Objects;
 
         private Pizza(Builder builder){
             this.pizzaId = builder.pizzaId;
+            this.baseId = builder.baseId;
             this.itemName = builder.itemName;
             this.itemDescription = builder.itemDescription;
             this.size = builder.size;
@@ -36,6 +38,10 @@ import java.util.Objects;
 
         public String getPizzaId() {
             return pizzaId;
+        }
+
+        public String getBaseId() {
+            return baseId;
         }
 
         public String getItemName() {
@@ -58,6 +64,7 @@ import java.util.Objects;
 
         public static class Builder {
             private String pizzaId;
+            private String baseId;
             private String itemName;
             private String itemDescription;
             private Size size;
@@ -67,6 +74,11 @@ import java.util.Objects;
 
             public Builder setPizzaId(String pizzaId) {
                 this.pizzaId = pizzaId;
+                return this;
+            }
+
+            public Builder setBaseId(String baseId) {
+                this.baseId = baseId;
                 return this;
             }
 
@@ -97,6 +109,7 @@ import java.util.Objects;
 
             public Builder copy(za.ac.cput.domain.Pizza menu) {
                 this.pizzaId = menu.pizzaId;
+                this.baseId = menu.baseId;
                 this.itemName = menu.itemName;
                 this.itemDescription = menu.itemDescription;
                 this.size = menu.size;
@@ -115,24 +128,25 @@ import java.util.Objects;
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            za.ac.cput.domain.Pizza menu = (za.ac.cput.domain.Pizza) o;
-            return vegetarianOrNot == menu.vegetarianOrNot && price == menu.price && Objects.equals(pizzaId, menu.pizzaId) && Objects.equals(itemName, menu.itemName) && Objects.equals(itemDescription, menu.itemDescription) && Objects.equals(size, menu.size);
+            Pizza pizza = (Pizza) o;
+            return vegetarianOrNot == pizza.vegetarianOrNot && Double.compare(pizza.price, price) == 0 && Objects.equals(pizzaId, pizza.pizzaId) && Objects.equals(baseId, pizza.baseId) && Objects.equals(itemName, pizza.itemName) && Objects.equals(itemDescription, pizza.itemDescription) && size == pizza.size;
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(pizzaId, itemName, itemDescription, size, vegetarianOrNot, price);
+            return Objects.hash(pizzaId, baseId, itemName, itemDescription, size, vegetarianOrNot, price);
         }
 
         @Override
         public String toString() {
             return "Pizza{" +
-                    "Pizza Id='" + pizzaId + '\'' +
-                    ", Item name='" + itemName + '\'' +
-                    ", Item description='" + itemDescription + '\'' +
-                    ", Size='" + size + '\'' +
-                    ", Vegetarian or not=" + vegetarianOrNot +
-                    ", price= R" + price +
+                    "pizzaId='" + pizzaId + '\'' +
+                    ", baseId='" + baseId + '\'' +
+                    ", itemName='" + itemName + '\'' +
+                    ", itemDescription='" + itemDescription + '\'' +
+                    ", size=" + size +
+                    ", vegetarianOrNot=" + vegetarianOrNot +
+                    ", price=" + price +
                     '}';
         }
     }
