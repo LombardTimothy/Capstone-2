@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
     class OrderFactoryTest {
 
         private static Address address = AddressFactory.buildAddress("9", "11th Road, HealthField", "Cape Town", "7945", "Western Cape", "South Africa");
-        private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi", address);
+        private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi","075 452 8339", address);
 
         private static LocalDate date = LocalDate.of(2023, 9, 17);
 

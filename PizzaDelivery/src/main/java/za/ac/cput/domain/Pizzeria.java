@@ -2,21 +2,21 @@ package za.ac.cput.domain;
 
 import java.util.Objects;
 
-/* Restaurant.java
-   Entity for the Restaurant
+/* Pizzeria.java
+   Entity for the Pizzeria
    Author: Keenan Meyer (220194920)
    Date: 30th March 2023
 */
-public class Restaurant {
+public class Pizzeria {
     private String restaurantID;
     private String restaurantName;
     private int noOfEmp;
     private Boolean isOpen;
 
-    private Restaurant(){
+    private Pizzeria(){
 
     }
-    private Restaurant(Builder builder){
+    private Pizzeria(Builder builder){
         this.restaurantID = builder.restaurantID;
         this.restaurantName = builder.restaurantName;
         this.noOfEmp = builder.noOfEmp;
@@ -70,7 +70,7 @@ public class Restaurant {
             this.noOfEmp = noOfEmp;
             this.isOpen = isOpen;
         }*/
-        public Builder copy(za.ac.cput.domain.Restaurant t) {
+        public Builder copy(Pizzeria t) {
             this.restaurantID = t.restaurantID;
             this.restaurantName = t.restaurantName;
             this.noOfEmp = t.noOfEmp;
@@ -78,8 +78,8 @@ public class Restaurant {
             return this;
         }
 
-        public za.ac.cput.domain.Restaurant build(){
-            return new za.ac.cput.domain.Restaurant(this);
+        public Pizzeria build(){
+            return new Pizzeria(this);
         }
 
     }
@@ -88,7 +88,7 @@ public class Restaurant {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Restaurant that = (Restaurant) o;
+        Pizzeria that = (Pizzeria) o;
         return noOfEmp == that.noOfEmp && Objects.equals(restaurantID, that.restaurantID) && Objects.equals(restaurantName, that.restaurantName) && Objects.equals(isOpen, that.isOpen);
     }
 
@@ -99,7 +99,7 @@ public class Restaurant {
 
     @Override
     public String toString() {
-        return "Restaurant{" +
+        return "Pizzeria{" +
                 "restaurantID='" + restaurantID + '\'' +
                 ", restaurantName='" + restaurantName + '\'' +
                 ", noOfEmp=" + noOfEmp +

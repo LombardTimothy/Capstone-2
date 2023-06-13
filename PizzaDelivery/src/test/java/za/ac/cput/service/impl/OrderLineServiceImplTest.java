@@ -27,7 +27,7 @@ class OrderLineServiceImplTest {
     private static LocalDate date = LocalDate.of(2023, 9, 17);
     private static LocalTime time = LocalTime.now();
     private static Address address = AddressFactory.buildAddress("24A", "Fall Street", "Rock Bottom", "0006", "Pennsylvania", "Westeros");
-    private static Customer customer = CustomerFactory.buildCustomer("Theon", "Greyjoy", address);
+    private static Customer customer = CustomerFactory.buildCustomer("Theon", "Greyjoy","078 675 7850", address);
     private static Order order = OrderFactory.buildOrder(date, time, customer);
     private static Pizza pizza = PizzaFactory.buildPizza("Tikka chicken", "Thin crust, tikka and BBQ sauce, mozzarella cheese, mushroom, sweet bell pepper, spring onion, and chicken.", Pizza.Size.LARGE, false, 156);
     private static OrderLine orderLine = OrderLineFactory.buildOrderLine(1,order, pizza);

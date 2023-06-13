@@ -31,9 +31,9 @@ class OrderLineRepositoryTest {
     private static Address address2 = AddressFactory.buildAddress("23", "Fall Street", "Rock Bottom", "0006", "Pennsylvania", "Westeros");
     private static Address address3 = AddressFactory.buildAddress("24A", "Fall Street", "Rock Bottom", "0006", "Pennsylvania", "Westeros");
 
-    private static Customer customer1 = CustomerFactory.buildCustomer("Rickon", "Stark", address1);
-    private static Customer customer2 = CustomerFactory.buildCustomer("Loras", "Tyrell", address2);
-    private static Customer customer3 = CustomerFactory.buildCustomer("Theon", "Greyjoy", address3);
+    private static Customer customer1 = CustomerFactory.buildCustomer("Rickon", "Stark","078 675 7850", address1);
+    private static Customer customer2 = CustomerFactory.buildCustomer("Loras", "Tyrell","088 675 7850", address2);
+    private static Customer customer3 = CustomerFactory.buildCustomer("Theon", "Greyjoy","098 675 7850", address3);
 
     private static Order order1 = OrderFactory.buildOrder(date1, time, customer1);
     private static Order order2 = OrderFactory.buildOrder(date2, time, customer2);
