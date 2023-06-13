@@ -3,7 +3,7 @@ package za.ac.cput.domain;
 import java.util.Objects;
 
 
-/* Restaurant.java
+/* Pizzeria.java
    Entity for the Customer
    Author: Keenan Meyer (220194920)
    Date: 30th March 2023
@@ -12,6 +12,7 @@ public class Customer {
     private String customerID;
     private String customerName;
     private String customerSurname;
+    private String phoneNumber;
     private Address address;
 
 
@@ -23,7 +24,9 @@ public class Customer {
         this.customerID = builder.customerID;
         this.customerName = builder.customerName;
         this.customerSurname = builder.customerSurname;
+        this.phoneNumber = builder.phoneNumber;
         this.address = builder.address;
+
 
     }
 
@@ -38,6 +41,9 @@ public class Customer {
     public String getCustomerSurname() {
         return customerSurname;
     }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
     public Address getAddress() {
         return address;
@@ -48,6 +54,7 @@ public class Customer {
         private String customerID;
         private String customerName;
         private String customerSurname;
+        private String phoneNumber;
         private Address address;
 
         public Builder setCustomerID(String customerID) {
@@ -65,6 +72,11 @@ public class Customer {
             return this;
         }
 
+        public Builder setPhoneNumber(String phoneNumber) {
+            this.phoneNumber = phoneNumber;
+            return this;
+        }
+
         public Builder setAddress(Address address){
             this.address = address;
             return this;
@@ -74,6 +86,7 @@ public class Customer {
             this.customerID = t.customerID;
             this.customerName = t.customerName;
             this.customerSurname = t.customerSurname;
+            this.phoneNumber = t.phoneNumber;
             this.address = t.address;
             return this;
         }
@@ -88,12 +101,12 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return Objects.equals(customerID, customer.customerID) && Objects.equals(customerName, customer.customerName) && Objects.equals(customerSurname, customer.customerSurname) && Objects.equals(address, customer.address);
+        return Objects.equals(customerID, customer.customerID) && Objects.equals(customerName, customer.customerName) && Objects.equals(customerSurname, customer.customerSurname) && Objects.equals(phoneNumber, customer.phoneNumber) && Objects.equals(address, customer.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(customerID, customerName, customerSurname, address);
+        return Objects.hash(customerID, customerName, customerSurname, phoneNumber, address);
     }
 
     @Override
@@ -102,6 +115,7 @@ public class Customer {
                 "customerID='" + customerID + '\'' +
                 ", customerName='" + customerName + '\'' +
                 ", customerSurname='" + customerSurname + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", address=" + address +
                 '}';
     }

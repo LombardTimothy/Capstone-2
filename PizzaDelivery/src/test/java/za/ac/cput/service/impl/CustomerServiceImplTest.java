@@ -44,16 +44,19 @@ class CustomerServiceImplTest {
     private static Customer customer = CustomerFactory.buildCustomer(
             "Keenan",
             "Meyer",
+            "078 675 7850",
             address);
 
     private static Customer customer2 = CustomerFactory.buildCustomer(
             "Alison",
             "Williams",
+            "078 675 7850",
             address2);
 
     private static Customer customer3= CustomerFactory.buildCustomer(
             "Brandon",
             "Wise",
+            "078 675 7850",
             address3);
     private static CustomerServiceImpl service = CustomerServiceImpl.getService();
     @Test

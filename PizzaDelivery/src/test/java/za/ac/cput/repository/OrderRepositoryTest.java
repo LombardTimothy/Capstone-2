@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
         private static OrderRepository orderRepo = OrderRepository.getRepo();
         private static Address address = AddressFactory.buildAddress("9", "11th Road, HealthField", "Cape Town", "7945", "Western Cape", "South Africa");
-        private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi", address);
+        private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi","078 675 5672", address);
         private static LocalDate date = LocalDate.of(2023, 4, 17);
         private static LocalDate date1 = LocalDate.of(2023, 4, 29);
         private static LocalDate date2 = LocalDate.of(2023, 4, 8);
