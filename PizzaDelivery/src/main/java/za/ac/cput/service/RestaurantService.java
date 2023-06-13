@@ -12,6 +12,8 @@ import za.ac.cput.service.IService;
  */
 
 public interface RestaurantService extends IService<Restaurant, String> {
+
+    Restaurant update(Restaurant employeeNum);
     boolean delete(String restaurantNum);
 
     Set<Restaurant> getAll();

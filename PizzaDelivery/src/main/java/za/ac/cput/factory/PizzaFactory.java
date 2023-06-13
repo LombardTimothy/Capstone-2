@@ -17,8 +17,9 @@ import za.ac.cput.util.Helper;
             }
 
             String pizzaId = Helper.generateId();
+            String baseId = Helper.generateId();
 
-            Pizza pizza = new Pizza.Builder().setPizzaId(pizzaId).setItemName(itemName).setItemDescription(itemDescription).setSize(size).setVegetarianOrNot(vegetarianOrNot).setPrice(price).build();
+            Pizza pizza = new Pizza.Builder().setPizzaId(pizzaId).setBaseId(baseId).setItemName(itemName).setItemDescription(itemDescription).setSize(size).setVegetarianOrNot(vegetarianOrNot).setPrice(price).build();
             return pizza;
 
         }
