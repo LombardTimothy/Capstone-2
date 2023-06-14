@@ -26,10 +26,10 @@ class LoyaltyCustomerServiceImplTest {
 
     private static LoyaltyCustomerServiceImpl service = null;
 
-    static LocalDate dateNow = LocalDate.now();
+    static LocalDate date = LocalDate.now();
     private static LoyaltyCustomerRepository repository = LoyaltyCustomerRepository.getRepository();
-    private static LoyaltyCustomer lc1 = LoyaltyCustomerFactory.createLoyaltyCustomer(dateNow,35.34);
-    private static LoyaltyCustomer lc2 = LoyaltyCustomerFactory.createLoyaltyCustomer(dateNow,25.3);
+    private static LoyaltyCustomer lc1 = LoyaltyCustomerFactory.createLoyaltyCustomer(date,35.34);
+    private static LoyaltyCustomer lc2 = LoyaltyCustomerFactory.createLoyaltyCustomer(date,25.3);
 
 
     private LoyaltyCustomerServiceImplTest() {
