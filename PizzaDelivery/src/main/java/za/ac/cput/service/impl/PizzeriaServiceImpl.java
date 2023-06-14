@@ -49,12 +49,7 @@ public class PizzeriaServiceImpl implements PizzeriaService {
         Pizzeria updated = repository.update(employeeNum);
         return updated;
     }
-
-    @Override
-    public boolean delete(String restaurantNum) {
-        boolean success = repository.delete(String.valueOf(restaurantNum));
-        return success;
-    }
+    
 
     @Override
     public Set<Pizzeria> getAll() {

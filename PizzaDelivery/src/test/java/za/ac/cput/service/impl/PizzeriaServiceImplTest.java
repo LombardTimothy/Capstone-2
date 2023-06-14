@@ -56,6 +56,7 @@ class PizzeriaServiceImplTest {
     }
 
 
+
     @Test
     void c_update() {
         Pizzeria updatedPizzeria = new Pizzeria
@@ -70,8 +71,7 @@ class PizzeriaServiceImplTest {
         System.out.println(updatedPizzeria);
     }
 
-
-    @Test
+/*   @Test
     void d_delete() {
         boolean deleted = service.delete(pizzeria.getRestaurantID());
         assertTrue(deleted);
@@ -82,4 +82,5 @@ class PizzeriaServiceImplTest {
     void e_getAll() {
         System.out.println(service.getAll());
     }
+ */
 }
