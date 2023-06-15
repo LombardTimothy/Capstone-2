@@ -15,32 +15,42 @@ import org.junit.jupiter.api.TestMethodOrder;
    CustomerRepositoryTest.java
    Entity for the CustomerRepositoryTest
    Author: Keenan Meyer (220194920)
-   Date: 03th April 2023
+   Date: 03rd April 2023
+   Last update: 14 June 2023
 */
 @TestMethodOrder(MethodOrderer.MethodName.class)
 
 public class CustomerRepositoryTest {
     public static Address address = AddressFactory.buildAddress(
             "7",
+            "Seafox Street",
+            "",
             "Delft",
             "Cape Town",
-            "2134",
             "Western Cape",
-            "South Africa");
+            "South Africa",
+            "2134",
+            Address.AddressType.RESIDENTIAL_HOME);
     public static Address address2 = AddressFactory.buildAddress(
             "10",
+            "Accordian Street",
+            "",
             "Belhar",
             "Cape Town",
-            "2154",
             "Western Cape",
-            "South Africa");
+            "South Africa",
+            "2154",
+            Address.AddressType.RESIDENTIAL_HOME);
     public static Address address3 = AddressFactory.buildAddress(
             "8",
+            "Toplands Street",
+            "",
             "Delft",
             "Cape Town",
-            "2134",
             "Western Cape",
-            "South Africa");
+            "South Africa",
+            "2134",
+            Address.AddressType.RESIDENTIAL_HOME);
     private static CustomerRepository repo = CustomerRepository.getRepo();
 
     private static Customer customer = CustomerFactory.buildCustomer(
@@ -109,6 +119,5 @@ public class CustomerRepositoryTest {
     @Test
     public void e_Customer_getAll(){
         System.out.println(repo.getAll());
-
     }
 }

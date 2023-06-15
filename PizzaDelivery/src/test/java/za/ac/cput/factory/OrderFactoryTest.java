@@ -16,19 +16,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /* OrderFactoryTest.java
  Author: Timothy Lombard (220154856)
- Date: 8th April (last updated) 2023
+ Date: 8th April 2023
+ Last update: 14 June 2023
 */
 
     class OrderFactoryTest {
 
-        private static Address address = AddressFactory.buildAddress("9", "11th Road, HealthField", "Cape Town", "7945", "Western Cape", "South Africa");
+        private static Address address = AddressFactory.buildAddress("9", "11th Road", "HealthField", "", "Cape Town", "Western Cape", "South Africa", "7945", Address.AddressType.RESIDENTIAL_HOME);
+
         private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi","075 452 8339", address);
 
         private static LocalDate date = LocalDate.of(2023, 9, 17);
 
-
-       private static LocalTime time = LocalTime.now();
-
+        private static LocalTime time = LocalTime.now();
 
 
         @Test
@@ -57,6 +57,7 @@ import static org.junit.jupiter.api.Assertions.*;
             assertEquals(date1, order.getCreateDate());
             System.out.println(order.toString());
         }
+
         @Disabled("Disabled test")
         @Test
         public void order_disable_test(){
@@ -72,10 +73,8 @@ import static org.junit.jupiter.api.Assertions.*;
             Order order1 = OrderFactory.buildOrder( date,time, customer);
             if(order.equals(order1)){
                 System.out.println("Both objects are equal");//true
-
             }else
                 System.out.println("Both objects are not equal");//false
-
         }
     }
 

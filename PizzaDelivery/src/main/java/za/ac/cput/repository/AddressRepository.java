@@ -59,10 +59,8 @@ public class AddressRepository implements IAddressRepository {
         Address deleteAddress = read(addressId);
         if(deleteAddress != null) {
             addressDB.remove(deleteAddress);
-            System.out.println("Deleted.");
             return true;
         }else {
-            System.out.println("Could not delete.");
             return false;
         }
     }

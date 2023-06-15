@@ -17,7 +17,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /* OrderRepositoryTest.java
  Author: Timothy Lombard (220154856)
- Date: 8th April (last updated) 2023
+ Date: 8th April 2023
+ Last update: 14 June 2023
 */
 
     @TestMethodOrder(MethodOrderer.MethodName.class)//runs the test cases in alphabetical order
@@ -26,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.*;
     class OrderRepositoryTest {
 
         private static OrderRepository orderRepo = OrderRepository.getRepo();
-        private static Address address = AddressFactory.buildAddress("9", "11th Road, HealthField", "Cape Town", "7945", "Western Cape", "South Africa");
+        private static Address address = AddressFactory.buildAddress("9", "11th Road", "", "HealthField", "Cape Town", "Western Cape", "South Africa", "7945",  Address.AddressType.RESIDENTIAL_HOME);
         private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi","078 675 5672", address);
         private static LocalDate date = LocalDate.of(2023, 4, 17);
         private static LocalDate date1 = LocalDate.of(2023, 4, 29);
@@ -35,7 +36,6 @@ import static org.junit.jupiter.api.Assertions.*;
         private static Order order = OrderFactory.buildOrder(date, time, customer);
         private static Order order1 = OrderFactory.buildOrder(date1, time, customer);
         private static Order order2 = OrderFactory.buildOrder(date2, time, customer);
-
 
 
         @Test
@@ -80,9 +80,5 @@ import static org.junit.jupiter.api.Assertions.*;
             System.out.println(orderRepo.getAll());
 
         }
-
-
-
-
     }
 
