@@ -8,12 +8,15 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class CustomerFactoryTest {
     public static Address address = AddressFactory.buildAddress(
-            "7th Street",
+            "7",
+            "Seafox Street",
+            "",
             "Delft",
             "Cape Town",
-            "2134",
             "Western Cape",
-            "South Africa");
+            "South Africa",
+            "2134",
+            Address.AddressType.RESIDENTIAL_HOME);
     @Test
     void buildCustomer() {
         Customer customer = CustomerFactory.buildCustomer(

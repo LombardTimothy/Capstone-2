@@ -58,10 +58,8 @@ public class OrderLineRepository implements IOrderLineRepository {
         OrderLine deleteOrderLine = read(orderLineId);
         if(deleteOrderLine != null) {
             orderLineDB.remove(deleteOrderLine);
-            System.out.println("Deleted.");
             return true;
         }else {
-            System.out.println("Could not delete.");
             return false;
         }
     }

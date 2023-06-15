@@ -7,11 +7,12 @@ import za.ac.cput.util.Helper;
 AddressFactory.java
 Author: Tamryn Lisa Lewin (219211981)
 Date: 04 April 2023
+Last update: 14 June 2023
  */
 
 public class AddressFactory {
-    public static Address buildAddress(String streetNumber, String streetName, String city, String zipCode, String province, String country) {
-        if(Helper.isNullOrEmpty(streetNumber) || Helper.isNullOrEmpty(streetName) || Helper.isNullOrEmpty(city) || Helper.isNullOrEmpty(zipCode) || Helper.isNullOrEmpty(province) || Helper.isNullOrEmpty(country)) {
+    public static Address buildAddress(String streetNumber, String streetName, String flatNumber, String suburb, String city, String province, String country, String postalCode, Address.AddressType addressType) {
+        if(Helper.isNullOrEmpty(streetNumber) || Helper.isNullOrEmpty(streetName) || Helper.isNullOrEmpty(suburb) || Helper.isNullOrEmpty(city) || Helper.isNullOrEmpty(province) || Helper.isNullOrEmpty(country) || Helper.isNullOrEmpty(postalCode) || Helper.isNullOrEmpty(String.valueOf(addressType))) {
             return null;
         }
 
@@ -21,10 +22,13 @@ public class AddressFactory {
                 .setAddressId(addressId)
                 .setStreetNumber(streetNumber)
                 .setStreetName(streetName)
+                .setFlatNumber(flatNumber)
+                .setSuburb(suburb)
                 .setCity(city)
-                .setZipCode(zipCode)
                 .setProvince(province)
                 .setCountry(country)
+                .setPostalCode(postalCode)
+                .setAddressType(addressType)
                 .build();
         return address;
     }

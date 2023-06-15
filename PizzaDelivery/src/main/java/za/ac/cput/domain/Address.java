@@ -7,16 +7,25 @@ Address.java
 Address entity
 Author: Tamryn Lisa Lewin (219211981)
 Date: 04 April 2023
+Last update: 13 June 2023
  */
 
 public class Address {
+
+    public enum AddressType {
+        RESIDENTIAL_HOME, FLAT_BUILDING;
+    }
+
     private String addressId;
     private String streetNumber;
     private String streetName;
+    private String flatNumber;
+    private String suburb;
     private String city;
-    private String zipCode;
     private String province;
     private String country;
+    private String postalCode;
+    private AddressType addressType;
 
     private Address() {}
 
@@ -24,10 +33,13 @@ public class Address {
         this.addressId = builder.addressId;
         this.streetNumber = builder.streetNumber;
         this.streetName = builder.streetName;
+        this.flatNumber = builder.flatNumber;
+        this.suburb = builder.suburb;
         this.city = builder.city;
-        this.zipCode = builder.zipCode;
         this.province = builder.province;
         this.country = builder.country;
+        this.postalCode = builder.postalCode;
+        this.addressType = builder.addressType;
     }
 
     public String getAddressId() {
@@ -42,12 +54,16 @@ public class Address {
         return streetName;
     }
 
-    public String getCity() {
-        return city;
+    public String getFlatNumber() {
+        return flatNumber;
     }
 
-    public String getZipCode() {
-        return zipCode;
+    public String getSuburb() {
+        return suburb;
+    }
+
+    public String getCity() {
+        return city;
     }
 
     public String getProvince() {
@@ -58,14 +74,25 @@ public class Address {
         return country;
     }
 
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public AddressType getAddressType() {
+        return addressType;
+    }
+
     public static class Builder {
         private String addressId;
         private String streetNumber;
         private String streetName;
+        private String flatNumber;
+        private String suburb;
         private String city;
-        private String zipCode;
         private String province;
         private String country;
+        private String postalCode;
+        private AddressType addressType;
 
         public Builder setAddressId(String addressId) {
             this.addressId = addressId;
@@ -82,13 +109,18 @@ public class Address {
             return this;
         }
 
-        public Builder setCity(String city) {
-            this.city = city;
+        public Builder setFlatNumber(String flatNumber) {
+            this.flatNumber = flatNumber;
             return this;
         }
 
-        public Builder setZipCode(String zipCode) {
-            this.zipCode = zipCode;
+        public Builder setSuburb(String suburb) {
+            this.suburb = suburb;
+            return this;
+        }
+
+        public Builder setCity(String city) {
+            this.city = city;
             return this;
         }
 
@@ -102,14 +134,27 @@ public class Address {
             return this;
         }
 
+        public Builder setPostalCode(String postalCode) {
+            this.postalCode = postalCode;
+            return this;
+        }
+
+        public Builder setAddressType(AddressType addressType) {
+            this.addressType = addressType;
+            return this;
+        }
+
         public Builder copy(Address address) {
             this.addressId = address.addressId;
             this.streetNumber = address.streetNumber;
             this.streetName = address.streetName;
+            this.flatNumber = address.flatNumber;
+            this.suburb = address.suburb;
             this.city = address.city;
-            this.zipCode = address.zipCode;
             this.province = address.province;
             this.country = address.country;
+            this.postalCode = address.postalCode;
+            this.addressType = address.addressType;
             return this;
         }
 
@@ -121,13 +166,14 @@ public class Address {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Address address)) return false;
-        return addressId.equals(address.addressId) && streetNumber.equals(address.streetNumber) && streetName.equals(address.streetName) && city.equals(address.city) && zipCode.equals(address.zipCode) && province.equals(address.province) && country.equals(address.country);
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return addressId.equals(address.addressId) && streetNumber.equals(address.streetNumber) && streetName.equals(address.streetName) && Objects.equals(flatNumber, address.flatNumber) && suburb.equals(address.suburb) && city.equals(address.city) && province.equals(address.province) && country.equals(address.country) && postalCode.equals(address.postalCode) && addressType == address.addressType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(addressId, streetNumber, streetName, city, zipCode, province, country);
+        return Objects.hash(addressId, streetNumber, streetName, flatNumber, suburb, city, province, country, postalCode, addressType);
     }
 
     @Override
@@ -136,10 +182,13 @@ public class Address {
                 "addressId='" + addressId + '\'' +
                 ", streetNumber='" + streetNumber + '\'' +
                 ", streetName='" + streetName + '\'' +
+                ", flatNumber='" + flatNumber + '\'' +
+                ", suburb='" + suburb + '\'' +
                 ", city='" + city + '\'' +
-                ", zipCode='" + zipCode + '\'' +
                 ", province='" + province + '\'' +
                 ", country='" + country + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", addressType=" + addressType +
                 '}';
     }
 }

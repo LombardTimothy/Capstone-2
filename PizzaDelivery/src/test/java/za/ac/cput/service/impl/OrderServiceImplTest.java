@@ -17,13 +17,14 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 /* OrderServiceImplTest.java
  Author: Timothy Lombard (220154856)
- Date: 9th June (last updated) 2023
+ Date: 9th June 2023
+ Last update: 14 June 2023
 */
 class OrderServiceImplTest {
 
     private static OrderServiceImpl service = OrderServiceImpl.getOrder();
 
-    private static Address address = AddressFactory.buildAddress("9", "11th Road, HealthField", "Cape Town", "7945", "Western Cape", "South Africa");
+    private static Address address = AddressFactory.buildAddress("9", "11th Road", "", "HealthField", "Cape Town", "Western Cape", "South Africa", "7945",  Address.AddressType.RESIDENTIAL_HOME);
     private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi", "058 675 7850", address);
     private static LocalDate date = LocalDate.of(2023, 7, 28);
     private static LocalDate date1 = LocalDate.of(2023, 7, 29);

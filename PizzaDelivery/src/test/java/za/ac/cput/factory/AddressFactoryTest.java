@@ -10,29 +10,29 @@ import static org.junit.jupiter.api.Assertions.*;
 AddressFactoryTest.java
 Author: Tamryn Lisa Lewin (219211981)
 Date: 04 April 2023
-Last update: 08 April 2023
+Last update: 14 June 2023
  */
 
 public class AddressFactoryTest {
     @Test
     public void address_test_pass() {
-        Address address = AddressFactory.buildAddress("21", "Jump Street", "Bikini Bottom", "0007", "Ohio", "Westeros");
+        Address address = AddressFactory.buildAddress("21", "Jump Street", "", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", Address.AddressType.RESIDENTIAL_HOME);
         System.out.println(address.toString());
         assertNotNull(address);
     }
 
     @Test
     public void address_test_fail() {
-        Address address = AddressFactory.buildAddress("", "Jump Street", "Bikini Bottom", "0007", "Ohio", "Westeros");
+        Address address = AddressFactory.buildAddress("", "Jump Street", "", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", Address.AddressType.RESIDENTIAL_HOME);
         System.out.println(address.toString());
         assertNull(address);
     }
 
     @Test
     public void address_test_equality_pass() {
-        Address address = AddressFactory.buildAddress("21", "Jump Street", "Bikini Bottom", "0007", "Ohio", "Westeros");
-        Address address1 = AddressFactory.buildAddress("22", "Fall Street", "Rock Bottom", "0006", "Pennsylvania", "Westeros");
-        if(address.equals(address)) {
+        Address address1 = AddressFactory.buildAddress("21", "Jump Street", "", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", Address.AddressType.RESIDENTIAL_HOME);
+        Address address2 = AddressFactory.buildAddress("22", "Fall Street", "12", "East Bay", "Rock Bottom", "Ohio", "Crownlands", "0006", Address.AddressType.FLAT_BUILDING);
+        if(address1.equals(address1)) {
             System.out.println("Objects are equal.");
         } else
             System.out.println("Objects are not equal.");
@@ -40,9 +40,9 @@ public class AddressFactoryTest {
 
     @Test
     public void address_test_equality_fail() {
-        Address address = AddressFactory.buildAddress("21", "Jump Street", "Bikini Bottom", "0007", "Ohio", "Westeros");
-        Address address1 = AddressFactory.buildAddress("22", "Fall Street", "Rock Bottom", "0006", "Pennsylvania", "Westeros");
-        if(address.equals(address1)) {
+        Address address1 = AddressFactory.buildAddress("21", "Jump Street", "", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", Address.AddressType.RESIDENTIAL_HOME);
+        Address address2 = AddressFactory.buildAddress("22", "Fall Street", "12", "East Bay", "Rock Bottom", "Ohio", "Crownlands", "0006", Address.AddressType.FLAT_BUILDING);
+        if(address1.equals(address2)) {
             System.out.println("Objects are equal.");
         } else
             System.out.println("Objects are not equal.");
@@ -56,18 +56,24 @@ public class AddressFactoryTest {
 
         String streetNumber = "21";
         String streetName = "Jump Street";
+        String flatNumber = "";
+        String suburb = "West Olmstead";
         String city = "Bikini Bottom";
-        String zipCode = "0007";
-        String province = "Ohio";
-        String country = "Westeros";
+        String province = "California";
+        String country = "Crownlands";
+        String postalCode = "0007";
+        Address.AddressType addressType = Address.AddressType.RESIDENTIAL_HOME;
 
-        Address address = AddressFactory.buildAddress("21", "Jump Street", "Bikini Bottom", "0007", "Ohio", "Westeros");
+        Address address = AddressFactory.buildAddress("21", "Jump Street", "", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", Address.AddressType.RESIDENTIAL_HOME);
         assertEquals(streetNumber, address.getStreetNumber());
         assertEquals(streetName, address.getStreetName());
+        assertEquals(flatNumber, address.getFlatNumber());
+        assertEquals(suburb, address.getSuburb());
         assertEquals(city, address.getCity());
-        assertEquals(zipCode, address.getZipCode());
         assertEquals(province, address.getProvince());
         assertEquals(country, address.getCountry());
+        assertEquals(postalCode, address.getPostalCode());
+        assertEquals(addressType, address.getAddressType());
         System.out.println(address.toString());
     }
 
@@ -79,25 +85,31 @@ public class AddressFactoryTest {
 
         String streetNumber = "21";
         String streetName = "Jump Street";
+        String flatNumber = "";
+        String suburb = "West Olmstead";
         String city = "Bikini Bottom";
-        String zipCode = "0007";
-        String province = "Ohio";
-        String country = "Westeros";
+        String province = "California";
+        String country = "Crownlands";
+        String postalCode = "0007";
+        Address.AddressType addressType = Address.AddressType.RESIDENTIAL_HOME;
 
-        Address address = AddressFactory.buildAddress("21", "Jump Street", "Bikini Bottom", "0007", "Ohio", "Westeros");
+        Address address = AddressFactory.buildAddress("21", "Jump Street", "", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", Address.AddressType.RESIDENTIAL_HOME);
         assertEquals(streetNumber, address.getStreetNumber());
         assertEquals(streetName, address.getStreetName());
+        assertEquals(flatNumber, address.getFlatNumber());
+        assertEquals(suburb, address.getSuburb());
         assertEquals(city, address.getCity());
-        assertEquals(zipCode, address.getZipCode());
         assertEquals(province, address.getProvince());
         assertEquals(country, address.getCountry());
+        assertEquals(postalCode, address.getPostalCode());
+        assertEquals(addressType, address.getAddressType());
         System.out.println(address.toString());
     }
 
     @Disabled("Disabled test.")
     @Test
     public void address_test_disabled() {
-        Address address = AddressFactory.buildAddress("21", "Jump Street", "Bikini Bottom", "0007", "Ohio", "Westeros");
+        Address address = AddressFactory.buildAddress("21", "Jump Street", "", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", Address.AddressType.RESIDENTIAL_HOME);
         System.out.println(address.toString());
         assertNotNull(address);
     }

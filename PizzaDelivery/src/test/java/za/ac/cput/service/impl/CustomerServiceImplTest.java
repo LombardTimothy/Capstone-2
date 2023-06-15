@@ -15,32 +15,41 @@ import static org.junit.jupiter.api.Assertions.*;
  * Service Test for the Customer
  * Author: Keenan Meyer - 220194920
  * Date: 09 June 2023
+ * Last update: 14 June 2023
  */
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class CustomerServiceImplTest {
 
     public static Address address = AddressFactory.buildAddress(
             "7",
+            "Seafox Street",
+            "",
             "Delft",
             "Cape Town",
-            "2134",
             "Western Cape",
-            "South Africa");
+            "South Africa",
+            "2134",
+            Address.AddressType.RESIDENTIAL_HOME);
     public static Address address2 = AddressFactory.buildAddress(
             "10",
+            "Accordian Street",
+            "",
             "Belhar",
             "Cape Town",
-            "2154",
             "Western Cape",
-            "South Africa");
+            "South Africa",
+            "2154",
+            Address.AddressType.RESIDENTIAL_HOME);
     public static Address address3 = AddressFactory.buildAddress(
             "8",
+            "Toplands Street",
+            "",
             "Delft",
             "Cape Town",
-            "2134",
             "Western Cape",
-            "South Africa");
-
+            "South Africa",
+            "2134",
+            Address.AddressType.RESIDENTIAL_HOME);
     private static Customer customer = CustomerFactory.buildCustomer(
             "Keenan",
             "Meyer",
@@ -95,8 +104,6 @@ class CustomerServiceImplTest {
         assertNotNull(service.update(updatedCustomer));
         System.out.println(updatedCustomer);
     }
-
-
 
     @Test
     void d_delete() {

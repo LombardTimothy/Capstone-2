@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 OrderLineServiceImplTest.java
 Author: Tamryn Lisa Lewin (219211981)
 Date: 09 June 2023
-Last updated: 10 June 2023
+Last updated: 14 June 2023
  */
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
@@ -26,7 +26,7 @@ class OrderLineServiceImplTest {
 
     private static LocalDate date = LocalDate.of(2023, 9, 17);
     private static LocalTime time = LocalTime.now();
-    private static Address address = AddressFactory.buildAddress("24A", "Fall Street", "Rock Bottom", "0006", "Pennsylvania", "Westeros");
+    private static Address address = AddressFactory.buildAddress("22", "Fall Street", "13", "East Bay", "Rock Bottom", "Ohio", "King's Landing", "0006", Address.AddressType.FLAT_BUILDING);
     private static Customer customer = CustomerFactory.buildCustomer("Theon", "Greyjoy","078 675 7850", address);
     private static Order order = OrderFactory.buildOrder(date, time, customer);
     private static Pizza pizza = PizzaFactory.buildPizza("Tikka chicken", "Thin crust, tikka and BBQ sauce, mozzarella cheese, mushroom, sweet bell pepper, spring onion, and chicken.", Pizza.Size.LARGE, false, 156);
@@ -61,7 +61,7 @@ class OrderLineServiceImplTest {
     void d_delete() {
         boolean deletedOrderLine = service.delete(orderLine.getOrderLineId());
         //assertTrue(deletedOrderLine);
-        System.out.println(deletedOrderLine + "\n");
+        System.out.println("Deleted successfully: \n" + deletedOrderLine + "\n");
     }
 
     @Test

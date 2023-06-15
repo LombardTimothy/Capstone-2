@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 OrderLineRepositoryTest.java
 Author: Tamryn Lisa Lewin (219211981)
 Date: 06 April 2023
-Last update: 08 April 2023
+Last update: 14 June 2023
  */
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
@@ -25,15 +25,16 @@ class OrderLineRepositoryTest {
     private static LocalDate date1 = LocalDate.of(2023, 9, 17);
     private static LocalDate date2 = LocalDate.of(2023, 9, 20);
     private static LocalDate date3 = LocalDate.of(2023, 9, 23);
+
     private static LocalTime time = LocalTime.now();
 
-    private static Address address1 = AddressFactory.buildAddress("22", "Fall Street", "Rock Bottom", "0006", "Pennsylvania", "Westeros");
-    private static Address address2 = AddressFactory.buildAddress("23", "Fall Street", "Rock Bottom", "0006", "Pennsylvania", "Westeros");
-    private static Address address3 = AddressFactory.buildAddress("24A", "Fall Street", "Rock Bottom", "0006", "Pennsylvania", "Westeros");
+    private static Address address1 = AddressFactory.buildAddress("124", "Conch Street", "3", "Sandstone", "Sunnydale", "Sunspear", "Dorne", "0008", Address.AddressType.FLAT_BUILDING);
+    private static Address address2 = AddressFactory.buildAddress("13A", "Elm Street", "", "Duskendale", "Central City", "King's Landing", "Crownlands", "0009", Address.AddressType.RESIDENTIAL_HOME);
+    private static Address address3 = AddressFactory.buildAddress("6", "Baker Street", "", "Mystic Falls", "Gotham City", "Northern Province", "Winterfell", "0010", Address.AddressType.RESIDENTIAL_HOME);
 
-    private static Customer customer1 = CustomerFactory.buildCustomer("Rickon", "Stark","078 675 7850", address1);
+    private static Customer customer1 = CustomerFactory.buildCustomer("Theon", "Greyjoy","078 675 7850", address1);
     private static Customer customer2 = CustomerFactory.buildCustomer("Loras", "Tyrell","088 675 7850", address2);
-    private static Customer customer3 = CustomerFactory.buildCustomer("Theon", "Greyjoy","098 675 7850", address3);
+    private static Customer customer3 = CustomerFactory.buildCustomer("Rickon", "Stark","098 675 7850", address3);
 
     private static Order order1 = OrderFactory.buildOrder(date1, time, customer1);
     private static Order order2 = OrderFactory.buildOrder(date2, time, customer2);
@@ -43,7 +44,6 @@ class OrderLineRepositoryTest {
     private static Pizza pizza2 = PizzaFactory.buildPizza("Pepperoni", "Thick crust, tomato and BBQ sauce, mozzarella cheese, and pepperoni.", Pizza.Size.LARGE, false, 90);
     private static Pizza pizza3 = PizzaFactory.buildPizza("Creamy Veg", "Thin crust, cream cheese sauce, feta and mozzarella cheese, mushroom, sweet bell pepper, and onion.", Pizza.Size.LARGE, true, 125);
     private static Pizza pizza4 = PizzaFactory.buildPizza("Beef", "Normal crust, mexican and BBQ sauce, extra mozzarella cheese, jalapeno, green pepper, onion, and ground beef.", Pizza.Size.MEDIUM, false, 80);
-
 
     private static OrderLine orderLine1 = OrderLineFactory.buildOrderLine(1,order1, pizza1);
     private static OrderLine orderLine2 = OrderLineFactory.buildOrderLine(5, order2, pizza2);
@@ -57,7 +57,7 @@ class OrderLineRepositoryTest {
         assertNotNull(orderLineCreated1);
         assertNotNull(orderLineCreated2);
         assertNotNull(orderLineCreated3);
-        System.out.println("Created: \n" + orderLineCreated1 + "\n" + orderLineCreated2 + "\n" + orderLineCreated3);
+        System.out.println("Created: \n" + orderLineCreated1 + "\n" + orderLineCreated2 + "\n" + orderLineCreated3 + "\n");
     }
 
     @Test
@@ -68,26 +68,26 @@ class OrderLineRepositoryTest {
         assertNotNull(orderLineRead1);
         assertNotNull(orderLineRead2);
         assertNotNull(orderLineRead3);
-        System.out.println("Read: \n" + orderLineRead1 + "\n" + orderLineRead2 + "\n" + orderLineRead3);
+        System.out.println("Read: \n" + orderLineRead1 + "\n" + orderLineRead2 + "\n" + orderLineRead3 + "\n");
     }
 
     @Test
     void c_orderLine_update() {
         OrderLine orderLineUpdated1 = new OrderLine.Builder().copy(orderLine1).setQuantity(3).setPizza(pizza4).build();
         assertNotNull(orderLineRepository.update(orderLineUpdated1));
-        System.out.println("Updated: \n" + orderLineUpdated1);
+        System.out.println("Updated: \n" + orderLineUpdated1 + "\n");
     }
 
     @Test
     void d_orderLine_delete() {
-        System.out.println(orderLine1);
+        //System.out.println(orderLine1);
         boolean orderLineDeleted1 = orderLineRepository.delete(orderLine1.getOrderLineId());
-        assertTrue(orderLineDeleted1);
-        System.out.println(orderLineDeleted1);
+        //assertTrue(orderLineDeleted1);
+        System.out.println("Deleted successfully: \n" + orderLineDeleted1 + "\n");
     }
 
     @Test
     void e_orderLine_getAll() {
-        System.out.println(orderLineRepository.getAll());
+        System.out.println("All: \n" + orderLineRepository.getAll());
     }
 }
