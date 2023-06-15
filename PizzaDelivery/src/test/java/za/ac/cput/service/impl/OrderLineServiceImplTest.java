@@ -29,7 +29,8 @@ class OrderLineServiceImplTest {
     private static Address address = AddressFactory.buildAddress("22", "Fall Street", "13", "East Bay", "Rock Bottom", "Ohio", "King's Landing", "0006", Address.AddressType.FLAT_BUILDING);
     private static Customer customer = CustomerFactory.buildCustomer("Theon", "Greyjoy","078 675 7850", address);
     private static Order order = OrderFactory.buildOrder(date, time, customer);
-    private static Pizza pizza = PizzaFactory.buildPizza("Tikka chicken", "Thin crust, tikka and BBQ sauce, mozzarella cheese, mushroom, sweet bell pepper, spring onion, and chicken.", Pizza.Size.LARGE, false, 156);
+    private static Base b1 = PizzaFactory.createBase();
+    private static Pizza pizza = PizzaFactory.buildPizza(b1, "Tikka chicken", "Thin crust, tikka and BBQ sauce, mozzarella cheese, mushroom, sweet bell pepper, spring onion, and chicken.", Pizza.Size.EXTRA_LARGE, false, 156);
     private static OrderLine orderLine = OrderLineFactory.buildOrderLine(1,order, pizza);
 
     private OrderLineServiceImplTest() {

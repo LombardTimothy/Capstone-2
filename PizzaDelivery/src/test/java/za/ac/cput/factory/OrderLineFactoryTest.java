@@ -22,7 +22,9 @@ public class OrderLineFactoryTest {
     private static Address address = AddressFactory.buildAddress("22", "Fall Street", "12", "East Bay", "Rock Bottom", "Ohio", "Crownlands", "0006", Address.AddressType.FLAT_BUILDING);
     private static Customer customer = CustomerFactory.buildCustomer("Rickon", "Stark","076 675 8090", address);
     private static Order order = OrderFactory.buildOrder(date,time, customer);
-    private static Pizza pizza = PizzaFactory.buildPizza("Margherita pizza", "Thin crust with fresh tomato sauce and creamy extra cheese.", Pizza.Size.LARGE, false, 65);
+
+    private static Base b = PizzaFactory.createBase();
+    private static Pizza pizza = PizzaFactory.buildPizza(b, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 35);
 
     @Test
     public void orderLine_test_pass() {
