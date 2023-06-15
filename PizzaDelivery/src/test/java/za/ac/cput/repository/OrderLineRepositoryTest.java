@@ -39,10 +39,15 @@ class OrderLineRepositoryTest {
     private static Order order2 = OrderFactory.buildOrder(date2, time, customer2);
     private static Order order3 = OrderFactory.buildOrder(date3, time, customer3);
 
-    private static Pizza pizza1 = PizzaFactory.buildPizza("Tikka chicken", "Thin crust, tikka and BBQ sauce, mozzarella cheese, mushroom, sweet bell pepper, spring onion, and chicken.", Pizza.Size.EXTRA_LARGE, false, 156);
-    private static Pizza pizza2 = PizzaFactory.buildPizza("Pepperoni", "Thick crust, tomato and BBQ sauce, mozzarella cheese, and pepperoni.", Pizza.Size.LARGE, false, 90);
-    private static Pizza pizza3 = PizzaFactory.buildPizza("Creamy Veg", "Thin crust, cream cheese sauce, feta and mozzarella cheese, mushroom, sweet bell pepper, and onion.", Pizza.Size.LARGE, true, 125);
-    private static Pizza pizza4 = PizzaFactory.buildPizza("Beef", "Normal crust, mexican and BBQ sauce, extra mozzarella cheese, jalapeno, green pepper, onion, and ground beef.", Pizza.Size.MEDIUM, false, 80);
+    private static Base b1 = PizzaFactory.createBase();
+    private static Base b2 = PizzaFactory.createBase();
+    private static Base b3 = PizzaFactory.createBase();
+    private static Base b4 = PizzaFactory.createBase();
+
+    private static Pizza pizza1 = PizzaFactory.buildPizza(b1, "Tikka chicken", "Thin crust, tikka and BBQ sauce, mozzarella cheese, mushroom, sweet bell pepper, spring onion, and chicken.", Pizza.Size.EXTRA_LARGE, false, 156);
+    private static Pizza pizza2 = PizzaFactory.buildPizza(b2, "Pepperoni", "Thick crust, tomato and BBQ sauce, mozzarella cheese, and pepperoni.", Pizza.Size.LARGE, false, 90);
+    private static Pizza pizza3 = PizzaFactory.buildPizza(b3, "Creamy Veg", "Thin crust, cream cheese sauce, feta and mozzarella cheese, mushroom, sweet bell pepper, and onion.", Pizza.Size.LARGE, true, 125);
+    private static Pizza pizza4 = PizzaFactory.buildPizza(b4, "Beef", "Normal crust, mexican and BBQ sauce, extra mozzarella cheese, jalapeno, green pepper, onion, and ground beef.", Pizza.Size.MEDIUM, false, 80 );
 
 
     private static OrderLine orderLine1 = OrderLineFactory.buildOrderLine(1,order1, pizza1);

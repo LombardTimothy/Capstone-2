@@ -3,7 +3,9 @@ package za.ac.cput.repository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import za.ac.cput.domain.Pizza;
 import za.ac.cput.domain.PizzaTopping;
+import za.ac.cput.domain.Topping;
 import za.ac.cput.factory.PizzaToppingFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,8 +17,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class PizzaToppingRepositoryTest {
 
     private static PizzaToppingRepository repo = PizzaToppingRepository.getRepo();
-    private static PizzaTopping pt = PizzaToppingFactory.buildPizzaTopping();
-    private static PizzaTopping pt1 = PizzaToppingFactory.buildPizzaTopping();
+    private static Pizza p = PizzaToppingFactory.createPizza();
+    private static Topping t = PizzaToppingFactory.createTopping();
+    private static Pizza p1 = PizzaToppingFactory.createPizza();
+    private static Topping t1 = PizzaToppingFactory.createTopping();
+
+    private static PizzaTopping pt = PizzaToppingFactory.buildPizzaTopping(p, t);
+    private static PizzaTopping pt1 = PizzaToppingFactory.buildPizzaTopping(p1, t1);
 
     @Test
     public void a_pizza_topping_create(){

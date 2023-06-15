@@ -3,6 +3,7 @@ package za.ac.cput.service.impl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import za.ac.cput.domain.Base;
 import za.ac.cput.domain.Pizza;
 import za.ac.cput.factory.PizzaFactory;
 
@@ -15,8 +16,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class PizzaServiceImplTest {
 
     private static PizzaServiceImpl service = PizzaServiceImpl.getService();
-    private static Pizza pizza = PizzaFactory.buildPizza("Vegetariana pizza", "Thin crust with high quality flour and fresh tomato sauce base and with high quality fresh vegetables.", Pizza.Size.EXTRA_SMALL, true, 32);
-    private static Pizza pizza1 = PizzaFactory.buildPizza("Mushroom pizza", "Thick crust with high quality flour and fresh mushrooms and with double creamy extra cheese.", Pizza.Size.MEDIUM, false, 48);
+
+    private static Base b = PizzaFactory.createBase();
+    private static Base b1 = PizzaFactory.createBase();
+
+
+    private static Pizza pizza = PizzaFactory.buildPizza(b, "Vegetariana pizza", "Thin crust with high quality flour and fresh tomato sauce base and with high quality fresh vegetables.", Pizza.Size.SMALL, true, 40);
+    private static Pizza pizza1 = PizzaFactory.buildPizza(b1, "Mushroom pizza", "Thick crust with high quality flour and fresh mushrooms and with double creamy extra cheese.", Pizza.Size.MEDIUM, false, 59);
+
 
     @Test
     public void a_create(){
