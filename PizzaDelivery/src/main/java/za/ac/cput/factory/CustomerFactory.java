@@ -11,14 +11,20 @@ import za.ac.cput.util.Helper;
    Date: 30th March 2023
 */
 public class CustomerFactory {
-    public static Customer buildCustomer(String customerName, String customerSurname,Address address) {
-        if (Helper.isNullOrEmpty(customerName) || Helper.isNullOrEmpty(String.valueOf(customerSurname))|| Helper.isNullOrEmpty(String.valueOf(address))) {
+    public static Customer buildCustomer(String customerName, String customerSurname,String phoneNumber,Address address) {
+        if (Helper.isNullOrEmpty(customerName) || Helper.isNullOrEmpty(String.valueOf(customerSurname))|| Helper.isNullOrEmpty(phoneNumber)) {
             return null;
         }
 
         String customerID = Helper.generateId();
 
-        Customer customer = new Customer.Builder().setCustomerID(customerID).setCustomerName(customerName).setCustomerSurname(customerSurname).setAddress(address).build();
+        Customer customer = new Customer.Builder()
+                .setCustomerID(customerID)
+                .setCustomerName(customerName)
+                .setCustomerSurname(customerSurname)
+                .setPhoneNumber(phoneNumber)
+                .setAddress(address)
+                .build();
         return customer;
 
     }

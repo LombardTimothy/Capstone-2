@@ -65,7 +65,7 @@ public class RestaurantRepository implements IRestaurantRepository{
     }
     @Override
     public Set<Restaurant> getAll() {
-        return null;
+        return restaurantList;
     }
 
 }

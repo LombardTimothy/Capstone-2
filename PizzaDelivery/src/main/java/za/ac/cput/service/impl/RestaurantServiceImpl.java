@@ -17,7 +17,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 
     private static RestaurantServiceImpl service = null;
-    private RestaurantRepository repository = null;
+    private static RestaurantRepository repository = null;
 
     private RestaurantServiceImpl() {
         if (repository == null) {

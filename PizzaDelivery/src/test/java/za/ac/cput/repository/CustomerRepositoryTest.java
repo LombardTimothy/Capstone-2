@@ -46,16 +46,19 @@ public class CustomerRepositoryTest {
     private static Customer customer = CustomerFactory.buildCustomer(
             "Keenan",
             "Meyer",
+            "078 675 7850",
             address);
 
     private static Customer customer2 = CustomerFactory.buildCustomer(
             "Alison",
             "Williams",
+            "078 675 7850",
             address2);
 
     private static Customer customer3= CustomerFactory.buildCustomer(
             "Brandon",
             "Wise",
+            "078 675 7850",
             address3);
 
 
@@ -87,7 +90,11 @@ public class CustomerRepositoryTest {
 
     @Test
     public void c_Customer_update(){
-        Customer updated = new Customer.Builder().copy(customer2).setCustomerName("Keenan").setCustomerSurname("Joy").setAddress(address2).build();
+        Customer updated = new Customer.Builder()
+                .copy(customer2)
+                .setCustomerName("Keenan").setCustomerSurname("Joy")
+                .setAddress(address2).build();
+
         assertNotNull(repo.update(updated));
         System.out.println(updated);
     }

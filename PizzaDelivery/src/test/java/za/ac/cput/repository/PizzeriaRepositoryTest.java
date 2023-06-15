@@ -6,31 +6,31 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.domain.Restaurant;
-import za.ac.cput.factory.RestaurantFactory;
+import za.ac.cput.domain.Pizzeria;
+import za.ac.cput.factory.PizzeriaFactory;
 /*
-   RestaurantRepositoryTest.java
-   Entity for the RestaurantRepositoryTest
+   PizzeriaRepositoryTest.java
+   Entity for the PizzeriaRepositoryTest
    Author: Keenan Meyer (220194920)
    Date: 03th April 2023
 */
 @TestMethodOrder(MethodOrderer.MethodName.class)
 
-public class RestaurantRepositoryTest {
+public class PizzeriaRepositoryTest {
 
-    private static RestaurantRepository repo = RestaurantRepository.getRepository();
+    private static PizzeriaRepository repo = PizzeriaRepository.getRepository();
 
-    private static Restaurant restaurant = RestaurantFactory.buildRestaurant(
+    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant(
             "Grancho",
             25,
             true);
 
-    private static Restaurant restaurant2 = RestaurantFactory.buildRestaurant(
+    private static Pizzeria pizzeria2 = PizzeriaFactory.buildRestaurant(
             "Grancho & Sons",
             22,
             true);
 
-    private static Restaurant restaurant3 = RestaurantFactory.buildRestaurant(
+    private static Pizzeria pizzeria3 = PizzeriaFactory.buildRestaurant(
             "GrangerBay",
             15,
             false);
@@ -38,20 +38,20 @@ public class RestaurantRepositoryTest {
 
     @Test
     public void a_Restaurant_create(){
-        Restaurant created = repo.create(restaurant);
-        Restaurant created1 = repo.create(restaurant2);
-        Restaurant created2 = repo.create(restaurant3);
+        Pizzeria created = repo.create(pizzeria);
+        Pizzeria created1 = repo.create(pizzeria2);
+        Pizzeria created2 = repo.create(pizzeria3);
         System.out.println(created + "\n" + created1 + "\n" + created2);
-        assertNotNull(restaurant);
-        assertNotNull(restaurant2);
-        assertNotNull(restaurant3);
+        assertNotNull(pizzeria);
+        assertNotNull(pizzeria2);
+        assertNotNull(pizzeria3);
     }
 
     @Test
     public void b_Restaurant_read(){
-        Restaurant read = repo.read(restaurant.getRestaurantID());
-        Restaurant read1 = repo.read(restaurant2.getRestaurantID());
-        Restaurant read2 = repo.read(restaurant3.getRestaurantID());
+        Pizzeria read = repo.read(pizzeria.getRestaurantID());
+        Pizzeria read1 = repo.read(pizzeria2.getRestaurantID());
+        Pizzeria read2 = repo.read(pizzeria3.getRestaurantID());
         assertNotNull(read);
         assertNotNull(read1);
         assertNotNull(read2);
@@ -60,19 +60,19 @@ public class RestaurantRepositoryTest {
 
     @Test
     public void c_Restaurant_update(){
-        Restaurant.Builder builder2 = new Restaurant.Builder();
-        builder2.copy(restaurant);
+        Pizzeria.Builder builder2 = new Pizzeria.Builder();
+        builder2.copy(pizzeria);
         //builder2.setRestaurantName("Granger & Moms");
         builder2.setIsOpen(true);
         builder2.setNoOfEmp(10);
-        Restaurant updated = builder2.build();
+        Pizzeria updated = builder2.build();
         assertNotNull(repo.update(updated));
         System.out.println(updated);
     }
 
     @Test
     public void d_Restaurant_delete(){
-        boolean deleted = repo.delete(restaurant.getRestaurantID());
+        boolean deleted = repo.delete(pizzeria.getRestaurantID());
         assertTrue(deleted);
         System.out.println("Delete " + true);//deleted
     }

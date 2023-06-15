@@ -11,14 +11,15 @@ import za.ac.cput.util.Helper;
 
     public class PizzaFactory {
 
-        public static Pizza buildPizza(String itemName, String itemDescription, String size, boolean vegetarianOrNot, double price) {
-            if (Helper.isNullOrEmpty(itemName) || Helper.isNullOrEmpty(itemDescription) || Helper.isNullOrEmpty(size) || Helper.isNullOrEmpty(String.valueOf(vegetarianOrNot)) || Helper.isNullOrEmpty(String.valueOf(price))) {
+        public static Pizza buildPizza(String itemName, String itemDescription, Pizza.Size size, boolean vegetarianOrNot, double price) {
+            if (Helper.isNullOrEmpty(itemName) || Helper.isNullOrEmpty(itemDescription) || Helper.isNullOrEmpty(String.valueOf(size)) || Helper.isNullOrEmpty(String.valueOf(vegetarianOrNot)) || Helper.isNullOrEmpty(String.valueOf(price))) {
                 return null;
             }
 
             String pizzaId = Helper.generateId();
+            String baseId = Helper.generateId();
 
-            Pizza pizza = new Pizza.Builder().setPizzaId(pizzaId).setItemName(itemName).setItemDescription(itemDescription).setSize(size).setVegetarianOrNot(vegetarianOrNot).setPrice(price).build();
+            Pizza pizza = new Pizza.Builder().setPizzaId(pizzaId).setBaseId(baseId).setItemName(itemName).setItemDescription(itemDescription).setSize(size).setVegetarianOrNot(vegetarianOrNot).setPrice(price).build();
             return pizza;
 
         }

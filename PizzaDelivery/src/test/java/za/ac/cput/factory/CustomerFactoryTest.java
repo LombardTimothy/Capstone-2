@@ -16,7 +16,12 @@ public class CustomerFactoryTest {
             "South Africa");
     @Test
     void buildCustomer() {
-        Customer customer = CustomerFactory.buildCustomer("Keenan", "Meyer", address);
+        Customer customer = CustomerFactory.buildCustomer(
+                "Keenan",
+                "Meyer",
+                "082 738 2590",
+                address);
+
         System.out.println(customer.toString());
         assertNotNull(customer);
     }

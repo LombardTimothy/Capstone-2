@@ -6,6 +6,8 @@ import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.*;
 import za.ac.cput.factory.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /*
@@ -23,23 +25,24 @@ class OrderLineRepositoryTest {
     private static LocalDate date1 = LocalDate.of(2023, 9, 17);
     private static LocalDate date2 = LocalDate.of(2023, 9, 20);
     private static LocalDate date3 = LocalDate.of(2023, 9, 23);
+    private static LocalTime time = LocalTime.now();
 
     private static Address address1 = AddressFactory.buildAddress("22", "Fall Street", "Rock Bottom", "0006", "Pennsylvania", "Westeros");
     private static Address address2 = AddressFactory.buildAddress("23", "Fall Street", "Rock Bottom", "0006", "Pennsylvania", "Westeros");
     private static Address address3 = AddressFactory.buildAddress("24A", "Fall Street", "Rock Bottom", "0006", "Pennsylvania", "Westeros");
 
-    private static Customer customer1 = CustomerFactory.buildCustomer("Rickon", "Stark", address1);
-    private static Customer customer2 = CustomerFactory.buildCustomer("Loras", "Tyrell", address2);
-    private static Customer customer3 = CustomerFactory.buildCustomer("Theon", "Greyjoy", address3);
+    private static Customer customer1 = CustomerFactory.buildCustomer("Rickon", "Stark","078 675 7850", address1);
+    private static Customer customer2 = CustomerFactory.buildCustomer("Loras", "Tyrell","088 675 7850", address2);
+    private static Customer customer3 = CustomerFactory.buildCustomer("Theon", "Greyjoy","098 675 7850", address3);
 
-    private static Order order1 = OrderFactory.buildOrder(date1, customer1);
-    private static Order order2 = OrderFactory.buildOrder(date2, customer2);
-    private static Order order3 = OrderFactory.buildOrder(date3, customer3);
+    private static Order order1 = OrderFactory.buildOrder(date1, time, customer1);
+    private static Order order2 = OrderFactory.buildOrder(date2, time, customer2);
+    private static Order order3 = OrderFactory.buildOrder(date3, time, customer3);
 
-    private static Pizza pizza1 = PizzaFactory.buildPizza("Tikka chicken", "Thin crust, tikka and BBQ sauce, mozzarella cheese, mushroom, sweet bell pepper, spring onion, and chicken.", "Large", false, 156);
-    private static Pizza pizza2 = PizzaFactory.buildPizza("Pepperoni", "Thick crust, tomato and BBQ sauce, mozzarella cheese, and pepperoni.", "Medium", false, 90);
-    private static Pizza pizza3 = PizzaFactory.buildPizza("Creamy Veg", "Thin crust, cream cheese sauce, feta and mozzarella cheese, mushroom, sweet bell pepper, and onion.", "Large", true, 125);
-    private static Pizza pizza4 = PizzaFactory.buildPizza("Beef", "Normal crust, mexican and BBQ sauce, extra mozzarella cheese, jalapeno, green pepper, onion, and ground beef.", "Small", false, 80);
+    private static Pizza pizza1 = PizzaFactory.buildPizza("Tikka chicken", "Thin crust, tikka and BBQ sauce, mozzarella cheese, mushroom, sweet bell pepper, spring onion, and chicken.", Pizza.Size.EXTRA_LARGE, false, 156);
+    private static Pizza pizza2 = PizzaFactory.buildPizza("Pepperoni", "Thick crust, tomato and BBQ sauce, mozzarella cheese, and pepperoni.", Pizza.Size.LARGE, false, 90);
+    private static Pizza pizza3 = PizzaFactory.buildPizza("Creamy Veg", "Thin crust, cream cheese sauce, feta and mozzarella cheese, mushroom, sweet bell pepper, and onion.", Pizza.Size.LARGE, true, 125);
+    private static Pizza pizza4 = PizzaFactory.buildPizza("Beef", "Normal crust, mexican and BBQ sauce, extra mozzarella cheese, jalapeno, green pepper, onion, and ground beef.", Pizza.Size.MEDIUM, false, 80);
 
 
     private static OrderLine orderLine1 = OrderLineFactory.buildOrderLine(1,order1, pizza1);

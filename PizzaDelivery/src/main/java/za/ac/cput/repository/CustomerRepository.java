@@ -74,7 +74,7 @@ public class CustomerRepository implements ICustomerRepository{
     }
     @Override
     public Set<Customer> getAll() {
-        return null;
+        return customerList;
     }
 
 }

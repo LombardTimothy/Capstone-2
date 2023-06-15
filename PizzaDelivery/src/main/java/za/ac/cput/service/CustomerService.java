@@ -1,6 +1,7 @@
 package za.ac.cput.service;
 
 import za.ac.cput.domain.Customer;
+import za.ac.cput.domain.Pizza;
 import za.ac.cput.service.IService;
 
 import java.util.Set;
@@ -14,7 +15,14 @@ import java.util.Set;
 
 public interface CustomerService extends IService<Customer, String> {
 
-    boolean delete(String cusNum);
+    Customer create(Customer customerID);
+
+    Customer read(String customerID);
+
+    Customer update(Customer customer);
+
+    boolean delete(String customerID);
+
 
     Set<Customer> getAll();
 }
