@@ -1,5 +1,6 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.OrderLine;
 import za.ac.cput.repository.OrderLineRepository;
 import za.ac.cput.service.OrderLineService;
@@ -13,6 +14,7 @@ Date: 09 June 2023
 Last updated: 10 June 2023
  */
 
+@Service
 public class OrderLineServiceImpl implements OrderLineService {
     private static OrderLineServiceImpl service = null;
     private static OrderLineRepository repository = null;
