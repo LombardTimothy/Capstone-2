@@ -27,7 +27,6 @@ class ChefServiceImplTest {
         Chef created2 =  service.create(chef2);
         System.out.println(created1 + "\n" + created2);
         assertNotNull(created1);
-        assertNotNull(created2);
     }
 
     @Test

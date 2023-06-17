@@ -1,5 +1,6 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Chef;
 import za.ac.cput.repository.ChefRepository;
 import za.ac.cput.service.ChefService;
@@ -10,7 +11,7 @@ import java.util.Set;
  Author: Dawood Kamalie (220147760)
  Date: 11th June (last updated) 2023
 */
-
+@Service
 public class ChefServiceImpl implements ChefService {
     private static ChefServiceImpl service = null;
     private static ChefRepository repository = null;
