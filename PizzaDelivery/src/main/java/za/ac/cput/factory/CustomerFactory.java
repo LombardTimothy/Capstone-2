@@ -28,4 +28,20 @@ public class CustomerFactory {
         return customer;
 
     }
+    public static Customer buildCustomer(String customerName, String customerSurname,String phoneNumber) {
+        if (Helper.isNullOrEmpty(customerName) || Helper.isNullOrEmpty(String.valueOf(customerSurname))|| Helper.isNullOrEmpty(phoneNumber)) {
+            return null;
+        }
+
+        String customerID = Helper.generateId();
+
+        Customer customer = new Customer.Builder()
+                .setCustomerID(customerID)
+                .setCustomerName(customerName)
+                .setCustomerSurname(customerSurname)
+                .setPhoneNumber(phoneNumber)
+                .build();
+        return customer;
+
+    }
 }
