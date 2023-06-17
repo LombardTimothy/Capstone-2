@@ -1,5 +1,6 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.PizzaTopping;
 import za.ac.cput.repository.PizzaToppingRepository;
 import za.ac.cput.repository.ToppingRepository;
@@ -11,6 +12,7 @@ import java.util.Set;
  Author: Timothy Lombard (220154856)
  Date: 13th June (last updated) 2023
 */
+@Service
 public class PizzaToppingServiceImpl implements PizzaToppingService {
 
     private static PizzaToppingServiceImpl pizzaToppingService = null;
