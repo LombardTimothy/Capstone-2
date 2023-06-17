@@ -1,5 +1,6 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Employee;
 import za.ac.cput.repository.EmployeeRepository;
 import za.ac.cput.service.EmployeeService;
@@ -10,6 +11,7 @@ import java.util.Set;
  Author: Dawood Kamalie (220147760)
  Date: 11th June (last updated) 2023
 */
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 
     private static EmployeeServiceImpl service = null;
