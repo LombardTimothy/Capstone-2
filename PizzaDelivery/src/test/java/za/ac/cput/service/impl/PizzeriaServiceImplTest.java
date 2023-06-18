@@ -3,6 +3,9 @@ package za.ac.cput.service.impl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.Pizzeria;
 import za.ac.cput.factory.PizzeriaFactory;
 
@@ -15,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
+@SpringBootTest
 class PizzeriaServiceImplTest {
     private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant(
             "Grancho",
@@ -30,7 +34,9 @@ class PizzeriaServiceImplTest {
             "GrangerBay",
             15,
             false);
-    private static PizzeriaServiceImpl service = PizzeriaServiceImpl.getService();
+    //private static PizzeriaServiceImpl service = PizzeriaServiceImpl.getService();
+    @Autowired
+    private PizzeriaServiceImpl service;
     @Test
     void a_create() {
         Pizzeria created = service.create(pizzeria);
@@ -59,18 +65,20 @@ class PizzeriaServiceImplTest {
 
     @Test
     void c_update() {
-        Pizzeria updatedPizzeria = new Pizzeria
+        Pizzeria newPizzeria = new Pizzeria
                 .Builder()
                 .copy(pizzeria2)
                 .setRestaurantName("Tigers and sons")
                 .setNoOfEmp(17)
                 .setIsOpen(false)
                 .build();
+        Pizzeria updated = service.update(newPizzeria);
 
-        assertNotNull(service.update(updatedPizzeria));
-        System.out.println(updatedPizzeria);
+        assertEquals(newPizzeria.getRestaurantName(),newPizzeria.getRestaurantName());
+        assertNotNull(service.update(newPizzeria));
+        System.out.println(newPizzeria);
     }
-
+    }
 /*   @Test
     void d_delete() {
         boolean deleted = service.delete(pizzeria.getRestaurantID());
@@ -83,4 +91,3 @@ class PizzeriaServiceImplTest {
         System.out.println(service.getAll());
     }
  */
-}

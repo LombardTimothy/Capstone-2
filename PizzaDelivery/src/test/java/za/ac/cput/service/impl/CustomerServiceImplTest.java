@@ -3,6 +3,8 @@ package za.ac.cput.service.impl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Address;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.Pizza;
@@ -18,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Last update: 14 June 2023
  */
 @TestMethodOrder(MethodOrderer.MethodName.class)
+@SpringBootTest
 class CustomerServiceImplTest {
 
     public static Address address = AddressFactory.buildAddress(
@@ -67,7 +70,9 @@ class CustomerServiceImplTest {
             "Wise",
             "078 675 7850",
             address3);
-    private static CustomerServiceImpl service = CustomerServiceImpl.getService();
+    @Autowired
+    private CustomerServiceImpl service;
+    //private static CustomerServiceImpl service = CustomerServiceImpl.getService();
     @Test
     void a_create() {
         Customer created = service.create(customer);
@@ -94,15 +99,17 @@ class CustomerServiceImplTest {
 
     @Test
     void c_update() {
-        Customer updatedCustomer = new Customer
+        Customer newCustomer = new Customer
                 .Builder()
                 .copy(customer)
-                .setCustomerName("Spoilt")
-                .setCustomerSurname("Molly")
+                .setCustomerName("Diego")
+                .setCustomerSurname("Jansen")
                 .build();
+        Customer updated = service.update(newCustomer);
 
-        assertNotNull(service.update(updatedCustomer));
-        System.out.println(updatedCustomer);
+        assertEquals(newCustomer.getCustomerName(),newCustomer.getCustomerName());
+        assertNotNull(service.update(newCustomer));
+        System.out.println(newCustomer);
     }
 
     @Test
