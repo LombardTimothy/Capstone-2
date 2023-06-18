@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.service.CustomerService;
+
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -22,7 +24,7 @@ public class CustomerController {
         return customerService.read(id);
     }
 
-    @PostMapping("/update")
+    @PostMapping("update")
     public Customer update(@RequestBody Customer customer){
         return  customerService.update(customer);
     }
