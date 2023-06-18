@@ -4,66 +4,67 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import za.ac.cput.domain.Chef;
 import za.ac.cput.domain.Employee;
+import za.ac.cput.factory.ChefFactory;
 import za.ac.cput.factory.EmployeeFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class EmployeeControllerTest {
-
-    private static Employee employee = EmployeeFactory.createEmployee("0012", "Basil", "Roode");
+class ChefControllerTest {
+    private static Chef chef = ChefFactory.createChef("044", "Nolongo", "Kaputsi", "223", "Congolese", "Head Chef");
     @Autowired
     private TestRestTemplate restTemplate;
-    private final String baseURL = "http://localhost:8080/employee";
+    private final String baseURL = "http://localhost:8080/chef";
 
     @Test
     void a_create() {
         String url = baseURL + "/create";
-        ResponseEntity<Employee> postResponse = restTemplate.postForEntity(url, employee, Employee.class);
+        ResponseEntity<Chef> postResponse = restTemplate.postForEntity(url, chef, Chef.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.
-        getBody());
-        employee = postResponse.getBody();
-        System.out.println("Saved data: " + employee);
-        assertEquals(employee.getEmpId(), postResponse.getBody().getEmpId());
-     }
+                getBody());
+        chef = postResponse.getBody();
+        System.out.println("Saved data: " + chef);
+        assertEquals(chef.getChefId(), postResponse.getBody().getChefId());
+    }
 
     @Test
     void b_read() {
-        String url = baseURL + "/read/" + employee.getEmpId();
+        String url = baseURL + "/read/" + chef.getChefId();
         System.out.println("URL: " + url);
-        ResponseEntity<Employee> response = restTemplate.getForEntity(url, Employee.class);
-        assertEquals(employee.getEmpId(), response.getBody().getEmpId());
+        ResponseEntity<Chef> response = restTemplate.getForEntity(url, Chef.class);
+        assertEquals(chef.getChefId(), response.getBody().getChefId());
         System.out.println(response.getBody());
     }
 
     @Test
     void c_update() {
-        Employee updated = new Employee.Builder().copy(employee).setEmpName("Josepheen").build();
+        Chef updated = new Chef.Builder().copy(chef).setChefName("Nologono").build();
         String url = baseURL + "/update";
         System.out.println("URL : " + url);
         System.out.println("Post data: " + updated);
-        ResponseEntity<Employee> response = restTemplate.postForEntity(url, updated, Employee.class);
+        ResponseEntity<Chef> response = restTemplate.postForEntity(url, updated, Chef.class);
         assertNotNull(response.getBody());
     }
 
     @Test
-    void e_delete() {
-        String url = baseURL + "/delete/" + employee.getEmpId();
+    void d_delete() {
+        String url = baseURL + "/delete/" + chef.getChefId();
         System.out.println("URL: " + url);
         restTemplate.delete(url);
     }
 
     @Test
-    void d_getall() {
+    void getall() {
         String url = baseURL + "/getall";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
