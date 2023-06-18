@@ -79,7 +79,7 @@ class PizzeriaServiceImplTest {
         System.out.println(newPizzeria);
     }
     }
-/*   @Test
+/*   @TesAt
     void d_delete() {
         boolean deleted = service.delete(pizzeria.getRestaurantID());
         assertTrue(deleted);
