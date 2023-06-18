@@ -15,8 +15,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class DriverServiceImplTest {
     private static DriverServiceImpl service = DriverServiceImpl.getService();
-    private static Driver driver1 = DriverFactory.createDriver("501");
-    private static Driver driver2 = DriverFactory.createDriver("502");
+    private static Driver driver1 = DriverFactory.createDriver("501","255","zain","G");
+    private static Driver driver2 = DriverFactory.createDriver("502","456","Josh","J");
     @Test
     public void a_create() {
         Driver create1 = service.create(driver1);

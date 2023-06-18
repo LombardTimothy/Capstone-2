@@ -4,6 +4,7 @@ VehicleRepositoryTest.java
 Author: Azhar Allie Mohammed (217250513)
 Date: 08/04/2023
 */
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
