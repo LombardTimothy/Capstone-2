@@ -9,10 +9,10 @@ import za.ac.cput.domain.Driver;
 import za.ac.cput.util.Helper;
 
 public class DriverFactory {
-    public static Driver createDriver(String driverId){
+    public static Driver createDriver(String driverId, String empId, String driverName,String driverSurname){
         String driverID = Helper.generateId();
 
-        Driver drv = new Driver.Builder().setDriverId(driverID).build();
+        Driver drv = new Driver.Builder().setDriverId(driverId).setEmpId(empId).setDriverName(driverName).setDriverSurname(driverSurname).build();
         return drv;
     }
 
