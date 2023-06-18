@@ -2,8 +2,10 @@ package za.ac.cput.service;
 
 import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.Pizza;
+import za.ac.cput.repository.CustomerRepository;
 import za.ac.cput.service.IService;
 
+import java.util.List;
 import java.util.Set;
 
 /*
@@ -14,7 +16,7 @@ import java.util.Set;
  */
 
 public interface CustomerService extends IService<Customer, String> {
-
+    //private CustomerRepository repository;
     Customer create(Customer customerID);
 
     Customer read(String customerID);
@@ -22,7 +24,5 @@ public interface CustomerService extends IService<Customer, String> {
     Customer update(Customer customer);
 
     boolean delete(String customerID);
-
-
     Set<Customer> getAll();
 }

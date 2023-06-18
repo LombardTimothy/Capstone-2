@@ -1,5 +1,6 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Address;
 import za.ac.cput.repository.AddressRepository;
 import za.ac.cput.service.AddressService;
@@ -13,6 +14,7 @@ Date: 09 June 2023
 Last updated: 10 June 2023
  */
 
+@Service
 public class AddressServiceImpl implements AddressService {
     private static AddressServiceImpl service = null;
     private static AddressRepository repository = null;
