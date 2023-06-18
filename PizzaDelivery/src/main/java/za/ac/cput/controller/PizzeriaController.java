@@ -19,11 +19,12 @@ public class PizzeriaController {
         public Pizzeria create(@RequestBody Pizzeria pizzeria) {
             return pizzeriaService.create(pizzeria);
         }
-
+        @GetMapping("/read/{id}")
         public Pizzeria read(@PathVariable String id) {
             return pizzeriaService.read(id);
         }
 
+        @PostMapping("update")
         public Pizzeria update(@RequestBody Pizzeria pizzeria) {
             return pizzeriaService.update(pizzeria);
         }

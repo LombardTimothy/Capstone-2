@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PizzeriaControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private final String baseURL = "http://localhost:8080/employee";
+    private final String baseURL = "http://localhost:8080/pizzeria";
         private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant(
                 "Grancho",
                 25,
@@ -31,7 +31,6 @@ class PizzeriaControllerTest {
                 22,
                 true);
         @Test
-        @Disabled
         void create() {
             String url = baseURL + "/create";
             ResponseEntity<Pizzeria> postResponse = restTemplate.postForEntity(url, pizzeria, Pizzeria.class);
@@ -46,7 +45,6 @@ class PizzeriaControllerTest {
         }
 
         @Test
-        @Disabled
         void read() {
             String url = baseURL + "/read/" + pizzeria.getRestaurantID();
             System.out.println("url: " + url);

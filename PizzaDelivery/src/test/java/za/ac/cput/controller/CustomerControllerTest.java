@@ -15,12 +15,10 @@ import za.ac.cput.domain.Address;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.factory.AddressFactory;
 import za.ac.cput.factory.CustomerFactory;
-
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CustomerControllerTest {
-
     private static Address address = AddressFactory.buildAddress("21",
             "Jump Street",
             "",
@@ -39,9 +37,8 @@ class CustomerControllerTest {
 
         @Autowired
         private TestRestTemplate restTemplate;
-        private final String baseURL = "http://localhost:8080/employee";
+        private final String baseURL = "http://localhost:8080/customer";
         @Test
-        @Disabled
         void a_create() {
             String url = baseURL + "/create";
             ResponseEntity<Customer> postResponse = restTemplate.postForEntity(url, customer, Customer.class);
@@ -56,7 +53,7 @@ class CustomerControllerTest {
         }
 
         @Test
-        @Disabled
+
         void b_read() {
             String url = baseURL + "/read/" + customer.getCustomerID();
             System.out.println("url: " + url);
@@ -69,7 +66,6 @@ class CustomerControllerTest {
         }
 
         @Test
-        @Disabled
         void c_update() {
             Customer updatedCustomer = new Customer
                     .Builder()
