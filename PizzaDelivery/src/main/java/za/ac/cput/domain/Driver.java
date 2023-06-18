@@ -8,6 +8,9 @@ import java.util.Objects;
 
 public class Driver extends Employee{
     private String driverId;
+    private String empId = super.getEmpId();
+    private  String driverName = super.getEmpName();
+    private String driverSurname = super.getEmpSurname();
 
     public Driver() {
     }
@@ -20,11 +23,42 @@ public class Driver extends Employee{
         return driverId;
     }
 
+    @Override
+    public String getEmpId() {
+        return empId;
+    }
+
+    public String getDriverName() {
+        return driverName;
+    }
+
+    public String getDriverSurname() {
+        return driverSurname;
+    }
+
     public static class Builder{
         private String driverId;
+        private String empId;
+        private  String driverName;
+        private String driverSurname;
 
         public Builder setDriverId(String driverId) {
             this.driverId = driverId;
+            return this;
+        }
+
+        public Builder setEmpId(String empId) {
+            this.empId = empId;
+            return this;
+        }
+
+        public Builder setDriverName(String driverName) {
+            this.driverName = driverName;
+            return this;
+        }
+
+        public Builder setDriverSurname(String driverSurname) {
+            this.driverSurname = driverSurname;
             return this;
         }
 
@@ -40,18 +74,21 @@ public class Driver extends Employee{
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             Builder builder = (Builder) o;
-            return Objects.equals(driverId, builder.driverId);
+            return Objects.equals(driverId, builder.driverId) && Objects.equals(empId, builder.empId) && Objects.equals(driverName, builder.driverName) && Objects.equals(driverSurname, builder.driverSurname);
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(driverId);
+            return Objects.hash(driverId, empId, driverName, driverSurname);
         }
 
         @Override
         public String toString() {
             return "Builder{" +
                     "driverId='" + driverId + '\'' +
+                    ", empId='" + empId + '\'' +
+                    ", chefName='" + driverName + '\'' +
+                    ", chefSurname='" + driverSurname + '\'' +
                     '}';
         }
     }
