@@ -72,7 +72,7 @@ class CustomerServiceImplTest {
             address3);
     @Autowired
     private CustomerServiceImpl service;
-    //private static CustomerServiceImpl service = CustomerServiceImpl.getService();
+    //Aprivate static CustomerServiceImpl service = CustomerServiceImpl.getService();
     @Test
     void a_create() {
         Customer created = service.create(customer);
