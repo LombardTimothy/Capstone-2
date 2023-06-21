@@ -1,5 +1,9 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+import java.io.Serializable;
 import java.util.Objects;
 
 /* Pizzeria.java
@@ -7,13 +11,15 @@ import java.util.Objects;
    Author: Keenan Meyer (220194920)
    Date: 30th March 2023
 */
-public class Pizzeria {
+@Entity
+public class Pizzeria implements Serializable {
+    @Id
     private String restaurantID;
     private String restaurantName;
     private int noOfEmp;
     private Boolean isOpen;
 
-    private Pizzeria(){
+    protected Pizzeria(){
 
     }
     private Pizzeria(Builder builder){

@@ -1,23 +1,27 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import java.io.Serializable;
 import java.util.Objects;
-
 
 /* Pizzeria.java
    Entity for the Customer
    Author: Keenan Meyer (220194920)
    Date: 30th March 2023
 */
-public class Customer {
+@Entity
+public class Customer implements Serializable{
+    @Id
     private String customerID;
     private String customerName;
     private String customerSurname;
     private String phoneNumber;
-    private Address address;
+
+    //private Address address;
 
 
-    private Customer(){
-
+    protected Customer(){
     }
 
     private Customer(Builder builder){
@@ -25,9 +29,7 @@ public class Customer {
         this.customerName = builder.customerName;
         this.customerSurname = builder.customerSurname;
         this.phoneNumber = builder.phoneNumber;
-        this.address = builder.address;
-
-
+        //this.address = builder.address;
     }
 
     public String getCustomerID() {
@@ -45,9 +47,9 @@ public class Customer {
         return phoneNumber;
     }
 
-    public Address getAddress() {
-        return address;
-    }
+    //public Address getAddress() {
+    //    return address;
+    //}
 
 
     public static class Builder {
@@ -55,7 +57,7 @@ public class Customer {
         private String customerName;
         private String customerSurname;
         private String phoneNumber;
-        private Address address;
+        //private Address address;
 
         public Builder setCustomerID(String customerID) {
             this.customerID = customerID;
@@ -77,17 +79,17 @@ public class Customer {
             return this;
         }
 
-        public Builder setAddress(Address address){
-            this.address = address;
-            return this;
-        }
+        //public Builder setAddress(Address address){
+         //   this.address = address;
+        //    return this;
+        //}
 
         public Builder copy(za.ac.cput.domain.Customer t) {
             this.customerID = t.customerID;
             this.customerName = t.customerName;
             this.customerSurname = t.customerSurname;
             this.phoneNumber = t.phoneNumber;
-            this.address = t.address;
+           // this.address = t.address;
             return this;
         }
         public za.ac.cput.domain.Customer build() {
@@ -101,12 +103,12 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return Objects.equals(customerID, customer.customerID) && Objects.equals(customerName, customer.customerName) && Objects.equals(customerSurname, customer.customerSurname) && Objects.equals(phoneNumber, customer.phoneNumber) && Objects.equals(address, customer.address);
+        return Objects.equals(customerID, customer.customerID) && Objects.equals(customerName, customer.customerName) && Objects.equals(customerSurname, customer.customerSurname) && Objects.equals(phoneNumber, customer.phoneNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(customerID, customerName, customerSurname, phoneNumber, address);
+        return Objects.hash(customerID, customerName, customerSurname, phoneNumber);
     }
 
     @Override
@@ -116,7 +118,7 @@ public class Customer {
                 ", customerName='" + customerName + '\'' +
                 ", customerSurname='" + customerSurname + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", address=" + address +
+                ", address=" +
                 '}';
     }
 }

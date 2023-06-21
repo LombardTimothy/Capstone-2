@@ -25,7 +25,7 @@ class OrderServiceImplTest {
     private static OrderServiceImpl service = OrderServiceImpl.getOrder();
 
     private static Address address = AddressFactory.buildAddress("9", "11th Road", "", "HealthField", "Cape Town", "Western Cape", "South Africa", "7945",  Address.AddressType.RESIDENTIAL_HOME);
-    private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi", "058 675 7850", address);
+    private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi", "058 675 7850");
     private static LocalDate date = LocalDate.of(2023, 7, 28);
     private static LocalDate date1 = LocalDate.of(2023, 7, 29);
     private static LocalDate date2 = LocalDate.of(2023, 7, 8);

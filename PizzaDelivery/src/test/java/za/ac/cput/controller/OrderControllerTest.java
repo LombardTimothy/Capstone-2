@@ -32,7 +32,7 @@ class OrderControllerTest {
 
 private static Address address1 = AddressFactory.buildAddress("10B", "St Stones RD", "", "Southern suburb", "Cape Town", "Western Cape", "South Africa", "7945", Address.AddressType.RESIDENTIAL_HOME);
 
-    private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi","075 452 8339", address1);
+    private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi","075 452 8339");
 
     private static LocalDate date = LocalDate.of(2023, 9, 17);
     private static LocalDate date1 = LocalDate.of(2023, 6, 25);

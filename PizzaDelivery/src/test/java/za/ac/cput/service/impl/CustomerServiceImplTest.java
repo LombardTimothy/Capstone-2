@@ -56,23 +56,20 @@ class CustomerServiceImplTest {
     private static Customer customer = CustomerFactory.buildCustomer(
             "Keenan",
             "Meyer",
-            "078 675 7850",
-            address);
+            "078 675 7850");
 
     private static Customer customer2 = CustomerFactory.buildCustomer(
             "Alison",
             "Williams",
-            "078 675 7850",
-            address2);
+            "078 675 7850");
 
     private static Customer customer3= CustomerFactory.buildCustomer(
             "Brandon",
             "Wise",
-            "078 675 7850",
-            address3);
+            "078 675 7850");
     @Autowired
     private CustomerServiceImpl service;
-    //Aprivate static CustomerServiceImpl service = CustomerServiceImpl.getService();
+    //private static CustomerServiceImpl service = CustomerServiceImpl.getService();
     @Test
     void a_create() {
         Customer created = service.create(customer);

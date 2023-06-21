@@ -1,10 +1,8 @@
 package za.ac.cput.repository;
 
-
-import java.util.Set;
-
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Pizzeria;
-
-public interface IPizzeriaRepository extends IRepository<Pizzeria, String> {
-    public Set<Pizzeria> getAll();
+@Repository
+public interface IPizzeriaRepository extends JpaRepository<Pizzeria, String> {
 }

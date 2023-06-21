@@ -11,6 +11,7 @@ import za.ac.cput.domain.Pizzeria;
    Author: Keenan Meyer (220194920)
    Date: 4th April 2023
 */
+/*
 public class PizzeriaRepository implements IPizzeriaRepository {
 
     private static PizzeriaRepository repository = null;
@@ -69,3 +70,5 @@ public class PizzeriaRepository implements IPizzeriaRepository {
     }
 
 }
+
+ */
