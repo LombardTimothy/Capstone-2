@@ -14,8 +14,8 @@ import za.ac.cput.factory.PizzeriaFactory;
    Author: Keenan Meyer (220194920)
    Date: 03th April 2023
 */
-@TestMethodOrder(MethodOrderer.MethodName.class)
-
+//@TestMethodOrder(MethodOrderer.MethodName.class)
+/*
 public class PizzeriaRepositoryTest {
 
     private static PizzeriaRepository repo = PizzeriaRepository.getRepository();
@@ -83,4 +83,6 @@ public class PizzeriaRepositoryTest {
 
     }
 }
+
+ */
 

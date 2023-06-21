@@ -20,7 +20,7 @@ public class OrderLineFactoryTest {
     private static LocalDate date = LocalDate.of(2023, 9, 17);
     private static LocalTime time = LocalTime.now();
     private static Address address = AddressFactory.buildAddress("22", "Fall Street", "12", "East Bay", "Rock Bottom", "Ohio", "Crownlands", "0006", Address.AddressType.FLAT_BUILDING);
-    private static Customer customer = CustomerFactory.buildCustomer("Rickon", "Stark","076 675 8090", address);
+    private static Customer customer = CustomerFactory.buildCustomer("Rickon", "Stark","076 675 8090");
     private static Order order = OrderFactory.buildOrder(date,time, customer);
 
     private static Base b = PizzaFactory.createBase();

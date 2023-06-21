@@ -22,8 +22,7 @@ public class CustomerFactoryTest {
         Customer customer = CustomerFactory.buildCustomer(
                 "Keenan",
                 "Meyer",
-                "082 738 2590",
-                address);
+                "082 738 2590");
 
         System.out.println(customer.toString());
         assertNotNull(customer);

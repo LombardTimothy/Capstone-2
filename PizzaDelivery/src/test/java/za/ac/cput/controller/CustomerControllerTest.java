@@ -32,8 +32,7 @@ class CustomerControllerTest {
     private static Customer customer = CustomerFactory.buildCustomer(
             "Keenan",
             "Meyer",
-            "078 675 7850",
-            address);
+            "078 675 7850");
 
         @Autowired
         private TestRestTemplate restTemplate;
@@ -73,7 +72,7 @@ class CustomerControllerTest {
                     .setCustomerName("Spoilt")
                     .setCustomerSurname("Molly")
                     .setPhoneNumber("082 741 5565")
-                    .setAddress(address)
+                    //.setAddress(address)
                     .build();
 
             String url = baseURL + "/update";
