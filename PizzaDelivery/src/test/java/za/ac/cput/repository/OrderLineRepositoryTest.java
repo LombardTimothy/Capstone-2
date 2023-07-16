@@ -28,9 +28,9 @@ class OrderLineRepositoryTest {
 
     private static LocalTime time = LocalTime.now();
 
-    private static Address address1 = AddressFactory.buildAddress("124", "Conch Street", "3", "Sandstone", "Sunnydale", "Sunspear", "Dorne", "0008", Address.AddressType.FLAT_BUILDING);
-    private static Address address2 = AddressFactory.buildAddress("13A", "Elm Street", "", "Duskendale", "Central City", "King's Landing", "Crownlands", "0009", Address.AddressType.RESIDENTIAL_HOME);
-    private static Address address3 = AddressFactory.buildAddress("6", "Baker Street", "", "Mystic Falls", "Gotham City", "Northern Province", "Winterfell", "0010", Address.AddressType.RESIDENTIAL_HOME);
+    private static Address address1 = AddressFactory.buildAddress("124", "Conch Street", "3", "Sandstone", "Sunnydale", "Sunspear", "Dorne", "0008", AddressType.FLAT_BUILDING);
+    private static Address address2 = AddressFactory.buildAddress("13A", "Elm Street", "", "Duskendale", "Central City", "King's Landing", "Crownlands", "0009", AddressType.RESIDENTIAL_HOME);
+    private static Address address3 = AddressFactory.buildAddress("6", "Baker Street", "", "Mystic Falls", "Gotham City", "Northern Province", "Winterfell", "0010", AddressType.RESIDENTIAL_HOME);
 
     private static Customer customer1 = CustomerFactory.buildCustomer("Theon", "Greyjoy","078 675 7850");
     private static Customer customer2 = CustomerFactory.buildCustomer("Loras", "Tyrell","088 675 7850");

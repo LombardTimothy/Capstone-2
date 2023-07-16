@@ -1,6 +1,7 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.Address;
+import za.ac.cput.domain.AddressType;
 import za.ac.cput.util.Helper;
 
 /*
@@ -11,7 +12,7 @@ Last update: 14 June 2023
  */
 
 public class AddressFactory {
-    public static Address buildAddress(String streetNumber, String streetName, String flatNumber, String suburb, String city, String province, String country, String postalCode, Address.AddressType addressType) {
+    public static Address buildAddress(String streetNumber, String streetName, String flatNumber, String suburb, String city, String province, String country, String postalCode, AddressType addressType) {
         if(Helper.isNullOrEmpty(streetNumber) || Helper.isNullOrEmpty(streetName) || Helper.isNullOrEmpty(suburb) || Helper.isNullOrEmpty(city) || Helper.isNullOrEmpty(province) || Helper.isNullOrEmpty(country) || Helper.isNullOrEmpty(postalCode) || Helper.isNullOrEmpty(String.valueOf(addressType))) {
             return null;
         }

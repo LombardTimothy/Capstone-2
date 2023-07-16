@@ -30,7 +30,7 @@ class OrderLineControllerTest {
 
     private static LocalDate date1 = LocalDate.of(2023, 9, 17);
     private static LocalTime time1 = LocalTime.now();
-    private static Address address1 = AddressFactory.buildAddress("21", "Jump Street", "", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", Address.AddressType.RESIDENTIAL_HOME);
+    private static Address address1 = AddressFactory.buildAddress("21", "Jump Street", "", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", AddressType.RESIDENTIAL_HOME);
     private static Customer customer1 = CustomerFactory.buildCustomer("Rickon", "Stark", "0868561233");
     private static Order order1 = OrderFactory.buildOrder(date1, time1, customer1);
     private static Base b1 = PizzaFactory.createBase();

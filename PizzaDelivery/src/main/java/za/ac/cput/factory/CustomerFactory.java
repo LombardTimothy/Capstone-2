@@ -11,10 +11,11 @@ import za.ac.cput.util.Helper;
    Date: 30th March 2023
 */
 public class CustomerFactory {
-    /*
+
     public static Customer buildCustomer(String customerName,
                                          String customerSurname,
-                                         String phoneNumber,Address address) {
+                                         String phoneNumber,
+                                         Address address) {
         if (Helper.isNullOrEmpty(customerName) || Helper.isNullOrEmpty(String.valueOf(customerSurname))|| Helper.isNullOrEmpty(phoneNumber)) {
             return null;
         }
@@ -31,7 +32,7 @@ public class CustomerFactory {
         return customer;
 
     }
-    */
+
     public static Customer buildCustomer(String customerName, String customerSurname,String phoneNumber) {
         if (Helper.isNullOrEmpty(customerName) || Helper.isNullOrEmpty(String.valueOf(customerSurname))|| Helper.isNullOrEmpty(phoneNumber)) {
             return null;

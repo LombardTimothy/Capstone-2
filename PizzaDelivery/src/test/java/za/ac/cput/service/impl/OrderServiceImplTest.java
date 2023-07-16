@@ -4,6 +4,7 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.Address;
+import za.ac.cput.domain.AddressType;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.Order;
 import za.ac.cput.factory.AddressFactory;
@@ -24,7 +25,7 @@ class OrderServiceImplTest {
 
     private static OrderServiceImpl service = OrderServiceImpl.getOrder();
 
-    private static Address address = AddressFactory.buildAddress("9", "11th Road", "", "HealthField", "Cape Town", "Western Cape", "South Africa", "7945",  Address.AddressType.RESIDENTIAL_HOME);
+    private static Address address = AddressFactory.buildAddress("9", "11th Road", "", "HealthField", "Cape Town", "Western Cape", "South Africa", "7945",  AddressType.RESIDENTIAL_HOME);
     private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi", "058 675 7850");
     private static LocalDate date = LocalDate.of(2023, 7, 28);
     private static LocalDate date1 = LocalDate.of(2023, 7, 29);

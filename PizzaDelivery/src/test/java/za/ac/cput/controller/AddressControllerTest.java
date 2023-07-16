@@ -11,6 +11,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.Address;
+import za.ac.cput.domain.AddressType;
 import za.ac.cput.factory.AddressFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -26,7 +27,7 @@ Last update: 14 June 2023
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class AddressControllerTest {
 
-    private static Address address = AddressFactory.buildAddress("124", "Conch Street", "", "Sandstone", "Sunnydale", "Sunspear", "Dorne", "0008", Address.AddressType.RESIDENTIAL_HOME);
+    private static Address address = AddressFactory.buildAddress("124", "Conch Street", "", "Sandstone", "Sunnydale", "Sunspear", "Dorne", "0008", AddressType.RESIDENTIAL_HOME);
 
     @Autowired
     private TestRestTemplate restTemplate;
