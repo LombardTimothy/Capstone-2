@@ -1,7 +1,7 @@
 package za.ac.cput.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -18,7 +18,9 @@ public class Customer implements Serializable{
     private String customerSurname;
     private String phoneNumber;
 
-    //private Address address;
+    @Embedded
+    //@ManyToMany(cascade = CascadeType.ALL)
+    private Address address;
 
 
     protected Customer(){
@@ -29,7 +31,7 @@ public class Customer implements Serializable{
         this.customerName = builder.customerName;
         this.customerSurname = builder.customerSurname;
         this.phoneNumber = builder.phoneNumber;
-        //this.address = builder.address;
+        this.address = builder.address;
     }
 
     public String getCustomerID() {
@@ -47,9 +49,9 @@ public class Customer implements Serializable{
         return phoneNumber;
     }
 
-    //public Address getAddress() {
-    //    return address;
-    //}
+    public Address getAddress() {
+        return address;
+    }
 
 
     public static class Builder {
@@ -57,7 +59,7 @@ public class Customer implements Serializable{
         private String customerName;
         private String customerSurname;
         private String phoneNumber;
-        //private Address address;
+        private Address address;
 
         public Builder setCustomerID(String customerID) {
             this.customerID = customerID;
@@ -79,17 +81,17 @@ public class Customer implements Serializable{
             return this;
         }
 
-        //public Builder setAddress(Address address){
-         //   this.address = address;
-        //    return this;
-        //}
+        public Builder setAddress(Address address){
+            this.address = address;
+            return this;
+        }
 
         public Builder copy(za.ac.cput.domain.Customer t) {
             this.customerID = t.customerID;
             this.customerName = t.customerName;
             this.customerSurname = t.customerSurname;
             this.phoneNumber = t.phoneNumber;
-           // this.address = t.address;
+            this.address = t.address;
             return this;
         }
         public za.ac.cput.domain.Customer build() {
@@ -118,7 +120,7 @@ public class Customer implements Serializable{
                 ", customerName='" + customerName + '\'' +
                 ", customerSurname='" + customerSurname + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", address=" +
+                ", address=" + address +
                 '}';
     }
 }

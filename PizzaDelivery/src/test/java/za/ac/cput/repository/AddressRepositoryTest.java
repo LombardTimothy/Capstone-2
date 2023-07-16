@@ -4,6 +4,7 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.Address;
+import za.ac.cput.domain.AddressType;
 import za.ac.cput.factory.AddressFactory;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,9 +19,9 @@ Last update: 14 June 2023
 
 class AddressRepositoryTest {
     private static AddressRepository addressRepository = AddressRepository.getRepository();
-    private static Address address1 = AddressFactory.buildAddress("124", "Conch Street", "3", "Sandstone", "Sunnydale", "Sunspear", "Dorne", "0008", Address.AddressType.FLAT_BUILDING);
-    private static Address address2 = AddressFactory.buildAddress("13A", "Elm Street", "", "Duskendale", "Central City", "King's Landing", "Crownlands", "0009", Address.AddressType.RESIDENTIAL_HOME);
-    private static Address address3 = AddressFactory.buildAddress("6", "Baker Street", "", "Mystic Falls", "Gotham City", "Northern Province", "Winterfell", "0010", Address.AddressType.RESIDENTIAL_HOME);
+    private static Address address1 = AddressFactory.buildAddress("124", "Conch Street", "3", "Sandstone", "Sunnydale", "Sunspear", "Dorne", "0008", AddressType.FLAT_BUILDING);
+    private static Address address2 = AddressFactory.buildAddress("13A", "Elm Street", "", "Duskendale", "Central City", "King's Landing", "Crownlands", "0009", AddressType.RESIDENTIAL_HOME);
+    private static Address address3 = AddressFactory.buildAddress("6", "Baker Street", "", "Mystic Falls", "Gotham City", "Northern Province", "Winterfell", "0010", AddressType.RESIDENTIAL_HOME);
 
     @Test
     void a_address_create() {
@@ -55,7 +56,7 @@ class AddressRepositoryTest {
                 .setProvince("Meereen")
                 .setCountry("Braavos")
                 .setPostalCode("0011")
-                .setAddressType(Address.AddressType.FLAT_BUILDING)
+                .setAddressType(AddressType.FLAT_BUILDING)
                 .build();
         assertNotNull(addressRepository.update(addressUpdated1));
         System.out.println("Updated: \n" + addressUpdated1 + "\n");

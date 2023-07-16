@@ -10,10 +10,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.domain.Address;
-import za.ac.cput.domain.Customer;
-import za.ac.cput.domain.Order;
-import za.ac.cput.domain.Topping;
+import za.ac.cput.domain.*;
 import za.ac.cput.factory.AddressFactory;
 import za.ac.cput.factory.CustomerFactory;
 import za.ac.cput.factory.OrderFactory;
@@ -30,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class OrderControllerTest {
 
-private static Address address1 = AddressFactory.buildAddress("10B", "St Stones RD", "", "Southern suburb", "Cape Town", "Western Cape", "South Africa", "7945", Address.AddressType.RESIDENTIAL_HOME);
+private static Address address1 = AddressFactory.buildAddress("10B", "St Stones RD", "", "Southern suburb", "Cape Town", "Western Cape", "South Africa", "7945", AddressType.RESIDENTIAL_HOME);
 
     private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi","075 452 8339");
 

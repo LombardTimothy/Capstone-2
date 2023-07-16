@@ -2,6 +2,7 @@ package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Address;
+import za.ac.cput.domain.AddressType;
 import za.ac.cput.domain.Customer;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -16,13 +17,14 @@ public class CustomerFactoryTest {
             "Western Cape",
             "South Africa",
             "2134",
-            Address.AddressType.RESIDENTIAL_HOME);
+            AddressType.RESIDENTIAL_HOME);
     @Test
     void buildCustomer() {
         Customer customer = CustomerFactory.buildCustomer(
                 "Keenan",
                 "Meyer",
-                "082 738 2590");
+                "082 738 2590",
+                address);
 
         System.out.println(customer.toString());
         assertNotNull(customer);

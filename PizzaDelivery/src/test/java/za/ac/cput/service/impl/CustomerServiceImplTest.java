@@ -6,6 +6,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Address;
+import za.ac.cput.domain.AddressType;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.Pizza;
 import za.ac.cput.factory.AddressFactory;
@@ -32,7 +33,7 @@ class CustomerServiceImplTest {
             "Western Cape",
             "South Africa",
             "2134",
-            Address.AddressType.RESIDENTIAL_HOME);
+            AddressType.RESIDENTIAL_HOME);
     public static Address address2 = AddressFactory.buildAddress(
             "10",
             "Accordian Street",
@@ -42,7 +43,7 @@ class CustomerServiceImplTest {
             "Western Cape",
             "South Africa",
             "2154",
-            Address.AddressType.RESIDENTIAL_HOME);
+            AddressType.RESIDENTIAL_HOME);
     public static Address address3 = AddressFactory.buildAddress(
             "8",
             "Toplands Street",
@@ -52,7 +53,7 @@ class CustomerServiceImplTest {
             "Western Cape",
             "South Africa",
             "2134",
-            Address.AddressType.RESIDENTIAL_HOME);
+            AddressType.RESIDENTIAL_HOME);
     private static Customer customer = CustomerFactory.buildCustomer(
             "Keenan",
             "Meyer",

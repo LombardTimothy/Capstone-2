@@ -12,6 +12,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.Address;
+import za.ac.cput.domain.AddressType;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.factory.AddressFactory;
 import za.ac.cput.factory.CustomerFactory;
@@ -27,7 +28,7 @@ class CustomerControllerTest {
             "California",
             "Crownlands",
             "0007",
-            Address.AddressType.RESIDENTIAL_HOME);
+            AddressType.RESIDENTIAL_HOME);
 
     private static Customer customer = CustomerFactory.buildCustomer(
             "Keenan",
@@ -72,7 +73,7 @@ class CustomerControllerTest {
                     .setCustomerName("Spoilt")
                     .setCustomerSurname("Molly")
                     .setPhoneNumber("082 741 5565")
-                    //.setAddress(address)
+                    .setAddress(address)
                     .build();
 
             String url = baseURL + "/update";
