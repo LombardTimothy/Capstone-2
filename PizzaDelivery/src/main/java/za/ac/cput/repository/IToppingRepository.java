@@ -1,13 +1,15 @@
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Topping;
 
 import java.util.ArrayList;
 /* IToppingRepository.java
  Author: Timothy Lombard (220154856)
- Date: 13th June (last updated) 2023
+ Date: 21st July (last updated) 2023
 */
-public interface IToppingRepository extends IRepository<Topping, String> {
+@Repository
+public interface IToppingRepository extends JpaRepository<Topping, String> {
 
-    public ArrayList<Topping> getAll();
 }

@@ -10,28 +10,13 @@ import za.ac.cput.util.Helper;
 */
 public class PizzaToppingFactory {
 
-    public static PizzaTopping buildPizzaTopping(Pizza pizza, Topping topping){
+    public static PizzaTopping buildPizzaTopping(Pizza pizzaId, Topping toppingId){
+        if(Helper.isNullOrEmpty(String.valueOf(pizzaId)) || Helper.isNullOrEmpty(String.valueOf(toppingId))){
+            return null;
+        }
 
-        String pizzaId = pizza.getPizzaId();
-        String toppingId = topping.getToppingId();
-
-        PizzaTopping pt = new PizzaTopping.Builder().setPizzaId(pizzaId).setToppingId(toppingId).build();
+        PizzaTopping pt = new PizzaTopping.Builder().setPizza(pizzaId).setTopping(toppingId).build();
         return pt;
-    }
-
-
-    public static  Pizza createPizza(){
-        String pizzaId = Helper.generateId();
-
-        Pizza p = new Pizza.Builder().setPizzaId(pizzaId).build();
-        return p;
-    }
-
-    public static Topping createTopping(){
-        String toppingId = Helper.generateId();
-
-        Topping t = new Topping.Builder().setToppingId(toppingId).build();
-        return t;
     }
 
 }

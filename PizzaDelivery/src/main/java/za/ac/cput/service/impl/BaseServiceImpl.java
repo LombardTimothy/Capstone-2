@@ -1,55 +1,56 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Base;
-import za.ac.cput.repository.BaseRepository;
+import za.ac.cput.repository.IBaseRepository;
 import za.ac.cput.service.BaseService;
 
 import java.util.ArrayList;
 /* BaseServiceImpl.java
  Author: Timothy Lombard (220154856)
- Date: 13th June (last updated) 2023
+ Date: 21st July (last updated) 2023
 */
 @Service
 public class BaseServiceImpl implements BaseService {
 
-    private static BaseServiceImpl baseService = null;
-    private static BaseRepository baseRepo = null;
-    private BaseServiceImpl(){
-        baseRepo = BaseRepository.getBaseRepo();
+    private IBaseRepository baseRepo;
+    @Autowired
+    private BaseServiceImpl(IBaseRepository baseRepo){
+        this.baseRepo = baseRepo;
     }
 
-    public static BaseServiceImpl getRepo(){//singleton, having access to the private constructor
-        if(baseService == null){
-            baseService = new BaseServiceImpl();
-        }
-        return baseService;
-    }
+
 
     @Override
     public Base create(Base base) {
-        Base created = baseRepo.create(base);
-        return created;
+        return this.baseRepo.save(base);
     }
 
     @Override
-    public Base read(String baseId) {
-        Base readBase = baseRepo.read(baseId);
-        return readBase;
+    public Base read(String id) {
+        return this.baseRepo.findById(id).orElse(null);
     }
 
     @Override
     public Base update(Base base) {
-        Base updateBase = baseRepo.update(base);
-        return updateBase;
+        if(this.baseRepo.existsById(base.getBaseId())){
+            return this.baseRepo.save(base);
+        }else{
+            return null;
+        }
+
     }
 
     @Override
-    public boolean delete(String baseId) {
-       boolean success = baseRepo.delete(baseId);
-       return success;
+    public boolean delete(String id) {
+        if(this.baseRepo.existsById(id)){
+            this.baseRepo.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
     @Override
-    public ArrayList<Base> getAll(){return baseRepo.getAll();}
+    public ArrayList<Base> getAll(){return (ArrayList<Base>) this.baseRepo.findAll();}
 }
