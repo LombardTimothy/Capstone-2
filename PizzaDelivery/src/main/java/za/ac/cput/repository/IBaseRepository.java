@@ -1,17 +1,15 @@
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Base;
 
 import java.util.ArrayList;
 /* IBaseRepository.java
  Author: Timothy Lombard (220154856)
- Date: 13th June (last updated) 2023
+ Date: 21st July (last updated) 2023
 */
-public interface IBaseRepository extends IRepository<Base, String>{
+@Repository
+public interface IBaseRepository extends JpaRepository<Base, String> {
 
-    Base create(Base base);
-    Base read(String baseId);
-    Base update(Base base);
-    boolean delete(String baseId);
-    public ArrayList<Base> getAll();
 }

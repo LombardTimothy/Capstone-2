@@ -1,19 +1,29 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
 /* PizzaTopping.java
  Entity for the PizzaTopping
  Author: Timothy Lombard (220154856)
- Date: 13th June (last updated) 2023
+ Date: 21st July (last updated) 2023
 */
-
+@Entity
+@IdClass(PizzaToppingId.class)
 public class PizzaTopping {
 
-    private String pizzaId;
-    private String toppingId;
+    @Id
+    @ManyToOne(cascade = CascadeType.ALL)//FK relationship
+    @JoinColumn(name = "pizzaId", referencedColumnName = "PizzaId")
+    private Pizza pizzaId;
 
-    private PizzaTopping(){
+    @Id
+    @ManyToOne(cascade = CascadeType.ALL)//FK relationship
+    @JoinColumn(name = "toppingId", referencedColumnName = "toppingId")
+    private Topping toppingId;
+
+    protected PizzaTopping(){
 
     }
 
@@ -22,24 +32,24 @@ public class PizzaTopping {
         this.toppingId = builder.toppingId;
     }
 
-    public String getPizzaId() {
+    public Pizza getPizza() {
         return pizzaId;
     }
 
-    public String getToppingId() {
+    public Topping getTopping() {
         return toppingId;
     }
 
     public static class Builder{
-        private String pizzaId;
-        private String toppingId;
+        private Pizza pizzaId;
+        private Topping toppingId;
 
-        public Builder setPizzaId(String pizzaId) {
+        public Builder setPizza(Pizza pizzaId) {
             this.pizzaId = pizzaId;
             return this;
         }
 
-        public Builder setToppingId(String toppingId) {
+        public Builder setTopping(Topping toppingId) {
             this.toppingId = toppingId;
             return this;
         }

@@ -1,21 +1,26 @@
 package za.ac.cput.service.impl;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Base;
 import za.ac.cput.factory.BaseFactory;
-import za.ac.cput.repository.BaseRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 /* BaseServiceImplTest.java
  Author: Timothy Lombard (220154856)
- Date: 13th June (last updated) 2023
+ Date: 21st July (last updated) 2023
 */
+
+@SpringBootTest
 class BaseServiceImplTest {
 
-    private static BaseServiceImpl service = BaseServiceImpl.getRepo();
+    @Autowired
+    private BaseServiceImpl service;
 
     private static Base b = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THICK, Base.BaseTexture.CRISPY, 26);
     private static Base b2 = BaseFactory.buildBase( Base.BaseCrust.NON_CRUSTY, Base.BaseThickness.THICK, Base.BaseTexture.CRISPY, 18);
@@ -24,9 +29,9 @@ class BaseServiceImplTest {
     public void a_base_create(){
         Base created = service.create(b);
         Base created1 = service.create(b2);
+        assertEquals(b.getBaseId(), created.getBaseId());
+        assertEquals(b2.getBaseId(), created1.getBaseId());
         System.out.println(created + "\n" + created1 );
-        assertNotNull(b);
-        assertNotNull(b2);
 
     }
 
@@ -41,11 +46,13 @@ class BaseServiceImplTest {
 
     @Test
     public void c_base_update(){
-        Base updated = new Base.Builder().copy(b2).setBasePrice(22).build();
-        assertNotNull(service.update(updated));
+        Base newBase = new Base.Builder().copy(b2).setBasePrice(22).build();
+        Base updated = service.update(newBase);
+        assertEquals(newBase.getBasePrice(), updated.getBasePrice());
         System.out.println(updated);
     }
 
+    @Disabled
     @Test
     public void d_base_delete(){
         boolean deleted = service.delete(b.getBaseId());

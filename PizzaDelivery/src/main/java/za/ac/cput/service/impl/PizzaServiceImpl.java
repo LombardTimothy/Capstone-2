@@ -1,60 +1,60 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Pizza;
-import za.ac.cput.repository.PizzaRepository;
+import za.ac.cput.repository.IPizzaRepository;
 import za.ac.cput.service.PizzaService;
 
+import java.util.ArrayList;
 import java.util.Set;
 /* PizzaServiceImpl.java
  Author: Timothy Lombard (220154856)
- Date: 9th June (last updated) 2023
+ Date: 21st July (last updated) 2023
 */
 @Service
 public class PizzaServiceImpl implements PizzaService {
 
-    private static PizzaServiceImpl service = null;
-    private static PizzaRepository repository = null;
-    private PizzaServiceImpl(){
-        repository = PizzaRepository.getRepo();
+    private IPizzaRepository pizzaRepo;
+
+    @Autowired
+    private PizzaServiceImpl(IPizzaRepository pizzaRepo) {
+        this.pizzaRepo = pizzaRepo;
     }
 
-    public static PizzaServiceImpl getService(){
-        if(service == null){
-            service = new PizzaServiceImpl();
-        }
-        return  service;
-    }
 
     @Override
     public Pizza create(Pizza pizza) {
-        Pizza created = repository.create(pizza);
-        return created;
+        return this.pizzaRepo.save(pizza);
     }
 
     @Override
-    public Pizza read(String pizzaId) {
-        Pizza readPizza = repository.read(pizzaId);
-        return readPizza;
+    public Pizza read(String id) {
+        return this.pizzaRepo.findById(id).orElse(null);
     }
 
     @Override
     public Pizza update(Pizza pizza) {
-        Pizza updated = repository.update(pizza);
-        return updated;
+        if (this.pizzaRepo.existsById(pizza.getPizzaId())) {
+            return this.pizzaRepo.save(pizza);
+        } else {
+            return null;
+        }
+
     }
 
     @Override
-    public boolean delete(String pizzaId) {
-        boolean success = repository.delete(pizzaId);
-        return success;
+    public boolean delete(String id) {
+        if (this.pizzaRepo.existsById(id)) {
+            this.pizzaRepo.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public Set<Pizza> getAll() {
-        return repository.getAll();
+        return (Set<Pizza>) this.pizzaRepo.findAll();
     }
-
-
 
 }

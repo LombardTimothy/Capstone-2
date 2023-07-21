@@ -1,20 +1,25 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
 /* Pizza.java
  Entity for the Pizza
  Author: Timothy Lombard (220154856)
- Date: 5th April (last updated) 2023
+ Date: 21st July (last updated) 2023
 */
-
+@Entity
     public class Pizza {
 
         public enum Size{
             EXTRA_SMALL, SMALL, MEDIUM, LARGE, EXTRA_LARGE
         }
+        @Id
         private String pizzaId;
-        private String baseId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "baseId", referencedColumnName = "baseId")
+        private Base baseId;
         private String itemName;
         private String itemDescription;
         private Size size;
@@ -22,7 +27,7 @@ import java.util.Objects;
 
         private double price;
 
-        private Pizza(){
+        protected Pizza(){
 
         }
 
@@ -40,11 +45,11 @@ import java.util.Objects;
             return pizzaId;
         }
 
-        public String getBaseId() {
-            return baseId;
-        }
+    public Base getBaseId() {
+        return baseId;
+    }
 
-        public String getItemName() {
+    public String getItemName() {
             return itemName;
         }
 
@@ -64,7 +69,7 @@ import java.util.Objects;
 
         public static class Builder {
             private String pizzaId;
-            private String baseId;
+            private Base baseId;
             private String itemName;
             private String itemDescription;
             private Size size;
@@ -77,7 +82,7 @@ import java.util.Objects;
                 return this;
             }
 
-            public Builder setBaseId(String baseId) {
+            public Builder setBaseId(Base baseId) {
                 this.baseId = baseId;
                 return this;
             }
@@ -124,31 +129,31 @@ import java.util.Objects;
             }
         }
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Pizza pizza = (Pizza) o;
-            return vegetarianOrNot == pizza.vegetarianOrNot && Double.compare(pizza.price, price) == 0 && Objects.equals(pizzaId, pizza.pizzaId) && Objects.equals(baseId, pizza.baseId) && Objects.equals(itemName, pizza.itemName) && Objects.equals(itemDescription, pizza.itemDescription) && size == pizza.size;
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(pizzaId, baseId, itemName, itemDescription, size, vegetarianOrNot, price);
-        }
-
-        @Override
-        public String toString() {
-            return "Pizza{" +
-                    "pizzaId='" + pizzaId + '\'' +
-                    ", baseId='" + baseId + '\'' +
-                    ", itemName='" + itemName + '\'' +
-                    ", itemDescription='" + itemDescription + '\'' +
-                    ", size=" + size +
-                    ", vegetarianOrNot=" + vegetarianOrNot +
-                    ", price=" + price +
-                    '}';
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pizza pizza = (Pizza) o;
+        return vegetarianOrNot == pizza.vegetarianOrNot && Double.compare(pizza.price, price) == 0 && Objects.equals(pizzaId, pizza.pizzaId) && Objects.equals(baseId, pizza.baseId) && Objects.equals(itemName, pizza.itemName) && Objects.equals(itemDescription, pizza.itemDescription) && size == pizza.size;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pizzaId, baseId, itemName, itemDescription, size, vegetarianOrNot, price);
+    }
+
+    @Override
+    public String toString() {
+        return "Pizza{" +
+                "pizzaId='" + pizzaId + '\'' +
+                ", baseId=" + baseId +
+                ", itemName='" + itemName + '\'' +
+                ", itemDescription='" + itemDescription + '\'' +
+                ", size=" + size +
+                ", vegetarianOrNot=" + vegetarianOrNot +
+                ", price=" + price +
+                '}';
+    }
+}
 
 
