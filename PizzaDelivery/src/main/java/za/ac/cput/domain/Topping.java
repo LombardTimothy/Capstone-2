@@ -1,20 +1,25 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 /* Topping.java
  Entity for the Topping
  Author: Timothy Lombard (220154856)
- Date: 13th June (last updated) 2023
+ Date: 21st July (last updated) 2023
 */
+@Entity
 public class Topping {
 
+    @Id
     private String toppingId;
     private String toppingName;
     private String toppingDescription;
     private int toppingQuantity;
     private double toppingPrice;
 
-    private Topping(){
+    protected Topping(){
 
     }
 

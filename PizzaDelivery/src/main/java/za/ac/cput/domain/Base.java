@@ -1,15 +1,17 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 
 /* Base.java
  Entity for the Base
  Author: Timothy Lombard (220154856)
- Date: 13th June (last updated) 2023
+ Date: 21st July (last updated) 2023
 */
-
+@Entity
 public class Base {
-
 
     public enum BaseCrust{
         CRUSTY, NON_CRUSTY
@@ -23,13 +25,14 @@ public class Base {
     }
 
 
+    @Id
     private String baseId;
     private BaseCrust baseCrust;
     private BaseThickness baseThickness;
     private BaseTexture baseTexture;
     private double basePrice;
 
-    private Base(){
+    protected Base(){
 
     }
 

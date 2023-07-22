@@ -3,8 +3,9 @@ package za.ac.cput.repository;
 /*
 * IRepository.java
 * Author: Timothy Lombard (220154856) and Dawood Kamalie (220147760) added the interface
-* Date: 7th April 2023
+* Date: 21st July 2023
 * */
+//please add the @Depricated annotation here
 public interface IRepository<T, ID> {
     // Contains crud methods
     T create(T t);

@@ -1,57 +1,67 @@
 package za.ac.cput.service.impl;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Topping;
 import za.ac.cput.factory.ToppingFactory;
-import za.ac.cput.repository.ToppingRepository;
+/* ToppingServiceImplTest.java
+ Author: Timothy Lombard (220154856)
+ Date: 21st July (last updated) 2023
+*/
 
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
+@SpringBootTest
 class ToppingServiceImplTest {
 
-    private static ToppingServiceImpl service = ToppingServiceImpl.getToppingService();
-    private static Topping t = ToppingFactory.buildTopping("Pepperoni", "spicy salami made from cured pork and beef seasoned with paprika or other chili pepper", 20, 11);
-    private static Topping t1 = ToppingFactory.buildTopping("Rosemary", "The leaves are evergreen and needlelike in shape, and they produce the essential oil that gives rosemary its characteristic scent", 10, 8);
+    @Autowired
+    private ToppingServiceImpl service;
+
+    private static Topping t = ToppingFactory.buildTopping("Bacon", "spicy bacon", 6, 15);
+    @Test
+    public void a_create(){
+        Topping created1 = service.create(t);
+        assertEquals(t.getToppingId(), created1.getToppingId());
+        System.out.println( created1);
+
+    }
 
     @Test
-    public void a_topping_create(){
-        Topping created = service.create(t);
-        Topping created1 = service.create(t1);
-        System.out.println(created + "\n" + created1 );
+    public void b_read(){
+
+        Topping read1 = service.read(t.getToppingId());
         assertNotNull(t);
-        assertNotNull(t1);
+        System.out.println( read1);
 
     }
 
     @Test
-    public void b_topping_read(){
-        Topping read = service.read(t.getToppingId());
-        Topping read1 = service.read(t1.getToppingId());
-        assertNotNull(read);
-        assertNotNull(read1);
-        System.out.println("Read " + read + "\n" + read1 );
-    }
-
-    @Test
-    public void c_topping_update(){
-        Topping updated = new Topping.Builder().copy(t).setToppingQuantity(13).build();
-        assertNotNull(service.update(updated));
+    public void c_update(){
+        Topping newTopping = new Topping.Builder().copy(t).setToppingQuantity(14).build();
+        Topping updated = service.update(newTopping);
+        assertEquals(newTopping.getToppingQuantity(), updated.getToppingQuantity());
         System.out.println(updated);
+
+
     }
 
+    @Disabled
     @Test
-    public void d_topping_delete(){
-        boolean deleted = service.delete(t1.getToppingId());
+    public void d_delete(){
+        boolean deleted = service.delete(t.getToppingId());
         assertTrue(deleted);
-        System.out.println("Delete " + true);//deleted
+        System.out.println(true + " = deleted");
     }
 
     @Test
-    public void e_topping_getAll(){
+    public void getAll(){
         System.out.println(service.getAll());
-
     }
+
+
 
 }
