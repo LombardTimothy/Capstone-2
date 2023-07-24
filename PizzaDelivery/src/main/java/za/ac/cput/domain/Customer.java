@@ -18,7 +18,8 @@ public class Customer implements Serializable{
     private String customerSurname;
     private String phoneNumber;
 
-    @Embedded
+    @ManyToOne(cascade = CascadeType.ALL )
+    @JoinColumn(name = "addressId", referencedColumnName = "addressId")
     //@ManyToMany(cascade = CascadeType.ALL)
     private Address address;
 
