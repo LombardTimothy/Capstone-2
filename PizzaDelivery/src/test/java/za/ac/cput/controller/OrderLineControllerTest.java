@@ -33,10 +33,10 @@ class OrderLineControllerTest {
     private static Address address1 = AddressFactory.buildAddress("21", "Jump Street", "", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", AddressType.RESIDENTIAL_HOME);
     private static Customer customer1 = CustomerFactory.buildCustomer("Rickon", "Stark", "0868561233");
     private static Order order1 = OrderFactory.buildOrder(date1, time1, customer1);
-    private static Base b1 = PizzaFactory.createBase();
-    private static Pizza pizza1 = PizzaFactory.buildPizza(b1, "Tikka chicken", "Thin crust, tikka and BBQ sauce, mozzarella cheese, mushroom, sweet bell pepper, spring onion, and chicken.", Pizza.Size.LARGE, false, 156);
+    private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
+    private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55);
 
-    private static OrderLine orderLine = OrderLineFactory.buildOrderLine(4, order1, pizza1);
+    private static OrderLine orderLine = OrderLineFactory.buildOrderLine(4, order1, pizza);
 
     @Autowired
     private TestRestTemplate restTemplate;

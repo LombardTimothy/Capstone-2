@@ -13,9 +13,11 @@ import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.Base;
 import za.ac.cput.domain.Pizza;
 import za.ac.cput.domain.Topping;
+import za.ac.cput.factory.BaseFactory;
 import za.ac.cput.factory.PizzaFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 /* PizzaControllerTest.java
  Author: Timothy Lombard (220154856)
  Date: 17th June (last updated) 2023
@@ -24,8 +26,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PizzaControllerTest {
 
-    private static Base b = PizzaFactory.createBase();
-    private static Pizza pizza = PizzaFactory.buildPizza(b, "Vegetariana pizza", "Thin crust with high quality flour and fresh tomato sauce base and with high quality fresh vegetables.", Pizza.Size.SMALL, true, 40);
+    private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
+    private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55);
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -59,16 +61,13 @@ class PizzaControllerTest {
         System.out.println("Post data: " + updated);
         ResponseEntity<Pizza> response = restTemplate.postForEntity(url, updated, Pizza.class);
         assertNotNull(response.getBody());
-
     }
-
 
     @Test
     public void d_delete(){
         String url = baseURL + "/delete/" + pizza.getPizzaId();
         System.out.println("URL " + url);
         restTemplate.delete(url);
-
     }
 
     @Test
@@ -80,7 +79,6 @@ class PizzaControllerTest {
         System.out.println("Show all ");
         System.out.println(response);
         System.out.println(response.getBody());
-
     }
 
 }

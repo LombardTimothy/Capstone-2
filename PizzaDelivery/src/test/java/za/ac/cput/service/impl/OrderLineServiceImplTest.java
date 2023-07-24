@@ -3,6 +3,8 @@ package za.ac.cput.service.impl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.*;
 import za.ac.cput.factory.*;
 import za.ac.cput.service.OrderLineService;
@@ -20,22 +22,20 @@ Last updated: 14 June 2023
  */
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
+@SpringBootTest
 class OrderLineServiceImplTest {
 
-    private static OrderLineServiceImpl service = null;
+    @Autowired
+    private  OrderLineServiceImpl service;
 
     private static LocalDate date = LocalDate.of(2023, 9, 17);
     private static LocalTime time = LocalTime.now();
     private static Address address = AddressFactory.buildAddress("22", "Fall Street", "13", "East Bay", "Rock Bottom", "Ohio", "King's Landing", "0006", AddressType.FLAT_BUILDING);
     private static Customer customer = CustomerFactory.buildCustomer("Theon", "Greyjoy","078 675 7850");
     private static Order order = OrderFactory.buildOrder(date, time, customer);
-    private static Base b1 = PizzaFactory.createBase();
-    private static Pizza pizza = PizzaFactory.buildPizza(b1, "Tikka chicken", "Thin crust, tikka and BBQ sauce, mozzarella cheese, mushroom, sweet bell pepper, spring onion, and chicken.", Pizza.Size.EXTRA_LARGE, false, 156);
+    private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
+    private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55);
     private static OrderLine orderLine = OrderLineFactory.buildOrderLine(1,order, pizza);
-
-    private OrderLineServiceImplTest() {
-        service = OrderLineServiceImpl.getService();
-    }
 
     @Test
     void a_create() {
@@ -53,7 +53,9 @@ class OrderLineServiceImplTest {
 
     @Test
     void c_update() {
-        OrderLine updatedOrderLine = new OrderLine.Builder().copy(orderLine).setQuantity(5).build();
+        OrderLine newOrderLine = new OrderLine.Builder().copy(orderLine).setQuantity(5).build();
+        OrderLine updatedOrderLine = service.update(newOrderLine);
+        assertEquals(newOrderLine.getQuantity(), updatedOrderLine.getQuantity());
         assertNotNull(updatedOrderLine);
         System.out.println("\nUpdated: \n" + updatedOrderLine + "\n");
     }

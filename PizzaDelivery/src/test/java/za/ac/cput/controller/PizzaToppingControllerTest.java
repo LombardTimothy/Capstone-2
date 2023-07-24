@@ -11,22 +11,34 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import za.ac.cput.domain.Base;
 import za.ac.cput.domain.Pizza;
 import za.ac.cput.domain.PizzaTopping;
 import za.ac.cput.domain.Topping;
+import za.ac.cput.factory.BaseFactory;
+import za.ac.cput.factory.PizzaFactory;
 import za.ac.cput.factory.PizzaToppingFactory;
+import za.ac.cput.factory.ToppingFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 /* PizzaToppingControllerTest.java
  Author: Timothy Lombard (220154856)
  Date: 17th June (last updated) 2023
 */
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PizzaToppingControllerTest {
 
-    private static Pizza p = PizzaToppingFactory.createPizza();
-    private static Topping t = PizzaToppingFactory.createTopping();
+//    private static Pizza p = PizzaToppingFactory.createPizza();
+//    private static Topping t = PizzaToppingFactory.createTopping();
+
+    //I just made changes in here to get rid of the errors(its probably wrong, lol).. you can obvs make your proper changes now
+    private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
+    private static Pizza p = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55);
+    private static Topping t = ToppingFactory.buildTopping("Bacon", "spicy bacon", 6, 15);
+
 
     private static PizzaTopping pt = PizzaToppingFactory.buildPizzaTopping(p, t);
 
@@ -47,7 +59,9 @@ class PizzaToppingControllerTest {
 
     @Test
     public void b_read(){//needs checking
-        String url = baseURL + "/read/" + pt.getPizzaId() + pt.getToppingId();
+//        String url = baseURL + "/read/" + pt.getPizzaId() + pt.getToppingId();
+        String url = baseURL + "/read/" + pt.getPizza() + pt.getTopping();
+
         System.out.println("URL " + url);
         ResponseEntity<PizzaTopping> response = restTemplate.getForEntity(url, PizzaTopping.class);
         assertNotNull(pt);
@@ -57,10 +71,10 @@ class PizzaToppingControllerTest {
 //@Disabled
     @Test
     public void d_delete(){
-        String url = baseURL + "/delete/" + pt.getPizzaId() + pt.getToppingId();
+//        String url = baseURL + "/delete/" + pt.getPizzaId() + pt.getToppingId();
+        String url = baseURL + "/delete/" + pt.getPizza() + pt.getTopping();
         System.out.println("URL " + url);
         restTemplate.delete(url);
-
     }
 
     @Test
@@ -72,7 +86,6 @@ class PizzaToppingControllerTest {
         System.out.println("Show all ");
         System.out.println(response);
         System.out.println(response.getBody());
-
     }
 
 }

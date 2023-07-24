@@ -1,5 +1,6 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.OrderLine;
 import za.ac.cput.repository.OrderLineRepository;
@@ -11,50 +12,47 @@ import java.util.ArrayList;
 OrderLineServiceImpl.java
 Author: Tamryn Lisa Lewin (219211981)
 Date: 09 June 2023
-Last updated: 10 June 2023
+Last updated: 24 July 2023
  */
 
 @Service
 public class OrderLineServiceImpl implements OrderLineService {
-    private static OrderLineServiceImpl service = null;
-    private static OrderLineRepository repository = null;
-    private OrderLineServiceImpl() {
-        repository = OrderLineRepository.getRepository();
-    }
+    private OrderLineRepository repository;
 
-    public static OrderLineServiceImpl getService() {
-        if (service == null) {
-            service = new OrderLineServiceImpl();
-        }
-        return service;
+    @Autowired
+    private OrderLineServiceImpl(OrderLineRepository repository) {
+        this.repository = repository;
     }
 
     @Override
     public OrderLine create(OrderLine orderLine) {
-        OrderLine createdOrderLine = repository.create(orderLine);
-        return createdOrderLine;
+        return this.repository.save(orderLine);
     }
 
     @Override
     public OrderLine read(String orderLineId) {
-        OrderLine readOrderLine = repository.read(orderLineId);
-        return readOrderLine;
+        return this.repository.findById(orderLineId).orElse(null);
     }
 
     @Override
     public OrderLine update(OrderLine orderLine) {
-        OrderLine updatedOrderLine = repository.update(orderLine);
-        return updatedOrderLine;
+        if (this.repository.existsById(orderLine.getOrderLineId())) {
+            return this.repository.save(orderLine);
+        }
+        return null;
     }
 
     @Override
     public boolean delete(String orderLineId) {
-        boolean deletedOrderLine = repository.delete(orderLineId);
-        return deletedOrderLine;
+        if (this.repository.existsById(orderLineId)) {
+            this.repository.deleteById(orderLineId);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public ArrayList<OrderLine> getAll() {
-        return repository.getAll();
+        return (ArrayList<OrderLine>) this.repository.findAll();
     }
 }

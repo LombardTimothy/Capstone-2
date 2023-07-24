@@ -1,6 +1,8 @@
 package za.ac.cput.domain;
 
-import jakarta.persistence.Embeddable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 
 /*
@@ -8,10 +10,12 @@ Address.java
 Address entity
 Author: Tamryn Lisa Lewin (219211981)
 Date: 04 April 2023
-Last update: 13 June 2023
+Last update: July 2023
  */
-@Embeddable
+
+@Entity
 public class Address {
+    @Id
     private String addressId;
     private String streetNumber;
     private String streetName;
@@ -24,207 +28,6 @@ public class Address {
     private AddressType addressType;
 
     protected Address() {}
-
-    private Address(Builder builder) {
-        this.addressId = builder.addressId;
-        this.streetNumber = builder.streetNumber;
-        this.streetName = builder.streetName;
-        this.flatNumber = builder.flatNumber;
-        this.suburb = builder.suburb;
-        this.city = builder.city;
-        this.province = builder.province;
-        this.country = builder.country;
-        this.postalCode = builder.postalCode;
-        this.addressType = builder.addressType;
-    }
-
-    public String getAddressId() {
-       return addressId;
-    }
-
-    public void setAddressId(String addressId) {
-       this.addressId = addressId;
-    }
-
-    public String getStreetNumber() {
-        return streetNumber;
-    }
-
-    public void setStreetNumber(String streetNumber) {
-        this.streetNumber = streetNumber;
-    }
-
-    public String getStreetName() {
-        return streetName;
-    }
-
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
-    }
-
-    public String getFlatNumber() {
-        return flatNumber;
-    }
-
-    public void setFlatNumber(String flatNumber) {
-        this.flatNumber = flatNumber;
-    }
-
-    public String getSuburb() {
-        return suburb;
-    }
-
-    public void setSuburb(String suburb) {
-        this.suburb = suburb;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public static class Builder {
-        private String addressId;
-        private String streetNumber;
-        private String streetName;
-        private String flatNumber;
-        private String suburb;
-        private String city;
-        private String province;
-        private String country;
-        private String postalCode;
-        private AddressType addressType;
-
-        public Builder setAddressId(String addressId) {
-            this.addressId = addressId;
-            return this;
-        }
-
-        public Builder setStreetNumber(String streetNumber) {
-            this.streetNumber = streetNumber;
-            return this;
-        }
-
-        public Builder setStreetName(String streetName) {
-            this.streetName = streetName;
-            return this;
-        }
-
-        public Builder setFlatNumber(String flatNumber) {
-            this.flatNumber = flatNumber;
-            return this;
-        }
-
-        public Builder setSuburb(String suburb) {
-            this.suburb = suburb;
-            return this;
-        }
-
-        public Builder setCity(String city) {
-            this.city = city;
-            return this;
-        }
-
-        public Builder setProvince(String province) {
-            this.province = province;
-            return this;
-        }
-
-        public Builder setCountry(String country) {
-            this.country = country;
-            return this;
-        }
-
-        public Builder setPostalCode(String postalCode) {
-            this.postalCode = postalCode;
-            return this;
-        }
-
-        public Builder setAddressType(AddressType addressType) {
-            this.addressType = addressType;
-            return this;
-        }
-
-        public Builder copy(Address address) {
-            this.streetNumber = address.streetNumber;
-            this.streetName = address.streetName;
-            this.flatNumber = address.flatNumber;
-            this.suburb = address.suburb;
-            this.city = address.city;
-            this.province = address.province;
-            this.country = address.country;
-            this.postalCode = address.postalCode;
-            this.addressType = address.addressType;
-            return this;
-        }
-
-        public Address build() {
-            return new Address(this);
-        }
-    }
-    @Override
-    public String toString() {
-        return "Address{" +
-                "addressId='" +  + '\'' +
-                ", streetNumber='" + streetNumber + '\'' +
-                ", streetName='" + streetName + '\'' +
-                ", flatNumber='" + flatNumber + '\'' +
-                ", suburb='" + suburb + '\'' +
-                ", city='" + city + '\'' +
-                ", province='" + province + '\'' +
-                ", country='" + country + '\'' +
-                ", postalCode='" + postalCode + '\'' +
-                ", addressType=" + addressType +
-                '}';
-    }
-
-
-
-/*
-    public enum AddressType {
-        RESIDENTIAL_HOME, FLAT_BUILDING
-    }
-
-
-    private String addressId;
-    private String streetNumber;
-    private String streetName;
-    private String flatNumber;
-    private String suburb;
-    private String city;
-    private String province;
-    private String country;
-    private String postalCode;
-    private AddressType addressType;
-
-    private Address() {}
 
     private Address(Builder builder) {
         this.addressId = builder.addressId;
@@ -388,6 +191,4 @@ public class Address {
                 ", addressType=" + addressType +
                 '}';
     }
-
- */
 }
