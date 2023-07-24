@@ -2,10 +2,12 @@ package za.ac.cput.service.impl;
 
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Address;
+import za.ac.cput.domain.Pizza;
 import za.ac.cput.repository.AddressRepository;
 import za.ac.cput.service.AddressService;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /*
 AddressServiceImpl.java
@@ -16,39 +18,32 @@ Last updated: 10 June 2023
 
 @Service
 public class AddressServiceImpl implements AddressService {
-    private static AddressServiceImpl service = null;
-    private static AddressRepository repository = null;
-    private AddressServiceImpl() {
-        repository = AddressRepository.getRepository();
-    }
-
-    public static AddressServiceImpl getService() {
-        if (service == null) {
-            service = new AddressServiceImpl();
-        }
-        return service;
+    private AddressRepository repository;
+    private AddressServiceImpl(AddressRepository repository) {
+        this.repository = repository;
     }
 
     @Override
     public Address create(Address address) {
-        Address createdAddress = repository.create(address);
-        return createdAddress;
+        return this.repository.save(address);
     }
 
     @Override
     public Address read(String addressId) {
-        Address readAddress = repository.read(addressId);
-        return readAddress;
+        return this.repository.findById(addressId).orElse(null);
     }
 
     @Override
     public Address update(Address address) {
-        Address updatedAddress = repository.update(address);
-        return updatedAddress;
+        if (this.repository.existsById(address.getAddressId())) {
+            return this.repository.save(address);
+        }
+        return null;
     }
 
     @Override
     public Set<Address> getAll() {
-        return repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
+        //return (Set<Address>) this.repository.findAll();
     }
 }

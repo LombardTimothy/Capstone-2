@@ -20,11 +20,11 @@ public class OrderLineFactoryTest {
     private static LocalDate date = LocalDate.of(2023, 9, 17);
     private static LocalTime time = LocalTime.now();
     private static Address address = AddressFactory.buildAddress("22", "Fall Street", "12", "East Bay", "Rock Bottom", "Ohio", "Crownlands", "0006", AddressType.FLAT_BUILDING);
-    private static Customer customer = CustomerFactory.buildCustomer("Rickon", "Stark","076 675 8090");
+    private static Customer customer = CustomerFactory.buildCustomer("Rickon", "Stark","076 675 8090", address);
     private static Order order = OrderFactory.buildOrder(date,time, customer);
 
-    private static Base b = PizzaFactory.createBase();
-    private static Pizza pizza = PizzaFactory.buildPizza(b, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 35);
+    private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
+    private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55);
 
     @Test
     public void orderLine_test_pass() {
