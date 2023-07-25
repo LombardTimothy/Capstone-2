@@ -41,24 +41,26 @@ class PizzaToppingServiceImplTest {
         System.out.println(created);
 
     }
-/*
-    @Disabled
+
     @Test
     public void b_read(){
-        PizzaTopping read = service.read();
-        assertNotNull(read);
-        System.out.println(read);
+
+        final Pizza pizzaId = pt.getPizza();
+        final Topping toppingId = pt.getTopping();
+        System.out.println(pizzaId + "\n" + toppingId);
+        System.out.println(service.readPizzaIdAndToppingId(pizzaId, toppingId));
 
     }
-
- */
-
-
     @Disabled
     @Test
     public void d_delete(){
+        final Pizza pizzaId = pt.getPizza();
+        final Topping toppingId = pt.getTopping();
+        service.deletePT(pizzaId, toppingId);
+        System.out.println("Deleted");
 
     }
+
 
     @Test
     public void getAll(){
