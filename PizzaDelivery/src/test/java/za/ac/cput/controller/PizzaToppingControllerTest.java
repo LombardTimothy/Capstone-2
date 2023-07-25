@@ -24,23 +24,23 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /* PizzaToppingControllerTest.java
  Author: Timothy Lombard (220154856)
- Date: 17th June (last updated) 2023
+ Date: 25th July (last updated) 2023
 */
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PizzaToppingControllerTest {
 
-//    private static Pizza p = PizzaToppingFactory.createPizza();
-//    private static Topping t = PizzaToppingFactory.createTopping();
+    //I must still figure out how to fix this.
+
 
     //I just made changes in here to get rid of the errors(its probably wrong, lol).. you can obvs make your proper changes now
     private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
-    private static Pizza p = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55);
-    private static Topping t = ToppingFactory.buildTopping("Bacon", "spicy bacon", 6, 15);
+    private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55);
+    private static Topping topping = ToppingFactory.buildTopping("Bacon", "spicy bacon", 6, 15);
 
 
-    private static PizzaTopping pt = PizzaToppingFactory.buildPizzaTopping(p, t);
+    private static PizzaTopping pt = PizzaToppingFactory.buildPizzaTopping(pizza, topping);
 
     @Autowired
     private TestRestTemplate restTemplate;
