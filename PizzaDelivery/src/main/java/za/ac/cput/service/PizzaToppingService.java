@@ -1,8 +1,11 @@
 package za.ac.cput.service;
 
+import za.ac.cput.domain.Pizza;
 import za.ac.cput.domain.PizzaTopping;
 import za.ac.cput.domain.PizzaToppingId;
+import za.ac.cput.domain.Topping;
 
+import java.util.ArrayList;
 import java.util.Set;
 /* PizzaToppingService.java
  Author: Timothy Lombard (220154856)
@@ -11,8 +14,9 @@ import java.util.Set;
 public interface PizzaToppingService extends IService<PizzaTopping, PizzaToppingId> {
 
     PizzaTopping create(PizzaTopping pt);
-    PizzaTopping read(PizzaToppingId ptId);
-    boolean delete(PizzaToppingId ptId);
+    ArrayList<PizzaTopping> readPizzaIdAndToppingId(Pizza pizzaId, Topping toppingId);
+    void deletePT(Pizza pizzaId, Topping toppingId);
+  //  boolean delete(PizzaToppingId ptId);
 
-    public Set<PizzaTopping> getAll();
+    public ArrayList<PizzaTopping> getAll();
 }

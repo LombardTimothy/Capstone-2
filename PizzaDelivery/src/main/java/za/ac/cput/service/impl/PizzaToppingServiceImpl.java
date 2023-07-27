@@ -2,8 +2,10 @@ package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.domain.Pizza;
 import za.ac.cput.domain.PizzaTopping;
 import za.ac.cput.domain.PizzaToppingId;
+import za.ac.cput.domain.Topping;
 import za.ac.cput.repository.IPizzaToppingRepository;
 import za.ac.cput.service.PizzaToppingService;
 
@@ -30,20 +32,25 @@ public class PizzaToppingServiceImpl implements PizzaToppingService {
     }
 
     @Override
-    public PizzaTopping read(PizzaToppingId ptId) {
-        return this.ptRepo.findById(ptId).orElse(null);
+    public PizzaTopping read(PizzaToppingId pizzaToppingId) {
+        return null;
     }
 
 
     @Override
-    public boolean delete(PizzaToppingId ptId) {
-        if(this.ptRepo.existsById(ptId)){
-            this.ptRepo.deleteById(ptId);
-            return true;
-        }
-        return false;
+    public ArrayList<PizzaTopping> readPizzaIdAndToppingId(Pizza pizzaId, Topping toppingId){
+        return ptRepo.findAllByPizzaIdAndToppingId(pizzaId, toppingId);
     }
 
     @Override
-    public Set<PizzaTopping> getAll(){return (Set<PizzaTopping>) this.ptRepo.findAll();}
+    public void deletePT(Pizza pizzaId, Topping toppingId){
+        PizzaToppingId ptId = new PizzaToppingId(pizzaId, toppingId);
+        ptRepo.deleteById(ptId);
+    }
+
+
+
+
+    @Override
+    public ArrayList<PizzaTopping> getAll(){return (ArrayList<PizzaTopping>) this.ptRepo.findAll();}
 }

@@ -2,6 +2,7 @@ package za.ac.cput.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import za.ac.cput.domain.Pizza;
 import za.ac.cput.domain.PizzaTopping;
 import za.ac.cput.domain.Topping;
 import za.ac.cput.service.PizzaToppingService;
@@ -26,17 +27,17 @@ public class PizzaToppingController {
     }
 
     @GetMapping("/read/{id}")
-    public PizzaTopping read(@PathVariable String id){
-        return pizzaToppingService.read(id, id);
+    public ArrayList<PizzaTopping> read(@PathVariable Pizza pizzaId, Topping toppingId){
+        return pizzaToppingService.readPizzaIdAndToppingId(pizzaId, toppingId);
     }
 
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable String id){
-        return pizzaToppingService.delete(id, id);
+    public void delete(@PathVariable Pizza pizzaId, Topping toppingId){
+         pizzaToppingService.deletePT(pizzaId, toppingId);
     }
 
     @GetMapping({"/getall"})
-    public Set<PizzaTopping> getAll(){
+    public ArrayList<PizzaTopping> getAll(){
         return pizzaToppingService.getAll();
     }
 }
