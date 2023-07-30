@@ -17,8 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /* OrderFactoryTest.java
  Author: Timothy Lombard (220154856)
- Date: 8th April 2023
- Last update: 14 June 2023
+ Date: 30th July (last updated) 2023
 */
 
     class OrderFactoryTest {
@@ -34,14 +33,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
         @Test
         public void order_test(){
-            Order order = OrderFactory.buildOrder( date, time, customer);
+            Order order = OrderFactory.buildOrder( date, time, customer, Order.OrderStatus.NEW);
             System.out.println(order.toString());
             assertNotNull(order);
         }
 
         @Test
         public void order_test_fail(){
-            Order order = OrderFactory.buildOrder( date, time,  customer);
+            Order order = OrderFactory.buildOrder( date, time,  customer, Order.OrderStatus.SHIPPED);
             System.out.println(order.toString());
             //assertNotNull(order);
             assertEquals(3, order.getCreateDate());
@@ -54,7 +53,7 @@ import static org.junit.jupiter.api.Assertions.*;
             });
             LocalDate date1 = LocalDate.of(2023, 5, 7);
 
-            Order order = OrderFactory.buildOrder( date1,time, customer);
+            Order order = OrderFactory.buildOrder( date1,time, customer, Order.OrderStatus.HOLD);
             assertEquals(date1, order.getCreateDate());
             System.out.println(order.toString());
         }
@@ -62,7 +61,7 @@ import static org.junit.jupiter.api.Assertions.*;
         @Disabled("Disabled test")
         @Test
         public void order_disable_test(){
-            Order order = OrderFactory.buildOrder( date, time, customer);
+            Order order = OrderFactory.buildOrder( date, time, customer, Order.OrderStatus.DELIVERED);
             System.out.println(order.toString());
             assertNull(order);
 
@@ -70,8 +69,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
         @Test
         public void order_equality_test(){
-            Order order = OrderFactory.buildOrder( date, time, customer);
-            Order order1 = OrderFactory.buildOrder( date,time, customer);
+            Order order = OrderFactory.buildOrder( date, time, customer, Order.OrderStatus.CLOSED);
+            Order order1 = OrderFactory.buildOrder( date,time, customer, Order.OrderStatus.NEW);
             if(order.equals(order1)){
                 System.out.println("Both objects are equal");//true
             }else
