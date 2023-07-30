@@ -14,6 +14,10 @@ import java.util.Objects;
 @Entity
     public class Order {
 
+    public enum OrderStatus{
+        NEW, HOLD, SHIPPED, DELIVERED, CLOSED
+    }
+
     @Id
         private String orderId;
 
@@ -22,6 +26,10 @@ import java.util.Objects;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customerID", referencedColumnName = "customerID")
         private Customer customer;
+
+    private OrderStatus orderStatus;
+
+
 
         protected Order(){
 
@@ -32,6 +40,7 @@ import java.util.Objects;
             this.createDate = builder.createDate;
             this.time = builder.time;
             this.customer = builder.customer;
+            this.orderStatus = builder.orderStatus;
         }
 
         public String getOrderId() {
@@ -50,11 +59,16 @@ import java.util.Objects;
             return customer;
         }
 
-        public static class Builder {
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
+    public static class Builder {
             private String orderId;
             private LocalDate createDate;
             private LocalTime time;
             private Customer customer;
+            private OrderStatus orderStatus;
 
 
             public za.ac.cput.domain.Order.Builder setOrderId(String orderId) {
@@ -77,12 +91,17 @@ import java.util.Objects;
                 return this;
             }
 
+        public Order.Builder setOrderStatus(OrderStatus orderStatus) {
+            this.orderStatus = orderStatus;
+            return this;
+        }
 
-            public za.ac.cput.domain.Order.Builder copy(za.ac.cput.domain.Order order) {
+        public za.ac.cput.domain.Order.Builder copy(za.ac.cput.domain.Order order) {
                 this.orderId = order.orderId;
                 this.createDate = order.createDate;
                 this.time = order.time;
                 this.customer = order.customer;
+                this.orderStatus = order.orderStatus;
                 return this;
             }
 
@@ -94,28 +113,29 @@ import java.util.Objects;
             }
         }
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Order order = (Order) o;
-            return Objects.equals(orderId, order.orderId) && Objects.equals(createDate, order.createDate) && Objects.equals(time, order.time) && Objects.equals(customer, order.customer);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(orderId, createDate, time, customer);
-        }
-
-        @Override
-        public String toString() {
-            return "Order{" +
-                    "orderId='" + orderId + '\'' +
-                    ", createDate=" + createDate +
-                    ", time=" + time +
-                    ", customer=" + customer +
-                    '}';
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return Objects.equals(orderId, order.orderId) && Objects.equals(createDate, order.createDate) && Objects.equals(time, order.time) && Objects.equals(customer, order.customer) && orderStatus == order.orderStatus;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(orderId, createDate, time, customer, orderStatus);
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId='" + orderId + '\'' +
+                ", createDate=" + createDate +
+                ", time=" + time +
+                ", customer=" + customer +
+                ", orderStatus=" + orderStatus +
+                '}';
+    }
+}
 
 

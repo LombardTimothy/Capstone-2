@@ -34,8 +34,8 @@ class OrderServiceImplTest {
     private static LocalDate date1 = LocalDate.of(2023, 7, 29);
     private static LocalDate date2 = LocalDate.of(2023, 7, 8);
     private static LocalTime time = LocalTime.now();
-    private static Order order1 = OrderFactory.buildOrder(date1, time, customer);
-    private static Order order2 = OrderFactory.buildOrder(date2, time, customer);
+    private static Order order1 = OrderFactory.buildOrder(date1, time, customer, Order.OrderStatus.NEW);
+    private static Order order2 = OrderFactory.buildOrder(date2, time, customer, Order.OrderStatus.NEW);
 
     @Test
     public void a_create(){
