@@ -21,22 +21,22 @@ import java.time.LocalTime;
 import static org.junit.jupiter.api.Assertions.*;
 /* OrderControllerTest.java
  Author: Timothy Lombard (220154856)
- Date: 17th June (last updated) 2023
+ Date: 30th July (last updated) 2023
 */
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class OrderControllerTest {
 
-private static Address address1 = AddressFactory.buildAddress("10B", "St Stones RD", "", "Southern suburb", "Cape Town", "Western Cape", "South Africa", "7945", AddressType.RESIDENTIAL_HOME);
+    private static Address address = AddressFactory.buildAddress("21", "1st Street", "", "Southern", "Cape Town", "Western Cape", "South Afica", "0986", AddressType.RESIDENTIAL_HOME);
 
-    private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi","075 452 8339");
+    private static Customer customer = CustomerFactory.buildCustomer("Daniel", "Diaz","085 451 7339", address);
 
     private static LocalDate date = LocalDate.of(2023, 9, 17);
     private static LocalDate date1 = LocalDate.of(2023, 6, 25);
 
     private static LocalTime time = LocalTime.now();
 
-    private static Order order = OrderFactory.buildOrder( date, time, customer);
+    private static Order order = OrderFactory.buildOrder( date, time, customer, Order.OrderStatus.NEW);
 
     @Autowired
     private TestRestTemplate restTemplate;
