@@ -21,7 +21,7 @@ public class OrderLineFactoryTest {
     private static LocalTime time = LocalTime.now();
     private static Address address = AddressFactory.buildAddress("22", "Fall Street", "12", "East Bay", "Rock Bottom", "Ohio", "Crownlands", "0006", AddressType.FLAT_BUILDING);
     private static Customer customer = CustomerFactory.buildCustomer("Rickon", "Stark","076 675 8090", address);
-    private static Order order = OrderFactory.buildOrder(date,time, customer, Order.OrderStatus.NEW);//you can change the order status if you want
+    private static Order order = OrderFactory.buildOrder(date,time, customer, Order.OrderStatus.NEW);//you can change the order status if you want, to whatever
 
     private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
     private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55);
