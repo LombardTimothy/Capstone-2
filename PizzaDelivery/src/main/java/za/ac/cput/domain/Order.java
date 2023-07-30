@@ -10,6 +10,7 @@ import java.util.Objects;
  Entity for the Order
  Author: Timothy Lombard (220154856)
  Date: 30th July (last updated) 2023
+ ////
 */
 @Entity
     public class Order {
