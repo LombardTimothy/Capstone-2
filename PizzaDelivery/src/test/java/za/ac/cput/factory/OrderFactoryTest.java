@@ -23,9 +23,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
     class OrderFactoryTest {
 
-        private static Address address = AddressFactory.buildAddress("9", "11th Road", "HealthField", "", "Cape Town", "Western Cape", "South Africa", "7945", AddressType.RESIDENTIAL_HOME);
+        private static Address address = AddressFactory.buildAddress("21", "Jump Street", "", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", AddressType.RESIDENTIAL_HOME);
 
-        private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi","075 452 8339");
+        private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi","075 452 8339", address);
 
         private static LocalDate date = LocalDate.of(2023, 9, 17);
 

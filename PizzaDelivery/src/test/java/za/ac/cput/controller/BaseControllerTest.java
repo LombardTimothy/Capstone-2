@@ -11,13 +11,12 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.Base;
-import za.ac.cput.domain.Topping;
 import za.ac.cput.factory.BaseFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 /* BaseControllerTest.java
  Author: Timothy Lombard (220154856)
- Date: 17th June (last updated) 2023
+ Date: 30th July (last updated) 2023
 */
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -51,7 +50,7 @@ class BaseControllerTest {
 
     @Test
     public void c_update(){
-        Base updated = new Base.Builder().copy(b).setBasePrice(15).build();
+        Base updated = new Base.Builder().copy(b).setPrice(15).build();
         String url = baseURL + "/update";
         System.out.println("URL " + url);
         System.out.println("Post data: " + updated);
