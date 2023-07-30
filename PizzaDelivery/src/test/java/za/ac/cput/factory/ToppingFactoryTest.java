@@ -9,7 +9,7 @@ import java.time.Duration;
 import static org.junit.jupiter.api.Assertions.*;
 /* ToppingFactoryTest.java
  Author: Timothy Lombard (220154856)
- Date: 13th June (last updated) 2023
+ Date: 30th July (last updated) 2023
 */
 class ToppingFactoryTest {
 
@@ -38,10 +38,10 @@ class ToppingFactoryTest {
         String description = "spicy salami";
         int quantity = 15;
         double price = 9;
-        assertEquals(name, t.getToppingName());
-        assertEquals(description, t.getToppingDescription());
-        assertEquals(quantity, t.getToppingQuantity());
-        assertEquals(price, t.getToppingPrice());
+        assertEquals(name, t.getName());
+        assertEquals(description, t.getDescription());
+        assertEquals(quantity, t.getQuantity());
+        assertEquals(price, t.getPrice());
         System.out.println(t.toString());
     }
 

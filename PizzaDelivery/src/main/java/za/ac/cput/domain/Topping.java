@@ -7,17 +7,17 @@ import java.util.Objects;
 /* Topping.java
  Entity for the Topping
  Author: Timothy Lombard (220154856)
- Date: 21st July (last updated) 2023
+ Date: 30th July (last updated) 2023
 */
 @Entity
 public class Topping {
 
     @Id
     private String toppingId;
-    private String toppingName;
-    private String toppingDescription;
-    private int toppingQuantity;
-    private double toppingPrice;
+    private String name;
+    private String description;
+    private int quantity;
+    private double price;
 
     protected Topping(){
 
@@ -25,38 +25,38 @@ public class Topping {
 
     private Topping(Topping.Builder builder){
         this.toppingId = builder.toppingId;
-        this.toppingName = builder.toppingName;
-        this.toppingDescription = builder.toppingDescription;
-        this.toppingQuantity = builder.toppingQuantity;
-        this.toppingPrice = builder.toppingPrice;
+        this.name = builder.name;
+        this.description = builder.description;
+        this.quantity = builder.quantity;
+        this.price = builder.price;
     }
 
     public String getToppingId() {
         return toppingId;
     }
 
-    public String getToppingName() {
-        return toppingName;
+    public String getName() {
+        return name;
     }
 
-    public String getToppingDescription() {
-        return toppingDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public int getToppingQuantity() {
-        return toppingQuantity;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public double getToppingPrice() {
-        return toppingPrice;
+    public double getPrice() {
+        return price;
     }
 
     public static class Builder {
         private String toppingId;
-        private String toppingName;
-        private String toppingDescription;
-        private int toppingQuantity;
-        private double toppingPrice;
+        private String name;
+        private String description;
+        private int quantity;
+        private double price;
 
 
         public Topping.Builder setToppingId(String toppingId) {
@@ -64,32 +64,32 @@ public class Topping {
             return this;
         }
 
-        public Topping.Builder setToppingName(String toppingName){
-            this.toppingName = toppingName;
+        public Topping.Builder setName(String name){
+            this.name = name;
             return this;
         }
 
-        public Topping.Builder setToppingDescription(String toppingDescription){
-            this.toppingDescription = toppingDescription;
+        public Topping.Builder setDescription(String description){
+            this.description = description;
             return this;
         }
 
-        public Topping.Builder setToppingQuantity(int toppingQuantity){
-            this.toppingQuantity = toppingQuantity;
+        public Topping.Builder setQuantity(int quantity){
+            this.quantity = quantity;
             return this;
         }
 
-        public Topping.Builder setToppingPrice(double toppingPrice){
-            this.toppingPrice = toppingPrice;
+        public Topping.Builder setPrice(double price){
+            this.price = price;
             return this;
         }
 
         public Topping.Builder copy(Topping topping) {
             this.toppingId = topping.toppingId;
-            this.toppingName = topping.toppingName;
-            this.toppingDescription = topping.toppingDescription;
-            this.toppingQuantity = topping.toppingQuantity;
-            this.toppingPrice = topping.toppingPrice;
+            this.name = topping.name;
+            this.description = topping.description;
+            this.quantity = topping.quantity;
+            this.price = topping.price;
             return this;
         }
 
@@ -104,22 +104,22 @@ public class Topping {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Topping topping = (Topping) o;
-        return toppingQuantity == topping.toppingQuantity && Double.compare(topping.toppingPrice, toppingPrice) == 0 && Objects.equals(toppingId, topping.toppingId) && Objects.equals(toppingName, topping.toppingName) && Objects.equals(toppingDescription, topping.toppingDescription);
+        return quantity == topping.quantity && Double.compare(topping.price, price) == 0 && Objects.equals(toppingId, topping.toppingId) && Objects.equals(name, topping.name) && Objects.equals(description, topping.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(toppingId, toppingName, toppingDescription, toppingQuantity, toppingPrice);
+        return Objects.hash(toppingId, name, description, quantity, price);
     }
 
     @Override
     public String toString() {
         return "Topping{" +
                 "Topping Id='" + toppingId + '\'' +
-                ", Topping name='" + toppingName + '\'' +
-                ", Topping description='" + toppingDescription + '\'' +
-                ", Topping quantity=" + toppingQuantity +
-                ", Topping price= R" + toppingPrice +
+                ", Topping name='" + name + '\'' +
+                ", Topping description='" + description + '\'' +
+                ", Topping quantity=" + quantity +
+                ", Topping price= R" + price +
                 '}';
     }
 }

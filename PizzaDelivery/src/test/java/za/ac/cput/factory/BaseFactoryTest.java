@@ -9,7 +9,7 @@ import java.time.Duration;
 import static org.junit.jupiter.api.Assertions.*;
 /* BaseFactoryTest.java
  Author: Timothy Lombard (220154856)
- Date: 13th June (last updated) 2023
+ Date: 30th July (last updated) 2023
 */
 class BaseFactoryTest {
 
@@ -31,10 +31,10 @@ class BaseFactoryTest {
         String thick = "Thick";
         String text = "Chewy";
         double price = 17;
-        assertEquals(crust, b.getBaseCrust());
-        assertEquals(thick, b.getBaseThickness());
-        assertEquals(text, b.getBaseTexture());
-        assertEquals(price, b.getBasePrice());
+        assertEquals(crust, b.getCrust());
+        assertEquals(thick, b.getThickness());
+        assertEquals(text, b.getTexture());
+        assertEquals(price, b.getPrice());
         System.out.println(b.toString());
     }
 

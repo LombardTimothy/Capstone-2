@@ -1,5 +1,7 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
@@ -7,18 +9,21 @@ import java.util.Objects;
 /* Order.java
  Entity for the Order
  Author: Timothy Lombard (220154856)
- Date: 8th April (last updated) 2023
+ Date: 30th July (last updated) 2023
 */
-
+@Entity
     public class Order {
 
+    @Id
         private String orderId;
 
         private LocalDate createDate;
         private LocalTime time;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customerID", referencedColumnName = "customerID")
         private Customer customer;
 
-        private Order(){
+        protected Order(){
 
         }
 

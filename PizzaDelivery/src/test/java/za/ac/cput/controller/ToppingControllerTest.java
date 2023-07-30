@@ -16,7 +16,7 @@ import za.ac.cput.factory.ToppingFactory;
 import static org.junit.jupiter.api.Assertions.*;
 /* ToppingControllerTest.java
  Author: Timothy Lombard (220154856)
- Date: 17th June (last updated) 2023
+ Date: 30th July (last updated) 2023
 */
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -50,7 +50,7 @@ class ToppingControllerTest {
 
     @Test
     public void c_update(){
-        Topping updated = new Topping.Builder().copy(t).setToppingPrice(13).build();
+        Topping updated = new Topping.Builder().copy(t).setPrice(13).build();
         String url = baseURL + "/update";
         System.out.println("URL " + url);
         System.out.println("Post data: " + updated);

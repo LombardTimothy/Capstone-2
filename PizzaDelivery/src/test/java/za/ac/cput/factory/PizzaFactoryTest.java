@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /* PizzaFactoryTest.java
  Author: Timothy Lombard (220154856)
- Date: 25th July (last updated) 2023
+ Date: 30th July (last updated) 2023
 */
 
     class PizzaFactoryTest {
@@ -46,7 +46,7 @@ import static org.junit.jupiter.api.Assertions.*;
             boolean vegetarianOrNot = false;
             double price = 60;
             Pizza menu = PizzaFactory.buildPizza(base, "Magherita pizza", "tomato sauce with fresh tomatoes, mozzarella cheese and basil which represent the colours of the Italian flag – white cheese, green basil and red tomato.", Pizza.Size.LARGE, false, 76);
-            assertEquals(itemName, menu.getItemName());
+            assertEquals(itemName, menu.getName());
             assertEquals(size, menu.getSize());
             assertEquals(vegetarianOrNot, menu.isVegetarianOrNot());
             assertEquals(price, menu.getPrice());

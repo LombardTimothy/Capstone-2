@@ -20,8 +20,8 @@ import java.util.Objects;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "baseId", referencedColumnName = "baseId")
         private Base baseId;
-        private String itemName;
-        private String itemDescription;
+        private String name;
+        private String description;
         private Size size;
         private boolean vegetarianOrNot;
 
@@ -34,8 +34,8 @@ import java.util.Objects;
         private Pizza(Builder builder){
             this.pizzaId = builder.pizzaId;
             this.baseId = builder.baseId;
-            this.itemName = builder.itemName;
-            this.itemDescription = builder.itemDescription;
+            this.name = builder.name;
+            this.description = builder.description;
             this.size = builder.size;
             this.vegetarianOrNot = builder.vegetarianOrNot;
             this.price = builder.price;
@@ -49,12 +49,12 @@ import java.util.Objects;
         return baseId;
     }
 
-    public String getItemName() {
-            return itemName;
+    public String getName() {
+            return name;
         }
 
-        public String getItemDescription() {
-            return itemDescription;
+        public String getDescription() {
+            return description;
         }
 
         public Size getSize() {
@@ -70,8 +70,8 @@ import java.util.Objects;
         public static class Builder {
             private String pizzaId;
             private Base baseId;
-            private String itemName;
-            private String itemDescription;
+            private String name;
+            private String description;
             private Size size;
             private boolean vegetarianOrNot;
             private double price;
@@ -87,13 +87,13 @@ import java.util.Objects;
                 return this;
             }
 
-            public Builder setItemName(String itemName) {
-                this.itemName = itemName;
+            public Builder setName(String name) {
+                this.name = name;
                 return this;
             }
 
-            public Builder setItemDescription(String itemDescription){
-                this.itemDescription = itemDescription;
+            public Builder setDescription(String description){
+                this.description = description;
                 return this;
             }
 
@@ -115,8 +115,8 @@ import java.util.Objects;
             public Builder copy(za.ac.cput.domain.Pizza menu) {
                 this.pizzaId = menu.pizzaId;
                 this.baseId = menu.baseId;
-                this.itemName = menu.itemName;
-                this.itemDescription = menu.itemDescription;
+                this.name = menu.name;
+                this.description = menu.description;
                 this.size = menu.size;
                 this.vegetarianOrNot = menu.vegetarianOrNot;
                 this.price = menu.price;
@@ -134,12 +134,12 @@ import java.util.Objects;
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pizza pizza = (Pizza) o;
-        return vegetarianOrNot == pizza.vegetarianOrNot && Double.compare(pizza.price, price) == 0 && Objects.equals(pizzaId, pizza.pizzaId) && Objects.equals(baseId, pizza.baseId) && Objects.equals(itemName, pizza.itemName) && Objects.equals(itemDescription, pizza.itemDescription) && size == pizza.size;
+        return vegetarianOrNot == pizza.vegetarianOrNot && Double.compare(pizza.price, price) == 0 && Objects.equals(pizzaId, pizza.pizzaId) && Objects.equals(baseId, pizza.baseId) && Objects.equals(name, pizza.name) && Objects.equals(description, pizza.description) && size == pizza.size;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pizzaId, baseId, itemName, itemDescription, size, vegetarianOrNot, price);
+        return Objects.hash(pizzaId, baseId, name, description, size, vegetarianOrNot, price);
     }
 
     @Override
@@ -147,11 +147,11 @@ import java.util.Objects;
         return "Pizza{" +
                 "pizzaId='" + pizzaId + '\'' +
                 ", baseId=" + baseId +
-                ", itemName='" + itemName + '\'' +
-                ", itemDescription='" + itemDescription + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
                 ", size=" + size +
                 ", vegetarianOrNot=" + vegetarianOrNot +
-                ", price=" + price +
+                ", price= R" + price +
                 '}';
     }
 }

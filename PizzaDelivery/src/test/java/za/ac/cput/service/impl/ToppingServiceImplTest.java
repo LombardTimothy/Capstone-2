@@ -10,7 +10,7 @@ import za.ac.cput.domain.Topping;
 import za.ac.cput.factory.ToppingFactory;
 /* ToppingServiceImplTest.java
  Author: Timothy Lombard (220154856)
- Date: 21st July (last updated) 2023
+ Date: 30th July (last updated) 2023
 */
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,9 +41,9 @@ class ToppingServiceImplTest {
 
     @Test
     public void c_update(){
-        Topping newTopping = new Topping.Builder().copy(t).setToppingQuantity(14).build();
+        Topping newTopping = new Topping.Builder().copy(t).setQuantity(14).build();
         Topping updated = service.update(newTopping);
-        assertEquals(newTopping.getToppingQuantity(), updated.getToppingQuantity());
+        assertEquals(newTopping.getQuantity(), updated.getQuantity());
         System.out.println(updated);
 
 

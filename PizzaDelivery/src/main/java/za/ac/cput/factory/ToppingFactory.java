@@ -8,14 +8,14 @@ import za.ac.cput.util.Helper;
 */
 public class ToppingFactory {
 
-    public static Topping buildTopping(String toppingName, String toppingDescription, int toppingQuantity, double toppingPrice ){
-        if(Helper.isNullOrEmpty(toppingName) || Helper.isNullOrEmpty(toppingDescription) || Helper.isNullOrEmpty(String.valueOf(toppingQuantity)) || Helper.isNullOrEmpty(String.valueOf(toppingPrice))){
+    public static Topping buildTopping(String name, String description, int quantity, double price){
+        if(Helper.isNullOrEmpty(name) || Helper.isNullOrEmpty(description) || Helper.isNullOrEmpty(String.valueOf(quantity)) || Helper.isNullOrEmpty(String.valueOf(price))){
             return null;
         }
 
         String toppingId = Helper.generateId();
 
-        Topping t = new Topping.Builder().setToppingId(toppingId).setToppingName(toppingName).setToppingDescription(toppingDescription).setToppingQuantity(toppingQuantity).setToppingPrice(toppingPrice).build();
+        Topping t = new Topping.Builder().setToppingId(toppingId).setName(name).setDescription(description).setQuantity(quantity).setPrice(price).build();
         return t;
     }
 }

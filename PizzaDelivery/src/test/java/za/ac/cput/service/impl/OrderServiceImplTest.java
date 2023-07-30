@@ -3,6 +3,8 @@ package za.ac.cput.service.impl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Address;
 import za.ac.cput.domain.AddressType;
 import za.ac.cput.domain.Customer;
@@ -18,15 +20,16 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 /* OrderServiceImplTest.java
  Author: Timothy Lombard (220154856)
- Date: 9th June 2023
- Last update: 14 June 2023
+ Date: 30th July (last updated) 2023
 */
+@SpringBootTest
 class OrderServiceImplTest {
 
-    private static OrderServiceImpl service = OrderServiceImpl.getOrder();
+    @Autowired
+    private OrderServiceImpl service;
 
-    private static Address address = AddressFactory.buildAddress("9", "11th Road", "", "HealthField", "Cape Town", "Western Cape", "South Africa", "7945",  AddressType.RESIDENTIAL_HOME);
-    private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi", "058 675 7850");
+    private static Address address = AddressFactory.buildAddress("30", "Church Street", "", "Southern", "Cape Town", "Western Cape", "South Afica", "0036", AddressType.RESIDENTIAL_HOME);
+    private static Customer customer = CustomerFactory.buildCustomer("Sean", "Diaz", "095 091 5932", address);
     private static LocalDate date = LocalDate.of(2023, 7, 28);
     private static LocalDate date1 = LocalDate.of(2023, 7, 29);
     private static LocalDate date2 = LocalDate.of(2023, 7, 8);

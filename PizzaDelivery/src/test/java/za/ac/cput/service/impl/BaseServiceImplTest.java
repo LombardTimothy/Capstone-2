@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 /* BaseServiceImplTest.java
  Author: Timothy Lombard (220154856)
- Date: 21st July (last updated) 2023
+ Date: 30th July (last updated) 2023
 */
 
 @SpringBootTest
@@ -46,9 +46,9 @@ class BaseServiceImplTest {
 
     @Test
     public void c_base_update(){
-        Base newBase = new Base.Builder().copy(b2).setBasePrice(22).build();
+        Base newBase = new Base.Builder().copy(b2).setPrice(22).build();
         Base updated = service.update(newBase);
-        assertEquals(newBase.getBasePrice(), updated.getBasePrice());
+        assertEquals(newBase.getPrice(), updated.getPrice());
         System.out.println(updated);
     }
 

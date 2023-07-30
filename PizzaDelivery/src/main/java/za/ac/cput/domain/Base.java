@@ -8,7 +8,7 @@ import java.util.Objects;
 /* Base.java
  Entity for the Base
  Author: Timothy Lombard (220154856)
- Date: 21st July (last updated) 2023
+ Date: 30th July (last updated) 2023
 */
 @Entity
 public class Base {
@@ -27,10 +27,10 @@ public class Base {
 
     @Id
     private String baseId;
-    private BaseCrust baseCrust;
-    private BaseThickness baseThickness;
-    private BaseTexture baseTexture;
-    private double basePrice;
+    private BaseCrust crust;
+    private BaseThickness thickness;
+    private BaseTexture texture;
+    private double price;
 
     protected Base(){
 
@@ -38,38 +38,38 @@ public class Base {
 
     private Base(Base.Builder builder){
         this.baseId = builder.baseId;
-        this.baseCrust = builder.baseCrust;
-        this.baseThickness = builder.baseThickness;
-        this.baseTexture = builder.baseTexture;
-        this.basePrice = builder.basePrice;
+        this.crust = builder.crust;
+        this.thickness = builder.thickness;
+        this.texture = builder.texture;
+        this.price = builder.price;
     }
 
     public String getBaseId() {
         return baseId;
     }
 
-    public BaseCrust getBaseCrust() {
-        return baseCrust;
+    public BaseCrust getCrust() {
+        return crust;
     }
 
-    public BaseThickness getBaseThickness() {
-        return baseThickness;
+    public BaseThickness getThickness() {
+        return thickness;
     }
 
-    public BaseTexture getBaseTexture() {
-        return baseTexture;
+    public BaseTexture getTexture() {
+        return texture;
     }
 
-    public double getBasePrice() {
-        return basePrice;
+    public double getPrice() {
+        return price;
     }
 
     public static class Builder {
         private String baseId;
-        private BaseCrust baseCrust;
-        private BaseThickness baseThickness;
-        private BaseTexture baseTexture;
-        private double basePrice;
+        private BaseCrust crust;
+        private BaseThickness thickness;
+        private BaseTexture texture;
+        private double price;
 
 
         public Base.Builder setBaseId(String baseId) {
@@ -78,33 +78,33 @@ public class Base {
         }
 
 
-        public Base.Builder setBaseCrust(BaseCrust baseCrust){
-            this.baseCrust = baseCrust;
+        public Base.Builder setCrust(BaseCrust crust){
+            this.crust = crust;
             return this;
         }
 
-        public Base.Builder setBaseThickness(BaseThickness baseThickness){
-            this.baseThickness = baseThickness;
+        public Base.Builder setThickness(BaseThickness thickness){
+            this.thickness = thickness;
             return this;
         }
 
-        public Base.Builder setBaseTexture(BaseTexture baseTexture){
-            this.baseTexture = baseTexture;
+        public Base.Builder setTexture(BaseTexture texture){
+            this.texture = texture;
             return this;
         }
 
-        public Base.Builder setBasePrice(double basePrice){
-            this.basePrice = basePrice;
+        public Base.Builder setPrice(double price){
+            this.price = price;
             return this;
         }
 
 
         public Base.Builder copy(Base base) {
             this.baseId = base.baseId;
-            this.baseCrust = base.baseCrust;
-            this.baseThickness = base.baseThickness;
-            this.baseTexture = base.baseTexture;
-            this.basePrice = base.basePrice;
+            this.crust = base.crust;
+            this.thickness = base.thickness;
+            this.texture = base.texture;
+            this.price = base.price;
             return this;
         }
 
@@ -119,22 +119,22 @@ public class Base {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Base base = (Base) o;
-        return Double.compare(base.basePrice, basePrice) == 0 && Objects.equals(baseId, base.baseId) && baseCrust == base.baseCrust && baseThickness == base.baseThickness && baseTexture == base.baseTexture;
+        return Double.compare(base.price, price) == 0 && Objects.equals(baseId, base.baseId) && crust == base.crust && thickness == base.thickness && texture == base.texture;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(baseId, baseCrust, baseThickness, baseTexture, basePrice);
+        return Objects.hash(baseId, crust, thickness, texture, price);
     }
 
     @Override
     public String toString() {
         return "Base{" +
                 "baseId='" + baseId + '\'' +
-                ", baseCrust=" + baseCrust +
-                ", baseThickness=" + baseThickness +
-                ", baseTexture=" + baseTexture +
-                ", basePrice=" + basePrice +
+                ", crust=" + crust +
+                ", thickness=" + thickness +
+                ", texture=" + texture +
+                ", price= R" + price +
                 '}';
     }
 }
