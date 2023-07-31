@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.*;
 import za.ac.cput.factory.*;
-import za.ac.cput.service.OrderLineService;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -26,7 +25,7 @@ Last updated: 14 June 2023
 class OrderLineServiceImplTest {
 
     @Autowired
-    private  OrderLineServiceImpl service;
+    private OrderLineServiceImpl service;
 
     private static LocalDate date = LocalDate.of(2023, 9, 17);
     private static LocalTime time = LocalTime.now();
@@ -38,8 +37,9 @@ class OrderLineServiceImplTest {
     private static OrderLine orderLine = OrderLineFactory.buildOrderLine(1,order, pizza);
 
     @Test
-    void a_create() {
+    public void a_create() {
         OrderLine createdOrderLine = service.create(orderLine);
+        assertEquals(orderLine.getOrderLineId(), createdOrderLine.getOrderLineId());
         assertNotNull(createdOrderLine);
         System.out.println("Created: \n" + createdOrderLine + "\n");
     }
@@ -63,7 +63,7 @@ class OrderLineServiceImplTest {
     @Test
     void d_delete() {
         boolean deletedOrderLine = service.delete(orderLine.getOrderLineId());
-        //assertTrue(deletedOrderLine);
+        assertTrue(deletedOrderLine);
         System.out.println("Deleted successfully: \n" + deletedOrderLine + "\n");
     }
 

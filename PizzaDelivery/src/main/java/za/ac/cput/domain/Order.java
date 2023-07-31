@@ -13,84 +13,79 @@ import java.util.Objects;
  ////
 */
 @Entity
-    public class Order {
+public class Order {
 
     public enum OrderStatus{
         NEW, HOLD, SHIPPED, DELIVERED, CLOSED
     }
 
     @Id
-        private String orderId;
-
-        private LocalDate createDate;
-        private LocalTime time;
+    private String orderId;
+    private LocalDate createDate;
+    private LocalTime time;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customerID", referencedColumnName = "customerID")
-        private Customer customer;
-
+    private Customer customer;
     private OrderStatus orderStatus;
 
+    protected Order(){
 
+    }
 
-        protected Order(){
+    private Order(Builder builder){
+        this.orderId = builder.orderId;
+        this.createDate = builder.createDate;
+        this.time = builder.time;
+        this.customer = builder.customer;
+        this.orderStatus = builder.orderStatus;
+    }
 
-        }
+    public String getOrderId() {
+        return orderId;
+    }
 
-        private Order(Builder builder){
-            this.orderId = builder.orderId;
-            this.createDate = builder.createDate;
-            this.time = builder.time;
-            this.customer = builder.customer;
-            this.orderStatus = builder.orderStatus;
-        }
+    public LocalDate getCreateDate() {
+        return createDate;
+    }
 
-        public String getOrderId() {
-            return orderId;
-        }
+    public LocalTime getTime() {
+        return time;
+    }
 
-        public LocalDate getCreateDate() {
-            return createDate;
-        }
-
-        public LocalTime getTime() {
-            return time;
-        }
-
-        public Customer getCustomer() {
-            return customer;
-        }
+    public Customer getCustomer() {
+        return customer;
+    }
 
     public OrderStatus getOrderStatus() {
         return orderStatus;
     }
 
     public static class Builder {
-            private String orderId;
-            private LocalDate createDate;
-            private LocalTime time;
-            private Customer customer;
-            private OrderStatus orderStatus;
+        private String orderId;
+        private LocalDate createDate;
+        private LocalTime time;
+        private Customer customer;
+        private OrderStatus orderStatus;
 
+        public za.ac.cput.domain.Order.Builder setOrderId(String orderId) {
+            this.orderId = orderId;
+            return this;
+        }
 
-            public za.ac.cput.domain.Order.Builder setOrderId(String orderId) {
-                this.orderId = orderId;
-                return this;
-            }
+        public za.ac.cput.domain.Order.Builder setCreateDate(LocalDate createDate){
+            this.createDate = createDate;
+            return this;
+        }
 
-            public za.ac.cput.domain.Order.Builder setCreateDate(LocalDate createDate){
-                this.createDate = createDate;
-                return this;
-            }
+        public Builder setTime(LocalTime time) {
+            this.time = time;
+            return this;
+        }
 
-            public Builder setTime(LocalTime time) {
-                this.time = time;
-                return this;
-            }
-
-            public Order.Builder setCustomer(Customer customer){
-                this.customer = customer;
-                return this;
-            }
+        public Order.Builder setCustomer(Customer customer){
+            this.customer = customer;
+            return this;
+        }
 
         public Order.Builder setOrderStatus(OrderStatus orderStatus) {
             this.orderStatus = orderStatus;
@@ -98,21 +93,18 @@ import java.util.Objects;
         }
 
         public za.ac.cput.domain.Order.Builder copy(za.ac.cput.domain.Order order) {
-                this.orderId = order.orderId;
-                this.createDate = order.createDate;
-                this.time = order.time;
-                this.customer = order.customer;
-                this.orderStatus = order.orderStatus;
-                return this;
-            }
-
-
-
-
-            public za.ac.cput.domain.Order build() {
-                return new za.ac.cput.domain.Order(this);
-            }
+            this.orderId = order.orderId;
+            this.createDate = order.createDate;
+            this.time = order.time;
+            this.customer = order.customer;
+            this.orderStatus = order.orderStatus;
+            return this;
         }
+
+        public za.ac.cput.domain.Order build() {
+            return new za.ac.cput.domain.Order(this);
+        }
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -138,5 +130,3 @@ import java.util.Objects;
                 '}';
     }
 }
-
-

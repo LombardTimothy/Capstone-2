@@ -10,38 +10,38 @@ import java.util.Objects;
  Date: 21st July (last updated) 2023
 */
 @Entity
-    public class Pizza {
+public class Pizza {
 
-        public enum Size{
-            EXTRA_SMALL, SMALL, MEDIUM, LARGE, EXTRA_LARGE
-        }
-        @Id
-        private String pizzaId;
+    public enum Size{
+        EXTRA_SMALL, SMALL, MEDIUM, LARGE, EXTRA_LARGE
+    }
+    @Id
+    private String pizzaId;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "baseId", referencedColumnName = "baseId")
-        private Base baseId;
-        private String name;
-        private String description;
-        private Size size;
-        private boolean vegetarianOrNot;
+    private Base baseId;
+    private String name;
+    private String description;
+    private Size size;
+    private boolean vegetarianOrNot;
 
-        private double price;
+    private double price;
 
-        protected Pizza(){
+    protected Pizza(){
 
-        }
+    }
 
-        private Pizza(Builder builder){
-            this.pizzaId = builder.pizzaId;
-            this.baseId = builder.baseId;
-            this.name = builder.name;
-            this.description = builder.description;
-            this.size = builder.size;
-            this.vegetarianOrNot = builder.vegetarianOrNot;
-            this.price = builder.price;
-        }
+    private Pizza(Builder builder){
+        this.pizzaId = builder.pizzaId;
+        this.baseId = builder.baseId;
+        this.name = builder.name;
+        this.description = builder.description;
+        this.size = builder.size;
+        this.vegetarianOrNot = builder.vegetarianOrNot;
+        this.price = builder.price;
+    }
 
-        public String getPizzaId() {
+    public String getPizzaId() {
             return pizzaId;
         }
 
@@ -52,82 +52,78 @@ import java.util.Objects;
     public String getName() {
             return name;
         }
-
-        public String getDescription() {
+    public String getDescription() {
             return description;
         }
-
-        public Size getSize() {
+    public Size getSize() {
             return size;
         }
 
-        public boolean isVegetarianOrNot(){return vegetarianOrNot;}
+    public boolean isVegetarianOrNot(){return vegetarianOrNot;}
 
-        public double getPrice() {
+    public double getPrice() {
             return price;
         }
 
-        public static class Builder {
-            private String pizzaId;
-            private Base baseId;
-            private String name;
-            private String description;
-            private Size size;
-            private boolean vegetarianOrNot;
-            private double price;
+    public static class Builder {
+        private String pizzaId;
+        private Base baseId;
+        private String name;
+        private String description;
+        private Size size;
+        private boolean vegetarianOrNot;
+        private double price;
 
-
-            public Builder setPizzaId(String pizzaId) {
-                this.pizzaId = pizzaId;
-                return this;
-            }
-
-            public Builder setBaseId(Base baseId) {
-                this.baseId = baseId;
-                return this;
-            }
-
-            public Builder setName(String name) {
-                this.name = name;
-                return this;
-            }
-
-            public Builder setDescription(String description){
-                this.description = description;
-                return this;
-            }
-
-            public Builder setSize(Size size) {
-                this.size = size;
-                return this;
-            }
-            public Builder setVegetarianOrNot(boolean vegetarianOrNot) {
-                this.vegetarianOrNot = vegetarianOrNot;
-                return this;
-            }
-
-            public Builder setPrice(double price) {
-                this.price = price;
-                return this;
-            }
-
-
-            public Builder copy(za.ac.cput.domain.Pizza menu) {
-                this.pizzaId = menu.pizzaId;
-                this.baseId = menu.baseId;
-                this.name = menu.name;
-                this.description = menu.description;
-                this.size = menu.size;
-                this.vegetarianOrNot = menu.vegetarianOrNot;
-                this.price = menu.price;
-                return this;
-            }
-
-
-            public za.ac.cput.domain.Pizza build() {
-                return new za.ac.cput.domain.Pizza(this);
-            }
+        public Builder setPizzaId(String pizzaId) {
+            this.pizzaId = pizzaId;
+            return this;
         }
+
+        public Builder setBaseId(Base baseId) {
+            this.baseId = baseId;
+            return this;
+        }
+
+        public Builder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder setDescription(String description){
+            this.description = description;
+            return this;
+        }
+
+        public Builder setSize(Size size) {
+            this.size = size;
+            return this;
+        }
+
+        public Builder setVegetarianOrNot(boolean vegetarianOrNot) {
+            this.vegetarianOrNot = vegetarianOrNot;
+            return this;
+        }
+
+        public Builder setPrice(double price) {
+            this.price = price;
+            return this;
+        }
+
+        public Builder copy(za.ac.cput.domain.Pizza menu) {
+            this.pizzaId = menu.pizzaId;
+            this.baseId = menu.baseId;
+            this.name = menu.name;
+            this.description = menu.description;
+            this.size = menu.size;
+            this.vegetarianOrNot = menu.vegetarianOrNot;
+            this.price = menu.price;
+            return this;
+        }
+
+        public za.ac.cput.domain.Pizza build() {
+            return new za.ac.cput.domain.Pizza(this);
+        }
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -155,5 +151,3 @@ import java.util.Objects;
                 '}';
     }
 }
-
-
