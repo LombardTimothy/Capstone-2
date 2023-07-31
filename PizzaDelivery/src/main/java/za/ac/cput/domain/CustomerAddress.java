@@ -5,7 +5,7 @@ CustomerAddress.java
 CustomerAddress entity
 Author: Tamryn Lisa Lewin (219211981)
 Date: 23 July 2023
-Last update:   2023
+Last update:  July 2023
  */
 
 import jakarta.persistence.*;
