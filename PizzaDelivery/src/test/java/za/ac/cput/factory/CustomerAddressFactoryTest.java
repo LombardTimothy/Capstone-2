@@ -21,11 +21,4 @@ class CustomerAddressFactoryTest {
         assertNotNull(customerAddress);
     }
 
-    @Disabled("Disabled test")
-    @Test
-    public void disabled(){
-        System.out.println(customerAddress);
-        assertNotNull(customerAddress);
-    }
-
 }

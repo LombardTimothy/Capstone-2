@@ -1,5 +1,7 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
 /*
@@ -7,22 +9,31 @@ OrderLine.java
 OrderLine entity
 Author: Tamryn Lisa Lewin (219211981)
 Date: 04 April 2023
-Last update: 08 April 2023
+Last update: 31 July 2023
  */
 
+@Entity
 public class OrderLine {
+    @Id
     private String orderLineId;
     private int quantity;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "orderId", referencedColumnName = "orderId")
     private Order order;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pizzaId", referencedColumnName = "pizzaId")
     private Pizza pizza;
+//    @OneToOne
+//    private Bill bill;
 
-    private OrderLine() {}
+    protected OrderLine() {}
 
     private OrderLine(Builder builder) {
         this.orderLineId = builder.orderLineId;
         this.quantity = builder.quantity;
         this.order = builder.order;
         this.pizza = builder.pizza;
+//        this.bill = builder.bill;
     }
 
     public String getOrderLineId() {
@@ -37,12 +48,16 @@ public class OrderLine {
     public Pizza getPizza() {
         return pizza;
     }
+//    public Bill getBill() {
+//        return bill;
+//    }
 
     public static class Builder {
         private String orderLineId;
         private int quantity;
         private Order order;
         private Pizza pizza;
+//        private Bill bill;
 
         public Builder setOrderLineId(String orderLineId) {
             this.orderLineId = orderLineId;
@@ -63,11 +78,17 @@ public class OrderLine {
             return this;
         }
 
+//        public Builder setBill(Bill bill) {
+//            this.bill = bill;
+//            return this;
+//        }
+
         public Builder copy(OrderLine orderLine) {
             this.orderLineId = orderLine.orderLineId;
             this.quantity = orderLine.quantity;
             this.order = orderLine.order;
             this.pizza = orderLine.pizza;
+//            this.bill = orderLine.bill;
             return this;
         }
 

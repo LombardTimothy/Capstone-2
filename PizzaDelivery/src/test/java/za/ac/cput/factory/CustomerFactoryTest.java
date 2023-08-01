@@ -11,13 +11,13 @@ public class CustomerFactoryTest {
     public static Address address = AddressFactory.buildAddress(
             "7",
             "Seafox Street",
-            "",
             "Delft",
             "Cape Town",
             "Western Cape",
             "South Africa",
             "2134",
             AddressType.RESIDENTIAL_HOME);
+
     @Test
     void buildCustomer() {
         Customer customer = CustomerFactory.buildCustomer(
@@ -29,5 +29,4 @@ public class CustomerFactoryTest {
         System.out.println(customer.toString());
         assertNotNull(customer);
     }
-
 }
