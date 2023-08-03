@@ -14,9 +14,9 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class EmployeeServiceImplTest {
 
-    private static EmployeeServiceImpl service = EmployeeServiceImpl.getService();
-    private static Employee employee1 = EmployeeFactory.createEmployee("001", "Jasmine", "DeToiit");
-    private static Employee employee2 = EmployeeFactory.createEmployee("002", "David", "Camalito");
+    private EmployeeServiceImpl service;
+    private static Employee employee1 = EmployeeFactory.createEmployee( "Jasmine", "DeToiit");
+    private static Employee employee2 = EmployeeFactory.createEmployee(  "David", "Camalito");
 
     @Test
     public void a_create() {

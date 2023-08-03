@@ -12,14 +12,18 @@ import java.time.LocalDate;
 * */
 
 public class EmployeeFactory {
-    public static Employee createEmployee(String empId, String empName, String empSurname) {
-        if (Helper.isNullOrEmpty(empId) || Helper.isNullOrEmpty(empName) || Helper.isNullOrEmpty(empSurname)) {
+    public static Employee createEmployee( String empName, String empSurname) {
+        if (Helper.isNullOrEmpty(empName) || Helper.isNullOrEmpty(empSurname)) {
             return null;
         }
 
-        String orderId = Helper.generateId();
+        String empId = Helper.generateId();
 
-        Employee employee = new Employee.Builder().setEmpId(empId).setEmpName(empName).setEmpSurname(empSurname).build();
+        Employee employee = new Employee.Builder().
+                setEmpId(empId).
+                setEmpName(empName).
+                setEmpSurname(empSurname).
+                build();
         return employee;
     }
 }

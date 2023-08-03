@@ -9,14 +9,21 @@ import za.ac.cput.util.Helper;
 * Date: 7/4/2023
 * */
 public class ChefFactory {
-    public static Chef createChef(String empId, String chefName, String chefSurname, String chefId, String nationality, String culinaryExperience) {
-        if (Helper.isNullOrEmpty(empId) ||Helper.isNullOrEmpty(chefName) ||Helper.isNullOrEmpty(chefSurname) ||Helper.isNullOrEmpty(chefId) || Helper.isNullOrEmpty(nationality) || Helper.isNullOrEmpty(culinaryExperience)) {
+    public static Chef createChef(String empId, String chefName, String chefSurname, String nationality, String culinaryExperience) {
+        if (Helper.isNullOrEmpty(empId) ||Helper.isNullOrEmpty(chefName) ||Helper.isNullOrEmpty(chefSurname)|| Helper.isNullOrEmpty(nationality) || Helper.isNullOrEmpty(culinaryExperience)) {
             return null;
         }
 
-        String orderId = Helper.generateId();
+        String chefId = Helper.generateId();
 
-        Chef chef = new Chef.Builder().setEmpId(empId).setChefName(chefName).setChefSurname(chefSurname).setChefId(chefId).setNationality(nationality).setCulinaryExperience(culinaryExperience).build();
+        Chef chef = new Chef.Builder().
+                setEmpId(empId).
+                setChefName(chefName).
+                setChefSurname(chefSurname).
+                setChefId(chefId).
+                setNationality(nationality).
+                setCulinaryExperience(culinaryExperience).
+                build();
         return chef;
     }
 }

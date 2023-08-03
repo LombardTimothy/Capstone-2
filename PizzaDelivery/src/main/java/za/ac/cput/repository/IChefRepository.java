@@ -1,5 +1,6 @@
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import za.ac.cput.domain.Chef;
 
 import java.util.Set;
@@ -10,6 +11,6 @@ import java.util.Set;
 * Date: 8/4/2023
 * */
 
-public interface IChefRepository extends IRepository<Chef, String>{
+public interface IChefRepository extends JpaRepository<Chef, String> {
     public Set<Chef> getAll();
 }

@@ -1,5 +1,8 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 
 
@@ -9,7 +12,9 @@ import java.util.Objects;
  * Author: Dawood Kamalie  (220147760)
  * Date: 7/4/2023
  * */
+@Entity
 public class Chef extends Employee {
+    @Id
     private String chefId;
     private String nationality;
     private String culinaryExperience;
@@ -19,7 +24,7 @@ public class Chef extends Employee {
 
 
 
-    public Chef() {
+    protected Chef() {
 
     }
 

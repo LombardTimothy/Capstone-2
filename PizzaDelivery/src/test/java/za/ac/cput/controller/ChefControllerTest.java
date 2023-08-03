@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ChefControllerTest {
-    private static Chef chef = ChefFactory.createChef("044", "Nolongo", "Kaputsi", "223", "Congolese", "Head Chef");
+    private static Chef chef = ChefFactory.createChef("Nolongo", "Kaputsi", "223", "Congolese", "Head Chef");
     @Autowired
     private TestRestTemplate restTemplate;
     private final String baseURL = "http://localhost:8080/chef";

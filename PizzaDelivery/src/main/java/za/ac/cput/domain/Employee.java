@@ -1,5 +1,8 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 
 /*
@@ -8,12 +11,14 @@ import java.util.Objects;
  * Author: Dawood Kamalie (220147760)
  * Date: 5 April 2023
  * */
+@Entity
 public class Employee {
+    @Id
     private String empId;
     private String empName;
     private String empSurname;
 
-    public Employee() {
+    protected Employee() {
 
     }
     public Employee(String empId, String empName, String empSurname){

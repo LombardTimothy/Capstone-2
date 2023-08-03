@@ -17,9 +17,9 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class ChefServiceImplTest {
 
-    private static ChefServiceImpl service = ChefServiceImpl.getService();
-    private static Chef chef1 = ChefFactory.createChef("201", "Francois", "DuToit", "002", "French", "Sous Chef");
-    private static Chef chef2 = ChefFactory.createChef("202", "Louis", "Russoux", "002", "Algerian", "Head Chef");
+    private static ChefServiceImpl service;
+    private static Chef chef1 = ChefFactory.createChef("Francois", "Jacob", "DuToit", "French", "Sous Chef");
+    private static Chef chef2 = ChefFactory.createChef("Louis", "Basil", "Russoux", "Algerian", "Head Chef");
 
     @Test
     public void a_create() {

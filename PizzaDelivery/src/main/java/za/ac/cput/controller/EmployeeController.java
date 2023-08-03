@@ -8,6 +8,10 @@ import za.ac.cput.service.EmployeeService;
 
 import java.util.Set;
 
+/* EmployeeController.java
+ Author: Dawood Kamalie (220147760)
+ Date: 2nd August (last edited) 2023
+*/
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -16,8 +20,7 @@ public class EmployeeController {
 
     @PostMapping("/create")
     public Employee create(@RequestBody Employee employee) {
-        Employee employeeCreated = EmployeeFactory.createEmployee("008", "Daniella", "Roxanna");
-        return employeeService.create(employeeCreated);
+        return employeeService.create(employee);
     }
     @GetMapping("/read/{id}")
     public Employee read(@PathVariable String id) {

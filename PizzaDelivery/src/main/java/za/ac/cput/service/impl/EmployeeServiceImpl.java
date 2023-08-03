@@ -1,8 +1,9 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Employee;
-import za.ac.cput.repository.EmployeeRepository;
+import za.ac.cput.repository.IEmployeeRepository;
 import za.ac.cput.service.EmployeeService;
 
 import java.util.Set;
@@ -13,47 +14,41 @@ import java.util.Set;
 */
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-
-    private static EmployeeServiceImpl service = null;
-    private static EmployeeRepository repository = null;
-    private EmployeeServiceImpl() {
-        repository = EmployeeRepository.getRepository();
-    }
-
-    public static EmployeeServiceImpl getService(){
-        if(service == null) {
-            service = new EmployeeServiceImpl();
-        }
-        return service;
-    }
+    private IEmployeeRepository empRepo;
+    @Autowired
+    private EmployeeServiceImpl(IEmployeeRepository empRepo){this.empRepo = empRepo;}
 
     @Override
     public Employee create(Employee employee) {
-        Employee createdEmployee = repository.create(employee);
-        return createdEmployee;
+        return this.empRepo.save(employee);
     }
 
     @Override
     public Employee read(String empId) {
-        Employee readEmployee = repository.read(empId);
-        return readEmployee;
+        return this.empRepo.findById(empId).orElse(null);
     }
 
     @Override
     public Employee update(Employee employee) {
-        Employee updatedEmployee = repository.update(employee);
-        return updatedEmployee;
+        if (this.empRepo.existsById(employee.getEmpId())){
+            return this.empRepo.save(employee);
+        }else {
+            return null;
+        }
     }
 
     @Override
     public boolean delete(String empId) {
-        boolean deletedEmployee = repository.delete(empId);
-        return deletedEmployee;
+        if (this.empRepo.existsById(empId)){
+            this.empRepo.deleteById(empId);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public Set<Employee> getAll() {
-        return repository.getAll();
+        return (Set<Employee>) this.empRepo.findAll();
     }
 
 

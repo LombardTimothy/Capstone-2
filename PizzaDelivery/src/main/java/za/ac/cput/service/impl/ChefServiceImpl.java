@@ -1,8 +1,9 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Chef;
-import za.ac.cput.repository.ChefRepository;
+import za.ac.cput.repository.IChefRepository;
 import za.ac.cput.service.ChefService;
 
 import java.util.Set;
@@ -13,46 +14,45 @@ import java.util.Set;
 */
 @Service
 public class ChefServiceImpl implements ChefService {
-    private static ChefServiceImpl service = null;
-    private static ChefRepository repository = null;
-    private ChefServiceImpl() {
-        repository = ChefRepository.getRepository();
+    private IChefRepository chefRepo;
+    @Autowired
+    private ChefServiceImpl(IChefRepository chefRepo) {
+        this.chefRepo = chefRepo;
     }
-    public static ChefServiceImpl getService(){
-        if(service == null) {
-            service = new ChefServiceImpl();
-        }
-        return service;
-    }
+
 
 
     @Override
     public Chef create(Chef chef) {
-        Chef createdChef = repository.create(chef);
-        return createdChef;
+        return this.chefRepo.save(chef);
     }
 
     @Override
     public Chef read(String chefId) {
-        Chef readChef = repository.read(chefId);
-        return readChef;
+        return this.chefRepo.findById(chefId).orElse(null);
     }
 
     @Override
     public Chef update(Chef chef) {
-        Chef updatedChef = repository.update(chef);
-        return updatedChef;
+        if(this.chefRepo.existsById(chef.getChefId())){
+            return this.chefRepo.save(chef);
+        }else {
+            return null;
+        }
     }
 
     @Override
     public boolean delete(String chefId) {
-        boolean deletedChef = repository.delete(chefId);
-        return deletedChef;
+        if(this.chefRepo.existsById(chefId)){
+            this.chefRepo.deleteById(chefId);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public Set<Chef> getAll() {
-        return repository.getAll();
+        return (Set<Chef>) this.chefRepo.findAll();
     }
 }
 

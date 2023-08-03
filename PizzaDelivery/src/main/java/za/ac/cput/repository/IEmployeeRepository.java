@@ -1,5 +1,6 @@
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import za.ac.cput.domain.Employee;
 
 import java.util.Set;
@@ -10,6 +11,6 @@ import java.util.Set;
  * Date: 8/4/2023
  * */
 
-public interface IEmployeeRepository extends IRepository<Employee, String> {
+public interface IEmployeeRepository extends JpaRepository<Employee, String> {
     public Set<Employee> getAll();
 }

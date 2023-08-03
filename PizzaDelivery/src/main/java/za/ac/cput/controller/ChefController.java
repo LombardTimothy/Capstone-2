@@ -7,7 +7,10 @@ import za.ac.cput.factory.ChefFactory;
 import za.ac.cput.service.ChefService;
 
 import java.util.Set;
-
+/* ChefController.java
+ Author: Dawood Kamalie (220147760)
+ Date: 2nd August (last edited) 2023
+*/
 @RestController
 @RequestMapping("/chef")
 public class ChefController {
@@ -16,8 +19,7 @@ public class ChefController {
 
     @PostMapping("/create")
     public Chef create(@RequestBody Chef chef) {
-        Chef chefCreated = ChefFactory.createChef("018", "Daniella", "Roxanna", "204", "Lebanon", "Sous chef");
-        return chefService.create(chefCreated);
+        return chefService.create(chef);
     }
     @GetMapping("/read/{id}")
     public Chef read(@PathVariable String id) {

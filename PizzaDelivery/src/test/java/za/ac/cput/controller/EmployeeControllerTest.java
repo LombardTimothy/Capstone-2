@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class EmployeeControllerTest {
 
-    private static Employee employee = EmployeeFactory.createEmployee("0012", "Basil", "Roode");
+    private static Employee employee = EmployeeFactory.createEmployee("Basil", "Roode");
     @Autowired
     private TestRestTemplate restTemplate;
     private final String baseURL = "http://localhost:8080/employee";
