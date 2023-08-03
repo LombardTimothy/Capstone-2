@@ -94,7 +94,7 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return empId == employee.empId && empName == employee.empName &&  empSurname == employee.empSurname;
+        return empId.equals(employee.empId) && empName.equals(employee.empName) && empSurname.equals(employee.empSurname);
     }
 
     @Override

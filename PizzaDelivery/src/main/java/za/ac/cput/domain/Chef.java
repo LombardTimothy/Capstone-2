@@ -161,7 +161,7 @@ public class Chef extends Employee {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             Chef chef = (Chef) o;
-            return empId == chef.empId && chefName == chef.chefName && chefSurname == chef.chefSurname && chefId == chef.chefId && nationality == chef.nationality &&  culinaryExperience == chef.culinaryExperience;
+            return empId.equals(chef.empId) && chefName.equals(chef.chefName) && chefSurname.equals(chef.chefSurname) && chefId.equals(chef.chefId) && nationality.equals(chef.nationality) && culinaryExperience.equals(chef.culinaryExperience);
         }
 
         @Override

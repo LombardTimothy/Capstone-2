@@ -6,7 +6,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.Chef;
 import za.ac.cput.domain.Employee;
 import za.ac.cput.factory.ChefFactory;
-import za.ac.cput.factory.EmployeeFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -12,5 +12,5 @@ import java.util.Set;
 * */
 
 public interface IChefRepository extends JpaRepository<Chef, String> {
-    public Set<Chef> getAll();
+     Set<Chef> getAll();
 }

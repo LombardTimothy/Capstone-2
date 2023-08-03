@@ -16,7 +16,7 @@ public class ChefFactory {
 
         String chefId = Helper.generateId();
 
-        Chef chef = new Chef.Builder().
+        return new Chef.Builder().
                 setEmpId(empId).
                 setChefName(chefName).
                 setChefSurname(chefSurname).
@@ -24,6 +24,5 @@ public class ChefFactory {
                 setNationality(nationality).
                 setCulinaryExperience(culinaryExperience).
                 build();
-        return chef;
     }
 }

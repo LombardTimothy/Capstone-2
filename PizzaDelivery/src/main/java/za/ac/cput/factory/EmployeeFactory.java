@@ -3,7 +3,6 @@ package za.ac.cput.factory;
 import za.ac.cput.domain.Employee;
 import za.ac.cput.util.Helper;
 
-import java.time.LocalDate;
 
 /*
 * EmployeeFactory.java
@@ -19,11 +18,10 @@ public class EmployeeFactory {
 
         String empId = Helper.generateId();
 
-        Employee employee = new Employee.Builder().
+        return new Employee.Builder().
                 setEmpId(empId).
                 setEmpName(empName).
                 setEmpSurname(empSurname).
                 build();
-        return employee;
     }
 }
