@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 /* PizzaServiceImplTest.java
  Author: Timothy Lombard (220154856)
- Date: 30th July (last updated) 2023
+ Date: 4th August (last updated) 2023
 */
 @SpringBootTest
 class PizzaServiceImplTest {
@@ -24,7 +24,7 @@ class PizzaServiceImplTest {
     private PizzaServiceImpl service;
 
     private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
-    private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55);
+    private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 60);
 
     @Test
     public void a_create(){

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Set;
 /* PizzaServiceImpl.java
  Author: Timothy Lombard (220154856)
- Date: 21st July (last updated) 2023
+ Date: 4th August (last updated) 2023
 */
 @Service
 public class PizzaServiceImpl implements PizzaService {
@@ -53,8 +53,8 @@ public class PizzaServiceImpl implements PizzaService {
     }
 
     @Override
-    public Set<Pizza> getAll() {
-        return (Set<Pizza>) this.pizzaRepo.findAll();
+    public ArrayList<Pizza> getAll() {
+        return (ArrayList<Pizza>) this.pizzaRepo.findAll();
     }
 
 }

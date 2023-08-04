@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Set;
 /* PizzaService.java
  Author: Timothy Lombard (220154856)
- Date: 9th June (last updated) 2023
+ Date: 4th August (last updated) 2023
 */
 
 public interface PizzaService extends IService<Pizza, String>{
@@ -19,6 +19,6 @@ public interface PizzaService extends IService<Pizza, String>{
 
     boolean delete(String pizzaId);
 
-    public Set<Pizza> getAll();
+    public ArrayList<Pizza> getAll();
 
 }
