@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Set;
 /* PizzaController.java
  Author: Timothy Lombard (220154856)
- Date: 17th June (last updated) 2023
+ Date: 4th August (last updated) 2023
 */
 @RestController
 @RequestMapping("/pizza")
@@ -41,7 +41,7 @@ public class PizzaController {
     }
 
     @GetMapping({"/getall"})
-    public Set<Pizza> getAll(){
+    public ArrayList<Pizza> getAll(){
         return pizzaService.getAll();
     }
 }

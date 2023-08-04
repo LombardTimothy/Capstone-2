@@ -1,5 +1,6 @@
 package za.ac.cput.service.impl;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -15,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 AddressServiceImplTest.java
 Author: Tamryn Lisa Lewin (219211981)
 Date: 09 June 2023
-Last updated: 24 July 2023
+Last updated: 4th August 2023
  */
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
@@ -25,8 +26,8 @@ class AddressServiceImplTest {
     @Autowired
     private AddressServiceImpl service;
 
-    Address address1 = AddressFactory.buildAddress("21", "Jump Street", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", AddressType.RESIDENTIAL_HOME);
-    Address address2 = AddressFactory.buildAddress("22", "Fall Street", "12", "East Bay", "Rock Bottom", "Ohio", "Crownlands", "0006", AddressType.FLAT_BUILDING);
+    private static Address address1 = AddressFactory.buildAddress("21", "Jump Street", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", AddressType.RESIDENTIAL_HOME);
+    private static Address address2 = AddressFactory.buildAddress("22", "Fall Street", "12", "East Bay", "Rock Bottom", "Ohio", "Crownlands", "0006", AddressType.FLAT_BUILDING);
 
 
     @Test

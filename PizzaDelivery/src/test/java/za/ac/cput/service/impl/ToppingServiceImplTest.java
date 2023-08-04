@@ -10,7 +10,7 @@ import za.ac.cput.domain.Topping;
 import za.ac.cput.factory.ToppingFactory;
 /* ToppingServiceImplTest.java
  Author: Timothy Lombard (220154856)
- Date: 30th July (last updated) 2023
+ Date: 4th August (last updated) 2023
 */
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,7 +21,7 @@ class ToppingServiceImplTest {
     @Autowired
     private ToppingServiceImpl service;
 
-    private static Topping t = ToppingFactory.buildTopping("Bacon", "spicy bacon", 6, 15);
+    private static Topping t = ToppingFactory.buildTopping("Bacon", "spicy bacon", 6, 11.99);
     @Test
     public void a_create(){
         Topping created1 = service.create(t);
