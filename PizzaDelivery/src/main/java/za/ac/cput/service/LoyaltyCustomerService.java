@@ -18,6 +18,8 @@ public interface LoyaltyCustomerService extends IService<LoyaltyCustomer, String
 
     LoyaltyCustomer update(LoyaltyCustomer loyaltyCustomer);
 
+    boolean delete(String loyaltyCustomerId);
+
     Set<LoyaltyCustomer> getAll();
 }
 

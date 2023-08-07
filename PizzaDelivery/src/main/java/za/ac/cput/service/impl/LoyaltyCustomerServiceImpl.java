@@ -1,12 +1,10 @@
 package za.ac.cput.service.impl;
 
-import za.ac.cput.domain.Bill;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.LoyaltyCustomer;
-import za.ac.cput.repository.BillRepository;
-import za.ac.cput.repository.LoyaltyCustomerRepository;
-import za.ac.cput.service.BillService;
+import za.ac.cput.repository.ILoyaltyCustomerRepository;
 import za.ac.cput.service.LoyaltyCustomerService;
-
 import java.util.Set;
 
 /*
@@ -16,44 +14,45 @@ Date: 09 June 2023
 Last updated: 11 June 2023
  */
 
+@Service
 public class LoyaltyCustomerServiceImpl implements LoyaltyCustomerService {
-    private static LoyaltyCustomerServiceImpl service = null;
-    private static LoyaltyCustomerRepository repository = null;
-    private LoyaltyCustomerServiceImpl() {
+    private ILoyaltyCustomerRepository repository;
 
-        repository = LoyaltyCustomerRepository.getRepository();
-    }
-
-    public static LoyaltyCustomerServiceImpl getService() {
-        if (service == null) {
-            service = new LoyaltyCustomerServiceImpl();
-        }
-        return service;
+    @Autowired
+    private LoyaltyCustomerServiceImpl(ILoyaltyCustomerRepository repository) {
+        this.repository = repository;
     }
 
     @Override
     public LoyaltyCustomer create(LoyaltyCustomer loyaltyCustomer) {
-        LoyaltyCustomer createdLoyaltyCustomer = repository.create(loyaltyCustomer);
-        return createdLoyaltyCustomer;
+        return this.repository.save(loyaltyCustomer);
     }
 
     @Override
     public LoyaltyCustomer read(String loyaltyCustomerId) {
-        LoyaltyCustomer readLoyaltyCustomer = repository.read(loyaltyCustomerId);
-        return readLoyaltyCustomer;
+        return this.repository.findById(loyaltyCustomerId).orElse(null);
     }
 
     @Override
     public LoyaltyCustomer update(LoyaltyCustomer loyaltyCustomer) {
-        LoyaltyCustomer updatedLoyaltyCustomer = repository.update(loyaltyCustomer);
-        return updatedLoyaltyCustomer;
+        if (this.repository.existsById(loyaltyCustomer.getLoyaltyCustomerId())) {
+            return this.repository.save(loyaltyCustomer);
+        }
+        return null;
+    }
+
+    @Override
+    public boolean delete(String loyaltyCustomerId) {
+        if (this.repository.existsById(loyaltyCustomerId)) {
+            this.repository.deleteById(loyaltyCustomerId);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public Set<LoyaltyCustomer> getAll() {
-        return repository.getAll();
+        return (Set<LoyaltyCustomer>) this.repository.findAll();
     }
-
 }
-
 
