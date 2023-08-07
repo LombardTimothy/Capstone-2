@@ -1,5 +1,9 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /*
@@ -8,12 +12,16 @@ Bill entity
 Author: Vuyisa Lutho Mqoboli (219191018)
 Date: 04 April 2023
  */
-
+@Entity
 public class Bill {
+    @Id
     private String billId;
     private double totalBill;
 
-    private Bill(){
+    @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<OrderLine> orderLines = new ArrayList<>();
+
+    protected Bill(){
 
     }
 

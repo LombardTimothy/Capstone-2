@@ -14,9 +14,11 @@ Last updated: 11 June 2023
 public interface BillService extends IService<Bill, String> {
     Bill create(Bill bill);
 
-    Bill read(String orderId);
+    Bill read(String billId);
 
     Bill update(Bill bill);
+
+    boolean delete(String billId);
 
     Set<Bill> getAll();
 }

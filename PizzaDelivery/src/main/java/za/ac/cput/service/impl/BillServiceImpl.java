@@ -1,9 +1,10 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Bill;
-import za.ac.cput.repository.BillRepository;
+import za.ac.cput.repository.IBillRepository;
 import za.ac.cput.service.BillService;
-
 import java.util.Set;
 
 /*
@@ -13,41 +14,46 @@ Date: 09 June 2023
 Last updated: 11 June 2023
  */
 
+@Service
 public class BillServiceImpl implements BillService {
-    private static BillServiceImpl service = null;
-    private static BillRepository repository = null;
-    private BillServiceImpl() {
-        repository = BillRepository.getRepository();
-    }
+    private IBillRepository repository;
 
-    public static BillServiceImpl getService() {
-        if (service == null) {
-            service = new BillServiceImpl();
-        }
-        return service;
+    @Autowired
+    private BillServiceImpl(IBillRepository repository) {
+        this.repository = repository;
     }
 
     @Override
     public Bill create(Bill bill) {
-        Bill createdBill = repository.create(bill);
-        return createdBill;
+        return this.repository.save(bill);
     }
 
     @Override
-    public Bill read(String orderId) {
-        Bill readBill = repository.read(orderId);
-        return readBill;
+    public Bill read(String billId) {
+        return this.repository.findById(billId).orElse(null);
     }
 
     @Override
     public Bill update(Bill bill) {
-        Bill updatedBill = repository.update(bill);
-        return updatedBill;
+        if (this.repository.existsById(bill.getBillId())) {
+            return this.repository.save(bill);
+        }
+        return null;
+    }
+
+    @Override
+    public boolean delete(String billId) {
+        if (this.repository.existsById(billId)) {
+            this.repository.deleteById(billId);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public Set<Bill> getAll() {
-        return repository.getAll();
+        return (Set<Bill>) this.repository.findAll();
     }
 }
+
 
