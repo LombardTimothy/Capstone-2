@@ -6,6 +6,7 @@ import za.ac.cput.domain.LoyaltyCustomer;
 import za.ac.cput.repository.ILoyaltyCustomerRepository;
 import za.ac.cput.service.LoyaltyCustomerService;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /*
 LoyaltyCustomerServiceImpl.java
@@ -29,22 +30,22 @@ public class LoyaltyCustomerServiceImpl implements LoyaltyCustomerService {
     }
 
     @Override
-    public LoyaltyCustomer read(String loyaltyCustomerId) {
-        return this.repository.findById(loyaltyCustomerId).orElse(null);
+    public LoyaltyCustomer read(String customerId) {
+        return this.repository.findById(customerId).orElse(null);
     }
 
     @Override
     public LoyaltyCustomer update(LoyaltyCustomer loyaltyCustomer) {
-        if (this.repository.existsById(loyaltyCustomer.getLoyaltyCustomerId())) {
+        if (this.repository.existsById(loyaltyCustomer.getCustomerID())) {
             return this.repository.save(loyaltyCustomer);
         }
         return null;
     }
 
     @Override
-    public boolean delete(String loyaltyCustomerId) {
-        if (this.repository.existsById(loyaltyCustomerId)) {
-            this.repository.deleteById(loyaltyCustomerId);
+    public boolean delete(String customerId) {
+        if (this.repository.existsById(customerId)) {
+            this.repository.deleteById(customerId);
             return true;
         }
         return false;
@@ -52,7 +53,7 @@ public class LoyaltyCustomerServiceImpl implements LoyaltyCustomerService {
 
     @Override
     public Set<LoyaltyCustomer> getAll() {
-        return (Set<LoyaltyCustomer>) this.repository.findAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 }
 

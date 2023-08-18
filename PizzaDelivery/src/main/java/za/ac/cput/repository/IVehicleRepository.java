@@ -6,10 +6,11 @@ Date: 08/04/2023
 */
 
 import com.sun.source.doctree.SeeTree;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Vehicle;
 
 import java.util.Set;
-
-public interface IVehicleRepository extends IRepository<Vehicle, String>{
-    public Set<Vehicle> getAll();
+@Repository
+public interface IVehicleRepository extends JpaRepository<Vehicle, String> {
 }

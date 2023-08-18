@@ -23,8 +23,9 @@ public class OrderLine {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "pizzaId", referencedColumnName = "pizzaId")
     private Pizza pizza;
-//    @OneToOne
-//    private Bill bill;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "billId", referencedColumnName = "billId")
+    private Bill bill;
 
     protected OrderLine() {}
 
@@ -33,7 +34,7 @@ public class OrderLine {
         this.quantity = builder.quantity;
         this.order = builder.order;
         this.pizza = builder.pizza;
-//        this.bill = builder.bill;
+        this.bill = builder.bill;
     }
 
     public String getOrderLineId() {
@@ -48,16 +49,16 @@ public class OrderLine {
     public Pizza getPizza() {
         return pizza;
     }
-//    public Bill getBill() {
-//        return bill;
-//    }
+    public Bill getBill() {
+       return bill;
+    }
 
     public static class Builder {
         private String orderLineId;
         private int quantity;
         private Order order;
         private Pizza pizza;
-//        private Bill bill;
+        private Bill bill;
 
         public Builder setOrderLineId(String orderLineId) {
             this.orderLineId = orderLineId;
@@ -78,17 +79,17 @@ public class OrderLine {
             return this;
         }
 
-//        public Builder setBill(Bill bill) {
-//            this.bill = bill;
-//            return this;
-//        }
+        public Builder setBill(Bill bill) {
+            this.bill = bill;
+           return this;
+       }
 
         public Builder copy(OrderLine orderLine) {
             this.orderLineId = orderLine.orderLineId;
             this.quantity = orderLine.quantity;
             this.order = orderLine.order;
             this.pizza = orderLine.pizza;
-//            this.bill = orderLine.bill;
+            this.bill = orderLine.bill;
             return this;
         }
 
@@ -102,12 +103,12 @@ public class OrderLine {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OrderLine orderLine = (OrderLine) o;
-        return quantity == orderLine.quantity && orderLineId.equals(orderLine.orderLineId) && order.equals(orderLine.order) && pizza.equals(orderLine.pizza);
+        return quantity == orderLine.quantity && Objects.equals(orderLineId, orderLine.orderLineId) && Objects.equals(order, orderLine.order) && Objects.equals(pizza, orderLine.pizza) && Objects.equals(bill, orderLine.bill);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderLineId, quantity, order, pizza);
+        return Objects.hash(orderLineId, quantity, order, pizza, bill);
     }
 
     @Override
@@ -117,6 +118,7 @@ public class OrderLine {
                 ", quantity=" + quantity +
                 ", order=" + order +
                 ", pizza=" + pizza +
+                ", bill=" + bill +
                 '}';
     }
 }

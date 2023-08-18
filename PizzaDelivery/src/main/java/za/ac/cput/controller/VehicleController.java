@@ -13,12 +13,14 @@ import java.util.Set;
 public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
-
+/*
     @PostMapping("/create")
     public Vehicle create(@RequestBody Vehicle vehicle){
-        Vehicle vehicleCreated = VehicleFactory.createVehicle("VW");
+       Vehicle vehicleCreated = VehicleFactory.createVehicle("VW");
         return vehicleService.create(vehicleCreated);
     }
+
+ */
 
     @GetMapping("/read/{id}")
     public Vehicle read(@PathVariable String id){
@@ -40,3 +42,5 @@ public class VehicleController {
         return vehicleService.getAll();
     }
 }
+
+

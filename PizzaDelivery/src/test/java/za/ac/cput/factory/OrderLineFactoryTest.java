@@ -25,25 +25,28 @@ public class OrderLineFactoryTest {
 
     private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
     private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55);
+    private static Bill bill = BillFactory.createBill(375);
+    private static Bill bill1 = BillFactory.createBill(1125);
+
 
     @Test
     public void orderLine_test_pass() {
-        OrderLine orderLine = OrderLineFactory.buildOrderLine(5, order, pizza);
+        OrderLine orderLine = OrderLineFactory.buildOrderLine(5, order, pizza, bill);
         System.out.println(orderLine.toString());
         assertNotNull(orderLine);
     }
 
     @Test
     public void orderLine_test_fail() {
-        OrderLine orderLine = OrderLineFactory.buildOrderLine(0, order, pizza);
+        OrderLine orderLine = OrderLineFactory.buildOrderLine(0, order, pizza, bill1);
         System.out.println(orderLine.toString());
         assertNull(orderLine);
     }
 
     @Test
     public void orderLine_test_equality_pass() {
-        OrderLine orderLine = OrderLineFactory.buildOrderLine(10, order, pizza);
-        OrderLine orderLine1 = OrderLineFactory.buildOrderLine(10, order, pizza);
+        OrderLine orderLine = OrderLineFactory.buildOrderLine(10, order, pizza, bill);
+        OrderLine orderLine1 = OrderLineFactory.buildOrderLine(10, order, pizza, bill);
         if(orderLine.equals(orderLine)) {
             System.out.println("Objects are equal.");
         } else
@@ -52,8 +55,8 @@ public class OrderLineFactoryTest {
 
     @Test
     public void orderLine_test_equality_fail() {
-        OrderLine orderLine = OrderLineFactory.buildOrderLine(10, order, pizza);
-        OrderLine orderLine1 = OrderLineFactory.buildOrderLine(10, order, pizza);
+        OrderLine orderLine = OrderLineFactory.buildOrderLine(10, order, pizza, bill);
+        OrderLine orderLine1 = OrderLineFactory.buildOrderLine(10, order, pizza, bill);
         if(orderLine.equals(orderLine1)) {
             System.out.println("Objects are equal.");
         } else
@@ -67,7 +70,7 @@ public class OrderLineFactoryTest {
         });
 
         int quantity = 5;
-        OrderLine orderLine = OrderLineFactory.buildOrderLine(5, order, pizza);
+        OrderLine orderLine = OrderLineFactory.buildOrderLine(5, order, pizza, bill);
         assertEquals(quantity, orderLine.getQuantity());
         System.out.println(orderLine.toString());
     }
@@ -79,7 +82,7 @@ public class OrderLineFactoryTest {
         });
 
         int quantity = 5;
-        OrderLine orderLine = OrderLineFactory.buildOrderLine(5, order, pizza);
+        OrderLine orderLine = OrderLineFactory.buildOrderLine(5, order, pizza, bill);
         assertEquals(quantity, orderLine.getQuantity());
         System.out.println(orderLine.toString());
     }
@@ -87,7 +90,7 @@ public class OrderLineFactoryTest {
     @Disabled("Disabled test.")
     @Test
     public void orderLine_test_disabled() {
-        OrderLine orderLine = OrderLineFactory.buildOrderLine(15, order, pizza);
+        OrderLine orderLine = OrderLineFactory.buildOrderLine(15, order, pizza, bill1);
         System.out.println(orderLine.toString());
         assertNotNull(orderLine);
     }

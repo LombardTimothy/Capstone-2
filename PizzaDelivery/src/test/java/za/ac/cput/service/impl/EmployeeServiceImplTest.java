@@ -3,6 +3,8 @@ package za.ac.cput.service.impl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Employee;
 import za.ac.cput.factory.EmployeeFactory;
 
@@ -11,12 +13,15 @@ import static org.junit.jupiter.api.Assertions.*;
  Author: Dawood Kamalie (220147760)
  Date: 11th June (last updated) 2023
 */
-@TestMethodOrder(MethodOrderer.MethodName.class)
-class EmployeeServiceImplTest {
 
+
+@TestMethodOrder(MethodOrderer.MethodName.class)
+@SpringBootTest
+class EmployeeServiceImplTest {
+@Autowired
     private EmployeeServiceImpl service;
-    private static Employee employee1 = EmployeeFactory.createEmployee( "Jasmine", "DeToiit");
-    private static Employee employee2 = EmployeeFactory.createEmployee(  "David", "Camalito");
+    private static Employee employee1 = EmployeeFactory.createEmployee( "Jasmine", "DeToiit", "084-253-8832", "Jas@gmail.com");
+    private static Employee employee2 = EmployeeFactory.createEmployee(  "David", "Camalito", "091-663-3621", "DCamalito@gmail.com");
 
     @Test
     public void a_create() {
@@ -39,7 +44,7 @@ class EmployeeServiceImplTest {
 
     @Test
     public void c_update() {
-        Employee updated = new Employee.Builder().copy(employee1).setEmpId("004").setEmpName("Generico").setEmpSurname("Tamat").build();
+        Employee updated = new Employee.Builder().copy(employee2).setName("Generico").build();
         assertNotNull(service.update(updated));
         System.out.println(updated);
     }
@@ -56,3 +61,4 @@ class EmployeeServiceImplTest {
         System.out.println(service.getAll());
     }
 }
+

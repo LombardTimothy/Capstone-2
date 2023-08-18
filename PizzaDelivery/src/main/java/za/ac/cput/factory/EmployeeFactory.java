@@ -11,17 +11,14 @@ import za.ac.cput.util.Helper;
 * */
 
 public class EmployeeFactory {
-    public static Employee createEmployee( String empName, String empSurname) {
-        if (Helper.isNullOrEmpty(empName) || Helper.isNullOrEmpty(empSurname)) {
+    public static Employee createEmployee( String name, String surname, String phoneNumber, String email) {
+        if (Helper.isNullOrEmpty(name) || Helper.isNullOrEmpty(surname) || Helper.isNullOrEmpty(phoneNumber) || Helper.isNullOrEmpty(email)) {
             return null;
         }
 
         String empId = Helper.generateId();
 
-        return new Employee.Builder().
-                setEmpId(empId).
-                setEmpName(empName).
-                setEmpSurname(empSurname).
-                build();
+       Employee employee = new Employee.Builder().setEmpId(empId).setName(name).setSurname(surname).setPhoneNumber(phoneNumber).setEmail(email).build();
+       return employee;
     }
 }

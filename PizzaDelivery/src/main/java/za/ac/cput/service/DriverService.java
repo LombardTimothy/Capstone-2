@@ -11,10 +11,10 @@ Date: 11/06/2023
  */
 public interface DriverService extends IService<Driver, String>{
     Driver create(Driver driver);
-    Driver read(String driverId);
+    Driver read(String empId);
     Driver update(Driver driver);
 
-    boolean delete(String driverId);
+    boolean delete(String empId);
 
     Set<Driver> getAll();
 

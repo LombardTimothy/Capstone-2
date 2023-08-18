@@ -1,4 +1,6 @@
 package za.ac.cput.domain;
+import jakarta.persistence.Entity;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -9,25 +11,23 @@ Author: Vuyisa Lutho Mqoboli (219191018)
 Date: 04 April 2023
  */
 
+@Entity
+public class LoyaltyCustomer extends Customer {
 
-public class LoyaltyCustomer {
-    private String loyaltyCustomerId;
     private LocalDate dateJoined;
     private double discounts;
 
-    private LoyaltyCustomer(){
+    protected LoyaltyCustomer(){
 
     }
 
     private LoyaltyCustomer(Builder builder){
-        this.loyaltyCustomerId = builder.loyaltyCustomerId;
+        super(builder);
         this.dateJoined = builder.dateJoined;
         this.discounts = builder.discounts;
 
     }
-    public String getLoyaltyCustomerId() {
-        return loyaltyCustomerId;
-    }
+
     public LocalDate getDateJoined() {
         return dateJoined;
     }
@@ -35,37 +35,17 @@ public class LoyaltyCustomer {
         return discounts;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof LoyaltyCustomer that)) return false;
-        return Double.compare(that.discounts, discounts) == 0 && Objects.equals(loyaltyCustomerId, that.loyaltyCustomerId) && Objects.equals(dateJoined, that.dateJoined);
+    public void setDateJoined(LocalDate dateJoined) {
+        this.dateJoined = dateJoined;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(loyaltyCustomerId, dateJoined, discounts);
+    public void setDiscounts(double discounts) {
+        this.discounts = discounts;
     }
 
-    @Override
-    public String toString() {
-        return "LoyaltyCustomer{" +
-                "LoyaltyCustomerId='" + loyaltyCustomerId + '\'' +
-                ", dateJoined='" + dateJoined + '\'' +
-                ", discounts=" + discounts +
-                '}';
-    }
-
-    public static class Builder{
-
-        private String loyaltyCustomerId;
+    public static class Builder extends Customer.Builder{
         private LocalDate dateJoined;
         private double discounts;
-
-        public Builder setLoyaltyCustomerId(String loyaltyCustomerId) {
-            this.loyaltyCustomerId = loyaltyCustomerId;
-            return this;
-        }
 
         public Builder setDateJoined(LocalDate dateJoined) {
             this.dateJoined = dateJoined;
@@ -79,7 +59,7 @@ public class LoyaltyCustomer {
 
 
         public Builder copy(LoyaltyCustomer loyaltyCustomer){
-            this.loyaltyCustomerId = loyaltyCustomer.loyaltyCustomerId;
+            super.copy(loyaltyCustomer);
             this.dateJoined = loyaltyCustomer.dateJoined;
             this.discounts = loyaltyCustomer.discounts;
             return this;
@@ -87,6 +67,33 @@ public class LoyaltyCustomer {
         public LoyaltyCustomer build(){
             return new LoyaltyCustomer(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        LoyaltyCustomer that = (LoyaltyCustomer) o;
+        return Double.compare(that.discounts, discounts) == 0 && Objects.equals(dateJoined, that.dateJoined);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), dateJoined, discounts);
+    }
+
+    @Override
+    public String toString() {
+        return "LoyaltyCustomer{" +
+                "customerID=" + customerID +
+                ", customerName=" + customerName +
+                ", customerSurname='" + customerSurname + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", dateJoined='" + dateJoined + '\'' +
+                ", discounts=" + discounts +
+                '}';
     }
 }
 

@@ -13,9 +13,9 @@ import java.util.Set;
 @Service
 public interface ChefService extends IService<Chef, String> {
      Chef create(Chef chef);
-     Chef read(String chefId);
+     Chef read(String empId);
      Chef update(Chef chef);
-     boolean delete(String chefId);
+     boolean delete(String empId);
      Set<Chef> getAll();
 
 
