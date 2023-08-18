@@ -8,6 +8,8 @@ Date: 11/06/2023
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Chef;
 import za.ac.cput.domain.Vehicle;
 import za.ac.cput.factory.VehicleFactory;
@@ -15,10 +17,12 @@ import za.ac.cput.factory.VehicleFactory;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
+@SpringBootTest
 public class VehicleServiceImplTest {
-    private static VehicleServiceImpl service = VehicleServiceImpl.getService();
-    private static Vehicle vehicle1 = VehicleFactory.createVehicle("Toyota");
-    private static Vehicle vehicle2 = VehicleFactory.createVehicle("BMW");
+    @Autowired
+    private VehicleServiceImpl service;
+    private static Vehicle vehicle1 = VehicleFactory.createVehicle("Toyota", "Starlet", "Toyota Starrlet Hatchback", "2020", "White");
+    private static Vehicle vehicle2 = VehicleFactory.createVehicle("Lyft Scooter", "Lyft", "Next gen Lyft Scooter", "2023", "Metallic silver");
 
 
     @Test
@@ -41,14 +45,14 @@ public class VehicleServiceImplTest {
 
     @Test
     void c_update() {
-        Vehicle updated = new Vehicle.Builder().copy(vehicle1).setVehicleId("636").setVehicleType("merc").build();
+        Vehicle updated = new Vehicle.Builder().copy(vehicle1).setColour("Super white").build();
         assertNotNull(service.update(updated));
         System.out.println(updated);
     }
 
     @Test
     void d_delete() {
-        boolean delete = service.delete(vehicle1.getVehicleId());
+        boolean delete = service.delete(vehicle2.getVehicleId());
         assertTrue(delete);
         System.out.println(true + "= deleted");
     }
@@ -58,3 +62,4 @@ public class VehicleServiceImplTest {
         System.out.println(service.getAll());
     }
 }
+

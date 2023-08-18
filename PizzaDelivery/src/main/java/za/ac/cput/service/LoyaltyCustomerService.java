@@ -14,11 +14,11 @@ Last updated: 11 June 2023
 public interface LoyaltyCustomerService extends IService<LoyaltyCustomer, String> {
     LoyaltyCustomer create(LoyaltyCustomer loyaltyCustomer);
 
-    LoyaltyCustomer read(String loyaltyCustomerId);
+    LoyaltyCustomer read(String customerId);
 
     LoyaltyCustomer update(LoyaltyCustomer loyaltyCustomer);
 
-    boolean delete(String loyaltyCustomerId);
+    boolean delete(String customerId);
 
     Set<LoyaltyCustomer> getAll();
 }

@@ -13,76 +13,90 @@ import java.util.Objects;
  * */
 @Entity
 public class Employee {
+
     @Id
-    private String empId;
-    private String empName;
-    private String empSurname;
+    protected String empId;
+    protected String name;
+    protected String surname;
+    protected String phoneNumber;
+    protected String email;
 
     protected Employee() {
 
     }
-    public Employee(String empId, String empName, String empSurname){
-        this.empId = empId;
-        this.empName = empName;
-        this.empSurname = empSurname;
-    }
 
-    private Employee(Builder builder) {
+
+    protected Employee(Builder builder) {
         this.empId = builder.empId;
-        this.empName = builder.empName;
-        this.empSurname = builder.empSurname;
+        this.name = builder.name;
+        this.surname = builder.surname;
+        this.phoneNumber = builder.phoneNumber;
+        this.email = builder.email;
     }
     public String getEmpId() {
         return empId;
     }
 
-    public void setEmpId(String empId) {
-        this.empId = empId;
+
+    public String getName() {
+        return name;
     }
 
-    public String getEmpName() {
-        return empName;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setEmpName(String empName) {
-        this.empName = empName;
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public String getEmpSurname() {
-        return empSurname;
+    public String getEmail() {
+        return email;
     }
-
-    public void setEmpSurname(String empSurname) {
-        this.empSurname = empSurname;
-    }
-
 
     public static class Builder {
         private String empId;
-        private String empName;
-        private String empSurname;
+        private String name;
+        private String surname;
+        private String phoneNumber;
+        private String email;
 
         public Builder setEmpId(String empId) {
             this.empId = empId;
             return this;
         }
 
-        public Builder setEmpName(String empName) {
-            this.empName = empName;
+        public Builder setName(String name) {
+            this.name = name;
             return this;
         }
 
-        public Builder setEmpSurname(String empSurname) {
-            this.empSurname = empSurname;
+        public Builder setSurname(String surname) {
+            this.surname = surname;
+            return this;
+        }
+
+        public Builder setPhoneNumber(String phoneNumber) {
+            this.phoneNumber = phoneNumber;
+            return this;
+        }
+
+        public Builder setEmail(String email) {
+            this.email = email;
             return this;
         }
 
         public Builder copy(Employee employee){
             this.empId = employee.empId;
-            this.empName = employee.empName;
-            this.empSurname = employee.empSurname;
+            this.name = employee.name;
+            this.surname = employee.surname;
+            this.phoneNumber = employee.phoneNumber;
+            this.email = employee.email;
             return this;
         }
+
+
 
         public Employee build(){
             return new Employee(this);
@@ -94,20 +108,22 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return empId.equals(employee.empId) && empName.equals(employee.empName) && empSurname.equals(employee.empSurname);
+        return Objects.equals(empId, employee.empId) && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(phoneNumber, employee.phoneNumber) && Objects.equals(email, employee.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(empId, empName, empSurname);
+        return Objects.hash(empId, name, surname, phoneNumber, email);
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Employee{" +
-                "Employee Id='" + empId + '\'' +
-                ", Employee Name='" + empName + '\'' +
-                ", Employee Surname='" + empSurname +
+                "empId='" + empId + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

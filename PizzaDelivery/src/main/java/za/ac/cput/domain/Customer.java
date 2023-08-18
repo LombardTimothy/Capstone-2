@@ -13,21 +13,21 @@ import java.util.Objects;
 @Entity
 public class Customer implements Serializable{
     @Id
-    private String customerID;
-    private String customerName;
-    private String customerSurname;
-    private String phoneNumber;
+    protected String customerID;
+    protected String customerName;
+    protected String customerSurname;
+    protected String phoneNumber;
 
     @ManyToOne(cascade = CascadeType.ALL )
     @JoinColumn(name = "addressId", referencedColumnName = "addressId")
     //@ManyToMany(cascade = CascadeType.ALL)
-    private Address address;
+    protected Address address;
 
 
     protected Customer(){
     }
 
-    private Customer(Builder builder){
+    protected Customer(Builder builder){
         this.customerID = builder.customerID;
         this.customerName = builder.customerName;
         this.customerSurname = builder.customerSurname;
