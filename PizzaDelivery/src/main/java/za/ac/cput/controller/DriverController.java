@@ -14,11 +14,15 @@ public class DriverController {
     @Autowired
     private DriverService driverService;
 
+    /*
     @PostMapping("/create")
     public Driver create(@RequestBody Driver driver){
-        Driver driverCreated = DriverFactory.createDriver(driver.getDriverId().toString(),driver.getEmpId().toString(),driver.getDriverName().toString(), driver.getDriverSurname().toString());
-        return driverService.create(driverCreated);
+       Driver driverCreated = DriverFactory.createDriver(driver.getDriverId().toString(),driver.getEmpId().toString(),driver.getDriverName().toString(), driver.getDriverSurname().toString());
+       return driverService.create(driverCreated);
+
     }
+
+     */
 
     @GetMapping("/read/{id}")
     public Driver read(@PathVariable String id){
@@ -41,3 +45,5 @@ public class DriverController {
     }
 
 }
+
+

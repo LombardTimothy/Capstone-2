@@ -35,7 +35,8 @@ class OrderLineServiceImplTest {
     private static Order order = OrderFactory.buildOrder(date, time, customer, Order.OrderStatus.NEW);//you can change the order status if you want, to whatever
     private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
     private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55);
-    private static OrderLine orderLine = OrderLineFactory.buildOrderLine(1,order, pizza);
+    private static Bill bill = BillFactory.createBill(375);
+    private static OrderLine orderLine = OrderLineFactory.buildOrderLine(1,order, pizza, bill);
 
     @Test
     public void a_create() {

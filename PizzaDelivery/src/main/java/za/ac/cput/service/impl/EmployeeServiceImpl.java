@@ -7,6 +7,7 @@ import za.ac.cput.repository.IEmployeeRepository;
 import za.ac.cput.service.EmployeeService;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /* EmployeeServiceImpl.java
  Author: Dawood Kamalie (220147760)
@@ -48,7 +49,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Set<Employee> getAll() {
-        return (Set<Employee>) this.empRepo.findAll();
+        return this.empRepo.findAll().stream().collect(Collectors.toSet());
     }
 
 

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class EmployeeFactoryTest {
     @Test
     void createEmployee() {
-        Employee employee = EmployeeFactory.createEmployee( "Dawood", "Kamalie");
+        Employee employee = EmployeeFactory.createEmployee( "Dawood", "Kamalie", "068-553-1111", "kamalie@gmail.com");
         System.out.println(employee);
         assertNotNull(employee);
     }

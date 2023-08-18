@@ -1,5 +1,6 @@
 package za.ac.cput.factory;
 
+import za.ac.cput.domain.Bill;
 import za.ac.cput.domain.Order;
 import za.ac.cput.domain.OrderLine;
 import za.ac.cput.domain.Pizza;
@@ -13,8 +14,8 @@ Last update: 08 April 2023
  */
 
 public class OrderLineFactory {
-    public static OrderLine buildOrderLine(int quantity, Order order, Pizza pizza) {
-        if(Helper.isNullOrEmpty(String.valueOf(quantity)) || Helper.isNullOrEmpty(String.valueOf(order)) || Helper.isNullOrEmpty(String.valueOf(pizza))) {
+    public static OrderLine buildOrderLine(int quantity, Order order, Pizza pizza, Bill bill) {
+        if(Helper.isNullOrEmpty(String.valueOf(quantity)) || Helper.isNullOrEmpty(String.valueOf(order)) || Helper.isNullOrEmpty(String.valueOf(pizza)) || Helper.isNullOrEmpty(String.valueOf(bill))) {
             return null;
         }
 
@@ -25,6 +26,7 @@ public class OrderLineFactory {
                 .setQuantity(quantity)
                 .setOrder(order)
                 .setPizza(pizza)
+                .setBill(bill)
                 .build();
         return orderLine;
     }

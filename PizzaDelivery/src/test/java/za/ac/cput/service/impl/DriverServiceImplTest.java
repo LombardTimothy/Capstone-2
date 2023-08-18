@@ -8,15 +8,24 @@ Date: 11/06/2023
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Driver;
+import za.ac.cput.domain.Vehicle;
 import za.ac.cput.factory.DriverFactory;
+import za.ac.cput.factory.VehicleFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
+@SpringBootTest
 class DriverServiceImplTest {
-    private static DriverServiceImpl service = DriverServiceImpl.getService();
-    private static Driver driver1 = DriverFactory.createDriver("501","255","zain","G");
-    private static Driver driver2 = DriverFactory.createDriver("502","456","Josh","J");
+    @Autowired
+    private DriverServiceImpl service;
+    private static Vehicle vehicle1 = VehicleFactory.createVehicle("Lyft Scooter", "Lyft", "Next gen Lyft Scooter", "2022", "Plain white");
+    private static Vehicle vehicle2 = VehicleFactory.createVehicle("Nissan", "Nissian Note", "Nissian Note Subcompact", "2005", "Light grey");
+    private static Driver driver1 = DriverFactory.createDriver("Zoe", "Samuels", "083-733-0821", "ZoeS@gmail.com", vehicle1);
+    private static Driver driver2 = DriverFactory.createDriver("Max", "Edwards", "036-836-1378", "MaxEdwards@gmail.com", vehicle2);
     @Test
     public void a_create() {
         Driver create1 = service.create(driver1);
@@ -28,8 +37,8 @@ class DriverServiceImplTest {
 
     @Test
     public void b_read() {
-        Driver read1 = service.read(driver1.getDriverId());
-        Driver read2 = service.read(driver2.getDriverId());
+        Driver read1 = service.read(driver1.getEmpId());
+        Driver read2 = service.read(driver2.getEmpId());
         System.out.println(read1 + "\n" + read2);
         assertNotNull(driver1);
         assertNotNull(driver2);
@@ -37,14 +46,14 @@ class DriverServiceImplTest {
 
     @Test
     public void c_update() {
-        Driver updated = new Driver.Builder().copy(driver1).setDriverId("511").build();
+        Driver updated = (Driver) new Driver.Builder().copy(driver1).setEmail("SZoe@gmail.com").build();
         assertNotNull(service.update(updated));
         System.out.println(updated);
     }
 
     @Test
     public void d_delete() {
-        boolean delete = service.delete(driver1.getDriverId());
+        boolean delete = service.delete(driver2.getEmpId());
         assertTrue(delete);
         System.out.println(true + "= deleted ");
     }
@@ -54,3 +63,4 @@ class DriverServiceImplTest {
         System.out.println(service.getAll());
     }
 }
+

@@ -9,17 +9,14 @@ import za.ac.cput.domain.Vehicle;
 import za.ac.cput.util.Helper;
 
 public class VehicleFactory {
-    public static Vehicle createVehicle(String vehicleType){
-        if (Helper.isNullOrEmpty(vehicleType)) {
+    public static Vehicle createVehicle(String vehicleType, String make, String model, String year, String colour){
+        if (Helper.isNullOrEmpty(vehicleType) || Helper.isNullOrEmpty(make) || Helper.isNullOrEmpty(model) || Helper.isNullOrEmpty(year) || Helper.isNullOrEmpty(colour)) {
             return null;
         }
-       String vehicleID = Helper.generateId();
+       String vehicleId = Helper.generateId();
 
-       // return new Vehicle.Builder().setVehicleId(vehicleId)
-         //       .setVehicleType(vehicleType)
-           //     .build();
 
-        Vehicle veh = new Vehicle.Builder().setVehicleId(vehicleID).setVehicleType(vehicleType).build();
-        return veh;
+        Vehicle vehicle = new Vehicle.Builder().setVehicleId(vehicleId).setVehicleType(vehicleType).setMake(make).setModel(model).setYear(year).setColour(colour).build();
+        return vehicle;
     }
 }

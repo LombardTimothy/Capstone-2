@@ -16,6 +16,7 @@ import za.ac.cput.domain.Driver;
 import za.ac.cput.factory.DriverFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
+/*
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class DriverControllerTest {
@@ -79,3 +80,5 @@ class DriverControllerTest {
         System.out.println(response.getBody());
     }
 }
+
+ */

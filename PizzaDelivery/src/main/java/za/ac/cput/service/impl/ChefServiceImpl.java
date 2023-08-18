@@ -7,11 +7,14 @@ import za.ac.cput.repository.IChefRepository;
 import za.ac.cput.service.ChefService;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /* ChefServiceImpl.java
  Author: Dawood Kamalie (220147760)
  Date: 11th June (last updated) 2023
 */
+
+
 @Service
 public class ChefServiceImpl implements ChefService {
     private IChefRepository chefRepo;
@@ -28,13 +31,13 @@ public class ChefServiceImpl implements ChefService {
     }
 
     @Override
-    public Chef read(String chefId) {
-        return this.chefRepo.findById(chefId).orElse(null);
+    public Chef read(String empId) {
+        return this.chefRepo.findById(empId).orElse(null);
     }
 
     @Override
     public Chef update(Chef chef) {
-        if(this.chefRepo.existsById(chef.getChefId())){
+        if(this.chefRepo.existsById(chef.getEmpId())){
             return this.chefRepo.save(chef);
         }else {
             return null;
@@ -42,9 +45,9 @@ public class ChefServiceImpl implements ChefService {
     }
 
     @Override
-    public boolean delete(String chefId) {
-        if(this.chefRepo.existsById(chefId)){
-            this.chefRepo.deleteById(chefId);
+    public boolean delete(String empId) {
+        if(this.chefRepo.existsById(empId)){
+            this.chefRepo.deleteById(empId);
             return true;
         }
         return false;
@@ -52,7 +55,9 @@ public class ChefServiceImpl implements ChefService {
 
     @Override
     public Set<Chef> getAll() {
-        return (Set<Chef>) this.chefRepo.findAll();
+        return this.chefRepo.findAll().stream().collect(Collectors.toSet());
     }
 }
+
+
 
