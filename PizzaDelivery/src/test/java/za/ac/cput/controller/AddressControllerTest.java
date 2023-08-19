@@ -20,14 +20,14 @@ import static org.junit.jupiter.api.Assertions.*;
 AddressControllerTest.java
 Author: Tamryn Lisa Lewin (219211981)
 Date:  13 June 2023
-Last update: 14 June 2023
+Last update: 19 August 2023
  */
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class AddressControllerTest {
 
-    private static Address address = AddressFactory.buildAddress("124", "Conch Street", "", "Sandstone", "Sunnydale", "Sunspear", "Dorne", "0008", AddressType.RESIDENTIAL_HOME);
+    private static Address address = AddressFactory.buildAddress("124", "Conch Street", "Sandstone", "Sunnydale", "Sunspear", "Dorne", "0008", AddressType.RESIDENTIAL_HOME);
 
     @Autowired
     private TestRestTemplate restTemplate;
