@@ -5,10 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.Pizzeria;
 import za.ac.cput.factory.PizzeriaFactory;
-
 import static org.junit.jupiter.api.Assertions.*;
 /*
  * PizzeriaServiceImplTest.java
@@ -22,19 +20,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class PizzeriaServiceImplTest {
     private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant(
             "Grancho",
-            25,
-            true);
+            "21 lavender Crescent");
 
     private static Pizzeria pizzeria2 = PizzeriaFactory.buildRestaurant(
             "Grancho & Sons",
-            22,
-            true);
+            "Hotel Transalvania");
 
     private static Pizzeria pizzeria3 = PizzeriaFactory.buildRestaurant(
             "GrangerBay",
-            15,
-            false);
-    //private static PizzeriaServiceImpl service = PizzeriaServiceImpl.getService();
+            "32 corner of broadway and main");
+
     @Autowired
     private PizzeriaServiceImpl service;
     @Test
@@ -61,33 +56,19 @@ class PizzeriaServiceImplTest {
         assertNotNull(pizzeria2);
     }
 
-
-
+    /*
     @Test
-    void c_update() {
-        Pizzeria newPizzeria = new Pizzeria
-                .Builder()
-                .copy(pizzeria2)
-                .setRestaurantName("Tigers and sons")
-                .setNoOfEmp(17)
-                .setIsOpen(false)
-                .build();
-        Pizzeria updated = service.update(newPizzeria);
-
-        assertEquals(newPizzeria.getRestaurantName(),newPizzeria.getRestaurantName());
-        assertNotNull(service.update(newPizzeria));
-        System.out.println(newPizzeria);
-    }
-    }
-/*   @TesAt
     void d_delete() {
         boolean deleted = service.delete(pizzeria.getRestaurantID());
         assertTrue(deleted);
         System.out.println(true + " = deleted");
     }
+     */
 
     @Test
     void e_getAll() {
         System.out.println(service.getAll());
     }
- */
+
+    }
+

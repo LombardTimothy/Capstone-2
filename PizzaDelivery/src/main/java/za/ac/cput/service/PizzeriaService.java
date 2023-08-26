@@ -1,8 +1,6 @@
 package za.ac.cput.service;
 
 import java.util.Set;
-
-import za.ac.cput.domain.Address;
 import za.ac.cput.domain.Pizzeria;
 
 /*
@@ -15,7 +13,6 @@ import za.ac.cput.domain.Pizzeria;
 public interface PizzeriaService extends IService<Pizzeria, String> {
     Pizzeria create(Pizzeria pizzeria);
     Pizzeria read(String pizzeriaId);
-    Pizzeria update(Pizzeria pizzeria);
 
     Set<Pizzeria> getAll();
 }

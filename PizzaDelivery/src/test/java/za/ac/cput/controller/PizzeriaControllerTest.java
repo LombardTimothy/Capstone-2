@@ -23,13 +23,11 @@ class PizzeriaControllerTest {
     private final String baseURL = "http://localhost:8080/pizzeria";
         private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant(
                 "Grancho",
-                25,
-                true);
+                "21 lavender Crescent");
 
         private static Pizzeria pizzeria2 = PizzeriaFactory.buildRestaurant(
                 "Grancho & Sons",
-                22,
-                true);
+                "Hotel Transalvania");
         @Test
         void create() {
             String url = baseURL + "/create";
@@ -56,21 +54,7 @@ class PizzeriaControllerTest {
             System.out.println(response.getBody());
         }
 
-        @Test
-        void update() {
-            Pizzeria updatedPizzeria = new Pizzeria
-                    .Builder()
-                    .copy(pizzeria)
-                    .setIsOpen(false)
-                    .build();
 
-            String url = baseURL + "/update";
-            System.out.println("url: " + url);
-            System.out.println("Post data: " + updatedPizzeria);
-
-            ResponseEntity<Pizzeria>  response = restTemplate.postForEntity(url, updatedPizzeria, Pizzeria.class);
-            assertNotNull(response.getBody());
-        }
 
         @Test
         void getAll() {
