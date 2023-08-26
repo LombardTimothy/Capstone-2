@@ -6,6 +6,7 @@ import za.ac.cput.domain.Customer;
 import za.ac.cput.repository.CustomerRepository;
 import za.ac.cput.service.CustomerService;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /*
  * CustomerServicesImpl.java
@@ -53,8 +54,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Set<Customer> getAll() {
-        //return repository.findAll().stream().collect(Collectors.toSet());
-        return null;
+        return repository.findAll().stream().collect(Collectors.toSet());
     }
 }
 
