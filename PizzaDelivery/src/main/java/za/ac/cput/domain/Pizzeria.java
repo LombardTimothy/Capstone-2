@@ -16,8 +16,7 @@ public class Pizzeria implements Serializable {
     @Id
     private String restaurantID;
     private String restaurantName;
-    private int noOfEmp;
-    private Boolean isOpen;
+    private String location;
 
     protected Pizzeria(){
 
@@ -25,8 +24,7 @@ public class Pizzeria implements Serializable {
     private Pizzeria(Builder builder){
         this.restaurantID = builder.restaurantID;
         this.restaurantName = builder.restaurantName;
-        this.noOfEmp = builder.noOfEmp;
-        this.isOpen = builder.isOpen;
+        this.location = builder.location;
     }
 
     public String getRestaurantID() {
@@ -37,21 +35,17 @@ public class Pizzeria implements Serializable {
         return restaurantName;
     }
 
-    public int getNoOfEmp() {
-        return noOfEmp;
+    public String getLocation() {
+        return location;
     }
 
-    public Boolean getOpen() {
-        return isOpen;
-    }
 
 
 
     public static class Builder {
         private String restaurantID;
         private String restaurantName;
-        private int noOfEmp;
-        private Boolean isOpen;
+        private String location;
 
         public Builder setRestaurantID(String restaurantID) {
             this.restaurantID = restaurantID;
@@ -61,26 +55,15 @@ public class Pizzeria implements Serializable {
             this.restaurantName = restaurantName;
             return this;
         }
-        public Builder setNoOfEmp(int noOfEmp) {
-            this.noOfEmp = noOfEmp;
-            return this;
-        }
-        public Builder setIsOpen(Boolean isOpen) {
-            this.isOpen = isOpen;
+        public Builder setLocation(String location) {
+            this.location = location;
             return this;
         }
 
-        /*public RestaurantBuilder(String restaurantID, String restaurantName, int noOfEmp,Boolean isOpen) {
-            this.restaurantID = restaurantID;
-            this.restaurantName = restaurantName;
-            this.noOfEmp = noOfEmp;
-            this.isOpen = isOpen;
-        }*/
         public Builder copy(Pizzeria t) {
             this.restaurantID = t.restaurantID;
             this.restaurantName = t.restaurantName;
-            this.noOfEmp = t.noOfEmp;
-            this.isOpen = t.isOpen;
+            this.location = t.location;
             return this;
         }
 
@@ -94,13 +77,13 @@ public class Pizzeria implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Pizzeria that = (Pizzeria) o;
-        return noOfEmp == that.noOfEmp && Objects.equals(restaurantID, that.restaurantID) && Objects.equals(restaurantName, that.restaurantName) && Objects.equals(isOpen, that.isOpen);
+        Pizzeria pizzeria = (Pizzeria) o;
+        return Objects.equals(restaurantID, pizzeria.restaurantID) && Objects.equals(restaurantName, pizzeria.restaurantName) && Objects.equals(location, pizzeria.location);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(restaurantID, restaurantName, noOfEmp, isOpen);
+        return Objects.hash(restaurantID, restaurantName, location);
     }
 
     @Override
@@ -108,8 +91,7 @@ public class Pizzeria implements Serializable {
         return "Pizzeria{" +
                 "restaurantID='" + restaurantID + '\'' +
                 ", restaurantName='" + restaurantName + '\'' +
-                ", noOfEmp=" + noOfEmp +
-                ", isOpen=" + isOpen +
+                ", location='" + location + '\'' +
                 '}';
     }
 }

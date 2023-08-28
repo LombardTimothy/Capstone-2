@@ -1,6 +1,7 @@
 package za.ac.cput.service.impl;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Pizzeria;
@@ -30,66 +31,10 @@ public class PizzeriaServiceImpl implements PizzeriaService {
     public Pizzeria read(String id) {
         return this.repository.findById(id).orElse(null);
     }
-
-    @Override
-    public Pizzeria update(Pizzeria employeeNum) {
-        if (this.repository.existsById(employeeNum.getRestaurantID())) {
-            return this.repository.save(employeeNum);
-        }
-        return null;
-    }
     
 
     @Override
     public Set<Pizzeria> getAll() {
-        //return repository.findAll();
-        return null;
+        return repository.findAll().stream().collect(Collectors.toSet());
     }
 }
-
-/*
-    private static PizzeriaServiceImpl service = null;
-    private static PizzeriaRepository repository = null;
-
-    private PizzeriaServiceImpl() {
-        if (repository == null) {
-            repository = PizzeriaRepository.getRepository();
-        }
-    }
-
-    public static PizzeriaServiceImpl getService() {
-        if (service == null) {
-            service = new PizzeriaServiceImpl();
-        }
-        return service;
-    }
-
-
-    @Override
-    public Pizzeria create(Pizzeria pizzeria) {
-        Pizzeria readPizzeria = repository.create(pizzeria);
-        return readPizzeria;
-    }
-
-    @Override
-    public Pizzeria read(String id) {
-        Pizzeria read = repository.read(id);
-        return read;
-    }
-
-    @Override
-    public Pizzeria update(Pizzeria employeeNum) {
-        Pizzeria updated = repository.update(employeeNum);
-        return updated;
-    }
-
-
-    @Override
-    public Set<Pizzeria> getAll() {
-        return repository.getAll();
-    }
-}
-
- */
-
-

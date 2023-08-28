@@ -9,8 +9,8 @@ import za.ac.cput.util.Helper;
    Date: 30th March 2023
 */
 public class PizzeriaFactory {
-    public static Pizzeria buildRestaurant(String restaurantName, int noOfEmp, boolean isOpen) {
-        if (Helper.isNullOrEmpty(restaurantName) || noOfEmp == 0 || Helper.isNullOrEmpty(String.valueOf(isOpen))) {
+    public static Pizzeria buildRestaurant(String restaurantName,String location) {
+        if (Helper.isNullOrEmpty(restaurantName)  || Helper.isNullOrEmpty(String.valueOf(location))) {
             return null;
         }
 
@@ -18,9 +18,9 @@ public class PizzeriaFactory {
 
         Pizzeria pizzeria = new Pizzeria.Builder().
                 setRestaurantID(restaurantID).
-                setRestaurantName(restaurantName).
-                setNoOfEmp(noOfEmp).
-                setIsOpen(isOpen).build();
+                setRestaurantName(restaurantName)
+                .setLocation(location)
+                .build();
         return pizzeria;
 
     }
