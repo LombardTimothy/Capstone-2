@@ -28,6 +28,9 @@ public class Order {
     @JoinColumn(name = "customerID", referencedColumnName = "customerID")
     private Customer customer;
     private OrderStatus orderStatus;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "restaurantID", referencedColumnName = "restaurantID")
+    private Pizzeria pizzeria;
 
     protected Order(){
 
@@ -39,6 +42,7 @@ public class Order {
         this.time = builder.time;
         this.customer = builder.customer;
         this.orderStatus = builder.orderStatus;
+        this.pizzeria = builder.pizzeria;
     }
 
     public String getOrderId() {
@@ -61,12 +65,17 @@ public class Order {
         return orderStatus;
     }
 
+    public Pizzeria getPizzeria() {
+        return pizzeria;
+    }
+
     public static class Builder {
         private String orderId;
         private LocalDate createDate;
         private LocalTime time;
         private Customer customer;
         private OrderStatus orderStatus;
+        private Pizzeria pizzeria;
 
         public za.ac.cput.domain.Order.Builder setOrderId(String orderId) {
             this.orderId = orderId;
@@ -93,12 +102,18 @@ public class Order {
             return this;
         }
 
+        public Order.Builder setPizzeria(Pizzeria pizzeria) {
+            this.pizzeria = pizzeria;
+            return this;
+        }
+
         public za.ac.cput.domain.Order.Builder copy(za.ac.cput.domain.Order order) {
             this.orderId = order.orderId;
             this.createDate = order.createDate;
             this.time = order.time;
             this.customer = order.customer;
             this.orderStatus = order.orderStatus;
+            this.pizzeria = order.pizzeria;
             return this;
         }
 
@@ -112,12 +127,12 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return Objects.equals(orderId, order.orderId) && Objects.equals(createDate, order.createDate) && Objects.equals(time, order.time) && Objects.equals(customer, order.customer) && orderStatus == order.orderStatus;
+        return Objects.equals(orderId, order.orderId) && Objects.equals(createDate, order.createDate) && Objects.equals(time, order.time) && Objects.equals(customer, order.customer) && orderStatus == order.orderStatus && Objects.equals(pizzeria, order.pizzeria);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, createDate, time, customer, orderStatus);
+        return Objects.hash(orderId, createDate, time, customer, orderStatus, pizzeria);
     }
 
     @Override
@@ -128,6 +143,7 @@ public class Order {
                 ", time=" + time +
                 ", customer=" + customer +
                 ", orderStatus=" + orderStatus +
+                ", pizzeria=" + pizzeria +
                 '}';
     }
 }

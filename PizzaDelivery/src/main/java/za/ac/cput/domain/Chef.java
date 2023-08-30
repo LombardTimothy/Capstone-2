@@ -75,6 +75,7 @@ public class Chef extends Employee {
         }
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -89,16 +90,16 @@ public class Chef extends Employee {
         return Objects.hash(super.hashCode(), title, culinaryExperience);
     }
 
-
     @Override
     public String toString() {
         return "Chef{" +
-                "empId='" + empId + '\'' +
+                ", empId='" + empId + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
-                ", title='" + title + '\'' +
+                ", pizzeria=" + pizzeria +
+                "title='" + title + '\'' +
                 ", culinaryExperience='" + culinaryExperience + '\'' +
                 '}';
     }
