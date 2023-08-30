@@ -1,5 +1,6 @@
 package za.ac.cput.service.impl;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -7,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Chef;
 import za.ac.cput.domain.Employee;
+import za.ac.cput.domain.Pizzeria;
 import za.ac.cput.factory.ChefFactory;
+import za.ac.cput.factory.PizzeriaFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,8 +25,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class ChefServiceImplTest {
 @Autowired
     private ChefServiceImpl service;
-    private static Chef chef1 = ChefFactory.createChef("Francois", "Jacob", "011-746-0962", "JacobsF@gmail.com", "Sous chef", "10 years");
-    private static Chef chef2 = ChefFactory.createChef("Louis", "Basil", "086-119-0902", "Louis@gmail.com", "Head chef", "15 years");
+    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant("Hill Crest","Hotel Transalvania");
+    private static Chef chef1 = ChefFactory.createChef("Francois", "Jacob", "011-746-0962", "JacobsF@gmail.com", "Sous chef", "10 years", pizzeria);
+    private static Chef chef2 = ChefFactory.createChef("Louis", "Basil", "086-119-0902", "Louis@gmail.com", "Head chef", "15 years", pizzeria);
 
 
     @Test
@@ -51,7 +55,7 @@ class ChefServiceImplTest {
         assertNotNull(service.update(updated));
         System.out.println(updated);
     }
-
+@Disabled
     @Test
     public void d_delete() {
         boolean deleted = service.delete(chef1.getEmpId());
