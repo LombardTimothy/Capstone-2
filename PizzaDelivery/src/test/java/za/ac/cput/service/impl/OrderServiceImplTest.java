@@ -6,13 +6,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import za.ac.cput.domain.Address;
-import za.ac.cput.domain.AddressType;
-import za.ac.cput.domain.Customer;
-import za.ac.cput.domain.Order;
+import za.ac.cput.domain.*;
 import za.ac.cput.factory.AddressFactory;
 import za.ac.cput.factory.CustomerFactory;
 import za.ac.cput.factory.OrderFactory;
+import za.ac.cput.factory.PizzeriaFactory;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -35,7 +33,8 @@ class OrderServiceImplTest {
     private static LocalDate date = LocalDate.of(2023, 7, 28);
     private static LocalDate date1 = LocalDate.of(2023, 7, 29);
     private static LocalTime time = LocalTime.now();
-    private static Order order1 = OrderFactory.buildOrder(date1, time, customer, Order.OrderStatus.NEW);
+    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant("Hill Crest","Hotel Transalvania");
+    private static Order order1 = OrderFactory.buildOrder(date1, time, customer, Order.OrderStatus.NEW, pizzeria);
 
 
     @Test

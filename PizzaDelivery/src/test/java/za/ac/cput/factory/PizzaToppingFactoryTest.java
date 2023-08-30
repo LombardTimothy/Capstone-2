@@ -2,10 +2,7 @@ package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import za.ac.cput.domain.Base;
-import za.ac.cput.domain.Pizza;
-import za.ac.cput.domain.PizzaTopping;
-import za.ac.cput.domain.Topping;
+import za.ac.cput.domain.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 /* PizzaToppingFactoryTest.java
@@ -15,7 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class PizzaToppingFactoryTest {
 
     private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
-    private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55);
+    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant("Hill Crest","Hotel Transalvania");
+    private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55, pizzeria);
     private static Topping topping = ToppingFactory.buildTopping("Pepperoni", "spicy salami made from cured pork and beef seasoned with paprika or other chili pepper", 20, 11);
 
     private static PizzaTopping pt = PizzaToppingFactory.buildPizzaTopping(pizza, topping);
