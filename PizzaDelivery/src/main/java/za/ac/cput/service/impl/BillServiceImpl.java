@@ -6,6 +6,7 @@ import za.ac.cput.domain.Bill;
 import za.ac.cput.repository.IBillRepository;
 import za.ac.cput.service.BillService;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /*
 BillServiceImpl.java
@@ -52,7 +53,8 @@ public class BillServiceImpl implements BillService {
 
     @Override
     public Set<Bill> getAll() {
-        return (Set<Bill>) this.repository.findAll();
+
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 }
 
