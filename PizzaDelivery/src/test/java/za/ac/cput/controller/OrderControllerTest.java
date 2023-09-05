@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class OrderControllerTest {
 
-    private static Address address = AddressFactory.buildAddress("21", "1st Street", "", "Southern", "Cape Town", "Western Cape", "South Afica", "0986", AddressType.RESIDENTIAL_HOME);
+    private static Address address = AddressFactory.buildAddress("21", "1st Street", "Southern", "Cape Town", "Western Cape", "South Africa", "0986", AddressType.RESIDENTIAL_HOME);
 
     private static Customer customer = CustomerFactory.buildCustomer("Daniel", "Diaz","085 451 7339", address);
 
@@ -73,8 +73,6 @@ class OrderControllerTest {
         System.out.println("Post data: " + updated);
         ResponseEntity<Order> response = restTemplate.postForEntity(url, updated, Order.class);
         assertNotNull(response.getBody());
-
-
     }
 
 
@@ -83,7 +81,6 @@ class OrderControllerTest {
         String url = baseURL + "/delete/" + order.getOrderId();
         System.out.println("URL " + url);
         restTemplate.delete(url);
-
     }
 
     @Test
@@ -97,6 +94,4 @@ class OrderControllerTest {
         System.out.println(response.getBody());
 
     }
-
-
 }

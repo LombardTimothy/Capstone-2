@@ -17,5 +17,4 @@ import java.util.ArrayList;
 public interface CustomerAddressRepository extends JpaRepository<CustomerAddress, CustomerAddressId> {
     public ArrayList<CustomerAddress> findAllByCustomerIDAndAddressId(Customer customerID, Address addressId);
 
-    public void deleteAllByCustomerIDAndAddressId(Customer customerID, Address addressId);
 }
