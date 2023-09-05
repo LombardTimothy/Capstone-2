@@ -35,7 +35,7 @@ class AddressControllerTest {
     private final String baseURL = "http://localhost:8080/address";
 
     @Test
-    void a_create() {
+    public void a_create() {
         String url = baseURL + "/create";
         ResponseEntity<Address> postResponse = restTemplate.postForEntity(url, address, Address.class);
         assertNotNull(postResponse);
@@ -47,7 +47,7 @@ class AddressControllerTest {
     }
 
     @Test
-    void b_read() {
+    public void b_read() {
         String url = baseURL + "/read/" + address.getAddressId();
         System.out.println("URL: " + url + "\n");
         ResponseEntity<Address> response = restTemplate.getForEntity(url, Address.class);
@@ -56,7 +56,7 @@ class AddressControllerTest {
     }
 
     @Test
-    void c_update() {
+    public void c_update() {
         Address updatedAddress = new Address.Builder().copy(address).setStreetName("Sand Snake Street").build();
         String url = baseURL + "/update";
         System.out.println("URL: " + url + "\n");
@@ -66,7 +66,7 @@ class AddressControllerTest {
     }
 
     @Test
-    void d_getAll() {
+    public void d_getAll() {
         String url = baseURL + "/getall";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
