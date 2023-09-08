@@ -63,12 +63,13 @@ public class Driver extends Employee{
     @Override
     public String toString() {
         return "Driver{" +
-                "empId=" + empId +
+                ", empId='" + empId + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
-                ", vehicleId='" + vehicle + '\'' +
+                ", pizzeria=" + pizzeria +
+                ", vehicleId=" + vehicle +
                 '}';
     }
 }

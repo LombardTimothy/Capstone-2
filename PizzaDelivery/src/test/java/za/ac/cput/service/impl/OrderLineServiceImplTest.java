@@ -32,9 +32,10 @@ class OrderLineServiceImplTest {
     private static LocalTime time = LocalTime.now();
     private static Address address = AddressFactory.buildAddress("22", "Fall Street", "13", "East Bay", "Rock Bottom", "Ohio", "King's Landing", "0006", AddressType.FLAT_BUILDING);
     private static Customer customer = CustomerFactory.buildCustomer("Theon", "Greyjoy","078 675 7850", address);
-    private static Order order = OrderFactory.buildOrder(date, time, customer, Order.OrderStatus.NEW);//you can change the order status if you want, to whatever
+    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant("Hill Crest","Hotel Transalvania");
+    private static Order order = OrderFactory.buildOrder(date, time, customer, Order.OrderStatus.NEW, pizzeria);//you can change the order status if you want, to whatever
     private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
-    private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55);
+    private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55, pizzeria);
     private static Bill bill = BillFactory.createBill(375);
     private static OrderLine orderLine = OrderLineFactory.buildOrderLine(1,order, pizza, bill);
 
@@ -61,7 +62,7 @@ class OrderLineServiceImplTest {
         assertNotNull(updatedOrderLine);
         System.out.println("\nUpdated: \n" + updatedOrderLine + "\n");
     }
-@Disabled //you can remove this, I just wanted to test it without deleting it also, but it does work
+    @Disabled
     @Test
     void d_delete() {
         boolean deletedOrderLine = service.delete(orderLine.getOrderLineId());

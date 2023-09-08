@@ -26,12 +26,12 @@ public class PizzaToppingController {
         return pizzaToppingService.create(pizzaTopping);
     }
 
-    @GetMapping("/read/{id}")
+    @GetMapping("/read/{pizzaId}/{toppingId}")
     public ArrayList<PizzaTopping> read(@PathVariable Pizza pizzaId, Topping toppingId){
         return pizzaToppingService.readPizzaIdAndToppingId(pizzaId, toppingId);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete/{pizzaId}/{toppingId}")
     public void delete(@PathVariable Pizza pizzaId, Topping toppingId){
          pizzaToppingService.deletePT(pizzaId, toppingId);
     }

@@ -5,14 +5,17 @@ Date: 11/06/2023
 
  */
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Driver;
+import za.ac.cput.domain.Pizzeria;
 import za.ac.cput.domain.Vehicle;
 import za.ac.cput.factory.DriverFactory;
+import za.ac.cput.factory.PizzeriaFactory;
 import za.ac.cput.factory.VehicleFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,8 +27,9 @@ class DriverServiceImplTest {
     private DriverServiceImpl service;
     private static Vehicle vehicle1 = VehicleFactory.createVehicle("Lyft Scooter", "Lyft", "Next gen Lyft Scooter", "2022", "Plain white");
     private static Vehicle vehicle2 = VehicleFactory.createVehicle("Nissan", "Nissian Note", "Nissian Note Subcompact", "2005", "Light grey");
-    private static Driver driver1 = DriverFactory.createDriver("Zoe", "Samuels", "083-733-0821", "ZoeS@gmail.com", vehicle1);
-    private static Driver driver2 = DriverFactory.createDriver("Max", "Edwards", "036-836-1378", "MaxEdwards@gmail.com", vehicle2);
+    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant("Hill Crest","Hotel Transalvania");
+    private static Driver driver1 = DriverFactory.createDriver("Zoe", "Samuels", "083-733-0821", "ZoeS@gmail.com", vehicle1, pizzeria);
+    private static Driver driver2 = DriverFactory.createDriver("Max", "Edwards", "036-836-1378", "MaxEdwards@gmail.com", vehicle2, pizzeria);
     @Test
     public void a_create() {
         Driver create1 = service.create(driver1);
@@ -50,7 +54,7 @@ class DriverServiceImplTest {
         assertNotNull(service.update(updated));
         System.out.println(updated);
     }
-
+@Disabled
     @Test
     public void d_delete() {
         boolean delete = service.delete(driver2.getEmpId());

@@ -26,6 +26,9 @@ public class Pizza {
     private boolean vegetarianOrNot;
 
     private double price;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "restaurantID", referencedColumnName = "restaurantID")
+    private Pizzeria pizzeria;
 
     protected Pizza(){
 
@@ -39,6 +42,7 @@ public class Pizza {
         this.size = builder.size;
         this.vegetarianOrNot = builder.vegetarianOrNot;
         this.price = builder.price;
+        this.pizzeria = builder.pizzeria;
     }
 
     public String getPizzaId() {
@@ -65,6 +69,10 @@ public class Pizza {
             return price;
         }
 
+    public Pizzeria getPizzeria() {
+        return pizzeria;
+    }
+
     public static class Builder {
         private String pizzaId;
         private Base baseId;
@@ -73,6 +81,7 @@ public class Pizza {
         private Size size;
         private boolean vegetarianOrNot;
         private double price;
+        private Pizzeria pizzeria;
 
         public Builder setPizzaId(String pizzaId) {
             this.pizzaId = pizzaId;
@@ -109,6 +118,11 @@ public class Pizza {
             return this;
         }
 
+        public Builder setPizzeria(Pizzeria pizzeria) {
+            this.pizzeria = pizzeria;
+            return this;
+        }
+
         public Builder copy(za.ac.cput.domain.Pizza menu) {
             this.pizzaId = menu.pizzaId;
             this.baseId = menu.baseId;
@@ -117,6 +131,7 @@ public class Pizza {
             this.size = menu.size;
             this.vegetarianOrNot = menu.vegetarianOrNot;
             this.price = menu.price;
+            this.pizzeria = menu.pizzeria;
             return this;
         }
 
@@ -130,12 +145,12 @@ public class Pizza {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pizza pizza = (Pizza) o;
-        return vegetarianOrNot == pizza.vegetarianOrNot && Double.compare(pizza.price, price) == 0 && Objects.equals(pizzaId, pizza.pizzaId) && Objects.equals(baseId, pizza.baseId) && Objects.equals(name, pizza.name) && Objects.equals(description, pizza.description) && size == pizza.size;
+        return vegetarianOrNot == pizza.vegetarianOrNot && Double.compare(pizza.price, price) == 0 && Objects.equals(pizzaId, pizza.pizzaId) && Objects.equals(baseId, pizza.baseId) && Objects.equals(name, pizza.name) && Objects.equals(description, pizza.description) && size == pizza.size && Objects.equals(pizzeria, pizza.pizzeria);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pizzaId, baseId, name, description, size, vegetarianOrNot, price);
+        return Objects.hash(pizzaId, baseId, name, description, size, vegetarianOrNot, price, pizzeria);
     }
 
     @Override
@@ -147,7 +162,8 @@ public class Pizza {
                 ", description='" + description + '\'' +
                 ", size=" + size +
                 ", vegetarianOrNot=" + vegetarianOrNot +
-                ", price= R" + price +
+                ", price=" + price +
+                ", pizzeria=" + pizzeria +
                 '}';
     }
 }
