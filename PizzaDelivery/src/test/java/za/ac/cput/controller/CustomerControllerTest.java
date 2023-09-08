@@ -22,7 +22,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class CustomerControllerTest {
     private static Address address = AddressFactory.buildAddress("21",
             "Jump Street",
-            "",
             "West Olmstead",
             "Bikini Bottom",
             "California",
@@ -33,7 +32,8 @@ class CustomerControllerTest {
     private static Customer customer = CustomerFactory.buildCustomer(
             "Keenan",
             "Meyer",
-            "078 675 7850");
+            "078 675 7850",
+            address);
 
         @Autowired
         private TestRestTemplate restTemplate;
@@ -62,7 +62,7 @@ class CustomerControllerTest {
             System.out.println("rest" +response);
 
             assertEquals(customer.getCustomerID(), response.getBody().getCustomerID());
-            System.out.println("the bastard" + response.getBody());
+            System.out.println("Specially read Cutomer:" + response.getBody());
         }
 
         @Test
