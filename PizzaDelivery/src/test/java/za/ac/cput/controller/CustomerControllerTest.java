@@ -107,6 +107,8 @@ class CustomerControllerTest {
             System.out.println(reponse.getBody());
         }
 
+        /*
+
     @Autowired
     private TestRestTemplate restTemplate;
     private final String baseURL = "http://localhost:8080/customer";
@@ -178,4 +180,6 @@ class CustomerControllerTest {
         System.out.println(response.getBody());
 
     }
+
+         */
 }
