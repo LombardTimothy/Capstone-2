@@ -37,7 +37,7 @@ class OrderLineControllerTest {
     private static Order order1 = OrderFactory.buildOrder(date1, time1, customer1, Order.OrderStatus.NEW, pizzeria);
     private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
     private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55, pizzeria);
-    private static Bill bill = BillFactory.createBill(220);
+    private static Bill bill = BillFactory.createBill(75);
 
     private static OrderLine orderLine = OrderLineFactory.buildOrderLine(4, order1, pizza, bill);
 
@@ -52,9 +52,11 @@ class OrderLineControllerTest {
         ResponseEntity<OrderLine> postResponse = restTemplate.postForEntity(url, orderLine, OrderLine.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
         OrderLine savedOrderLine = postResponse.getBody();
         System.out.println("Saved data: \n" + savedOrderLine);
-//        assertEquals(orderLine.getOrderLineId(), savedOrderLine.getOrderLineId());
+        assertEquals(orderLine.getOrderLineId(), savedOrderLine.getOrderLineId());
+        postResponse.getStatusCode();
     }
 
     @Test

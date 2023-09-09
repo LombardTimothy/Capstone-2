@@ -10,7 +10,7 @@ Address.java
 Address entity
 Author: Tamryn Lisa Lewin (219211981)
 Date: 04 April 2023
-Last update: July 2023
+Last update: 24 July 2023
  */
 
 @Entity
@@ -27,7 +27,9 @@ public class Address {
     private String postalCode;
     private AddressType addressType;
 
-    protected Address() {}
+    protected Address() {
+
+    }
 
     private Address(Builder builder) {
         this.addressId = builder.addressId;
