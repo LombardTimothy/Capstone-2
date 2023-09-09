@@ -9,16 +9,16 @@ import za.ac.cput.util.Helper;
    Date: 30th March 2023
 */
 public class PizzeriaFactory {
-    public static Pizzeria buildRestaurant(String restaurantName,String location) {
-        if (Helper.isNullOrEmpty(restaurantName)  || Helper.isNullOrEmpty(String.valueOf(location))) {
+    public static Pizzeria buildPizzaria(String pizzariaAlias,String location) {
+        if (Helper.isNullOrEmpty(pizzariaAlias)  || Helper.isNullOrEmpty(String.valueOf(location))) {
             return null;
         }
 
-        String restaurantID = Helper.generateId();
+        String pizzeriaID = Helper.generateId();
 
-        Pizzeria pizzeria = new Pizzeria.Builder().
-                setRestaurantID(restaurantID).
-                setRestaurantName(restaurantName)
+        Pizzeria pizzeria = new Pizzeria.Builder()
+                .setPizzariaID(pizzeriaID)
+                .setPizzariaAlias(pizzariaAlias)
                 .setLocation(location)
                 .build();
         return pizzeria;
