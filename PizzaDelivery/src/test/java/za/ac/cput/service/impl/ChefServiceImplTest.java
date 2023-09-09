@@ -25,9 +25,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class ChefServiceImplTest {
 @Autowired
     private ChefServiceImpl service;
-    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant("Hill Crest","Hotel Transalvania");
-    private static Chef chef1 = ChefFactory.createChef("Francois", "Jacob", "011-746-0962", "JacobsF@gmail.com", "Sous chef", "10 years", pizzeria);
-    private static Chef chef2 = ChefFactory.createChef("Louis", "Basil", "086-119-0902", "Louis@gmail.com", "Head chef", "15 years", pizzeria);
+    private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
+    private static Chef chef1 = ChefFactory.buildChef("Francois", "Jacob", "011-746-0962", "JacobsF@gmail.com", "Sous chef", "10 years", pizzeria);
+    private static Chef chef2 = ChefFactory.buildChef("Louis", "Basil", "086-119-0902", "Louis@gmail.com", "Head chef", "15 years", pizzeria);
 
 
     @Test

@@ -23,9 +23,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class EmployeeServiceImplTest {
 @Autowired
     private EmployeeServiceImpl service;
-    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant("Hill Crest","Hotel Transalvania");
-    private static Employee employee1 = EmployeeFactory.createEmployee( "Jasmine", "DeToiit", "084-253-8832", "Jas@gmail.com", pizzeria);
-    private static Employee employee2 = EmployeeFactory.createEmployee(  "David", "Camalito", "091-663-3621", "DCamalito@gmail.com", pizzeria);
+    private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
+    private static Employee employee1 = EmployeeFactory.buildEmployee( "Jasmine", "DeToiit", "084-253-8832", "Jas@gmail.com", pizzeria);
+    private static Employee employee2 = EmployeeFactory.buildEmployee(  "David", "Camalito", "091-663-3621", "DCamalito@gmail.com", pizzeria);
 
     @Test
     public void a_create() {

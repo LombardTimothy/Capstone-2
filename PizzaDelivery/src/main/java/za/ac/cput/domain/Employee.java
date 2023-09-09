@@ -20,7 +20,7 @@ public class Employee {
     protected String phoneNumber;
     protected String email;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "restaurantID", referencedColumnName = "restaurantID")
+    @JoinColumn(name = "pizzeriaID", referencedColumnName = "pizzeriaID")
     protected Pizzeria pizzeria;
 
     protected Employee() {

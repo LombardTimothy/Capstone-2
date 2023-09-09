@@ -12,10 +12,10 @@ import static org.junit.jupiter.api.Assertions.*;
 * Date: 8/4/2023
 * */
 class ChefFactoryTest {
-    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant("Hill Crest","Hotel Transalvania");
+    private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
     @Test
     void createChef() {
-        Chef chef = ChefFactory.createChef("Dawood", "Kamalie", "973-926-7412", "Dawood@gmail.com", "Head pizza chef", "5 years", pizzeria);
+        Chef chef = ChefFactory.buildChef("Dawood", "Kamalie", "973-926-7412", "Dawood@gmail.com", "Head pizza chef", "5 years", pizzeria);
         System.out.println(chef);
         assertNotNull(chef);
     }

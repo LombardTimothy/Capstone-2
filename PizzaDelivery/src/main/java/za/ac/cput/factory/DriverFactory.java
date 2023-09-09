@@ -11,7 +11,7 @@ import za.ac.cput.domain.Vehicle;
 import za.ac.cput.util.Helper;
 
 public class DriverFactory {
-    public static Driver createDriver(String name, String surname, String phoneNumber, String email, Vehicle vehicleId, Pizzeria pizzeria){
+    public static Driver buildDriver(String name, String surname, String phoneNumber, String email, Vehicle vehicleId, Pizzeria pizzeria){
         if(Helper.isNullOrEmpty(name) || Helper.isNullOrEmpty(surname) || Helper.isNullOrEmpty(phoneNumber) || Helper.isNullOrEmpty(email) || Helper.isNullOrEmpty(String.valueOf(vehicleId)) || Helper.isNullOrEmpty(String.valueOf(pizzeria))){
             return null;
         }
