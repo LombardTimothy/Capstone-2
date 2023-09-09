@@ -24,35 +24,31 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class CustomerServiceImplTest {
 
-    public static Address address = AddressFactory.buildAddress(
-            "7",
-            "Seafox Street",
-            "",
-            "Delft",
-            "Cape Town",
-            "Western Cape",
-            "South Africa",
-            "2134",
+    public static Address address = AddressFactory.buildAddress("21",
+            "Jump Street",
+            "West Olmstead",
+            "Bikini Bottom",
+            "California",
+            "Crownlands",
+            "0007",
             AddressType.RESIDENTIAL_HOME);
     public static Address address2 = AddressFactory.buildAddress(
-            "10",
-            "Accordian Street",
-            "",
-            "Belhar",
-            "Cape Town",
-            "Western Cape",
-            "South Africa",
-            "2154",
+            "5",
+            "hill Street",
+            "South Olmstead",
+            "Bikini Bottom",
+            "California",
+            "Crownlands",
+            "0207",
             AddressType.RESIDENTIAL_HOME);
     public static Address address3 = AddressFactory.buildAddress(
             "8",
-            "Toplands Street",
-            "",
-            "Delft",
-            "Cape Town",
-            "Western Cape",
-            "South Africa",
-            "2134",
+            "Jump Street",
+            "North Olmstead",
+            "Bikini Bottom",
+            "London",
+            "Crownlands",
+            "1007",
             AddressType.RESIDENTIAL_HOME);
     private static Customer customer = CustomerFactory.buildCustomer(
             "Keenan",
@@ -108,7 +104,7 @@ class CustomerServiceImplTest {
                 .build();
         Customer updated = service.update(newCustomer);
 
-        assertEquals(newCustomer.getCustomerName(),newCustomer.getCustomerName());
+        assertEquals(updated.getCustomerName(),newCustomer.getCustomerName());
         assertNotNull(service.update(newCustomer));
         System.out.println(newCustomer);
     }

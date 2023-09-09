@@ -53,7 +53,6 @@ class CustomerControllerTest {
         }
 
         @Test
-
         void b_read() {
             String url = baseURL + "/read/" + customer.getCustomerID();
             System.out.println("url: " + url);
@@ -83,8 +82,6 @@ class CustomerControllerTest {
             ResponseEntity<Customer>  response = restTemplate.postForEntity(url, updatedCustomer, Customer.class);
             assertNotNull(response.getBody());
         }
-
-
 
         @Test
         @Disabled
