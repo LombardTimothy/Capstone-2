@@ -27,7 +27,7 @@ public class Pizza {
 
     private double price;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "restaurantID", referencedColumnName = "restaurantID")
+    @JoinColumn(name = "pizzeriaID", referencedColumnName = "pizzeriaID")
     private Pizzeria pizzeria;
 
     protected Pizza(){

@@ -12,7 +12,7 @@ import za.ac.cput.util.Helper;
 * */
 
 public class EmployeeFactory {
-    public static Employee createEmployee(String name, String surname, String phoneNumber, String email, Pizzeria pizzeria) {
+    public static Employee buildEmployee(String name, String surname, String phoneNumber, String email, Pizzeria pizzeria) {
         if (Helper.isNullOrEmpty(name) || Helper.isNullOrEmpty(surname) || Helper.isNullOrEmpty(phoneNumber) || Helper.isNullOrEmpty(email) || Helper.isNullOrEmpty(String.valueOf(pizzeria))) {
             return null;
         }

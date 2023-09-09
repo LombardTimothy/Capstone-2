@@ -14,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EmployeeFactoryTest {
 
-    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant("Hill Crest","Hotel Transalvania");
+    private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
     @Test
     void createEmployee() {
-        Employee employee = EmployeeFactory.createEmployee( "Dawood", "Kamalie", "068-553-1111", "kamalie@gmail.com", pizzeria);
+        Employee employee = EmployeeFactory.buildEmployee( "Dawood", "Kamalie", "068-553-1111", "kamalie@gmail.com", pizzeria);
         System.out.println(employee);
         assertNotNull(employee);
     }
