@@ -23,7 +23,8 @@ OrderLineControllerTest.java
 Author: Tamryn Lisa Lewin (219211981)
 Date:  16 June 2023
 Last update: 16 June 2023
- */
+*/
+
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -33,10 +34,10 @@ class OrderLineControllerTest {
     private static LocalTime time1 = LocalTime.now();
     private static Address address1 = AddressFactory.buildAddress("21", "Jump Street", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", AddressType.RESIDENTIAL_HOME);
     private static Customer customer1 = CustomerFactory.buildCustomer("Rickon", "Stark", "0868561233", address1);
-    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant("Hill Crest","Hotel Transalvania");
-    private static Order order1 = OrderFactory.buildOrder(date1, time1, customer1, Order.OrderStatus.NEW, pizzeria);
+    private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
+    private static Order order1 = OrderFactory.createOrder(date1, time1, customer1, Order.OrderStatus.NEW, pizzeria);
     private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
-    private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55, pizzeria);
+    private static Pizza pizza = PizzaFactory.createPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55, pizzeria);
     private static Bill bill = BillFactory.createBill(75);
 
     private static OrderLine orderLine = OrderLineFactory.buildOrderLine(4, order1, pizza, bill);
@@ -94,3 +95,4 @@ class OrderLineControllerTest {
         System.out.println("Show all: \n" + response + "\n" + response.getBody());
     }
 }
+

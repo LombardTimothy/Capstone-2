@@ -19,7 +19,8 @@ OrderLineServiceImplTest.java
 Author: Tamryn Lisa Lewin (219211981)
 Date: 09 June 2023
 Last updated: 4th August 2023
- */
+*/
+
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest
@@ -32,10 +33,10 @@ class OrderLineServiceImplTest {
     private static LocalTime time = LocalTime.now();
     private static Address address = AddressFactory.buildAddress("22", "Fall Street", "13", "East Bay", "Rock Bottom", "Ohio", "King's Landing", "0006", AddressType.FLAT_BUILDING);
     private static Customer customer = CustomerFactory.buildCustomer("Theon", "Greyjoy","078 675 7850", address);
-    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant("Hill Crest","Hotel Transalvania");
-    private static Order order = OrderFactory.buildOrder(date, time, customer, Order.OrderStatus.NEW, pizzeria);
+    private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
+    private static Order order = OrderFactory.createOrder(date, time, customer, Order.OrderStatus.NEW, pizzeria);
     private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
-    private static Pizza pizza = PizzaFactory.buildPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55, pizzeria);
+    private static Pizza pizza = PizzaFactory.createPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55, pizzeria);
     private static Bill bill = BillFactory.createBill(75);
     private static OrderLine orderLine = OrderLineFactory.buildOrderLine(1, order, pizza, bill);
 
@@ -75,3 +76,4 @@ class OrderLineServiceImplTest {
         System.out.println("All: \n" + service.getAll());
     }
 }
+

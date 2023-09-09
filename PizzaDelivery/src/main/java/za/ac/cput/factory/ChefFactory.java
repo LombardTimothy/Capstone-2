@@ -10,7 +10,7 @@ import za.ac.cput.util.Helper;
 * Date: 7/4/2023
 * */
 public class ChefFactory {
-    public static Chef createChef(String name, String surname, String phoneNumber, String email, String title, String culinaryExperience, Pizzeria pizzeria) {
+    public static Chef buildChef(String name, String surname, String phoneNumber, String email, String title, String culinaryExperience, Pizzeria pizzeria) {
         if (  Helper.isNullOrEmpty(title) || Helper.isNullOrEmpty(culinaryExperience)) {
             return null;
         }

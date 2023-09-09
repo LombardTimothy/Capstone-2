@@ -20,11 +20,14 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
-/* OrderControllerTest.java
+/*
+ OrderControllerTest.java
  Author: Timothy Lombard (220154856)
  Date: 30th July (last updated) 2023
  ////
-*/
+
+ */
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class OrderControllerTest {
@@ -37,9 +40,9 @@ class OrderControllerTest {
     private static LocalDate date1 = LocalDate.of(2023, 6, 25);
 
     private static LocalTime time = LocalTime.now();
-    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant("Hill Crest","Hotel Transalvania");
+    private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
 
-    private static Order order = OrderFactory.buildOrder( date, time, customer, Order.OrderStatus.NEW, pizzeria);
+    private static Order order = OrderFactory.createOrder(date, time, customer, Order.OrderStatus.NEW, pizzeria);
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -95,3 +98,6 @@ class OrderControllerTest {
 
     }
 }
+
+
+

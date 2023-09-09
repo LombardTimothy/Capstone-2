@@ -27,9 +27,9 @@ class DriverServiceImplTest {
     private DriverServiceImpl service;
     private static Vehicle vehicle1 = VehicleFactory.createVehicle("Lyft Scooter", "Lyft", "Next gen Lyft Scooter", "2022", "Plain white");
     private static Vehicle vehicle2 = VehicleFactory.createVehicle("Nissan", "Nissian Note", "Nissian Note Subcompact", "2005", "Light grey");
-    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant("Hill Crest","Hotel Transalvania");
-    private static Driver driver1 = DriverFactory.createDriver("Zoe", "Samuels", "083-733-0821", "ZoeS@gmail.com", vehicle1, pizzeria);
-    private static Driver driver2 = DriverFactory.createDriver("Max", "Edwards", "036-836-1378", "MaxEdwards@gmail.com", vehicle2, pizzeria);
+    private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
+    private static Driver driver1 = DriverFactory.buildDriver("Zoe", "Samuels", "083-733-0821", "ZoeS@gmail.com", vehicle1, pizzeria);
+    private static Driver driver2 = DriverFactory.buildDriver("Max", "Edwards", "036-836-1378", "MaxEdwards@gmail.com", vehicle2, pizzeria);
     @Test
     public void a_create() {
         Driver create1 = service.create(driver1);
