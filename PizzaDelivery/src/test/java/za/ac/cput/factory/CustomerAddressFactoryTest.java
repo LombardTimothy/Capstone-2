@@ -1,6 +1,5 @@
 package za.ac.cput.factory;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Address;
 import za.ac.cput.domain.AddressType;
@@ -8,6 +7,13 @@ import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.CustomerAddress;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+/*
+CustomerAddressFactoryTest.java
+Author: Tamryn Lisa Lewin (219211981)
+Date: 24 July 2023
+Last update: 24 July 2023
+ */
 
 class CustomerAddressFactoryTest {
 
