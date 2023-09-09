@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 AddressFactoryTest.java
 Author: Tamryn Lisa Lewin (219211981)
 Date: 04 April 2023
-Last update: 14 June 2023
+Last update: 05 September 2023
  */
 
 public class AddressFactoryTest {
@@ -21,6 +21,10 @@ public class AddressFactoryTest {
         Address address = AddressFactory.buildAddress("21", "Jump Street", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", AddressType.RESIDENTIAL_HOME);
         System.out.println(address.toString());
         assertNotNull(address);
+
+        Address address2 = AddressFactory.buildAddress("22", "Fall Street", "12", "East Bay", "Rock Bottom", "Ohio", "Crownlands", "0006", AddressType.FLAT_BUILDING);
+        System.out.println(address2.toString());
+        assertNotNull(address2);
     }
 
     @Test
@@ -58,7 +62,6 @@ public class AddressFactoryTest {
 
         String streetNumber = "21";
         String streetName = "Jump Street";
-        String flatNumber = "";
         String suburb = "West Olmstead";
         String city = "Bikini Bottom";
         String province = "California";
@@ -69,7 +72,6 @@ public class AddressFactoryTest {
         Address address = AddressFactory.buildAddress("21", "Jump Street", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", AddressType.RESIDENTIAL_HOME);
         assertEquals(streetNumber, address.getStreetNumber());
         assertEquals(streetName, address.getStreetName());
-//        assertEquals(flatNumber, address.getFlatNumber());
         assertEquals(suburb, address.getSuburb());
         assertEquals(city, address.getCity());
         assertEquals(province, address.getProvince());
@@ -87,7 +89,6 @@ public class AddressFactoryTest {
 
         String streetNumber = "21";
         String streetName = "Jump Street";
-//        String flatNumber = "";
         String suburb = "West Olmstead";
         String city = "Bikini Bottom";
         String province = "California";
@@ -98,7 +99,6 @@ public class AddressFactoryTest {
         Address address = AddressFactory.buildAddress("21", "Jump Street", "", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", AddressType.RESIDENTIAL_HOME);
         assertEquals(streetNumber, address.getStreetNumber());
         assertEquals(streetName, address.getStreetName());
-//        assertEquals(flatNumber, address.getFlatNumber());
         assertEquals(suburb, address.getSuburb());
         assertEquals(city, address.getCity());
         assertEquals(province, address.getProvince());

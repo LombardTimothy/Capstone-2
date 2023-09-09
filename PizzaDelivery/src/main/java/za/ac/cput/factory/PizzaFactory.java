@@ -2,6 +2,7 @@ package za.ac.cput.factory;
 
 import za.ac.cput.domain.Base;
 import za.ac.cput.domain.Pizza;
+import za.ac.cput.domain.Pizzeria;
 import za.ac.cput.util.Helper;
 
 
@@ -12,13 +13,13 @@ import za.ac.cput.util.Helper;
 
     public class PizzaFactory {
 
-        public static Pizza buildPizza(Base baseId, String name, String description, Pizza.Size size, boolean vegetarianOrNot, double price) {
-            if (Helper.isNullOrEmpty(name) || Helper.isNullOrEmpty(description) || Helper.isNullOrEmpty(String.valueOf(size)) || Helper.isNullOrEmpty(String.valueOf(vegetarianOrNot)) || Helper.isNullOrEmpty(String.valueOf(price))) {
+        public static Pizza buildPizza(Base baseId, String name, String description, Pizza.Size size, boolean vegetarianOrNot, double price, Pizzeria pizzeria) {
+            if (Helper.isNullOrEmpty(name) || Helper.isNullOrEmpty(description) || Helper.isNullOrEmpty(String.valueOf(size)) || Helper.isNullOrEmpty(String.valueOf(vegetarianOrNot)) || Helper.isNullOrEmpty(String.valueOf(price)) || Helper.isNullOrEmpty(String.valueOf(pizzeria))) {
                 return null;
             }
             String pizzaId = Helper.generateId();
 
-            Pizza pizza = new Pizza.Builder().setPizzaId(pizzaId).setBaseId(baseId).setName(name).setDescription(description).setSize(size).setVegetarianOrNot(vegetarianOrNot).setPrice(price).build();
+            Pizza pizza = new Pizza.Builder().setPizzaId(pizzaId).setBaseId(baseId).setName(name).setDescription(description).setSize(size).setVegetarianOrNot(vegetarianOrNot).setPrice(price).setPizzeria(pizzeria).build();
             return pizza;
 
         }

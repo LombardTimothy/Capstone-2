@@ -18,8 +18,7 @@ public class Bill {
     private String billId;
     private double totalBill;
 
-    @OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<OrderLine> orderLines = new ArrayList<>();
+
 
     protected Bill(){
 

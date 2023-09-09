@@ -1,7 +1,6 @@
 package za.ac.cput.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -20,6 +19,9 @@ public class Employee {
     protected String surname;
     protected String phoneNumber;
     protected String email;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "restaurantID", referencedColumnName = "restaurantID")
+    protected Pizzeria pizzeria;
 
     protected Employee() {
 
@@ -32,6 +34,7 @@ public class Employee {
         this.surname = builder.surname;
         this.phoneNumber = builder.phoneNumber;
         this.email = builder.email;
+        this.pizzeria = builder.pizzeria;
     }
     public String getEmpId() {
         return empId;
@@ -55,12 +58,17 @@ public class Employee {
         return email;
     }
 
+    public Pizzeria getPizzeria() {
+        return pizzeria;
+    }
+
     public static class Builder {
         private String empId;
         private String name;
         private String surname;
         private String phoneNumber;
         private String email;
+        protected Pizzeria pizzeria;
 
         public Builder setEmpId(String empId) {
             this.empId = empId;
@@ -87,12 +95,18 @@ public class Employee {
             return this;
         }
 
+        public Builder setPizzeria(Pizzeria pizzeria) {
+            this.pizzeria = pizzeria;
+            return this;
+        }
+
         public Builder copy(Employee employee){
             this.empId = employee.empId;
             this.name = employee.name;
             this.surname = employee.surname;
             this.phoneNumber = employee.phoneNumber;
             this.email = employee.email;
+            this.pizzeria = employee.pizzeria;
             return this;
         }
 
@@ -108,12 +122,12 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(empId, employee.empId) && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(phoneNumber, employee.phoneNumber) && Objects.equals(email, employee.email);
+        return Objects.equals(empId, employee.empId) && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(phoneNumber, employee.phoneNumber) && Objects.equals(email, employee.email) && Objects.equals(pizzeria, employee.pizzeria);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(empId, name, surname, phoneNumber, email);
+        return Objects.hash(empId, name, surname, phoneNumber, email, pizzeria);
     }
 
     @Override
@@ -124,6 +138,7 @@ public class Employee {
                 ", surname='" + surname + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
+                ", pizzeria=" + pizzeria +
                 '}';
     }
 }

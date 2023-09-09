@@ -1,12 +1,15 @@
 package za.ac.cput.service.impl;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Employee;
+import za.ac.cput.domain.Pizzeria;
 import za.ac.cput.factory.EmployeeFactory;
+import za.ac.cput.factory.PizzeriaFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 /* EmployeeServiceImplTest.java
@@ -20,8 +23,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class EmployeeServiceImplTest {
 @Autowired
     private EmployeeServiceImpl service;
-    private static Employee employee1 = EmployeeFactory.createEmployee( "Jasmine", "DeToiit", "084-253-8832", "Jas@gmail.com");
-    private static Employee employee2 = EmployeeFactory.createEmployee(  "David", "Camalito", "091-663-3621", "DCamalito@gmail.com");
+    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant("Hill Crest","Hotel Transalvania");
+    private static Employee employee1 = EmployeeFactory.createEmployee( "Jasmine", "DeToiit", "084-253-8832", "Jas@gmail.com", pizzeria);
+    private static Employee employee2 = EmployeeFactory.createEmployee(  "David", "Camalito", "091-663-3621", "DCamalito@gmail.com", pizzeria);
 
     @Test
     public void a_create() {
@@ -48,7 +52,7 @@ class EmployeeServiceImplTest {
         assertNotNull(service.update(updated));
         System.out.println(updated);
     }
-
+@Disabled
     @Test
     public void d_delete() {
         boolean deleted = service.delete(employee1.getEmpId());

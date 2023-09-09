@@ -1,6 +1,7 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.Employee;
+import za.ac.cput.domain.Pizzeria;
 import za.ac.cput.util.Helper;
 
 
@@ -11,14 +12,14 @@ import za.ac.cput.util.Helper;
 * */
 
 public class EmployeeFactory {
-    public static Employee createEmployee( String name, String surname, String phoneNumber, String email) {
-        if (Helper.isNullOrEmpty(name) || Helper.isNullOrEmpty(surname) || Helper.isNullOrEmpty(phoneNumber) || Helper.isNullOrEmpty(email)) {
+    public static Employee createEmployee(String name, String surname, String phoneNumber, String email, Pizzeria pizzeria) {
+        if (Helper.isNullOrEmpty(name) || Helper.isNullOrEmpty(surname) || Helper.isNullOrEmpty(phoneNumber) || Helper.isNullOrEmpty(email) || Helper.isNullOrEmpty(String.valueOf(pizzeria))) {
             return null;
         }
 
         String empId = Helper.generateId();
 
-       Employee employee = new Employee.Builder().setEmpId(empId).setName(name).setSurname(surname).setPhoneNumber(phoneNumber).setEmail(email).build();
+       Employee employee = new Employee.Builder().setEmpId(empId).setName(name).setSurname(surname).setPhoneNumber(phoneNumber).setEmail(email).setPizzeria(pizzeria).build();
        return employee;
     }
 }

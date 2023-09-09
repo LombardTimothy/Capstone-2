@@ -14,6 +14,7 @@ import za.ac.cput.domain.*;
 import za.ac.cput.factory.AddressFactory;
 import za.ac.cput.factory.CustomerFactory;
 import za.ac.cput.factory.OrderFactory;
+import za.ac.cput.factory.PizzeriaFactory;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -28,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class OrderControllerTest {
 
-    private static Address address = AddressFactory.buildAddress("21", "1st Street", "", "Southern", "Cape Town", "Western Cape", "South Afica", "0986", AddressType.RESIDENTIAL_HOME);
+    private static Address address = AddressFactory.buildAddress("21", "1st Street", "Southern", "Cape Town", "Western Cape", "South Africa", "0986", AddressType.RESIDENTIAL_HOME);
 
     private static Customer customer = CustomerFactory.buildCustomer("Daniel", "Diaz","085 451 7339", address);
 
@@ -36,8 +37,9 @@ class OrderControllerTest {
     private static LocalDate date1 = LocalDate.of(2023, 6, 25);
 
     private static LocalTime time = LocalTime.now();
+    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant("Hill Crest","Hotel Transalvania");
 
-    private static Order order = OrderFactory.buildOrder( date, time, customer, Order.OrderStatus.NEW);
+    private static Order order = OrderFactory.buildOrder( date, time, customer, Order.OrderStatus.NEW, pizzeria);
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -71,8 +73,6 @@ class OrderControllerTest {
         System.out.println("Post data: " + updated);
         ResponseEntity<Order> response = restTemplate.postForEntity(url, updated, Order.class);
         assertNotNull(response.getBody());
-
-
     }
 
 
@@ -81,7 +81,6 @@ class OrderControllerTest {
         String url = baseURL + "/delete/" + order.getOrderId();
         System.out.println("URL " + url);
         restTemplate.delete(url);
-
     }
 
     @Test
@@ -95,6 +94,4 @@ class OrderControllerTest {
         System.out.println(response.getBody());
 
     }
-
-
 }
