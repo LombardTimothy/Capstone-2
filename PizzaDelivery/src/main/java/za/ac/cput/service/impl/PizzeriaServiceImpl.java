@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
+import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.Pizzeria;
 import za.ac.cput.repository.IPizzeriaRepository;
 import za.ac.cput.service.PizzeriaService;
@@ -31,7 +32,14 @@ public class PizzeriaServiceImpl implements PizzeriaService {
     public Pizzeria read(String id) {
         return this.repository.findById(id).orElse(null);
     }
-    
+
+    @Override
+    public Pizzeria update(Pizzeria pizzeria) {
+        if (this.repository.existsById(pizzeria.getPizzeriaID())) {
+            return this.repository.save(pizzeria);
+        }
+        return null;
+    }
 
     @Override
     public Set<Pizzeria> getAll() {

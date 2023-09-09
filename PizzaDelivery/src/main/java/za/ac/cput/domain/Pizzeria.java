@@ -14,25 +14,25 @@ import java.util.Objects;
 @Entity
 public class Pizzeria implements Serializable {
     @Id
-    private String restaurantID;
-    private String restaurantName;
+    private String pizzeriaID;
+    private String pizzariaAlias;
     private String location;
 
     protected Pizzeria(){
 
     }
     private Pizzeria(Builder builder){
-        this.restaurantID = builder.restaurantID;
-        this.restaurantName = builder.restaurantName;
+        this.pizzeriaID = builder.pizzeriaID;
+        this.pizzariaAlias = builder.pizzariaAlias;
         this.location = builder.location;
     }
 
-    public String getRestaurantID() {
-        return restaurantID;
+    public String getPizzeriaID() {
+        return pizzeriaID;
     }
 
-    public String getRestaurantName() {
-        return restaurantName;
+    public String getPizzariaAlias() {
+        return pizzariaAlias;
     }
 
     public String getLocation() {
@@ -43,16 +43,16 @@ public class Pizzeria implements Serializable {
 
 
     public static class Builder {
-        private String restaurantID;
-        private String restaurantName;
+        private String pizzeriaID;
+        private String pizzariaAlias;
         private String location;
 
-        public Builder setRestaurantID(String restaurantID) {
-            this.restaurantID = restaurantID;
+        public Builder setPizzariaID(String pizzeriaID) {
+            this.pizzeriaID = pizzeriaID;
             return this;
         }
-        public Builder setRestaurantName(String restaurantName) {
-            this.restaurantName = restaurantName;
+        public Builder setPizzariaAlias(String pizzariaAlias) {
+            this.pizzariaAlias = pizzariaAlias;
             return this;
         }
         public Builder setLocation(String location) {
@@ -61,8 +61,8 @@ public class Pizzeria implements Serializable {
         }
 
         public Builder copy(Pizzeria t) {
-            this.restaurantID = t.restaurantID;
-            this.restaurantName = t.restaurantName;
+            this.pizzeriaID = t.pizzeriaID;
+            this.pizzariaAlias = t.pizzariaAlias;
             this.location = t.location;
             return this;
         }
@@ -78,19 +78,19 @@ public class Pizzeria implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pizzeria pizzeria = (Pizzeria) o;
-        return Objects.equals(restaurantID, pizzeria.restaurantID) && Objects.equals(restaurantName, pizzeria.restaurantName) && Objects.equals(location, pizzeria.location);
+        return Objects.equals(pizzeriaID, pizzeria.pizzeriaID) && Objects.equals(pizzariaAlias, pizzeria.pizzariaAlias) && Objects.equals(location, pizzeria.location);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(restaurantID, restaurantName, location);
+        return Objects.hash(pizzeriaID, pizzariaAlias, location);
     }
 
     @Override
     public String toString() {
         return "Pizzeria{" +
-                "restaurantID='" + restaurantID + '\'' +
-                ", restaurantName='" + restaurantName + '\'' +
+                "pizzeriaID='" + pizzeriaID + '\'' +
+                ", pizzariaAlias='" + pizzariaAlias + '\'' +
                 ", location='" + location + '\'' +
                 '}';
     }

@@ -18,44 +18,41 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest
 class PizzeriaServiceImplTest {
-    private static Pizzeria pizzeria = PizzeriaFactory.buildRestaurant(
-            "Grancho",
-            "21 lavender Crescent");
-
-    private static Pizzeria pizzeria2 = PizzeriaFactory.buildRestaurant(
-            "Grancho & Sons",
-            "Hotel Transalvania");
-
-    private static Pizzeria pizzeria3 = PizzeriaFactory.buildRestaurant(
-            "GrangerBay",
-            "32 corner of broadway and main");
+    private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria(
+            "Hill Crest","Hotel Transylvania");
 
     @Autowired
     private PizzeriaServiceImpl service;
     @Test
     void a_create() {
         Pizzeria created = service.create(pizzeria);
-        Pizzeria created1 = service.create(pizzeria2);
 
         System.out.println(created);
-        System.out.println(created1);
 
         assertNotNull(created);
-        assertNotNull(created1);
     }
 
     @Test
     void b_read() {
-        Pizzeria read = service.read(pizzeria.getRestaurantID());
-        Pizzeria read2 = service.read(pizzeria2.getRestaurantID());
+        Pizzeria read = service.read(pizzeria.getPizzeriaID());
+        Pizzeria read2 = service.read(pizzeria.getPizzeriaID());
 
         System.out.println(pizzeria);
-        System.out.println(pizzeria2);
-
         assertNotNull(pizzeria);
-        assertNotNull(pizzeria2);
     }
+    @Test
+    void c_update() {
+        Pizzeria newPizzeria = new Pizzeria
+                .Builder()
+                .copy(pizzeria)
+                .setLocation("Hotel Transylvania 2")
+                .build();
+        Pizzeria updated = service.update(newPizzeria);
 
+        assertEquals(updated.getPizzariaAlias(),newPizzeria.getPizzariaAlias());
+        assertNotNull(service.update(newPizzeria));
+        System.out.println(newPizzeria);
+    }
     /*
     @Test
     void d_delete() {
@@ -64,11 +61,9 @@ class PizzeriaServiceImplTest {
         System.out.println(true + " = deleted");
     }
      */
-
     @Test
     void e_getAll() {
         System.out.println(service.getAll());
     }
-
-    }
+}
 
