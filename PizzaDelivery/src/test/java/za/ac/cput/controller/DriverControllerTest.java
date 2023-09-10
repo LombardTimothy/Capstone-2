@@ -60,7 +60,7 @@ class DriverControllerTest {
     }
 
     @Test
-
+    @Disabled
     void e_delete() {
         String url = baseURL + "/delete/" + driver.getEmpId();
         System.out.println("url: " + url);

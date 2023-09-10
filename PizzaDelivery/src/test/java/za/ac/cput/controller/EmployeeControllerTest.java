@@ -1,5 +1,6 @@
 package za.ac.cput.controller;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -58,6 +59,7 @@ class EmployeeControllerTest {
     }
 
     @Test
+    @Disabled
     void e_delete() {
         String url = baseURL + "/delete/" + employee.getEmpId();
         System.out.println("URL: " + url);

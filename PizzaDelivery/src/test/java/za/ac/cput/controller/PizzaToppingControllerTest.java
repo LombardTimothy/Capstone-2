@@ -59,7 +59,7 @@ class PizzaToppingControllerTest {
         System.out.println(response.getBody() + "\n" + pt.toString());
     }
 
-@Disabled
+    @Disabled
     @Test
     public void d_delete(){
     String url = pizzaToppingURL + "/read/" + pt.getPizza().getPizzaId() + "/" + pt.getTopping().getToppingId();
