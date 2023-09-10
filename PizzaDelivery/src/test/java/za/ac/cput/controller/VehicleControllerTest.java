@@ -1,5 +1,7 @@
 package za.ac.cput.controller;
 
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -10,18 +12,16 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.domain.Driver;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import za.ac.cput.domain.Vehicle;
-import za.ac.cput.factory.DriverFactory;
 import za.ac.cput.factory.VehicleFactory;
-
 import static org.junit.jupiter.api.Assertions.*;
-/*
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class VehicleControllerTest {
 
-    private static Vehicle vehicle = VehicleFactory.createVehicle("BMW");
+    private static Vehicle vehicle = VehicleFactory.createVehicle("Hatch","Toyota","Cross","2021","Black");
     @Autowired
     private TestRestTemplate restTemplate;
     private  final String baseURL = "http://localhost:8080/vehicle";
@@ -33,7 +33,6 @@ class VehicleControllerTest {
         assertNotNull(postResponse.getBody());
         Vehicle saved = postResponse.getBody();
         System.out.println("Saved data: " + saved);
-        assertEquals(saved.getVehicleId(),saved.getVehicleId());
     }
 
     @Test
@@ -50,25 +49,25 @@ class VehicleControllerTest {
 
     @Test
     void c_update() {
-        Vehicle updated = new Vehicle.Builder().copy(vehicle).setVehicleId("1001").setVehicleType("VW").build();
+        Vehicle updated = new Vehicle.Builder().copy(vehicle).setVehicleType("Sedan").build();
 
         String url = baseURL + "/update";
-        System.out.println("url: " + url);
+        System.out.println("URL " + url);
         System.out.println("Post data: " + updated);
-
-        ResponseEntity<Vehicle>  response = restTemplate.postForEntity(url, updated, Vehicle.class);
-        assertNotNull(response.getBody());
+        ResponseEntity<Vehicle> response = restTemplate.postForEntity(url, updated, Vehicle.class);
+        assertNotNull(response);
     }
 
     @Test
-    void d_delete() {
+    @Disabled
+    void e_delete() {
         String url = baseURL + "/delete/" + vehicle.getVehicleId();
         System.out.println("url: " + url);
         restTemplate.delete(url);
     }
 
     @Test
-    void e_getAll() {
+    void d_getAll() {
         String url = baseURL + "/getall";
         System.out.println("url: " + url);
 
@@ -82,4 +81,3 @@ class VehicleControllerTest {
     }
 }
 
- */

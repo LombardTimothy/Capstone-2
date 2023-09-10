@@ -3,7 +3,6 @@ package za.ac.cput.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Vehicle;
-import za.ac.cput.factory.VehicleFactory;
 import za.ac.cput.service.VehicleService;
 
 import java.util.Set;
@@ -13,14 +12,13 @@ import java.util.Set;
 public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
-/*
+
     @PostMapping("/create")
     public Vehicle create(@RequestBody Vehicle vehicle){
-       Vehicle vehicleCreated = VehicleFactory.createVehicle("VW");
-        return vehicleService.create(vehicleCreated);
+        return vehicleService.create(vehicle);
     }
 
- */
+
 
     @GetMapping("/read/{id}")
     public Vehicle read(@PathVariable String id){
