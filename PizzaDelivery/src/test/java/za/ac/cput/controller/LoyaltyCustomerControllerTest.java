@@ -1,5 +1,6 @@
 package za.ac.cput.controller;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -10,21 +11,45 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import za.ac.cput.domain.Address;
+import za.ac.cput.domain.AddressType;
+import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.LoyaltyCustomer;
+import za.ac.cput.factory.AddressFactory;
+import za.ac.cput.factory.CustomerFactory;
 import za.ac.cput.factory.LoyaltyCustomerFactory;
-
 import java.time.LocalDate;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-/*
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class LoyaltyCustomerControllerTest {
 
     private static LocalDate date = LocalDate.now();
-    private static LoyaltyCustomer lc1 = LoyaltyCustomerFactory.createLoyaltyCustomer(date,35.34);
 
+
+    private static Address address = AddressFactory.buildAddress("21",
+            "Jump Street",
+            "West Olmstead",
+            "Bikini Bottom",
+            "California",
+            "Crownlands",
+            "0007",
+            AddressType.RESIDENTIAL_HOME);
+    private static Customer customer = CustomerFactory.buildCustomer(
+            "Keenan",
+            "Meyer",
+            "078 675 7850",
+            address);
+
+    private static LoyaltyCustomer lc1 = LoyaltyCustomerFactory.createLoyaltyCustomer(
+            "Keenan",
+            "Meyer",
+            "0852849389",
+            address,
+            date,
+            35.34);
     @Autowired
     private TestRestTemplate restTemplate;
 
@@ -34,49 +59,64 @@ public class LoyaltyCustomerControllerTest {
     void a_create() {
         String url = baseURL + "/create";
         ResponseEntity<LoyaltyCustomer> postResponse = restTemplate.postForEntity(url, lc1, LoyaltyCustomer.class);
+
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
-        LoyaltyCustomer savedLoyaltyCustomer = postResponse.getBody();
-        System.out.println("Saved data: \n" + savedLoyaltyCustomer);
-        assertEquals(lc1.getLoyaltyCustomerId(), savedLoyaltyCustomer.getLoyaltyCustomerId());
+        //assertEquals(postResponse.getStatusCode(), HttpStatus.OK);
+        Customer savedEmployee = postResponse.getBody();
+
+        System.out.println("Saved data: " + savedEmployee);
+        assertEquals(lc1.getCustomerID(), postResponse.getBody().getCustomerID());
     }
 
     @Test
     void b_read() {
-        String url = baseURL + "/read/" + lc1.getLoyaltyCustomerId();
-        System.out.println("URL: " + url + "\n");
+        String url = baseURL + "/read/" + lc1.getCustomerID();
+        System.out.println("url: " + url);
+
         ResponseEntity<LoyaltyCustomer> response = restTemplate.getForEntity(url, LoyaltyCustomer.class);
-        assertEquals(lc1.getLoyaltyCustomerId(), response.getBody().getLoyaltyCustomerId());
-        System.out.println("Read data: \n" + response.getBody());
+        System.out.println("rest" +response);
+
+        assertEquals(lc1.getCustomerID(), response.getBody().getCustomerID());
+        System.out.println("Specially read Loyalty Customer:" + response.getBody());
     }
 
     @Test
     void c_update() {
-        LoyaltyCustomer updatedLoyaltyCustomer = new LoyaltyCustomer.Builder().copy(lc1).setDiscounts(23.4).build();
-        String url = baseURL + "/update/";
-        System.out.println("URL: " + url + '\n');
-        System.out.println("Post data: \n" + updatedLoyaltyCustomer);
-        ResponseEntity<LoyaltyCustomer> response = restTemplate.postForEntity(url, updatedLoyaltyCustomer, LoyaltyCustomer.class);
+         LoyaltyCustomer updatedLoyaltyCustomer = (LoyaltyCustomer) new LoyaltyCustomer
+                 .Builder()
+                 .copy(lc1)
+                 .setCustomerName("Greg")
+                 .build();
+
+        String url = baseURL + "/update";
+        System.out.println("url: " + url);
+        System.out.println("Post data: " + updatedLoyaltyCustomer);
+
+        ResponseEntity<LoyaltyCustomer>  response = restTemplate.postForEntity(url, updatedLoyaltyCustomer, LoyaltyCustomer.class);
         assertNotNull(response.getBody());
     }
 
     @Test
+    @Disabled
     void d_delete() {
-        String url = baseURL + "/delete/" + lc1.getLoyaltyCustomerId();
-        System.out.println("URL: " + url);
+        String url = baseURL + "/delete/" + lc1.getCustomerID();
+        System.out.println("url: " + url);
         restTemplate.delete(url);
     }
 
     @Test
     void e_getAll() {
         String url = baseURL + "/getall";
+        System.out.println("url: " + url);
+
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-        System.out.println("Show all: \n" + response + "\n" + response.getBody());
+        ResponseEntity<String> reponse = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 
+        System.out.println("Show ALL: ");
+        System.out.println(reponse);
+        System.out.println(reponse.getBody());
     }
 
 }
-
- */
