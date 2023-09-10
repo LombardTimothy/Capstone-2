@@ -11,15 +11,17 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.Employee;
+import za.ac.cput.domain.Pizzeria;
 import za.ac.cput.factory.EmployeeFactory;
+import za.ac.cput.factory.PizzeriaFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
-/*
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class EmployeeControllerTest {
-
-    private static Employee employee = EmployeeFactory.createEmployee("Basil", "Roode");
+    private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
+    private static Employee employee = EmployeeFactory.buildEmployee("daniel", "blue", "021 000 0002", "daniel@pizza.com", pizzeria);
+    private static Employee employee2 = EmployeeFactory.buildEmployee("Faeeq", "Stay", "021 000 0022", "faeeq@pizza.com", pizzeria);
     @Autowired
     private TestRestTemplate restTemplate;
     private final String baseURL = "http://localhost:8080/employee";
@@ -47,7 +49,7 @@ class EmployeeControllerTest {
 
     @Test
     void c_update() {
-        Employee updated = new Employee.Builder().copy(employee).setEmpName("Josepheen").build();
+        Employee updated = new Employee.Builder().copy(employee).setName("Josepheen").build();
         String url = baseURL + "/update";
         System.out.println("URL : " + url);
         System.out.println("Post data: " + updated);
@@ -73,5 +75,3 @@ class EmployeeControllerTest {
         System.out.println(response.getBody());
     }
 }
-
- */
