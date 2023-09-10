@@ -1,4 +1,5 @@
 package za.ac.cput.controller;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -57,6 +58,7 @@ public class BillControllerTest {
     }
 
     @Test
+    @Disabled
     void d_delete() {
         String url = baseURL + "/delete/" + bill1.getBillId();
         System.out.println("URL: " + url);

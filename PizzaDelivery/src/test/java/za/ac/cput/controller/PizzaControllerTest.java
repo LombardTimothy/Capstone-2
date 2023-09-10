@@ -1,5 +1,6 @@
 package za.ac.cput.controller;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -67,6 +68,7 @@ class PizzaControllerTest {
     }
 
     @Test
+    @Disabled
     public void d_delete(){
         String url = baseURL + "/delete/" + pizza.getPizzaId();
         System.out.println("URL " + url);

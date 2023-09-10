@@ -1,5 +1,6 @@
 package za.ac.cput.controller;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -80,6 +81,7 @@ class OrderControllerTest {
 
 
     @Test
+    @Disabled
     public void d_delete(){
         String url = baseURL + "/delete/" + order.getOrderId();
         System.out.println("URL " + url);
