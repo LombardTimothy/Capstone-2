@@ -58,8 +58,7 @@ class ChefControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Test
-    @Disabled
+    @Test 
     void d_delete() {
         String url = baseURL + "/delete/" + chef.getEmpId();
         System.out.println("URL: " + url);
