@@ -12,7 +12,7 @@ import java.util.Set;
  Date: 2nd August (last edited) 2023
 */
 @RestController
-@RequestMapping("/api/employee")
+@RequestMapping("/employee")
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
