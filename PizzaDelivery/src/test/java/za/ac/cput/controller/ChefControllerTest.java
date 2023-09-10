@@ -1,5 +1,6 @@
 package za.ac.cput.controller;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -11,14 +12,17 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.Chef;
+import za.ac.cput.domain.Pizzeria;
 import za.ac.cput.factory.ChefFactory;
+import za.ac.cput.factory.PizzeriaFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
-/*
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ChefControllerTest {
-    private static Chef chef = ChefFactory.createChef("Nolongo", "Kaputsi", "223", "Congolese", "Head Chef");
+    private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
+    private static Chef chef = ChefFactory.buildChef("Nolongo", "Kaputsi", "021 000 000", "nolongo@pizza.com", "Head Chef", "Sous chef", pizzeria);
+    private static Chef chef2 = ChefFactory.buildChef("Ismail", "Retori", "021 000 001", "ismail@pizza.com", "Sous Chef", "Culinary school", pizzeria);
     @Autowired
     private TestRestTemplate restTemplate;
     private final String baseURL = "http://localhost:8080/chef";
@@ -32,21 +36,21 @@ class ChefControllerTest {
                 getBody());
         chef = postResponse.getBody();
         System.out.println("Saved data: " + chef);
-        assertEquals(chef.getChefId(), postResponse.getBody().getChefId());
+        assertEquals(chef.getEmpId(), postResponse.getBody().getEmpId());
     }
 
     @Test
     void b_read() {
-        String url = baseURL + "/read/" + chef.getChefId();
+        String url = baseURL + "/read/" + chef.getEmpId();
         System.out.println("URL: " + url);
         ResponseEntity<Chef> response = restTemplate.getForEntity(url, Chef.class);
-        assertEquals(chef.getChefId(), response.getBody().getChefId());
+        assertEquals(chef.getEmpId(), response.getBody().getEmpId());
         System.out.println(response.getBody());
     }
 
     @Test
     void c_update() {
-        Chef updated = new Chef.Builder().copy(chef).setChefName("Nologono").build();
+        Chef updated = new Chef.Builder().copy(chef).setTitle("Head chef").build();
         String url = baseURL + "/update";
         System.out.println("URL : " + url);
         System.out.println("Post data: " + updated);
@@ -55,8 +59,9 @@ class ChefControllerTest {
     }
 
     @Test
+    @Disabled
     void d_delete() {
-        String url = baseURL + "/delete/" + chef.getChefId();
+        String url = baseURL + "/delete/" + chef.getEmpId();
         System.out.println("URL: " + url);
         restTemplate.delete(url);
     }
@@ -72,5 +77,3 @@ class ChefControllerTest {
         System.out.println(response.getBody());
     }
 }
-
- */
