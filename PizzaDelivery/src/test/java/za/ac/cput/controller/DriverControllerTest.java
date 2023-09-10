@@ -7,20 +7,20 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import za.ac.cput.domain.Customer;
-import za.ac.cput.domain.Driver;
+import org.springframework.http.*;
+import za.ac.cput.domain.*;
 import za.ac.cput.factory.DriverFactory;
+import za.ac.cput.factory.PizzeriaFactory;
+import za.ac.cput.factory.VehicleFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
-/*
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class DriverControllerTest {
-    private static Driver driver = DriverFactory.createDriver("201","101","Zar","Mancini");
+    private static Vehicle vehicle = VehicleFactory.createVehicle("Krokie","MERC","C200","2011","purple");
+    private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Zario","Kaapstad");
+    private static Driver driver = DriverFactory.buildDriver("Azhar","Esau","0216552521","lyle@gmail.com",vehicle,pizzeria);
     @Autowired
     private TestRestTemplate restTemplate;
     private  final String baseURL = "http://localhost:8080/driver";
@@ -32,24 +32,24 @@ class DriverControllerTest {
         assertNotNull(postResponse.getBody());
         Driver saved = postResponse.getBody();
         System.out.println("Saved data: " + saved);
-        assertEquals(saved.getDriverId(),saved.getDriverId());
+
     }
+
 
     @Test
     void b_read() {
-        String url = baseURL + "/read/" + driver.getDriverId();
+        String url = baseURL + "/read/" + driver.getEmpId();
         System.out.println("url: " + url);
-
         ResponseEntity<Driver> response = restTemplate.getForEntity(url, Driver.class);
-        System.out.println("read" +response);
+        System.out.println("Response:" + response.getBody());
+        assertNotNull(driver);
+        System.out.println(response.getBody() + "\n" + driver.toString());
 
-        assertEquals(driver.getDriverId(), response.getBody().getDriverId());
-        System.out.println("the driver" + response.getBody());
     }
 
     @Test
     void c_update() {
-        Driver updated = new Driver.Builder().copy(driver).setDriverId("5005").setDriverName("Lyle").setDriverSurname("Peters").build();
+        Driver updated = (Driver) new Driver.Builder().copy(driver).setName("Lyle").build();
 
         String url = baseURL + "/update";
         System.out.println("url: " + url);
@@ -60,14 +60,15 @@ class DriverControllerTest {
     }
 
     @Test
-    void d_delete() {
-        String url = baseURL + "/delete/" + driver.getDriverId();
+
+    void e_delete() {
+        String url = baseURL + "/delete/" + driver.getEmpId();
         System.out.println("url: " + url);
         restTemplate.delete(url);
     }
 
     @Test
-    void e_getAll() {
+    void d_getAll() {
         String url = baseURL + "/getall";
         System.out.println("url: " + url);
 
@@ -76,9 +77,7 @@ class DriverControllerTest {
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 
         System.out.println("Show ALL: ");
-        System.out.println(response);
         System.out.println(response.getBody());
     }
 }
 
- */

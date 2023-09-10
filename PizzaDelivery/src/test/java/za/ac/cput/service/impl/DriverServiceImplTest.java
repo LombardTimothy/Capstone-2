@@ -17,7 +17,6 @@ import za.ac.cput.domain.Vehicle;
 import za.ac.cput.factory.DriverFactory;
 import za.ac.cput.factory.PizzeriaFactory;
 import za.ac.cput.factory.VehicleFactory;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
@@ -30,7 +29,7 @@ class DriverServiceImplTest {
     private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
     private static Driver driver1 = DriverFactory.buildDriver("Zoe", "Samuels", "083-733-0821", "ZoeS@gmail.com", vehicle1, pizzeria);
     private static Driver driver2 = DriverFactory.buildDriver("Max", "Edwards", "036-836-1378", "MaxEdwards@gmail.com", vehicle2, pizzeria);
-    @Test
+@Test
     public void a_create() {
         Driver create1 = service.create(driver1);
         Driver create2 = service.create(driver2);
@@ -67,4 +66,3 @@ class DriverServiceImplTest {
         System.out.println(service.getAll());
     }
 }
-
