@@ -84,8 +84,8 @@ class CustomerServiceImplTest {
 
     @Test
     void b_read() {
-        Customer read = service.read(customer.getCustomerID());
-        Customer read2 = service.read(customer2.getCustomerID());
+        Customer read = service.read(String. valueOf(customer.getCustomerID()));
+        Customer read2 = service.read(String. valueOf(customer2.getCustomerID()));
 
         System.out.println(read);
         System.out.println(read2);
@@ -111,7 +111,7 @@ class CustomerServiceImplTest {
 
     @Test
     void d_delete() {
-        boolean deleted = service.delete(customer.getCustomerID());
+        boolean deleted = service.delete(String. valueOf(customer.getCustomerID()));
         assertTrue(deleted);
         System.out.println(true + " = deleted");
     }

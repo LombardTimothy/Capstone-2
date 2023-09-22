@@ -13,7 +13,7 @@ import java.util.Objects;
 @Entity
 public class Customer implements Serializable{
     @Id
-    protected String customerID;
+    protected Integer customerID;
     protected String customerName;
     protected String customerSurname;
     protected String phoneNumber;
@@ -35,7 +35,7 @@ public class Customer implements Serializable{
         this.address = builder.address;
     }
 
-    public String getCustomerID() {
+    public Integer getCustomerID() {
         return customerID;
     }
 
@@ -56,13 +56,13 @@ public class Customer implements Serializable{
 
 
     public static class Builder {
-        private String customerID;
+        private Integer customerID;
         private String customerName;
         private String customerSurname;
         private String phoneNumber;
         private Address address;
 
-        public Builder setCustomerID(String customerID) {
+        public Builder setCustomerID(Integer customerID) {
             this.customerID = customerID;
             return this;
         }
