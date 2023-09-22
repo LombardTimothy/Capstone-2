@@ -34,8 +34,8 @@ class PizzeriaServiceImplTest {
 
     @Test
     void b_read() {
-        Pizzeria read = service.read(pizzeria.getPizzeriaID());
-        Pizzeria read2 = service.read(pizzeria.getPizzeriaID());
+        Pizzeria read = service.read(String. valueOf(pizzeria.getPizzeriaID()));
+        Pizzeria read2 = service.read(String. valueOf(pizzeria.getPizzeriaID()));
 
         System.out.println(pizzeria);
         assertNotNull(pizzeria);

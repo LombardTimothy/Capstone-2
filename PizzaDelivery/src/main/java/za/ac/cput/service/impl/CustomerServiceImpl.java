@@ -37,7 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer update(Customer customer) {
-        if (this.repository.existsById(customer.getCustomerID())) {
+        if (this.repository.existsById( String. valueOf(customer.getCustomerID()))) {
             return this.repository.save(customer);
         }
         return null;
