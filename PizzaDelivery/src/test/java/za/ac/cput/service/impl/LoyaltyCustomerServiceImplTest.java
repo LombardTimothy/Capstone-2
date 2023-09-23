@@ -40,8 +40,8 @@ public class LoyaltyCustomerServiceImplTest {
 
     @Test
     void b_read() {
-        LoyaltyCustomer readLoyaltyCustomer1 = service.read(lc1.getCustomerID());
-        LoyaltyCustomer readLoyaltyCustomer2 = service.read(lc2.getCustomerID());
+        LoyaltyCustomer readLoyaltyCustomer1 = service.read(String. valueOf(lc1.getCustomerID()));
+        LoyaltyCustomer readLoyaltyCustomer2 = service.read(String. valueOf(lc2.getCustomerID()));
         assertNotNull(readLoyaltyCustomer1);
         assertNotNull(readLoyaltyCustomer2);
         System.out.println("Read: \n" + readLoyaltyCustomer1 + "\n" + readLoyaltyCustomer2 + "\n");
@@ -57,7 +57,7 @@ public class LoyaltyCustomerServiceImplTest {
     @Disabled
     @Test
     void d_delete() {
-        boolean deletedLoyaltyCustomer = service.delete(lc2.getCustomerID());
+        boolean deletedLoyaltyCustomer = service.delete(String. valueOf(lc2.getCustomerID()));
         assertTrue(deletedLoyaltyCustomer);
         System.out.println("Deleted successfully: \n" + deletedLoyaltyCustomer + "\n");
     }
