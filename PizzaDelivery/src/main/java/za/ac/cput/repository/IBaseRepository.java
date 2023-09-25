@@ -10,6 +10,6 @@ import java.util.ArrayList;
  Date: 21st July (last updated) 2023
 */
 @Repository
-public interface IBaseRepository extends JpaRepository<Base, String> {
+public interface IBaseRepository extends JpaRepository<Base, Integer> {
 
 }

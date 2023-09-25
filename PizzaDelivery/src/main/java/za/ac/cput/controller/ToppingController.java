@@ -23,7 +23,7 @@ public class ToppingController {
     }
 
     @GetMapping("/read/{id}")
-    public Topping read(@PathVariable String id){
+    public Topping read(@PathVariable Integer id){
         return toppingService.read(id);
     }
 
@@ -33,7 +33,7 @@ public class ToppingController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable String id){
+    public boolean delete(@PathVariable Integer id){
         return toppingService.delete(id);
     }
 

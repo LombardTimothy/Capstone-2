@@ -26,7 +26,7 @@ public class PizzaController {
     }
 
     @GetMapping("/read/{id}")
-    public Pizza read(@PathVariable String id){
+    public Pizza read(@PathVariable Integer id){
         return pizzaService.read(id);
     }
 
@@ -36,7 +36,7 @@ public class PizzaController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable String id){
+    public boolean delete(@PathVariable Integer id){
         return pizzaService.delete(id);
     }
 

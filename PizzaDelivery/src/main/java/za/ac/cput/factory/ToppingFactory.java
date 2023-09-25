@@ -13,7 +13,7 @@ public class ToppingFactory {
             return null;
         }
 
-        String toppingId = Helper.generateId();
+        int toppingId = Helper.generateId2();
 
         Topping t = new Topping.Builder().setToppingId(toppingId).setName(name).setDescription(description).setQuantity(quantity).setPrice(price).build();
         return t;

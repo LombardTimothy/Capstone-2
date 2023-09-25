@@ -12,7 +12,7 @@ import java.util.ArrayList;
 */
 
 @Repository
-    public interface IOrderRepository extends JpaRepository<Order, String> {
+    public interface IOrderRepository extends JpaRepository<Order, Integer> {
 
 
     }

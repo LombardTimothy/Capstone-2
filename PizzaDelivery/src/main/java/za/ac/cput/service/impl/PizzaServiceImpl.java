@@ -29,7 +29,7 @@ public class PizzaServiceImpl implements PizzaService {
     }
 
     @Override
-    public Pizza read(String id) {
+    public Pizza read(Integer id) {
         return this.pizzaRepo.findById(id).orElse(null);
     }
 
@@ -44,7 +44,7 @@ public class PizzaServiceImpl implements PizzaService {
     }
 
     @Override
-    public boolean delete(String id) {
+    public boolean delete(Integer id) {
         if (this.pizzaRepo.existsById(id)) {
             this.pizzaRepo.deleteById(id);
             return true;

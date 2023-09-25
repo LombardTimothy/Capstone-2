@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Topping {
 
     @Id
-    private String toppingId;
+    private Integer toppingId;
     private String name;
     private String description;
     private int quantity;
@@ -31,7 +31,7 @@ public class Topping {
         this.price = builder.price;
     }
 
-    public String getToppingId() {
+    public Integer getToppingId() {
         return toppingId;
     }
 
@@ -52,14 +52,14 @@ public class Topping {
     }
 
     public static class Builder {
-        private String toppingId;
+        private Integer toppingId;
         private String name;
         private String description;
         private int quantity;
         private double price;
 
 
-        public Topping.Builder setToppingId(String toppingId) {
+        public Topping.Builder setToppingId(Integer toppingId) {
             this.toppingId = toppingId;
             return this;
         }
