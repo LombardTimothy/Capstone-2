@@ -13,19 +13,17 @@ import static org.junit.jupiter.api.Assertions.*;
 OrderLineFactoryTest.java
 Author: Tamryn Lisa Lewin (219211981)
 Date: 04 April 2023
-Last update: 14 June 2023
+Last update: 25 September 2023
 
  */
-
 
 public class OrderLineFactoryTest {
     private static LocalDate date = LocalDate.of(2023, 9, 17);
     private static LocalTime time = LocalTime.now();
-    private static Address address = AddressFactory.buildAddress("22", "Fall Street", "12", "East Bay", "Rock Bottom", "Ohio", "Crownlands", "0006", AddressType.FLAT_BUILDING);
+    private static Address address = AddressFactory.buildAddress("222", "Kingsroad", "6", "White Harbour", "Winterfell", "The North", "Westeros", "1010", AddressType.FLAT_BUILDING);
     private static Customer customer = CustomerFactory.buildCustomer("Rickon", "Stark","076 675 8090", address);
     private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
-    private static Order order = OrderFactory.createOrder(date,time, customer, Order.OrderStatus.NEW, pizzeria);//you can change the order status if you want, to whatever
-
+    private static Order order = OrderFactory.createOrder(date,time, customer, Order.OrderStatus.DELIVERED, pizzeria);
     private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
     private static Pizza pizza = PizzaFactory.createPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55, pizzeria);
     private static Bill bill = BillFactory.createBill(375);
@@ -98,5 +96,3 @@ public class OrderLineFactoryTest {
         assertNotNull(orderLine);
     }
 }
-
-
