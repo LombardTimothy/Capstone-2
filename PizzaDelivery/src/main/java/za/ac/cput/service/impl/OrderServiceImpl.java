@@ -28,7 +28,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order read(String id) {
+    public Order read(Integer id) {
         return this.orderRepo.findById(id).orElse(null);
     }
 
@@ -43,7 +43,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public boolean delete(String id) {
+    public boolean delete(Integer id) {
         if(this.orderRepo.existsById(id)){
             this.orderRepo.deleteById(id);
             return true;

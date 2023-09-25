@@ -8,15 +8,15 @@ import java.util.ArrayList;
  Date: 9th June (last updated) 2023
 */
 
-public interface OrderService extends IService<Order, String>{
+public interface OrderService extends IService<Order, Integer>{
 
     Order create(Order order);
 
-    Order read(String orderId);
+    Order read(Integer orderId);
 
     Order update(Order order);
 
-    boolean delete(String orderId);
+    boolean delete(Integer orderId);
 
     public ArrayList<Order> getAll();
 }

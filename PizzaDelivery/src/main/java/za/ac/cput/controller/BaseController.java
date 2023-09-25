@@ -25,7 +25,7 @@ public class BaseController {
     }
 
     @GetMapping("/read/{id}")
-    public Base read(@PathVariable String id){
+    public Base read(@PathVariable Integer id){
         return baseService.read(id);
     }
 
@@ -36,7 +36,7 @@ public class BaseController {
 
     @DeleteMapping("/delete/{id}")
     public boolean delete(@PathVariable String id){
-        return baseService.delete(id);
+        return baseService.delete(Integer.valueOf(id));
     }
 
     @GetMapping({"/getall"})

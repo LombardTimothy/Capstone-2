@@ -28,13 +28,13 @@ public class BaseServiceImpl implements BaseService {
     }
 
     @Override
-    public Base read(String id) {
+    public Base read(Integer id) {
         return this.baseRepo.findById(id).orElse(null);
     }
 
     @Override
     public Base update(Base base) {
-        if(this.baseRepo.existsById(base.getBaseId())){
+        if(this.baseRepo.existsById(Integer.valueOf(String.valueOf(base.getBaseId())))){
             return this.baseRepo.save(base);
         }else{
             return null;
@@ -43,9 +43,9 @@ public class BaseServiceImpl implements BaseService {
     }
 
     @Override
-    public boolean delete(String id) {
-        if(this.baseRepo.existsById(id)){
-            this.baseRepo.deleteById(id);
+    public boolean delete(Integer id) {
+        if(this.baseRepo.existsById(Integer.valueOf(String.valueOf(id)))){
+            this.baseRepo.deleteById(Integer.valueOf(String.valueOf(id)));
             return true;
         }
         return false;
