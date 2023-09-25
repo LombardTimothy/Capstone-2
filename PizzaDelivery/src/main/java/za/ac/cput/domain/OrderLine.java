@@ -15,7 +15,7 @@ Last update: 31 July 2023
 @Entity
 public class OrderLine {
     @Id
-    private String orderLineId;
+    private Integer orderLineId;
     private int quantity;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "orderId", referencedColumnName = "orderId")
@@ -37,7 +37,7 @@ public class OrderLine {
         this.bill = builder.bill;
     }
 
-    public String getOrderLineId() {
+    public Integer getOrderLineId() {
         return orderLineId;
     }
     public int getQuantity() {
@@ -54,13 +54,13 @@ public class OrderLine {
     }
 
     public static class Builder {
-        private String orderLineId;
+        private Integer orderLineId;
         private int quantity;
         private Order order;
         private Pizza pizza;
         private Bill bill;
 
-        public Builder setOrderLineId(String orderLineId) {
+        public Builder setOrderLineId(Integer orderLineId) {
             this.orderLineId = orderLineId;
             return this;
         }

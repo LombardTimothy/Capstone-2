@@ -10,7 +10,7 @@ import za.ac.cput.util.Helper;
 OrderLineFactory.java
 Author: Tamryn Lisa Lewin (219211981)
 Date: 04 April 2023
-Last update: 08 April 2023
+Last update: 25 September 2023
  */
 
 public class OrderLineFactory {
@@ -19,7 +19,7 @@ public class OrderLineFactory {
             return null;
         }
 
-        String orderLineId = Helper.generateId();
+        Integer orderLineId = Helper.generateId2();
 
         OrderLine orderLine = new OrderLine.Builder()
                 .setOrderLineId(orderLineId)

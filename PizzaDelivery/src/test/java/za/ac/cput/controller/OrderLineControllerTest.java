@@ -24,9 +24,8 @@ import static org.junit.jupiter.api.Assertions.*;
 OrderLineControllerTest.java
 Author: Tamryn Lisa Lewin (219211981)
 Date:  16 June 2023
-Last update: 16 June 2023
+Last update: 25 September 2023
 */
-
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -34,8 +33,8 @@ class OrderLineControllerTest {
 
     private static LocalDate date1 = LocalDate.of(2023, 10, 10);
     private static LocalTime time1 = LocalTime.now();
-    private static Address address1 = AddressFactory.buildAddress("21", "Jump Street", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", AddressType.RESIDENTIAL_HOME);
-    private static Customer customer1 = CustomerFactory.buildCustomer("Rickon", "Stark", "0868561233", address1);
+    private static Address address1 = AddressFactory.buildAddress("123", "Street of Steel", "Red Keep", "King's Landing", "Crownlands", "Westeros", "5645", AddressType.RESIDENTIAL_HOME);
+    private static Customer customer1 = CustomerFactory.buildCustomer("Gendry", "Baratheon", "075 784 1234", address1);
     private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
     private static Pizzeria pizzeria1 = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
     private static Order order1 = OrderFactory.createOrder(date1, time1, customer1, Order.OrderStatus.NEW, pizzeria);
@@ -54,14 +53,14 @@ class OrderLineControllerTest {
     @Transactional
     public void a_create() {
 
-            String url = baseURL + "/create";
-            ResponseEntity<OrderLine> postResponse = restTemplate.postForEntity(url, orderLine, OrderLine.class);
-            assertNotNull(postResponse);
-            assertNotNull(postResponse.getBody());
+        String url = baseURL + "/create";
+        ResponseEntity<OrderLine> postResponse = restTemplate.postForEntity(url, orderLine, OrderLine.class);
+        assertNotNull(postResponse);
+        assertNotNull(postResponse.getBody());
 
-            OrderLine savedOrderLine = postResponse.getBody();
-            System.out.println("Saved data: \n" + savedOrderLine);
-         assertEquals(orderLine.getOrderLineId(), savedOrderLine.getOrderLineId());
+        OrderLine savedOrderLine = postResponse.getBody();
+        System.out.println("Saved data: \n" + savedOrderLine);
+        assertEquals(orderLine.getOrderLineId(), savedOrderLine.getOrderLineId());
     }
 
     @Test
@@ -100,4 +99,3 @@ class OrderLineControllerTest {
         System.out.println("Show all: \n" + response + "\n" + response.getBody());
     }
 }
-

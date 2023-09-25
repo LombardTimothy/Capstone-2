@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 AddressServiceImplTest.java
 Author: Tamryn Lisa Lewin (219211981)
 Date: 09 June 2023
-Last updated: 4th August 2023
+Last updated: 25 September 2023
  */
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
@@ -43,8 +43,8 @@ class AddressServiceImplTest {
 
     @Test
     void b_read() {
-        Address readAddress1 = service.read(address1.getAddressId());
-        Address readAddress2 = service.read(address2.getAddressId());
+        Address readAddress1 = service.read(String.valueOf(address1.getAddressId()));
+        Address readAddress2 = service.read(String.valueOf(address2.getAddressId()));
         assertNotNull(readAddress1);
         assertNotNull(readAddress2);
         System.out.println("Read: \n" + readAddress1 + "\n" + readAddress2 + "\n");

@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 OrderLineServiceImplTest.java
 Author: Tamryn Lisa Lewin (219211981)
 Date: 09 June 2023
-Last updated: 4th August 2023
+Last updated: 25 September 2023
 */
 
 
@@ -31,7 +31,7 @@ class OrderLineServiceImplTest {
 
     private static LocalDate date = LocalDate.of(2023, 9, 17);
     private static LocalTime time = LocalTime.now();
-    private static Address address = AddressFactory.buildAddress("22", "Fall Street", "13", "East Bay", "Rock Bottom", "Ohio", "King's Landing", "0006", AddressType.FLAT_BUILDING);
+    private static Address address = AddressFactory.buildAddress("17", "Pisswater Bend", "13", "Flea Bottom", "King's Landing", "Crownlands", "Westeros", "5605", AddressType.FLAT_BUILDING);
     private static Customer customer = CustomerFactory.buildCustomer("Theon", "Greyjoy","078 675 7850", address);
     private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
     private static Order order = OrderFactory.createOrder(date, time, customer, Order.OrderStatus.NEW, pizzeria);
@@ -50,7 +50,7 @@ class OrderLineServiceImplTest {
 
     @Test
     void b_read() {
-        OrderLine readOrderLine = service.read(orderLine.getOrderLineId());
+        OrderLine readOrderLine = service.read(String.valueOf(orderLine.getOrderLineId()));
         assertNotNull(readOrderLine);
         System.out.printf("Read: \n" + readOrderLine + "\n");
     }
@@ -66,7 +66,7 @@ class OrderLineServiceImplTest {
     @Disabled
     @Test
     void d_delete() {
-        boolean deletedOrderLine = service.delete(orderLine.getOrderLineId());
+        boolean deletedOrderLine = service.delete(String.valueOf(orderLine.getOrderLineId()));
         assertTrue(deletedOrderLine);
         System.out.println("Deleted successfully: \n" + deletedOrderLine + "\n");
     }
@@ -76,4 +76,3 @@ class OrderLineServiceImplTest {
         System.out.println("All: \n" + service.getAll());
     }
 }
-

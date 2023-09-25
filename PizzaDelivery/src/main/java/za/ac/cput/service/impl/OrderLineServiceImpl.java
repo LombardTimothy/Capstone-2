@@ -36,7 +36,7 @@ public class OrderLineServiceImpl implements OrderLineService {
 
     @Override
     public OrderLine update(OrderLine orderLine) {
-        if (this.repository.existsById(orderLine.getOrderLineId())) {
+        if (this.repository.existsById(String.valueOf(orderLine.getOrderLineId()))) {
             return this.repository.save(orderLine);
         }
         return null;

@@ -11,13 +11,13 @@ Address.java
 Address entity
 Author: Tamryn Lisa Lewin (219211981)
 Date: 04 April 2023
-Last update: 24 July 2023
+Last update: 25 September 2023
  */
 
 @Entity
 public class Address {
     @Id
-    private String addressId;
+    private Integer addressId;
     private String streetNumber;
     private String streetName;
     private String flatNumber;
@@ -45,7 +45,7 @@ public class Address {
         this.addressType = builder.addressType;
     }
 
-    public String getAddressId() {
+    public Integer getAddressId() {
         return addressId;
     }
 
@@ -86,7 +86,7 @@ public class Address {
     }
 
     public static class Builder {
-        private String addressId;
+        private Integer addressId;
         private String streetNumber;
         private String streetName;
         private String flatNumber;
@@ -97,7 +97,7 @@ public class Address {
         private String postalCode;
         private AddressType addressType;
 
-        public Builder setAddressId(String addressId) {
+        public Builder setAddressId(Integer addressId) {
             this.addressId = addressId;
             return this;
         }
