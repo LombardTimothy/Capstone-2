@@ -15,7 +15,7 @@ Date: 04 April 2023
 @Entity
 public class Bill {
     @Id
-    private String billId;
+    private Integer billId;
     private double totalBill;
 
 
@@ -23,13 +23,17 @@ public class Bill {
     protected Bill(){
 
     }
+    public Bill(Integer billId, double totalBill) {
+        this.billId = billId;
+        this.totalBill = totalBill;
+    }
 
     private Bill(Builder builder){
         this.billId = builder.billId;
         this.totalBill = builder.totalBill;
 
     }
-    public String getBillId() {
+    public Integer getBillId() {
         return billId;
     }
 
@@ -41,7 +45,7 @@ public class Bill {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Bill bill)) return false;
-        return Double.compare(bill.totalBill, totalBill) == 0 && Objects.equals(billId, bill.billId);
+        return Double.compare(bill.totalBill, totalBill) == 0 && billId.equals(bill.billId);
     }
 
     @Override
@@ -52,16 +56,16 @@ public class Bill {
     @Override
     public String toString() {
         return "Bill{" +
-                "billId='" + billId + '\'' +
-                ", totalBill='" + totalBill + '\'' +
+                "billId=" + billId +
+                ", totalBill=" + totalBill +
                 '}';
     }
 
     public static class Builder{
-        private String billId;
+        private Integer billId;
         private double totalBill;
 
-        public Builder setBillId(String billId) {
+        public Builder setBillId(Integer billId) {
             this.billId = billId;
             return this;
         }

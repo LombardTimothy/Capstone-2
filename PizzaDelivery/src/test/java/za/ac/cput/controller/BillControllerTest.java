@@ -50,7 +50,7 @@ public class BillControllerTest {
     @Test
     void c_update() {
         Bill updatedBill = new Bill.Builder().copy(bill1).setTotalBill(60.45).build();
-        String url = baseURL + "/update/";
+        String url = baseURL + "/update";
         System.out.println("URL: " + url + '\n');
         System.out.println("Post data: \n" + updatedBill);
         ResponseEntity<Bill> response = restTemplate.postForEntity(url, updatedBill, Bill.class);

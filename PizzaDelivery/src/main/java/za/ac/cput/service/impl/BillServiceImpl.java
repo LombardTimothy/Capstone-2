@@ -36,7 +36,7 @@ public class BillServiceImpl implements BillService {
 
     @Override
     public Bill update(Bill bill) {
-        if (this.repository.existsById(bill.getBillId())) {
+        if (this.repository.existsById(String.valueOf(bill.getBillId()))) {
             return this.repository.save(bill);
         }
         return null;
