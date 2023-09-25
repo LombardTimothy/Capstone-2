@@ -39,8 +39,8 @@ class BillServiceImplTest {
 
     @Test
     void b_read() {
-        Bill readBill1 = service.read(bill1.getBillId());
-        Bill readBill2 = service.read(bill2.getBillId());
+        Bill readBill1 = service.read(String.valueOf(bill1.getBillId()));
+        Bill readBill2 = service.read(String.valueOf(bill2.getBillId()));
         assertNotNull(readBill1);
         assertNotNull(readBill2);
         System.out.println("Read: \n" + readBill1 + "\n" + readBill2 + "\n");
@@ -55,7 +55,7 @@ class BillServiceImplTest {
 
     @Test
     void d_delete() {
-        boolean deletedBill = service.delete(bill2.getBillId());
+        boolean deletedBill = service.delete(String.valueOf(bill2.getBillId()));
         assertTrue(deletedBill);
         System.out.println("Deleted successfully: \n" + deletedBill + "\n");
     }

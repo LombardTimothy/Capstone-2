@@ -15,7 +15,7 @@ public class BillFactory {
             return null;
         }
 
-        String billId = Helper.generateId();
+        Integer billId = Helper.generateId2();
 
         Bill em = new Bill.Builder().setBillId(billId).setTotalBill(totalBill).build();
 
