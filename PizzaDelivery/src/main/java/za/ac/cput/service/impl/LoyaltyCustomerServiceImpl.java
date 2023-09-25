@@ -36,7 +36,7 @@ public class LoyaltyCustomerServiceImpl implements LoyaltyCustomerService {
 
     @Override
     public LoyaltyCustomer update(LoyaltyCustomer loyaltyCustomer) {
-        if (this.repository.existsById(loyaltyCustomer.getCustomerID())) {
+        if (this.repository.existsById(String. valueOf(loyaltyCustomer.getCustomerID()))) {
             return this.repository.save(loyaltyCustomer);
         }
         return null;

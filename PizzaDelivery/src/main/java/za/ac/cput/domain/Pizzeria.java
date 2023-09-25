@@ -2,7 +2,6 @@ package za.ac.cput.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -14,7 +13,7 @@ import java.util.Objects;
 @Entity
 public class Pizzeria implements Serializable {
     @Id
-    private String pizzeriaID;
+    private Integer pizzeriaID;
     private String pizzariaAlias;
     private String location;
 
@@ -27,7 +26,7 @@ public class Pizzeria implements Serializable {
         this.location = builder.location;
     }
 
-    public String getPizzeriaID() {
+    public Integer getPizzeriaID() {
         return pizzeriaID;
     }
 
@@ -43,11 +42,11 @@ public class Pizzeria implements Serializable {
 
 
     public static class Builder {
-        private String pizzeriaID;
+        private Integer pizzeriaID;
         private String pizzariaAlias;
         private String location;
 
-        public Builder setPizzariaID(String pizzeriaID) {
+        public Builder setPizzariaID(Integer pizzeriaID) {
             this.pizzeriaID = pizzeriaID;
             return this;
         }

@@ -35,7 +35,7 @@ public class PizzeriaServiceImpl implements PizzeriaService {
 
     @Override
     public Pizzeria update(Pizzeria pizzeria) {
-        if (this.repository.existsById(pizzeria.getPizzeriaID())) {
+        if (this.repository.existsById( String. valueOf(pizzeria.getPizzeriaID()))) {
             return this.repository.save(pizzeria);
         }
         return null;
