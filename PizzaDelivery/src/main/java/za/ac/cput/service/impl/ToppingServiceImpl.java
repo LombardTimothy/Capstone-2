@@ -28,7 +28,7 @@ public class ToppingServiceImpl implements ToppingService {
     }
 
     @Override
-    public Topping read(String toppingId) {
+    public Topping read(Integer toppingId) {
         return this.toppingRepo.findById(toppingId).orElse(null);
     }
 
@@ -43,7 +43,7 @@ public class ToppingServiceImpl implements ToppingService {
     }
 
     @Override
-    public boolean delete(String toppingId) {
+    public boolean delete(Integer toppingId) {
         if(this.toppingRepo.existsById(toppingId)){
             this.toppingRepo.deleteById(toppingId);
             return true;

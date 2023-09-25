@@ -11,7 +11,7 @@ import java.util.Set;
  Date: 21st July (last updated) 2023
 */
 @Repository
-public interface IPizzaRepository extends JpaRepository<Pizza, String> {
+public interface IPizzaRepository extends JpaRepository<Pizza, Integer> {
 
 
     }

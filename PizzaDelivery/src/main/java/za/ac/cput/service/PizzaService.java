@@ -9,15 +9,15 @@ import java.util.Set;
  Date: 4th August (last updated) 2023
 */
 
-public interface PizzaService extends IService<Pizza, String>{
+public interface PizzaService extends IService<Pizza, Integer>{
 
     Pizza create(Pizza pizza);
 
-    Pizza read(String pizzaId);
+    Pizza read(Integer pizzaId);
 
     Pizza update(Pizza pizza);
 
-    boolean delete(String pizzaId);
+    boolean delete(Integer pizzaId);
 
     public ArrayList<Pizza> getAll();
 

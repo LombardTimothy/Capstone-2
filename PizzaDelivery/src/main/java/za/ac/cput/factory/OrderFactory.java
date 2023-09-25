@@ -36,7 +36,7 @@ import java.time.LocalTime;
                 return null;
             }
 
-            String orderId = Helper.generateId();
+            int orderId = Helper.generateId2();
 
             Order order = new Order.Builder().setOrderId(orderId).setCreateDate(createDate).setTime(time).setCustomer(customer).setOrderStatus(orderStatus).setPizzeria(pizzeria).build();
             return order;

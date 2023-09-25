@@ -37,8 +37,8 @@ class BaseServiceImplTest {
 
     @Test
     public void b_base_read(){
-        Base read = service.read(b.getBaseId());
-        Base read1 = service.read(b2.getBaseId());
+        Base read = service.read(Integer.valueOf(String.valueOf(b.getBaseId())));
+        Base read1 = service.read(Integer.valueOf(String.valueOf(b2.getBaseId())));
         assertNotNull(read);
         assertNotNull(read1);
         System.out.println("Read " + read + "\n" + read1 );

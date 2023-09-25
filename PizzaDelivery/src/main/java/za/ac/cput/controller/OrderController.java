@@ -23,7 +23,7 @@ public class OrderController {
     }
 
     @GetMapping("/read/{id}")
-    public Order read(@PathVariable String id){
+    public Order read(@PathVariable Integer id){
         return orderService.read(id);
     }
 
@@ -33,7 +33,7 @@ public class OrderController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable String id){
+    public boolean delete(@PathVariable Integer id){
         return orderService.delete(id);
     }
 

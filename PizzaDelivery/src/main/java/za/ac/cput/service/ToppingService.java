@@ -7,9 +7,9 @@ import java.util.ArrayList;
  Author: Timothy Lombard (220154856)
  Date: 13th June (last updated) 2023
 */
-public interface ToppingService extends IService<Topping, String> {
+public interface ToppingService extends IService<Topping, Integer> {
 
     Topping update(Topping topping);
-    boolean delete(String toppingId);
+    boolean delete(Integer toppingId);
     public ArrayList<Topping> getAll();
 }
