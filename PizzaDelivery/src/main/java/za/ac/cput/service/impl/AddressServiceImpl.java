@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 AddressServiceImpl.java
 Author: Tamryn Lisa Lewin (219211981)
 Date: 09 June 2023
-Last updated: 10 June 2023
+Last updated: 25 September 2023
  */
 
 @Service
@@ -35,7 +35,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public Address update(Address address) {
-        if (this.repository.existsById(address.getAddressId())) {
+        if (this.repository.existsById(String.valueOf(address.getAddressId()))) {
             return this.repository.save(address);
         }
         return null;

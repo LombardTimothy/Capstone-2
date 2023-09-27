@@ -18,11 +18,11 @@ Last update: 05 September 2023
 public class AddressFactoryTest {
     @Test
     public void address_test_pass() {
-        Address address = AddressFactory.buildAddress("21", "Jump Street", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", AddressType.RESIDENTIAL_HOME);
+        Address address = AddressFactory.buildAddress("34", "Skahazadhan", "Peniscola", "Valencia", "Mereen", "Essos", "1011", AddressType.RESIDENTIAL_HOME);
         System.out.println(address.toString());
         assertNotNull(address);
 
-        Address address2 = AddressFactory.buildAddress("22", "Fall Street", "12", "East Bay", "Rock Bottom", "Ohio", "Crownlands", "0006", AddressType.FLAT_BUILDING);
+        Address address2 = AddressFactory.buildAddress("10", "Shivering Sea", "56", "Sibenik", "Croatia", "Braavos", "Essos", "3005", AddressType.FLAT_BUILDING);
         System.out.println(address2.toString());
         assertNotNull(address2);
     }
