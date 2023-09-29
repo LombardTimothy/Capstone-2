@@ -18,14 +18,31 @@ public class LoyaltyCustomerFactoryTest {
 
     @Test
     public void test(){
-        LoyaltyCustomer lc = LoyaltyCustomerFactory.createLoyaltyCustomer("Sam", "Doe", "078-675-7850", address, date, 50.55);
+        LoyaltyCustomer lc = LoyaltyCustomerFactory.createLoyaltyCustomer(
+                "Sam",
+                "Doe",
+                "078-675-7850",
+                address,
+                date,
+                50.55,
+                "123456790",
+                "giveon@gmail.com"
+        );
         System.out.print(lc.toString());
         assertNotNull(lc);
     }
 
     @Test
     public void testFail(){
-        LoyaltyCustomer lc = LoyaltyCustomerFactory.createLoyaltyCustomer("", "Wise", "078-675-7850", address, date, 50.55);
+        LoyaltyCustomer lc = LoyaltyCustomerFactory.createLoyaltyCustomer(
+                "",
+                "Wise",
+                "078-675-7850",
+                address,
+                date,
+                50.55,
+                "",
+                "4");
         System.out.print(lc.toString());
         assertNotNull(lc);
     }

@@ -1,6 +1,5 @@
 package za.ac.cput.domain;
 import jakarta.persistence.Entity;
-
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -17,6 +16,9 @@ public class LoyaltyCustomer extends Customer {
     private LocalDate dateJoined;
     private double discounts;
 
+    private String password;
+    private String email;
+
     protected LoyaltyCustomer(){
 
     }
@@ -25,14 +27,24 @@ public class LoyaltyCustomer extends Customer {
         super(builder);
         this.dateJoined = builder.dateJoined;
         this.discounts = builder.discounts;
-
+        this.password = builder.password;
+        this.email = builder.email;
     }
 
     public LocalDate getDateJoined() {
         return dateJoined;
     }
+
     public double getDiscounts() {
         return discounts;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public void setDateJoined(LocalDate dateJoined) {
@@ -43,9 +55,19 @@ public class LoyaltyCustomer extends Customer {
         this.discounts = discounts;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public static class Builder extends Customer.Builder{
         private LocalDate dateJoined;
         private double discounts;
+        private String password;
+        private String email;
 
         public Builder setDateJoined(LocalDate dateJoined) {
             this.dateJoined = dateJoined;
@@ -56,12 +78,22 @@ public class LoyaltyCustomer extends Customer {
             this.discounts = discounts;
             return this;
         }
+        public Builder setPassword(String password) {
+            this.password = password;
+            return this;
+        }
+        public Builder setEmail(String email) {
+            this.email = email;
+            return this;
+        }
 
 
         public Builder copy(LoyaltyCustomer loyaltyCustomer){
             super.copy(loyaltyCustomer);
             this.dateJoined = loyaltyCustomer.dateJoined;
             this.discounts = loyaltyCustomer.discounts;
+            this.password = loyaltyCustomer.password;
+            this.email = loyaltyCustomer.email;
             return this;
         }
         public LoyaltyCustomer build(){
@@ -86,13 +118,15 @@ public class LoyaltyCustomer extends Customer {
     @Override
     public String toString() {
         return "LoyaltyCustomer{" +
-                "customerID=" + customerID +
-                ", customerName=" + customerName +
+                "dateJoined=" + dateJoined +
+                ", discounts=" + discounts +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", customerID=" + customerID +
+                ", customerName='" + customerName + '\'' +
                 ", customerSurname='" + customerSurname + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", address='" + address + '\'' +
-                ", dateJoined='" + dateJoined + '\'' +
-                ", discounts=" + discounts +
+                ", address=" + address +
                 '}';
     }
 }
