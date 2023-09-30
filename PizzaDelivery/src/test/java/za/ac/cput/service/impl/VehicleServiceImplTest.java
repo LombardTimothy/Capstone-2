@@ -36,8 +36,8 @@ public class VehicleServiceImplTest {
 
     @Test
     void b_read() {
-        Vehicle read1 = service.read(vehicle1.getVehicleId());
-        Vehicle read2 = service.read(vehicle2.getVehicleId());
+        Vehicle read1 = service.read(String.valueOf(vehicle1.getVehicleId()));
+        Vehicle read2 = service.read(String.valueOf(vehicle2.getVehicleId()));
         System.out.println(read1 + "\n" + read2);
         assertNotNull(read1);
         assertNotNull(read2);
@@ -52,7 +52,7 @@ public class VehicleServiceImplTest {
 
     @Test
     void d_delete() {
-        boolean delete = service.delete(vehicle2.getVehicleId());
+        boolean delete = service.delete(String.valueOf(vehicle2.getVehicleId()));
         assertTrue(delete);
         System.out.println(true + "= deleted");
     }

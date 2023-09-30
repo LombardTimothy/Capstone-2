@@ -36,7 +36,7 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public Vehicle update(Vehicle vehicle) {
-        if(this.vehicleRepository.existsById(vehicle.getVehicleId())){
+        if(this.vehicleRepository.existsById(String.valueOf(vehicle.getVehicleId()))){
             return this.vehicleRepository.save(vehicle);
         }else{
             return null;
