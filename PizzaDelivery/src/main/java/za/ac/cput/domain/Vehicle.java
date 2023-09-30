@@ -13,7 +13,7 @@ Date: 04/04/2023
 @Entity
 public class Vehicle {
     @Id
-    private String vehicleId;
+    private Integer vehicleId;
     private String vehicleType;
     private String make;
     private String model;
@@ -32,7 +32,7 @@ public class Vehicle {
         this.colour = builder.colour;
     }
 
-    public String getVehicleId() {
+    public Integer getVehicleId() {
         return vehicleId;
     }
 
@@ -57,14 +57,14 @@ public class Vehicle {
     }
 
     public static class Builder {
-        private String vehicleId;
+        private Integer vehicleId;
         private String vehicleType;
         private String make;
         private String model;
         private String year;
         private String colour;
 
-        public Builder setVehicleId(String vehicleId) {
+        public Builder setVehicleId(Integer vehicleId) {
             this.vehicleId = vehicleId;
             return this;
         }
