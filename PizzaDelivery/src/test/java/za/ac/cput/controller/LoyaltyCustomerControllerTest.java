@@ -49,7 +49,9 @@ public class LoyaltyCustomerControllerTest {
             "0852849389",
             address,
             date,
-            35.34);
+            35.34,
+            "12345678",
+            "luto@gmail.com");
     @Autowired
     private TestRestTemplate restTemplate;
 
@@ -85,6 +87,7 @@ public class LoyaltyCustomerControllerTest {
     void c_update() {
          LoyaltyCustomer updatedLoyaltyCustomer = (LoyaltyCustomer) new LoyaltyCustomer
                  .Builder()
+                 .setPassword("12345677")
                  .copy(lc1)
                  .setCustomerName("Greg")
                  .build();
