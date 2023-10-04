@@ -23,6 +23,14 @@ public class LoyaltyCustomer extends Customer {
 
     }
 
+    public LoyaltyCustomer(Integer customerID,String customerName,String customerSurname,String phoneNumber,Address address, LocalDate dateJoined, double discounts, String password, String email){
+        super(customerID,customerName,customerSurname,phoneNumber,address);
+        this.dateJoined = dateJoined;
+        this.discounts = discounts;
+        this.password = password;
+        this.email = email;
+    }
+
     private LoyaltyCustomer(Builder builder){
         super(builder);
         this.dateJoined = builder.dateJoined;
