@@ -27,6 +27,14 @@ public class Customer implements Serializable{
     protected Customer(){
     }
 
+    public Customer(Integer customerID,String customerName,String customerSurname,String phoneNumber,Address address){
+        this.customerID = customerID;
+        this.customerName = customerName;
+        this.customerSurname = customerSurname;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+
     protected Customer(Builder builder){
         this.customerID = builder.customerID;
         this.customerName = builder.customerName;
