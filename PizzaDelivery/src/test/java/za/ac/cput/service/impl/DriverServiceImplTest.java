@@ -40,8 +40,8 @@ class DriverServiceImplTest {
 
     @Test
     public void b_read() {
-        Driver read1 = service.read(driver1.getEmpId());
-        Driver read2 = service.read(driver2.getEmpId());
+        Driver read1 = service.read(String.valueOf(driver1.getEmpId()));
+        Driver read2 = service.read(String.valueOf(driver2.getEmpId()));
         System.out.println(read1 + "\n" + read2);
         assertNotNull(driver1);
         assertNotNull(driver2);
@@ -56,7 +56,7 @@ class DriverServiceImplTest {
 @Disabled
     @Test
     public void d_delete() {
-        boolean delete = service.delete(driver2.getEmpId());
+        boolean delete = service.delete(String.valueOf(driver2.getEmpId()));
         assertTrue(delete);
         System.out.println(true + "= deleted ");
     }

@@ -39,8 +39,8 @@ class EmployeeServiceImplTest {
 
     @Test
     public void b_read() {
-    Employee read1 = service.read(employee1.getEmpId());
-    Employee read2 = service.read(employee2.getEmpId());
+    Employee read1 = service.read(String.valueOf(employee1.getEmpId()));
+    Employee read2 = service.read(String.valueOf(employee2.getEmpId()));
     System.out.println(read1 + "\n" + read2);
     assertNotNull(read1);
     assertNotNull(read2);
@@ -55,7 +55,7 @@ class EmployeeServiceImplTest {
 @Disabled
     @Test
     public void d_delete() {
-        boolean deleted = service.delete(employee1.getEmpId());
+        boolean deleted = service.delete(String.valueOf(employee1.getEmpId()));
         assertTrue(deleted);
         System.out.println(true + " = deleted");
     }

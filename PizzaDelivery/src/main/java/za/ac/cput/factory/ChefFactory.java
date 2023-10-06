@@ -15,7 +15,7 @@ public class ChefFactory {
             return null;
         }
 
-        String empId = Helper.generateId();
+        Integer empId = Helper.generateId2();
 
         Chef chef = (Chef) new Chef.Builder().setTitle(title).setCulinaryExperience(culinaryExperience).setEmpId(empId).setName(name).setSurname(surname).setPhoneNumber(phoneNumber).setEmail(email).setPizzeria(pizzeria).build();
         return chef;

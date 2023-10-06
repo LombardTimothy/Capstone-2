@@ -42,8 +42,8 @@ class ChefServiceImplTest {
 
     @Test
     public void b_read() {
-        Employee read1 = service.read(chef1.getEmpId());
-        Employee read2 = service.read(chef2.getEmpId());
+        Employee read1 = service.read(String.valueOf(chef1.getEmpId()));
+        Employee read2 = service.read(String.valueOf(chef2.getEmpId()));
         System.out.println(read1 + "\n" + read2);
         assertNotNull(read1);
         assertNotNull(read2);
@@ -58,7 +58,7 @@ class ChefServiceImplTest {
 @Disabled
     @Test
     public void d_delete() {
-        boolean deleted = service.delete(chef1.getEmpId());
+        boolean deleted = service.delete(String.valueOf(chef1.getEmpId()));
         assertTrue(deleted);
         System.out.println(true + " = deleted");
     }

@@ -37,7 +37,7 @@ public class ChefServiceImpl implements ChefService {
 
     @Override
     public Chef update(Chef chef) {
-        if(this.chefRepo.existsById(chef.getEmpId())){
+        if(this.chefRepo.existsById(String.valueOf(chef.getEmpId()))){
             return this.chefRepo.save(chef);
         }else {
             return null;
