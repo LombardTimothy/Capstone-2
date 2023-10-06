@@ -17,7 +17,7 @@ public class EmployeeFactory {
             return null;
         }
 
-        String empId = Helper.generateId();
+        Integer empId = Helper.generateId2();
 
        Employee employee = new Employee.Builder().setEmpId(empId).setName(name).setSurname(surname).setPhoneNumber(phoneNumber).setEmail(email).setPizzeria(pizzeria).build();
        return employee;

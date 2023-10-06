@@ -40,7 +40,7 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public Driver update(Driver driver) {
-        if(this.driverRepository.existsById(driver.getEmpId())){
+        if(this.driverRepository.existsById(String.valueOf(driver.getEmpId()))){
             return this.driverRepository.save(driver);
         }else{
             return null;
