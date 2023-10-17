@@ -28,7 +28,7 @@ public class StagedOrder {
     @JoinColumn(name = "customerID", referencedColumnName = "customerID")
     private Customer customer;
     private String quantity;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Pizza pizza;
     private double total;
