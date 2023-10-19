@@ -3,18 +3,18 @@ package za.ac.cput.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Pizza;
-import za.ac.cput.domain.PizzaTopping;
-import za.ac.cput.domain.PizzaToppingId;
+//import za.ac.cput.domain.PizzaTopping;
+//import za.ac.cput.domain.PizzaToppingId;
 import za.ac.cput.domain.Topping;
-import za.ac.cput.repository.IPizzaToppingRepository;
-import za.ac.cput.service.PizzaToppingService;
+//import za.ac.cput.repository.IPizzaToppingRepository;
+//import za.ac.cput.service.PizzaToppingService;
 
 import java.util.ArrayList;
 import java.util.Set;
 /* PizzaToppingServiceImpl.java
  Author: Timothy Lombard (220154856)
  Date: 21st July (last updated) 2023
-*/
+
 @Service
 public class PizzaToppingServiceImpl implements PizzaToppingService {
 
@@ -54,3 +54,5 @@ public class PizzaToppingServiceImpl implements PizzaToppingService {
     @Override
     public ArrayList<PizzaTopping> getAll(){return (ArrayList<PizzaTopping>) this.ptRepo.findAll();}
 }
+
+ */

@@ -1,9 +1,12 @@
 package za.ac.cput.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
 /* Topping.java
  Entity for the Topping
  Author: Timothy Lombard (220154856)
@@ -18,6 +21,11 @@ public class Topping {
     private String description;
     private int quantity;
     private double price;
+    @ManyToMany(mappedBy = "toppings", fetch = FetchType.EAGER, cascade = {
+            CascadeType.ALL
+
+    })
+    private Set<Pizza> pizzas = new HashSet<>();
 
     protected Topping(){
 
@@ -49,6 +57,14 @@ public class Topping {
 
     public double getPrice() {
         return price;
+    }
+
+    public Set<Pizza> getPizzas() {
+        return pizzas;
+    }
+
+    public void setPizzas(HashSet<Pizza> pizzas) {
+        this.pizzas = pizzas;
     }
 
     public static class Builder {

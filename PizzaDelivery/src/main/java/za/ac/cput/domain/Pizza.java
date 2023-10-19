@@ -1,8 +1,12 @@
 package za.ac.cput.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /* Pizza.java
  Entity for the Pizza
@@ -29,6 +33,18 @@ public class Pizza {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "pizzeriaID", referencedColumnName = "pizzeriaID")
     private Pizzeria pizzeria;
+
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })//many to many relationship
+    @JoinTable(
+            name = "pizza_topping",
+            joinColumns = @JoinColumn(name = "pizza_id"),
+            inverseJoinColumns = @JoinColumn(name = "topping_id")
+    )
+    private Set<Topping> toppings = new HashSet<>();
 
     protected Pizza(){
 
@@ -71,6 +87,14 @@ public class Pizza {
 
     public Pizzeria getPizzeria() {
         return pizzeria;
+    }
+
+    public Set<Topping> getToppings() {
+        return toppings;
+    }
+
+    public void setToppings(Set<Topping> toppings) {
+        this.toppings = toppings;
     }
 
     public static class Builder {
@@ -145,12 +169,12 @@ public class Pizza {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pizza pizza = (Pizza) o;
-        return vegetarianOrNot == pizza.vegetarianOrNot && Double.compare(pizza.price, price) == 0 && Objects.equals(pizzaId, pizza.pizzaId) && Objects.equals(baseId, pizza.baseId) && Objects.equals(name, pizza.name) && Objects.equals(description, pizza.description) && size == pizza.size && Objects.equals(pizzeria, pizza.pizzeria);
+        return vegetarianOrNot == pizza.vegetarianOrNot && Double.compare(pizza.price, price) == 0 && Objects.equals(pizzaId, pizza.pizzaId) && Objects.equals(baseId, pizza.baseId) && Objects.equals(name, pizza.name) && Objects.equals(description, pizza.description) && size == pizza.size && Objects.equals(pizzeria, pizza.pizzeria) && Objects.equals(toppings, pizza.toppings);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pizzaId, baseId, name, description, size, vegetarianOrNot, price, pizzeria);
+        return Objects.hash(pizzaId, baseId, name, description, size, vegetarianOrNot, price, pizzeria, toppings);
     }
 
     @Override
