@@ -5,7 +5,7 @@ import java.util.Objects;
 /* PizzaToppingId.java
  Author: Timothy Lombard (220154856)
  Date: 21st July (last updated) 2023
-*/
+
 public class PizzaToppingId implements Serializable {
 
     private Pizza pizzaId;
@@ -34,3 +34,5 @@ public class PizzaToppingId implements Serializable {
         return Objects.hash(pizzaId, toppingId);
     }
 }
+
+ */

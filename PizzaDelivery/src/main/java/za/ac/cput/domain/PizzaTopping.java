@@ -9,6 +9,7 @@ import java.util.Objects;
  Author: Timothy Lombard (220154856)
  Date: 21st July (last updated) 2023
 */
+/*
 @Entity
 @IdClass(PizzaToppingId.class)
 public class PizzaTopping {
@@ -86,3 +87,5 @@ public class PizzaTopping {
                 '}';
     }
 }
+
+ */
