@@ -23,7 +23,7 @@ public class Pizza {
     private Integer pizzaId;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "baseId", referencedColumnName = "baseId")
-    private Base baseId;
+    private Base base;
     private String name;
     private String description;
     private Size size;
@@ -52,7 +52,7 @@ public class Pizza {
 
     private Pizza(Builder builder){
         this.pizzaId = builder.pizzaId;
-        this.baseId = builder.baseId;
+        this.base = builder.base;
         this.name = builder.name;
         this.description = builder.description;
         this.size = builder.size;
@@ -65,8 +65,8 @@ public class Pizza {
             return pizzaId;
         }
 
-    public Base getBaseId() {
-        return baseId;
+    public Base getBase() {
+        return base;
     }
 
     public String getName() {
@@ -99,7 +99,7 @@ public class Pizza {
 
     public static class Builder {
         private Integer pizzaId;
-        private Base baseId;
+        private Base base;
         private String name;
         private String description;
         private Size size;
@@ -112,8 +112,8 @@ public class Pizza {
             return this;
         }
 
-        public Builder setBaseId(Base baseId) {
-            this.baseId = baseId;
+        public Builder setBase(Base base) {
+            this.base = base;
             return this;
         }
 
@@ -149,7 +149,7 @@ public class Pizza {
 
         public Builder copy(za.ac.cput.domain.Pizza menu) {
             this.pizzaId = menu.pizzaId;
-            this.baseId = menu.baseId;
+            this.base = menu.base;
             this.name = menu.name;
             this.description = menu.description;
             this.size = menu.size;
@@ -169,19 +169,19 @@ public class Pizza {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pizza pizza = (Pizza) o;
-        return vegetarianOrNot == pizza.vegetarianOrNot && Double.compare(pizza.price, price) == 0 && Objects.equals(pizzaId, pizza.pizzaId) && Objects.equals(baseId, pizza.baseId) && Objects.equals(name, pizza.name) && Objects.equals(description, pizza.description) && size == pizza.size && Objects.equals(pizzeria, pizza.pizzeria) && Objects.equals(toppings, pizza.toppings);
+        return vegetarianOrNot == pizza.vegetarianOrNot && Double.compare(pizza.price, price) == 0 && Objects.equals(pizzaId, pizza.pizzaId) && Objects.equals(base, pizza.base) && Objects.equals(name, pizza.name) && Objects.equals(description, pizza.description) && size == pizza.size && Objects.equals(pizzeria, pizza.pizzeria) && Objects.equals(toppings, pizza.toppings);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pizzaId, baseId, name, description, size, vegetarianOrNot, price, pizzeria, toppings);
+        return Objects.hash(pizzaId, base, name, description, size, vegetarianOrNot, price, pizzeria, toppings);
     }
 
     @Override
     public String toString() {
         return "Pizza{" +
                 "pizzaId='" + pizzaId + '\'' +
-                ", baseId=" + baseId +
+                ", baseId=" + base +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", size=" + size +
