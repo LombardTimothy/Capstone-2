@@ -38,7 +38,7 @@ public class LoyaltyCustomerFactory {
         emailCheck(email);
         Integer customerId = Helper.generateId2();
 
-       LoyaltyCustomer loyaltyCustomer = (LoyaltyCustomer) new LoyaltyCustomer.
+        LoyaltyCustomer loyaltyCustomer = (LoyaltyCustomer) new LoyaltyCustomer.
                Builder().
                setDateJoined(dateJoined).
                setDiscounts(discounts).
@@ -51,7 +51,6 @@ public class LoyaltyCustomerFactory {
                setPhoneNumber(phoneNumber).
                setAddress(address).
                build();
-
        return loyaltyCustomer;
     }
 
@@ -83,9 +82,7 @@ public class LoyaltyCustomerFactory {
                 setPhoneNumber(phoneNumber).
                 setAddress(address).
                 build();
-
         return loyaltyCustomer;
     }
-
 }
 

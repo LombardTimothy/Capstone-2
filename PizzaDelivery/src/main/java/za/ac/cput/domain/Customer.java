@@ -9,25 +9,26 @@ import java.util.Objects;
    Entity for the Customer
    Author: Keenan Meyer (220194920)
    Date: 30th March 2023
+   Last update: 21 October 2023
 */
+
 @Entity
-public class Customer implements Serializable{
+public class Customer implements Serializable {
     @Id
     protected Integer customerID;
     protected String customerName;
     protected String customerSurname;
+
     protected String phoneNumber;
 
-    @ManyToOne(cascade = CascadeType.ALL )
+    @OneToOne(cascade = CascadeType.ALL )
     @JoinColumn(name = "addressId", referencedColumnName = "addressId")
-    //@ManyToMany(cascade = CascadeType.ALL)
     protected Address address;
-
 
     protected Customer(){
     }
 
-    public Customer(Integer customerID,String customerName,String customerSurname,String phoneNumber,Address address){
+    public Customer(Integer customerID, String customerName, String customerSurname, String phoneNumber, Address address){
         this.customerID = customerID;
         this.customerName = customerName;
         this.customerSurname = customerSurname;
@@ -62,7 +63,6 @@ public class Customer implements Serializable{
         return address;
     }
 
-
     public static class Builder {
         private Integer customerID;
         private String customerName;
@@ -95,7 +95,7 @@ public class Customer implements Serializable{
             return this;
         }
 
-        public Builder copy(za.ac.cput.domain.Customer t) {
+        public Builder copy(Customer t) {
             this.customerID = t.customerID;
             this.customerName = t.customerName;
             this.customerSurname = t.customerSurname;
@@ -103,29 +103,29 @@ public class Customer implements Serializable{
             this.address = t.address;
             return this;
         }
-        public za.ac.cput.domain.Customer build() {
-            return new za.ac.cput.domain.Customer(this);
+
+        public Customer build() {
+            return new Customer(this);
         }
     }
-
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return Objects.equals(customerID, customer.customerID) && Objects.equals(customerName, customer.customerName) && Objects.equals(customerSurname, customer.customerSurname) && Objects.equals(phoneNumber, customer.phoneNumber);
+        return Objects.equals(customerID, customer.customerID) && Objects.equals(customerName, customer.customerName) && Objects.equals(customerSurname, customer.customerSurname) && Objects.equals(phoneNumber, customer.phoneNumber) && Objects.equals(address, customer.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(customerID, customerName, customerSurname, phoneNumber);
+        return Objects.hash(customerID, customerName, customerSurname, phoneNumber, address);
     }
 
     @Override
     public String toString() {
         return "Customer{" +
-                "customerID='" + customerID + '\'' +
+                "customerID=" + customerID +
                 ", customerName='" + customerName + '\'' +
                 ", customerSurname='" + customerSurname + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
