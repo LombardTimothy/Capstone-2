@@ -13,7 +13,7 @@ import java.util.Objects;
  ////
 */
 @Entity
-@Table(name="orderclass")
+@Table(name="orders")
 public class Order {
 
     public enum OrderStatus{

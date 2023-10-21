@@ -34,7 +34,7 @@ class CustomerServiceImplTest {
             AddressType.RESIDENTIAL_HOME);
     public static Address address2 = AddressFactory.buildAddress(
             "5",
-            "hill Street",
+            "Hill Street",
             "South Olmstead",
             "Bikini Bottom",
             "California",
