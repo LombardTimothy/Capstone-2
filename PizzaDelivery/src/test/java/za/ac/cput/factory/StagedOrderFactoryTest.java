@@ -25,14 +25,14 @@ class StagedOrderFactoryTest {
 
         @Test
         public void StagedOrder_test(){
-            StagedOrder order = StagedOrderFactory.createOrder( date, time,  customer,"2",pizza,40, StagedOrder.OrderStatus.SHIPPED, pizzeria);
+            StagedOrder order = StagedOrderFactory.createOrder( date, time,  customer,"2",pizza,40, StagedOrder.OrderStatus.SHIPPED);
             System.out.println(order.toString());
             assertNotNull(order);
         }
 
         @Test
         public void order_test_fail(){
-            StagedOrder order = StagedOrderFactory.createOrder( date, time,  customer,"2",pizza,40, StagedOrder.OrderStatus.SHIPPED, pizzeria);
+            StagedOrder order = StagedOrderFactory.createOrder( date, time,  customer,"2",pizza,40, StagedOrder.OrderStatus.SHIPPED);
             System.out.println(order.toString());
             //assertNotNull(order);
             assertEquals(3, order.getCreateDate());

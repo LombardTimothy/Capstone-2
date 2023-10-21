@@ -29,7 +29,7 @@ class StagedOrderServiceImplTest {
     private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
     private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
     private static Pizza pizza = PizzaFactory.createPizza(base, "Magherita pizza", "tomato sauce with fresh tomatoes, mozzarella cheese and basil which represent the colours of the Italian flag – white cheese, green basil and red tomato.", Pizza.Size.LARGE, false, 76, pizzeria);
-    private static StagedOrder stagedOrder = StagedOrderFactory.createOrder( date, time,  customer,"2",pizza,40, StagedOrder.OrderStatus.SHIPPED, pizzeria);
+    private static StagedOrder stagedOrder = StagedOrderFactory.createOrder( date, time,  customer,"2",pizza,40, StagedOrder.OrderStatus.SHIPPED);
 
     @Test
     public void a_create(){
@@ -57,7 +57,7 @@ class StagedOrderServiceImplTest {
         assertNotNull(service.update(updated));
         System.out.println(updated);
     }
-    @Disabled
+
     @Test
     public void d_delete(){
         boolean deleted = service.delete(stagedOrder.getOrderId());
