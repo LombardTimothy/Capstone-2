@@ -15,7 +15,7 @@ public class BaseFactory {
             return null;
         }
 
-        int baseId = Helper.generateId2();
+        Integer baseId = Helper.generateId2();
 
         Base b = new Base.Builder().setBaseId(baseId).setCrust(crust).setThickness(thickness).setTexture(texture).setPrice(price).build();
         return b;

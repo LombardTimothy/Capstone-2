@@ -12,7 +12,7 @@ import java.util.Objects;
  Date: 4th August (last updated) 2023
 */
 @Entity
-@Table(name="orders")
+@Table(name="orderclass")
 public class Order {
 
     public enum OrderStatus{

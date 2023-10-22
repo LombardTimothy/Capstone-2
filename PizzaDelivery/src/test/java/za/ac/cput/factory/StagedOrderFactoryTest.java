@@ -8,6 +8,7 @@ import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 class StagedOrderFactoryTest {
     private static Address address = AddressFactory.buildAddress("21", "Jump Street", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", AddressType.RESIDENTIAL_HOME);
     private static Customer customer = CustomerFactory.buildCustomer("Thomas", "Lombardi","075 452 8339", address);

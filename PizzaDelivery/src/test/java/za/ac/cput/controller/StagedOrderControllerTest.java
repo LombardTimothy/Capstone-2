@@ -35,7 +35,7 @@ class StagedOrderControllerTest {
 
     private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
     private static Pizza pizza = PizzaFactory.createPizza(base, "Magherita pizza", "tomato sauce with fresh tomatoes, mozzarella cheese and basil which represent the colours of the Italian flag – white cheese, green basil and red tomato.", Pizza.Size.LARGE, false, 76, pizzeria);
-    private static StagedOrder order = StagedOrderFactory.createOrder( date, time,  customer,"2",pizza,40, StagedOrder.OrderStatus.SHIPPED, pizzeria);
+    private static StagedOrder order = StagedOrderFactory.createOrder( date, time,  customer,"2",pizza,40, StagedOrder.OrderStatus.SHIPPED);
 
     @Autowired
     private TestRestTemplate restTemplate;
