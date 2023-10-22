@@ -17,5 +17,4 @@ class VehicleFactoryTest {
         assertNotNull(vehicle);
         System.out.println(vehicle);
     }
-
 }

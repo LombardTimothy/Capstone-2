@@ -57,5 +57,3 @@ public class BillServiceImpl implements BillService {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 }
-
-

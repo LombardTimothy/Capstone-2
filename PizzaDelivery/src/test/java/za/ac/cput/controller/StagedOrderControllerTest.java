@@ -18,11 +18,11 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class StagedOrderControllerTest {
     private static Address address = AddressFactory.buildAddress("21", "1st Street", "Southern", "Cape Town", "Western Cape", "South Africa", "0986", AddressType.RESIDENTIAL_HOME);
-
     private static Customer customer = CustomerFactory.buildCustomer("Daniel", "Diaz","085 451 7339", address);
 
     private static LocalDate date = LocalDate.of(2023, 9, 17);
@@ -71,7 +71,6 @@ class StagedOrderControllerTest {
         assertNotNull(response.getBody());
     }
 
-
     @Test
     @Disabled
     public void d_delete(){
@@ -89,7 +88,5 @@ class StagedOrderControllerTest {
         System.out.println("Show all ");
         System.out.println(response);
         System.out.println(response.getBody());
-
     }
-
 }

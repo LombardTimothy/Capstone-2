@@ -11,6 +11,7 @@ import java.util.Objects;
    Date: 30th March 2023
    Last update: 21 October 2023
 */
+//
 
 @Entity
 public class Customer implements Serializable {

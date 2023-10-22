@@ -32,9 +32,7 @@ class DriverControllerTest {
         assertNotNull(postResponse.getBody());
         Driver saved = postResponse.getBody();
         System.out.println("Saved data: " + saved);
-
     }
-
 
     @Test
     void b_read() {
@@ -44,17 +42,14 @@ class DriverControllerTest {
         System.out.println("Response:" + response.getBody());
         assertNotNull(driver);
         System.out.println(response.getBody() + "\n" + driver.toString());
-
     }
 
     @Test
     void c_update() {
         Driver updated = (Driver) new Driver.Builder().copy(driver).setName("Lyle").build();
-
         String url = baseURL + "/update";
         System.out.println("url: " + url);
         System.out.println("Post data: " + updated);
-
         ResponseEntity<Driver>  response = restTemplate.postForEntity(url, updated, Driver.class);
         assertNotNull(response.getBody());
     }
@@ -71,13 +66,10 @@ class DriverControllerTest {
     void d_getAll() {
         String url = baseURL + "/getall";
         System.out.println("url: " + url);
-
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-
         System.out.println("Show ALL: ");
         System.out.println(response.getBody());
     }
 }
-

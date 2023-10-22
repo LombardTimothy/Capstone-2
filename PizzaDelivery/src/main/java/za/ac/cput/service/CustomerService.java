@@ -19,5 +19,6 @@ public interface CustomerService extends IService<Customer, String> {
     Customer update(Customer customer);
 
     boolean delete(String customerID);
+
     Set<Customer> getAll();
 }

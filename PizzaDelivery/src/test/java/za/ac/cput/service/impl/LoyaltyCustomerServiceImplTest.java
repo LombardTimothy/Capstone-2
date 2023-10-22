@@ -78,12 +78,8 @@ public class LoyaltyCustomerServiceImplTest {
         System.out.println("Deleted successfully: \n" + deletedLoyaltyCustomer + "\n");
     }
 
-
-
     @Test
     void d_getAll() {
         System.out.println("All: \n" + service.getAll());
     }
-
 }
-

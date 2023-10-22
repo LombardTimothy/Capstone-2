@@ -13,7 +13,6 @@ import za.ac.cput.domain.Vehicle;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DriverFactoryTest {
-
     private static Vehicle vehicle = VehicleFactory.createVehicle("Honda", "Honda Accord", "Honda Accord Touring", "2021", "Black");
     private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
     @Test
@@ -22,5 +21,4 @@ class DriverFactoryTest {
         assertNotNull(driver);
         System.out.println(driver);
     }
-
 }

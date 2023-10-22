@@ -12,8 +12,8 @@ import za.ac.cput.factory.BaseFactory;
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 /* BaseServiceImplTest.java
- Author: Timothy Lombard (220154856)
- Date: 30th July (last updated) 2023
+   Author: Timothy Lombard (220154856)
+   Date: 30th July (last updated) 2023
 */
 
 @SpringBootTest
@@ -32,7 +32,6 @@ class BaseServiceImplTest {
         assertEquals(b.getBaseId(), created.getBaseId());
         assertEquals(b2.getBaseId(), created1.getBaseId());
         System.out.println(created + "\n" + created1 );
-
     }
 
     @Test
@@ -63,7 +62,5 @@ class BaseServiceImplTest {
     @Test
     public void e_base_getAll(){
         System.out.println(service.getAll());
-
     }
-
 }

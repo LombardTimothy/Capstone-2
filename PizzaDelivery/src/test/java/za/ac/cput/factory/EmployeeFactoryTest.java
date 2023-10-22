@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * EmployeeFactoryTest.java
  * Author: Dawood Kamalie  (220147760)
  * Date: 8/4/2023
- * */
+*/
 
 class EmployeeFactoryTest {
 

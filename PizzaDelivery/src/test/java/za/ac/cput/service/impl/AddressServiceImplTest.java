@@ -13,10 +13,10 @@ import za.ac.cput.factory.AddressFactory;
 import static org.junit.jupiter.api.Assertions.*;
 
 /*
-AddressServiceImplTest.java
-Author: Tamryn Lisa Lewin (219211981)
-Date: 09 June 2023
-Last updated: 25 September 2023
+    AddressServiceImplTest.java
+    Author: Tamryn Lisa Lewin (219211981)
+    Date: 09 June 2023
+    Last updated: 25 September 2023
  */
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
@@ -28,7 +28,6 @@ class AddressServiceImplTest {
 
     private static Address address1 = AddressFactory.buildAddress("21", "Jump Street", "West Olmstead", "Bikini Bottom", "California", "Crownlands", "0007", AddressType.RESIDENTIAL_HOME);
     private static Address address2 = AddressFactory.buildAddress("22", "Fall Street", "12", "East Bay", "Rock Bottom", "Ohio", "Crownlands", "0006", AddressType.FLAT_BUILDING);
-
 
     @Test
     void a_create() {

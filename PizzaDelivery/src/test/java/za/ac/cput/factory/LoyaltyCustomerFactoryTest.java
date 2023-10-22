@@ -5,9 +5,7 @@ import za.ac.cput.domain.Address;
 import za.ac.cput.domain.AddressType;
 import za.ac.cput.domain.LoyaltyCustomer;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -46,7 +44,4 @@ public class LoyaltyCustomerFactoryTest {
         System.out.print(lc.toString());
         assertNotNull(lc);
     }
-
-
-
 }

@@ -1,6 +1,5 @@
 package za.ac.cput.service;
 
-
 import za.ac.cput.domain.StagedOrder;
 
 import java.util.ArrayList;
@@ -17,4 +16,3 @@ public interface StagedOrderService extends IService<StagedOrder, Integer>{
 
         public ArrayList<StagedOrder> getAll();
 }
-

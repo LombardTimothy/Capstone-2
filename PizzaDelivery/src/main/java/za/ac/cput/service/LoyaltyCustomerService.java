@@ -5,10 +5,10 @@ import za.ac.cput.domain.LoyaltyCustomer;
 import java.util.Set;
 
 /*
-LoyaltyCustomerService.java
-Author: Vuyisa Lutho Mqoboli (219191018)
-Date: 09 June 2023
-Last updated: 11 June 2023
+    LoyaltyCustomerService.java
+    Author: Vuyisa Lutho Mqoboli (219191018)
+    Date: 09 June 2023
+    Last updated: 11 June 2023
  */
 
 public interface LoyaltyCustomerService extends IService<LoyaltyCustomer, String> {

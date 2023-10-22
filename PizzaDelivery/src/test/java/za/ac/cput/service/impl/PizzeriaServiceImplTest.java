@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Pizzeria;
 import za.ac.cput.factory.PizzeriaFactory;
 import static org.junit.jupiter.api.Assertions.*;
+
 /*
  * PizzeriaServiceImplTest.java
  * Service Test for the Pizzeria
@@ -26,9 +27,7 @@ class PizzeriaServiceImplTest {
     @Test
     void a_create() {
         Pizzeria created = service.create(pizzeria);
-
         System.out.println(created);
-
         assertNotNull(created);
     }
 
@@ -36,10 +35,10 @@ class PizzeriaServiceImplTest {
     void b_read() {
         Pizzeria read = service.read(String. valueOf(pizzeria.getPizzeriaID()));
         Pizzeria read2 = service.read(String. valueOf(pizzeria.getPizzeriaID()));
-
         System.out.println(pizzeria);
         assertNotNull(pizzeria);
     }
+
     @Test
     void c_update() {
         Pizzeria newPizzeria = new Pizzeria
@@ -53,6 +52,7 @@ class PizzeriaServiceImplTest {
         assertNotNull(service.update(newPizzeria));
         System.out.println(newPizzeria);
     }
+
     /*
     @Test
     void d_delete() {
@@ -66,4 +66,3 @@ class PizzeriaServiceImplTest {
         System.out.println(service.getAll());
     }
 }
-

@@ -14,17 +14,17 @@ import za.ac.cput.factory.PizzaFactory;
 import za.ac.cput.factory.PizzeriaFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
-@TestMethodOrder(MethodOrderer.MethodName.class)
+
 /* PizzaServiceImplTest.java
  Author: Timothy Lombard (220154856)
  Date: 4th August (last updated) 2023
 */
+
+@TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest
 class PizzaServiceImplTest {
-
    @Autowired
     private PizzaServiceImpl service;
-
 
     private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
     private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
@@ -35,7 +35,6 @@ class PizzaServiceImplTest {
         Pizza created  = service.create(pizza);
         assertEquals(pizza.getPizzaId(), created.getPizzaId());
         System.out.println(created);
-
     }
 
     @Test
@@ -43,7 +42,6 @@ class PizzaServiceImplTest {
         Pizza read = service.read(pizza.getPizzaId());
         assertNotNull(read);
         System.out.println(read);
-
     }
 
     @Test
@@ -52,25 +50,18 @@ class PizzaServiceImplTest {
         Pizza updated = service.update(newPizza);
         assertEquals(newPizza.getPrice(), updated.getPrice());
         System.out.println(updated);
-
-
     }
+
     @Disabled
     @Test
     public void d_delete(){
         boolean deleted = service.delete(pizza.getPizzaId());
         assertTrue(deleted);
         System.out.println(true + " = deleted");
-
     }
 
     @Test
     public void getAll(){
         System.out.println(service.getAll());
     }
-
-
-
-
-
 }

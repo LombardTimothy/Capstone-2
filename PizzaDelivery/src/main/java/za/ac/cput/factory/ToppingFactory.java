@@ -2,10 +2,12 @@ package za.ac.cput.factory;
 
 import za.ac.cput.domain.Topping;
 import za.ac.cput.util.Helper;
+
 /* ToppingFactory.java
  Author: Timothy Lombard (220154856)
  Date: 13th June (last updated) 2023
 */
+
 public class ToppingFactory {
 
     public static Topping buildTopping(String name, String description, int quantity, double price){
