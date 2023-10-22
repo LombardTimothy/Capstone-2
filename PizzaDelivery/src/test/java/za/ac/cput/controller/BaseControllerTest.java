@@ -16,8 +16,8 @@ import za.ac.cput.factory.BaseFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 /* BaseControllerTest.java
- Author: Timothy Lombard (220154856)
- Date: 30th July (last updated) 2023
+   Author: Timothy Lombard (220154856)
+   Date: 30th July (last updated) 2023
 */
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -57,16 +57,13 @@ class BaseControllerTest {
         System.out.println("Post data: " + updated);
         ResponseEntity<Base> response = restTemplate.postForEntity(url, updated, Base.class);
         assertNotNull(response.getBody());
-
     }
-
 
     @Test
     public void d_delete(){
         String url = baseURL + "/delete/" + b.getBaseId();
         System.out.println("URL " + url);
         restTemplate.delete(url);
-
     }
 
     @Test
@@ -78,8 +75,5 @@ class BaseControllerTest {
         System.out.println("Show all ");
         System.out.println(response);
         System.out.println(response.getBody());
-
     }
-
-
 }

@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
  Date: 11th June (last updated) 2023
 */
 
-
 @Service
 public class ChefServiceImpl implements ChefService {
     private IChefRepository chefRepo;
@@ -22,8 +21,6 @@ public class ChefServiceImpl implements ChefService {
     private ChefServiceImpl(IChefRepository chefRepo) {
         this.chefRepo = chefRepo;
     }
-
-
 
     @Override
     public Chef create(Chef chef) {
@@ -58,6 +55,3 @@ public class ChefServiceImpl implements ChefService {
         return this.chefRepo.findAll().stream().collect(Collectors.toSet());
     }
 }
-
-
-

@@ -5,7 +5,8 @@ package za.ac.cput.repository;
 * Author: Timothy Lombard (220154856) and Dawood Kamalie (220147760) added the interface
 * Date: 21st July 2023
 * */
-//please add the @Depricated annotation here
+
+@Deprecated
 public interface IRepository<T, ID> {
     // Contains crud methods
     T create(T t);

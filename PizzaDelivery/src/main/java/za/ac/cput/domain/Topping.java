@@ -2,7 +2,6 @@ package za.ac.cput.domain;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -12,6 +11,7 @@ import java.util.Set;
  Author: Timothy Lombard (220154856)
  Date: 30th July (last updated) 2023
 */
+
 @Entity
 public class Topping {
 
@@ -23,7 +23,6 @@ public class Topping {
     private double price;
     @ManyToMany(mappedBy = "toppings", fetch = FetchType.EAGER, cascade = {
             CascadeType.ALL
-
     })
     private Set<Pizza> pizzas = new HashSet<>();
 

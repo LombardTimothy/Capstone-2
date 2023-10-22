@@ -13,6 +13,8 @@ Author: Vuyisa Lutho Mqoboli (219191018)
 Date: 01 August 2023
 Last update: 08 August 2023
  */
+//
+
 @RestController
 @RequestMapping("/loyaltycustomer")
 public class LoyaltyCustomerController {

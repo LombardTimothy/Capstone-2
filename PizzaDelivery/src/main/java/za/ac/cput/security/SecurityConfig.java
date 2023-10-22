@@ -1,5 +1,5 @@
 //package za.ac.cput.security;
-//
+
 //import za.ac.cput.Dao.UserDao;
 //import lombok.RequiredArgsConstructor;
 //import org.springframework.context.annotation.Bean;
@@ -18,7 +18,7 @@
 //import org.springframework.security.crypto.password.PasswordEncoder;
 //import org.springframework.security.web.SecurityFilterChain;
 //import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-//
+
 //
 //@EnableWebSecurity
 //@RequiredArgsConstructor

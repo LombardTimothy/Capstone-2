@@ -8,16 +8,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Topping;
 import za.ac.cput.factory.ToppingFactory;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 /* ToppingServiceImplTest.java
  Author: Timothy Lombard (220154856)
  Date: 4th August (last updated) 2023
 */
 
-import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest
 class ToppingServiceImplTest {
-
     @Autowired
     private ToppingServiceImpl service;
 
@@ -27,16 +28,13 @@ class ToppingServiceImplTest {
         Topping created1 = service.create(t);
         assertEquals(t.getToppingId(), created1.getToppingId());
         System.out.println( created1);
-
     }
 
     @Test
     public void b_read(){
-
         Topping read1 = service.read(t.getToppingId());
         assertNotNull(t);
         System.out.println( read1);
-
     }
 
     @Test
@@ -45,8 +43,6 @@ class ToppingServiceImplTest {
         Topping updated = service.update(newTopping);
         assertEquals(newTopping.getQuantity(), updated.getQuantity());
         System.out.println(updated);
-
-
     }
 
     @Disabled
@@ -61,7 +57,5 @@ class ToppingServiceImplTest {
     public void getAll(){
         System.out.println(service.getAll());
     }
-
-
 
 }

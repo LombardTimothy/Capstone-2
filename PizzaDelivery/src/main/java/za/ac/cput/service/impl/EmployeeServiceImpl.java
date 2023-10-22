@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
  Author: Dawood Kamalie (220147760)
  Date: 11th June (last updated) 2023
 */
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     private IEmployeeRepository empRepo;
@@ -51,6 +52,4 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Set<Employee> getAll() {
         return this.empRepo.findAll().stream().collect(Collectors.toSet());
     }
-
-
 }

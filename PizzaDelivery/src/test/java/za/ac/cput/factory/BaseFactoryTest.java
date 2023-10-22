@@ -7,12 +7,13 @@ import za.ac.cput.domain.Base;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
-/* BaseFactoryTest.java
- Author: Timothy Lombard (220154856)
- Date: 30th July (last updated) 2023
-*/
-class BaseFactoryTest {
 
+/* BaseFactoryTest.java
+   Author: Timothy Lombard (220154856)
+   Date: 30th July (last updated) 2023
+*/
+
+class BaseFactoryTest {
     private static Base b = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THICK, Base.BaseTexture.CRISPY, 26);
     private static Base b2 = BaseFactory.buildBase( Base.BaseCrust.NON_CRUSTY, Base.BaseThickness.THICK, Base.BaseTexture.CRISPY, 18);
 
@@ -43,18 +44,13 @@ class BaseFactoryTest {
     public void base_disable_test(){
         System.out.println(b.toString());
         assertNull(b);
-
     }
 
     @Test
     public void base_equality_test(){
         if(b.equals(b2)){
             System.out.println("Both objects are equal");//true
-
         }else
             System.out.println("Both objects are not equal");//false
-
     }
-
-
 }

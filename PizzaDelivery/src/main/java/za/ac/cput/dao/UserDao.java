@@ -1,5 +1,5 @@
-//package za.ac.cput.Dao;
-//
+//package za.ac.cput.dao;
+
 //import org.springframework.security.core.authority.SimpleGrantedAuthority;
 //import org.springframework.security.core.userdetails.User;
 //import org.springframework.security.core.userdetails.UserDetails;

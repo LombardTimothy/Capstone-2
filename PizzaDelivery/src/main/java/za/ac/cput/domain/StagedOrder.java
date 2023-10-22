@@ -10,7 +10,6 @@ import java.util.Objects;
  Entity for the Order
  Author: Timothy Lombard (220154856)
  Date: 4th August (last updated) 2023
- ////
 */
 @Entity
 @Table(name="StagedOrder")
@@ -96,7 +95,6 @@ public class StagedOrder {
         private double total;
         private OrderStatus orderStatus;
         private Pizzeria pizzeria;
-
 
         public Builder setOrderId(Integer orderId) {
             this.orderId = orderId;

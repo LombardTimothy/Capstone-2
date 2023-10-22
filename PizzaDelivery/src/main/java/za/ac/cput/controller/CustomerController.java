@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.service.CustomerService;
 
-import java.util.List;
 import java.util.Set;
 
 @RestController

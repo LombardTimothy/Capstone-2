@@ -12,7 +12,6 @@ Date: 04 April 2023
 
 @Entity
 public class LoyaltyCustomer extends Customer {
-
     private LocalDate dateJoined;
     private double discounts;
 
@@ -94,7 +93,6 @@ public class LoyaltyCustomer extends Customer {
             this.email = email;
             return this;
         }
-
 
         public Builder copy(LoyaltyCustomer loyaltyCustomer){
             super.copy(loyaltyCustomer);

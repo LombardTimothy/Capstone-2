@@ -21,10 +21,10 @@ import java.time.LocalTime;
 import static org.junit.jupiter.api.Assertions.*;
 
 /*
-OrderLineControllerTest.java
-Author: Tamryn Lisa Lewin (219211981)
-Date:  16 June 2023
-Last update: 25 September 2023
+    OrderLineControllerTest.java
+    Author: Tamryn Lisa Lewin (219211981)
+    Date:  16 June 2023
+    Last update: 25 September 2023
 */
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
@@ -41,7 +41,6 @@ class OrderLineControllerTest {
     private static Base base = BaseFactory.buildBase( Base.BaseCrust.CRUSTY, Base.BaseThickness.THIN, Base.BaseTexture.CRISPY, 20);
     private static Pizza pizza = PizzaFactory.createPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 55, pizzeria1);
     private static Bill bill = BillFactory.createBill(75);
-
     private static OrderLine orderLine = OrderLineFactory.buildOrderLine(4, order1, pizza, bill);
 
     @Autowired

@@ -4,8 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.LoyaltyCustomer;
 
-import java.util.Set;
-
 /*
 ILoyaltyCustomerRepository.java
 Author: Vuyisa Lutho Mqoboli (219191018)

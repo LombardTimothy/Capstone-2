@@ -1,7 +1,8 @@
 package za.ac.cput.service.impl;
+
 /* VehicleServiceImpl.java
-Author: Azhar Allie Mohammed(217250513)
-Date: 11/06/2023
+   Author: Azhar Allie Mohammed(217250513)
+   Date: 11/06/2023
  */
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,6 @@ public class VehicleServiceImpl implements VehicleService {
         this.vehicleRepository = vehicleRepository;
     }
 
-
-
     @Override
     public Vehicle create(Vehicle vehicle) {
         return this.vehicleRepository.save(vehicle);
@@ -41,7 +40,6 @@ public class VehicleServiceImpl implements VehicleService {
         }else{
             return null;
         }
-
     }
 
     @Override

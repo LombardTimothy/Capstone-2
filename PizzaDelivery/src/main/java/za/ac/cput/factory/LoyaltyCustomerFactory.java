@@ -12,7 +12,6 @@ Author: Vuyisa Lutho Mqoboli (219191018)
 Date: 04 April 2023
  */
 
-
 public class LoyaltyCustomerFactory {
 
     private static void emailCheck(String email) {

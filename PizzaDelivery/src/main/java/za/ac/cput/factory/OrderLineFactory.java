@@ -30,5 +30,4 @@ public class OrderLineFactory {
                 .build();
         return orderLine;
     }
-
 }

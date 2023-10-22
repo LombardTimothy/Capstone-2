@@ -8,11 +8,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Address;
 import za.ac.cput.domain.AddressType;
 import za.ac.cput.domain.Customer;
-import za.ac.cput.domain.Pizza;
 import za.ac.cput.factory.AddressFactory;
 import za.ac.cput.factory.CustomerFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 /*
  * CustomerServicesImplTest.java
  * Service Test for the Customer
@@ -20,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Date: 09 June 2023
  * Last update: 14 June 2023
  */
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest
 class CustomerServiceImplTest {
@@ -70,6 +71,7 @@ class CustomerServiceImplTest {
     @Autowired
     private CustomerServiceImpl service;
     //private static CustomerServiceImpl service = CustomerServiceImpl.getService();
+
     @Test
     void a_create() {
         Customer created = service.create(customer);

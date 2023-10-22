@@ -1,6 +1,5 @@
 package za.ac.cput.factory;
 
-
 import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.Address;
 import za.ac.cput.util.Helper;
@@ -10,6 +9,7 @@ import za.ac.cput.util.Helper;
    Author: Keenan Meyer (220194920)
    Date: 30th March 2023
 */
+
 public class CustomerFactory {
 
     public static Customer buildCustomer(String customerName,
@@ -30,7 +30,6 @@ public class CustomerFactory {
                 .setAddress(address)
                 .build();
         return customer;
-
     }
 
     public static Customer buildCustomer(String customerName, String customerSurname,String phoneNumber) {
@@ -47,6 +46,5 @@ public class CustomerFactory {
                 .setPhoneNumber(phoneNumber)
                 .build();
         return customer;
-
     }
 }

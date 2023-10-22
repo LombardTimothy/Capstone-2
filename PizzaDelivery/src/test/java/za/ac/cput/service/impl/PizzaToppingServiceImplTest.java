@@ -14,7 +14,8 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/* PizzaToppingServiceImplTest.java
+/*
+   PizzaToppingServiceImplTest.java
    Author: Timothy Lombard (220154856)
    Date: 4th August (last updated) 2023
 */
@@ -32,7 +33,6 @@ class PizzaToppingServiceImplTest {
     private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","300 Long St, Cape Town City Centre, 8000");
     private static Pizza pizza = PizzaFactory.createPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 87, pizzeria);
     private static Topping topping = ToppingFactory.buildTopping("Pepperoni", "spicy salami made from cured pork and beef seasoned with paprika or other chili pepper", 20, 24);
-
 
     @Test
     public void a_create(){
@@ -84,4 +84,3 @@ class PizzaToppingServiceImplTest {
         System.out.println(pizzaService.getAll());
     }
 }
-
