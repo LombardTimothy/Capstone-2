@@ -1,6 +1,8 @@
 package za.ac.cput.domain;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 import java.util.Objects;
 
@@ -9,7 +11,7 @@ Address.java
 Address entity
 Author: Tamryn Lisa Lewin (219211981)
 Date: 04 April 2023
-Last update: 21 October 2023
+Last update: 25 September 2023
  */
 
 @Entity
