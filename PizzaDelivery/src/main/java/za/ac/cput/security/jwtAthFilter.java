@@ -1,5 +1,5 @@
 //package za.ac.cput.security;
-//
+
 //import jakarta.servlet.FilterChain;
 //import jakarta.servlet.ServletException;
 //import jakarta.servlet.http.HttpServletRequest;
@@ -14,7 +14,7 @@
 //import za.ac.cput.Dao.UserDao;
 //import java.io.IOException;
 //import static org.springframework.http.HttpHeaders.AUTHORIZATION;
-//
+
 //@Component
 //@RequiredArgsConstructor
 //public class jwtAthFilter extends OncePerRequestFilter {

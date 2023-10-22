@@ -7,11 +7,11 @@ import jakarta.persistence.Id;
 import java.util.Objects;
 
 /*
-Address.java
-Address entity
-Author: Tamryn Lisa Lewin (219211981)
-Date: 04 April 2023
-Last update: 25 September 2023
+    Address.java
+    Address entity
+    Author: Tamryn Lisa Lewin (219211981)
+    Date: 04 April 2023
+    Last update: 21 October 2023
  */
 
 @Entity

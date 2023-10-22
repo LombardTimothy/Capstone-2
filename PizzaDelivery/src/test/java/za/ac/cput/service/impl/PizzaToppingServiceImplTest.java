@@ -14,11 +14,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
-@TestMethodOrder(MethodOrderer.MethodName.class)
-/* PizzaToppingServiceImpl.java
- Author: Timothy Lombard (220154856)
- Date: 4th August (last updated) 2023
+
+/*
+   PizzaToppingServiceImplTest.java
+   Author: Timothy Lombard (220154856)
+   Date: 4th August (last updated) 2023
 */
+
+@TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest
 class PizzaToppingServiceImplTest {
 
@@ -34,7 +37,6 @@ class PizzaToppingServiceImplTest {
     private static Pizza pizza = PizzaFactory.createPizza(base, "Margherita pizza", "Thin crust with high quality flour and fresh tomato sauce and with creamy extra cheese.", Pizza.Size.SMALL, false, 87, pizzeria);
     private static Topping topping = ToppingFactory.buildTopping("Pepperoni", "spicy salami made from cured pork and beef seasoned with paprika or other chili pepper", 20, 24);
 
-
     @Test
     public void a_create(){
         Topping toppingCreated1 = toppingService.create(topping);
@@ -42,7 +44,6 @@ class PizzaToppingServiceImplTest {
 
         Set<Topping> toppings = new HashSet<>();
         toppings.add(toppingCreated1);
-
 
         pizza.setToppings(toppings);
 
@@ -52,23 +53,18 @@ class PizzaToppingServiceImplTest {
         assertEquals(pizza.getName(), pizzaCreated1.getName());
         assertTrue(pizzaCreated1.getToppings().contains(toppingCreated1));
 
-
         pizzaCreated1.getToppings().forEach(System.out::println);
         System.out.println(pizzaCreated1);
     }
-
-
 
     @Test
     public void b_read(){
 
         Topping readToppingId1 = toppingService.read(topping.getToppingId());
 
-
         Pizza readPizza1 = pizzaService.read(pizza.getPizzaId());
 
         assertNotNull(readToppingId1);
-
 
         assertNotNull(readPizza1);
 
@@ -96,7 +92,6 @@ class PizzaToppingServiceImplTest {
         assertTrue(deletePizza);
 
         System.out.println(true + "Pizza deleted");
-
     }
 
 
@@ -110,6 +105,5 @@ class PizzaToppingServiceImplTest {
         System.out.println(pizzaService.getAll());
     }
 
-
-    }
+}
 

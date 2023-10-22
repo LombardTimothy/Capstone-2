@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.*;
 import za.ac.cput.factory.*;
-import za.ac.cput.service.StagedOrderService;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -69,7 +68,5 @@ class StagedOrderServiceImplTest {
     public void e_getAll(){
         System.out.println(service.getAll());
     }
-
-
 
 }

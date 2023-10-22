@@ -12,6 +12,7 @@ class BillFactoryTest {
         System.out.print(bill.toString());
         assertNotNull(bill);
     }
+
     Double totalBill = 56.9;
     @Test
     public void testEquals(){
@@ -19,6 +20,4 @@ class BillFactoryTest {
         System.out.print(bill.toString());
         assertEquals(totalBill, bill.getTotalBill());
     }
-
 }
-

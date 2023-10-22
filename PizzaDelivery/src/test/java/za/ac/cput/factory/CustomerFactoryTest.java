@@ -25,7 +25,6 @@ public class CustomerFactoryTest {
                 "Meyer",
                 "082 738 2590",
                 address);
-
         System.out.println(customer.toString());
         assertNotNull(customer);
     }

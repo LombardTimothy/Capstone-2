@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.Base;
 import za.ac.cput.domain.Pizza;
 import za.ac.cput.domain.Pizzeria;
-import za.ac.cput.domain.Topping;
 import za.ac.cput.factory.BaseFactory;
 import za.ac.cput.factory.PizzaFactory;
 import za.ac.cput.factory.PizzeriaFactory;
@@ -22,9 +21,10 @@ import za.ac.cput.factory.PizzeriaFactory;
 import static org.junit.jupiter.api.Assertions.*;
 
 /* PizzaControllerTest.java
- Author: Timothy Lombard (220154856)
- Date: 30th July (last updated) 2023
+   Author: Timothy Lombard (220154856)
+   Date: 30th July (last updated) 2023
 */
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PizzaControllerTest {
@@ -85,5 +85,4 @@ class PizzaControllerTest {
         System.out.println(response);
         System.out.println(response.getBody());
     }
-
 }

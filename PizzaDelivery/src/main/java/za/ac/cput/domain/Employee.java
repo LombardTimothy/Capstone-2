@@ -10,6 +10,8 @@ import java.util.Objects;
  * Author: Dawood Kamalie (220147760)
  * Date: 5 April 2023
  * */
+//
+
 @Entity
 public class Employee {
 
@@ -26,7 +28,6 @@ public class Employee {
     protected Employee() {
 
     }
-
 
     protected Employee(Builder builder) {
         this.empId = builder.empId;
@@ -48,7 +49,6 @@ public class Employee {
     public String getSurname() {
         return surname;
     }
-
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -109,8 +109,6 @@ public class Employee {
             this.pizzeria = employee.pizzeria;
             return this;
         }
-
-
 
         public Employee build(){
             return new Employee(this);

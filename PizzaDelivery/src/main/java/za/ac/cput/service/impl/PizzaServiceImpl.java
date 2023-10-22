@@ -7,21 +7,20 @@ import za.ac.cput.repository.IPizzaRepository;
 import za.ac.cput.service.PizzaService;
 
 import java.util.ArrayList;
-import java.util.Set;
+
 /* PizzaServiceImpl.java
  Author: Timothy Lombard (220154856)
  Date: 4th August (last updated) 2023
 */
+
 @Service
 public class PizzaServiceImpl implements PizzaService {
-
     private IPizzaRepository pizzaRepo;
 
     @Autowired
     private PizzaServiceImpl(IPizzaRepository pizzaRepo) {
         this.pizzaRepo = pizzaRepo;
     }
-
 
     @Override
     public Pizza create(Pizza pizza) {
@@ -40,7 +39,6 @@ public class PizzaServiceImpl implements PizzaService {
         } else {
             return null;
         }
-
     }
 
     @Override

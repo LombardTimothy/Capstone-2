@@ -16,13 +16,14 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 /*
 @TestMethodOrder(MethodOrderer.MethodName.class)
  OrderServiceImplTest.java
  Author: Timothy Lombard (220154856)
  Date: 4th August (last updated) 2023
- ////
 */
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest
 class OrderServiceImplTest {
@@ -37,7 +38,6 @@ class OrderServiceImplTest {
     private static LocalTime time = LocalTime.now();
     private static Pizzeria pizzeria = PizzeriaFactory.buildPizzaria("Hill Crest","Hotel Transalvania");
     private static Order order1 = OrderFactory.createOrder(date1, time, customer, Order.OrderStatus.NEW, pizzeria);
-
 
     @Test
     public void a_create(){
@@ -59,6 +59,7 @@ class OrderServiceImplTest {
         assertNotNull(service.update(updated));
         System.out.println(updated);
     }
+
     @Disabled
     @Test
     public void d_delete(){
@@ -72,9 +73,4 @@ class OrderServiceImplTest {
         System.out.println(service.getAll());
     }
 
-
-
 }
-
-
-

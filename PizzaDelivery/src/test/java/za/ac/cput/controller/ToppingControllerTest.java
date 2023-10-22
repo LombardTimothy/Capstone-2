@@ -15,15 +15,16 @@ import za.ac.cput.domain.Topping;
 import za.ac.cput.factory.ToppingFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 /* ToppingControllerTest.java
- Author: Timothy Lombard (220154856)
- Date: 30th July (last updated) 2023
+   Author: Timothy Lombard (220154856)
+   Date: 30th July (last updated) 2023
 */
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ToppingControllerTest {
-
-    private static Topping t = ToppingFactory.buildTopping("Pepperoni", "spicy salami made from cured pork and beef seasoned with paprika or other chili pepper", 20, 11);
+    private static Topping t = ToppingFactory.buildTopping("Pepperoni", "Spicy salami made from cured pork and beef seasoned with paprika or other chili pepper", 20, 11);
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -57,9 +58,7 @@ class ToppingControllerTest {
         System.out.println("Post data: " + updated);
         ResponseEntity<Topping> response = restTemplate.postForEntity(url, updated, Topping.class);
         assertNotNull(response.getBody());
-
     }
-
 
     @Test
     @Disabled
@@ -67,7 +66,6 @@ class ToppingControllerTest {
         String url = baseURL + "/delete/" + t.getToppingId();
         System.out.println("URL " + url);
         restTemplate.delete(url);
-
     }
 
     @Test
@@ -79,7 +77,5 @@ class ToppingControllerTest {
         System.out.println("Show all ");
         System.out.println(response);
         System.out.println(response.getBody());
-
     }
-
 }

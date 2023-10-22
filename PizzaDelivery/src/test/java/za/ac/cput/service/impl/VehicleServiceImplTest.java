@@ -2,7 +2,6 @@ package za.ac.cput.service.impl;
 /*VehicleServiceImplTest.java
 Author: Azhar Allie Mohammed(217250513)
 Date: 11/06/2023
-
  */
 
 import org.junit.jupiter.api.MethodOrderer;
@@ -10,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import za.ac.cput.domain.Chef;
 import za.ac.cput.domain.Vehicle;
 import za.ac.cput.factory.VehicleFactory;
 
@@ -62,4 +60,3 @@ public class VehicleServiceImplTest {
         System.out.println(service.getAll());
     }
 }
-

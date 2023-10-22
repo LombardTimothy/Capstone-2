@@ -2,7 +2,6 @@ package za.ac.cput.service;
 
 import java.util.Set;
 
-import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.Pizzeria;
 
 /*

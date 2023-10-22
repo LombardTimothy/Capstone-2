@@ -1,7 +1,6 @@
 package za.ac.cput.domain;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 
 import java.util.Objects;
 
@@ -18,9 +17,6 @@ public class Chef extends Employee {
     private String title;
     private String culinaryExperience;
 
-
-
-
     protected Chef() {
 
     }
@@ -29,7 +25,6 @@ public class Chef extends Employee {
        this.title = builder.title;
         this.culinaryExperience = builder.culinaryExperience;
     }
-
 
     public String getTitle() {
         return title;
@@ -74,7 +69,6 @@ public class Chef extends Employee {
             return new Chef(this);
         }
     }
-
 
     @Override
     public boolean equals(Object o) {

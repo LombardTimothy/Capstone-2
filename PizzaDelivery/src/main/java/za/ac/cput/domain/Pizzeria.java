@@ -10,6 +10,7 @@ import java.util.Objects;
    Author: Keenan Meyer (220194920)
    Date: 30th March 2023
 */
+
 @Entity
 public class Pizzeria implements Serializable {
     @Id
@@ -20,6 +21,7 @@ public class Pizzeria implements Serializable {
     protected Pizzeria(){
 
     }
+
     private Pizzeria(Builder builder){
         this.pizzeriaID = builder.pizzeriaID;
         this.pizzariaAlias = builder.pizzariaAlias;
@@ -37,9 +39,6 @@ public class Pizzeria implements Serializable {
     public String getLocation() {
         return location;
     }
-
-
-
 
     public static class Builder {
         private Integer pizzeriaID;

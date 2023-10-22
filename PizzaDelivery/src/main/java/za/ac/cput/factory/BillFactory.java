@@ -8,6 +8,7 @@ BillFactory.java
 Author: Vuyisa Lutho Mqoboli (219191018)
 Date: 04 April 2023
  */
+//
 
 public class BillFactory {
     public static Bill createBill(double totalBill){

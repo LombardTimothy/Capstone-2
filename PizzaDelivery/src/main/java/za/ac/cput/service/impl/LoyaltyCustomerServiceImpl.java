@@ -9,10 +9,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /*
-LoyaltyCustomerServiceImpl.java
-Author: Vuyisa Lutho Mqoboli (219191018)
-Date: 09 June 2023
-Last updated: 11 June 2023
+    LoyaltyCustomerServiceImpl.java
+    Author: Vuyisa Lutho Mqoboli (219191018)
+    Date: 09 June 2023
+    Last updated: 11 June 2023
  */
 
 @Service

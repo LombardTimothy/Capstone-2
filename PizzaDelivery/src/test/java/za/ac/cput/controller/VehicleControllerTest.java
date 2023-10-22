@@ -1,6 +1,5 @@
 package za.ac.cput.controller;
 
-
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
@@ -20,11 +19,11 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class VehicleControllerTest {
-
     private static Vehicle vehicle = VehicleFactory.createVehicle("Hatch","Toyota","Cross","2021","Black");
     @Autowired
     private TestRestTemplate restTemplate;
     private  final String baseURL = "http://localhost:8080/vehicle";
+
     @Test
     void a_create() {
         String url = baseURL + "/create";
@@ -80,4 +79,3 @@ class VehicleControllerTest {
         System.out.println(response.getBody());
     }
 }
-

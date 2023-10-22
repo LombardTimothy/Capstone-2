@@ -3,8 +3,6 @@ package za.ac.cput.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Driver;
-
-
 import za.ac.cput.repository.IDriverRepository;
 import za.ac.cput.service.DriverService;
 
@@ -26,8 +24,6 @@ public class DriverServiceImpl implements DriverService {
         this.driverRepository = driverRepository;
     }
 
-
-
     @Override
     public Driver create(Driver driver) {
         return this.driverRepository.save(driver);
@@ -45,7 +41,6 @@ public class DriverServiceImpl implements DriverService {
         }else{
             return null;
         }
-
     }
 
     @Override

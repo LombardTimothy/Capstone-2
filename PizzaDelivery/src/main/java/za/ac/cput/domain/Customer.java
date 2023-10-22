@@ -10,6 +10,7 @@ import java.util.Objects;
    Author: Keenan Meyer (220194920)
    Date: 30th March 2023
 */
+
 @Entity
 public class Customer implements Serializable{
     @Id
@@ -18,9 +19,8 @@ public class Customer implements Serializable{
     protected String customerSurname;
     protected String phoneNumber;
 
-    @ManyToOne(cascade = CascadeType.ALL )
+    @OneToOne(cascade = CascadeType.ALL )
     @JoinColumn(name = "addressId", referencedColumnName = "addressId")
-    //@ManyToMany(cascade = CascadeType.ALL)
     protected Address address;
 
 

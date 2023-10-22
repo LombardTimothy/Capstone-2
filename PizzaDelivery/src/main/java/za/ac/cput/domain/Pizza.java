@@ -3,7 +3,6 @@ package za.ac.cput.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -13,12 +12,14 @@ import java.util.Set;
  Author: Timothy Lombard (220154856)
  Date: 21st July (last updated) 2023
 */
+
 @Entity
 public class Pizza {
 
     public enum Size{
         EXTRA_SMALL, SMALL, MEDIUM, LARGE, EXTRA_LARGE
     }
+
     @Id
     private Integer pizzaId;
     @ManyToOne(cascade = CascadeType.ALL)
@@ -38,7 +39,7 @@ public class Pizza {
     @ManyToMany(fetch = FetchType.EAGER, cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
-    })//many to many relationship
+    })
     @JoinTable(
             name = "pizza_topping",
             joinColumns = @JoinColumn(name = "pizza_id"),

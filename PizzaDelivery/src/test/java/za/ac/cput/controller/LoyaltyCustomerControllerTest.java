@@ -28,7 +28,6 @@ public class LoyaltyCustomerControllerTest {
 
     private static LocalDate date = LocalDate.now();
 
-
     private static Address address = AddressFactory.buildAddress("21",
             "Jump Street",
             "West Olmstead",
@@ -52,6 +51,7 @@ public class LoyaltyCustomerControllerTest {
             35.34,
             "12345678",
             "luto@gmail.com");
+
     @Autowired
     private TestRestTemplate restTemplate;
 
@@ -121,5 +121,4 @@ public class LoyaltyCustomerControllerTest {
         System.out.println(reponse);
         System.out.println(reponse.getBody());
     }
-
 }

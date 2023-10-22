@@ -7,10 +7,12 @@ import za.ac.cput.repository.IToppingRepository;
 import za.ac.cput.service.ToppingService;
 
 import java.util.ArrayList;
+
 /* ToppingServiceImpl.java
- Author: Timothy Lombard (220154856)
- Date: 21st July (last updated) 2023
+   Author: Timothy Lombard (220154856)
+   Date: 21st July (last updated) 2023
 */
+
 @Service
 public class ToppingServiceImpl implements ToppingService {
 
@@ -19,8 +21,6 @@ public class ToppingServiceImpl implements ToppingService {
     private ToppingServiceImpl(IToppingRepository toppingRepo){
         this.toppingRepo = toppingRepo;
     }
-
-
 
     @Override
     public Topping create(Topping topping) {
@@ -39,7 +39,6 @@ public class ToppingServiceImpl implements ToppingService {
         }else{
             return null;
         }
-
     }
 
     @Override

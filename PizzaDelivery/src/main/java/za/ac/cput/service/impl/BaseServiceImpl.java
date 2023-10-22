@@ -7,20 +7,19 @@ import za.ac.cput.repository.IBaseRepository;
 import za.ac.cput.service.BaseService;
 
 import java.util.ArrayList;
+
 /* BaseServiceImpl.java
  Author: Timothy Lombard (220154856)
  Date: 21st July (last updated) 2023
 */
+
 @Service
 public class BaseServiceImpl implements BaseService {
-
     private IBaseRepository baseRepo;
     @Autowired
     private BaseServiceImpl(IBaseRepository baseRepo){
         this.baseRepo = baseRepo;
     }
-
-
 
     @Override
     public Base create(Base base) {

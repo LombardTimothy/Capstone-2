@@ -4,7 +4,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
-import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.Pizzeria;
 import za.ac.cput.repository.IPizzeriaRepository;
 import za.ac.cput.service.PizzeriaService;
@@ -15,6 +14,7 @@ import za.ac.cput.service.PizzeriaService;
  * Author: Keenan Meyer - 220194920
  * Date: 09 June 2023
  */
+
 @Service
 public class PizzeriaServiceImpl implements PizzeriaService {
     private IPizzeriaRepository repository;
